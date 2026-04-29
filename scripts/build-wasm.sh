@@ -24,7 +24,7 @@ if [[ ! -d vendor/audr/internal ]]; then
 fi
 
 AUDR_SHA="$(git -C vendor/audr rev-parse HEAD)"
-AUDR_TAG="$(git -C vendor/audr describe --tags --exact-match HEAD 2>/dev/null || echo "untagged")"
+AUDR_TAG="$(git -C vendor/audr describe --tags --always --dirty 2>/dev/null || echo "untagged")"
 
 echo "build-wasm: audr@${AUDR_SHA:0:8} (${AUDR_TAG})"
 

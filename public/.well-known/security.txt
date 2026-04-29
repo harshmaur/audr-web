@@ -1,0 +1,5 @@
+Contact: mailto:harsh@saasalerts.com
+Expires: 2027-01-01T00:00:00Z
+Preferred-Languages: en
+Canonical: https://audr.dev/.well-known/security.txt
+Policy: https://audr.dev/security

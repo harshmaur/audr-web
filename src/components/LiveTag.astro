@@ -1,0 +1,22 @@
+---
+import type { CVE } from "../lib/types";
+import { daysSince } from "../lib/cves";
+
+interface Props {
+  cve: CVE;
+}
+
+const { cve } = Astro.props;
+const days = daysSince(cve.published_date);
+const ageWarn = days > 60;
+---
+
+<div class="max-w-page mx-auto px-6 md:px-8 pt-6">
+  <p class="font-mono text-xs text-text-muted">
+    audr.dev · <span class="audr-live-dot align-middle" aria-hidden="true"></span>
+    <span class="ml-1 align-middle">
+      live: <span class="text-sev-critical">{cve.cve_id}</span> published {days}d ago
+      {ageWarn && <span class="text-sev-medium ml-2">[stale &gt;60d]</span>}
+    </span>
+  </p>
+</div>

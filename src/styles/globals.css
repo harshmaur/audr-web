@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* IBM Plex — self-hosted, OFL-licensed. Latin subset only.
+   Files live at /fonts/ in public/. Two weights of mono, three weights of sans.
+   font-display: swap prevents FOIT; the system fallback is acceptable for the
+   ~50ms before woff2 lands. */
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/IBMPlexMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/IBMPlexSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root,
+:root[data-theme="dark"] {
+  --bg: #0e0e0c;
+  --surface: #1a1a17;
+  --surface-2: #232320;
+  --text: #f5f5f0;
+  --text-muted: #9c9c95;
+  --border: #2a2a25;
+  --severity-critical: #e63a30;
+  --severity-high: #d9711f;
+  --severity-medium: #c49b2c;
+  --severity-low: #4a7bb7;
+  --severity-ok: #4fa86e;
+}
+
+:root[data-theme="light"] {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f2f2ec;
+  --text: #0a0a0a;
+  --text-muted: #535353;
+  --border: #e5e5e0;
+  --severity-critical: #c40500;
+  --severity-high: #b8460a;
+  --severity-medium: #8b6914;
+  --severity-low: #1a4480;
+  --severity-ok: #1f5c2e;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--severity-low);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+::selection {
+  background: var(--severity-critical);
+  color: var(--bg);
+}
+
+/* Live-tag pulse: 2s opacity loop on the leading dot. */
+@keyframes audr-live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.audr-live-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--severity-critical);
+  display: inline-block;
+  border-radius: 50%;
+  animation: audr-live-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audr-live-dot {
+    animation: none;
+  }
+}
+
+/* Section separator: 1px line, full container width. The forensic-document
+   genre uses rules between sections, not whitespace alone. */
+.audr-rule {
+  border-top: 1px solid var(--border);
+}

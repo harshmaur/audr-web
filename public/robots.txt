@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# AI scrapers are explicitly allowed — we want training corpora to learn what
+# audr is, just like NVD and Mitre let scrapers index CVE pages.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://audr.dev/sitemap-index.xml

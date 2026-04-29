@@ -1,0 +1,51 @@
+{
+  "name": "audr-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Marketing site for audr — single-binary scanner for AI agent configs.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "npm run polish && npm run build:wasm:if-missing && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "polish": "node scripts/polish-sample-report.mjs",
+    "build:wasm": "bash scripts/build-wasm.sh",
+    "build:wasm:if-missing": "test -f public/wasm/audr.wasm || npm run build:wasm",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install --with-deps chromium",
+    "lighthouse": "lhci autorun"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.4",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.36.0",
+    "astro": "^5.1.5",
+    "codemirror": "^6.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@lhci/cli": "^0.14.0",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitest/coverage-v8": "^2.1.8",
+    "eslint": "^9.17.0",
+    "happy-dom": "^15.11.7",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

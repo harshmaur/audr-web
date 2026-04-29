@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import Toolbar from "../components/Toolbar.astro";
+import LiveTag from "../components/LiveTag.astro";
+import Hero from "../components/Hero.astro";
+import ScanDemo from "../components/ScanDemo.tsx";
+import CVEStrip from "../components/CVEStrip.astro";
+import SampleReportTeaser from "../components/SampleReportTeaser.astro";
+import Footer from "../components/Footer.astro";
+import { loadCVEs } from "../lib/cves";
+
+const cves = loadCVEs();
+const hero = cves[0];
+
+const description = `audr scans Claude Code, Cursor, Codex CLI, Windsurf, and MCP server configs for security misconfigurations. Single binary, offline by default. ${hero.cve_id} detected on the first run.`;
+---
+
+<Base title="audr — scan your AI agent configs" description={description}>
+  <Toolbar />
+  <LiveTag cve={hero} />
+  <Hero cve={hero} />
+
+  <section class="audr-rule">
+    <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+      <header class="mb-6">
+        <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+          in-browser scan · no install · paste anything
+        </p>
+        <h2 class="font-sans font-semibold text-2xl mt-2">
+          Same engine the binary ships. Compiled to WASM. Runs in your tab.
+        </h2>
+      </header>
+      <ScanDemo client:visible />
+    </div>
+  </section>
+
+  <CVEStrip cves={cves} />
+  <SampleReportTeaser />
+
+  <Footer />
+</Base>

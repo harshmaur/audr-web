@@ -1,0 +1,128 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "22"
+  GO_VERSION: "1.22.5"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: false
+
+      - name: Install Brotli
+        run: sudo apt-get update && sudo apt-get install -y brotli
+
+      - name: Install JS deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Build WASM scan engine
+        run: bash scripts/build-wasm.sh
+
+      - name: WASM smoke test
+        run: node scripts/wasm-smoke-test.mjs
+
+      - name: Polish sample report
+        run: node scripts/polish-sample-report.mjs
+
+      - name: Astro check (typecheck)
+        run: npx astro check
+
+      - name: Vitest (unit + integration)
+        run: npx vitest run --reporter=verbose
+
+      - name: Astro build
+        run: npx astro build
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright e2e
+        run: npx playwright test
+        env:
+          CI: "true"
+
+      - name: Lighthouse CI
+        run: npx lhci autorun --config=./lighthouserc.cjs || echo "lhci is non-blocking until thresholds are tuned to real CDN"
+        continue-on-error: true
+
+      - name: Upload dist as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: false
+
+      - name: Install JS deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Rebuild artifacts for deploy
+        run: |
+          bash scripts/build-wasm.sh
+          node scripts/polish-sample-report.mjs
+          npx astro build
+
+      - name: Deploy to Cloudflare Pages
+        # Until the CLOUDFLARE_* repo secrets are set, this step will fail
+        # without blocking the workflow. Cloudflare Pages also publishes
+        # automatically when connected to GitHub via its UI; see README.
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=audr-web --branch=main

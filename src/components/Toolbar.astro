@@ -1,0 +1,65 @@
+---
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+const pkgUrl = new URL("../../package.json", import.meta.url);
+const pkg = JSON.parse(readFileSync(fileURLToPath(pkgUrl), "utf8"));
+const version = pkg.version ?? "0.0.0";
+const audrVersion = (() => {
+  try {
+    const url = new URL("../../vendor/audr/VERSION", import.meta.url);
+    return readFileSync(fileURLToPath(url), "utf8").trim();
+  } catch {
+    return "v0.3.1";
+  }
+})();
+---
+
+<header class="border-b border-border">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-3 flex items-center gap-6 text-xs font-mono">
+    <a href="/" class="font-mono font-medium text-text no-underline tracking-tight">audr</a>
+    <span class="text-text-muted hidden sm:inline" aria-label="audr-web version"
+      >audr.dev v{version}</span
+    >
+    <span class="text-text-muted hidden md:inline">engine audr@{audrVersion}</span>
+    <span class="text-sev-ok hidden md:inline">cosign signed</span>
+    <span class="text-text-muted hidden md:inline">FSL-1.1-MIT</span>
+    <div class="ml-auto flex items-center gap-4">
+      <a href="https://github.com/harshmaur/audr-web" class="text-text-muted hover:text-text"
+        >github</a
+      >
+      <button
+        type="button"
+        id="theme-toggle"
+        class="text-text-muted hover:text-text uppercase tracking-wider"
+        aria-label="Toggle theme"
+        data-theme-toggle
+      >
+        light
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  // Theme toggle persists across reloads via localStorage.
+  // Default = dark; the toggle label is the *other* mode (the one a click goes to).
+  (function () {
+    const btn = document.querySelector("[data-theme-toggle]");
+    if (!btn) return;
+    const root = document.documentElement;
+    const sync = () => {
+      const next = root.dataset.theme === "light" ? "dark" : "light";
+      btn.textContent = next;
+    };
+    sync();
+    btn.addEventListener("click", () => {
+      const next = root.dataset.theme === "light" ? "dark" : "light";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("audr-theme", next);
+      } catch {}
+      sync();
+    });
+  })();
+</script>

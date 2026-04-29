@@ -1,0 +1,43 @@
+---
+import type { CVE } from "../lib/types";
+import { severityBg } from "../lib/cves";
+
+interface Props {
+  cves: CVE[];
+}
+
+const { cves } = Astro.props;
+---
+
+<section class="audr-rule">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <header class="mb-6">
+      <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+        recent advisories · audr v0.3.1 detects every one
+      </p>
+      <h2 class="font-sans font-semibold text-2xl mt-2">
+        Five CVEs your engineering org probably hasn't checked yet.
+      </h2>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border border-border">
+      {
+        cves.map((cve) => (
+          <article class="border-r border-b border-border last:border-r-0 lg:border-b-0 bg-surface p-4 flex flex-col">
+            <div class={`h-[3px] w-8 mb-3 ${severityBg(cve.severity)}`} aria-hidden="true" />
+            <p class="font-mono text-xs text-text-muted">{cve.cve_id}</p>
+            <p class="font-sans font-semibold text-base mt-1">
+              {cve.vendor} · {cve.product}
+            </p>
+            <p class="font-sans text-sm text-text-muted mt-2 flex-1">
+              {cve.summary_short}
+            </p>
+            <p class="font-mono text-[11px] text-sev-ok mt-3">
+              ✓ rule: {cve.audr_rule_id}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+{
+  "mcpAllowlist": ["*:*", "github:*"],
+  "terminalAllowlist": ["*", "rm *", "curl *"]
+}

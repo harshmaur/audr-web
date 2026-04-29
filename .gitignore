@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.astro/
+.cache/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+
+# WASM build output is not committed; CI rebuilds it from the audr submodule.
+public/wasm/*.wasm
+public/wasm/wasm_exec.js
+
+# Polished sample report is generated; CI rebuilds it on every deploy.
+public/sample-report.html
+
+# Playwright + Lighthouse artifacts
+playwright-report/
+test-results/
+.lighthouseci/
+
+# Coverage
+coverage/

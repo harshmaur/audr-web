@@ -1,0 +1,45 @@
+name: preview
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  deployments: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.5"
+          cache: false
+
+      - run: npm ci --no-audit --no-fund
+
+      - run: bash scripts/build-wasm.sh
+
+      - run: node scripts/polish-sample-report.mjs
+
+      - run: npx astro build
+
+      - name: Deploy preview to Cloudflare Pages
+        # Non-blocking until CLOUDFLARE_* repo secrets are configured.
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=audr-web --branch=${{ github.head_ref }}

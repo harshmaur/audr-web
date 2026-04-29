@@ -1,0 +1,57 @@
+[
+  {
+    "cve_id": "CVE-2025-59536",
+    "product": "Claude Code",
+    "vendor": "Anthropic",
+    "severity": "critical",
+    "published_date": "2026-04-18",
+    "summary_short": "Settings hooks execute arbitrary shell on PreToolUse / Stop events.",
+    "visceral_consequence": "a `git clone` can run shell commands",
+    "audr_rule_id": "claude-hook-shell-rce",
+    "scope_phrase": "whose dev boxes are exposed"
+  },
+  {
+    "cve_id": "CVE-2026-25253",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-08",
+    "summary_short": "MCP credentials stored plaintext in user-readable config.",
+    "visceral_consequence": "any process can read every API key the agent uses",
+    "audr_rule_id": "mcp-plaintext-api-key",
+    "scope_phrase": "which laptops still hold plaintext keys"
+  },
+  {
+    "cve_id": "CVE-2026-39861",
+    "product": "Claude Code",
+    "vendor": "Anthropic",
+    "severity": "high",
+    "published_date": "2026-03-30",
+    "summary_short": "Symlink in workspace allows sandbox escape on read.",
+    "visceral_consequence": "a malicious symlink reads files outside the workspace",
+    "audr_rule_id": "claude-skip-permission-prompt",
+    "scope_phrase": "where the sandbox is already disabled"
+  },
+  {
+    "cve_id": "CVE-2026-32211",
+    "product": "Azure DevOps MCP",
+    "vendor": "Microsoft",
+    "severity": "critical",
+    "published_date": "2026-03-12",
+    "summary_short": "Default config exposes MCP server unauthenticated on localhost.",
+    "visceral_consequence": "any local process talks to your Azure DevOps tenant",
+    "audr_rule_id": "mcp-unauth-remote-url",
+    "scope_phrase": "whose machines run unauth MCP servers"
+  },
+  {
+    "cve_id": "CVE-2025-68664",
+    "product": "LangChain",
+    "vendor": "LangChain",
+    "severity": "high",
+    "published_date": "2026-02-20",
+    "summary_short": "Unsafe deserialization leaks secrets via prompt injection.",
+    "visceral_consequence": "a poisoned tool response exfiltrates env vars",
+    "audr_rule_id": "shellrc-secret-export",
+    "scope_phrase": "whose shells export production secrets"
+  }
+]

@@ -1,0 +1,21 @@
+# Cloudflare Pages headers.
+# CSP follows the office-hours design spec: only Pirsch + self for scripts/connects;
+# inline styles permitted for Astro's hashed inlines and the polished sample report.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: interest-cohort=(), browsing-topics=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.pirsch.io; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.pirsch.io https://pirsch.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+/wasm/*.wasm
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/wasm
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/install.sh
+  Content-Type: text/x-shellscript; charset=utf-8
+  Cache-Control: public, max-age=300

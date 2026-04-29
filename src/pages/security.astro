@@ -1,0 +1,83 @@
+---
+import Base from "../layouts/Base.astro";
+import Toolbar from "../components/Toolbar.astro";
+import Footer from "../components/Footer.astro";
+
+const pubKey = `# audr release-signing key (cosign / sigstore)
+# Fingerprint will be published here once v0.4 lands. Until then verify via
+# the keyless signature attached to each GitHub Release.
+`;
+---
+
+<Base
+  title="Security — audr.dev"
+  description="audr release signing keys, security.txt content, vulnerability disclosure policy."
+>
+  <Toolbar />
+
+  <main class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <h1 class="font-mono font-medium text-3xl max-w-h1">/security</h1>
+    <p class="mt-4 max-w-narrow">
+      audr is a security tool. The site that distributes it has to behave like one.
+    </p>
+
+    <section class="audr-rule mt-12 pt-8">
+      <h2 class="font-sans font-semibold text-2xl">Release signing</h2>
+      <p class="mt-3 max-w-narrow">
+        Every audr release is signed via{" "}
+        <a href="https://docs.sigstore.dev/cosign/overview/">cosign</a>{" "}
+        (sigstore keyless mode). The transparency log entry is publicly verifiable. The install
+        script verifies the signature when{" "}
+        <code class="font-mono">cosign</code> is on PATH; otherwise it falls back to SHA-256
+        verification.
+      </p>
+      <pre
+        class="mt-4 border border-border bg-surface px-4 py-3 font-mono text-xs overflow-x-auto"
+      >{pubKey}</pre>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8">
+      <h2 class="font-sans font-semibold text-2xl">security.txt</h2>
+      <p class="mt-3 max-w-narrow">
+        The canonical machine-readable security contact lives at{" "}
+        <a href="/.well-known/security.txt">/.well-known/security.txt</a> per RFC 9116.
+      </p>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8">
+      <h2 class="font-sans font-semibold text-2xl">Vulnerability disclosure</h2>
+      <p class="mt-3 max-w-narrow">
+        Email <a href="mailto:harsh@saasalerts.com">harsh@saasalerts.com</a> with reproduction
+        steps and (where possible) a proof-of-concept. We aim to acknowledge in 24 hours and
+        ship a fix before public disclosure when the issue affects shipped audr versions.
+        Coordinated disclosure is welcome; do not exploit beyond what is needed to demonstrate
+        the issue.
+      </p>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8">
+      <h2 class="font-sans font-semibold text-2xl">Privacy</h2>
+      <p class="mt-3 max-w-narrow">
+        audr.dev runs <a href="https://pirsch.io">Pirsch</a> for site analytics — cookieless,
+        EU-hosted, no personal data persisted. No Google Analytics. No Segment. No third-party
+        ad networks.
+      </p>
+      <p class="mt-3 max-w-narrow">
+        The audr install script sends one inferable signal: when invoked from
+        audr.dev, the user-agent of the tarball download contains{" "}
+        <code class="font-mono">from=audr.dev</code> so we can attribute the install
+        funnel. Disable it with <code class="font-mono">AUDR_NO_REFERRER=1</code>.
+      </p>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8">
+      <h2 class="font-sans font-semibold text-2xl">Browser support</h2>
+      <p class="mt-3 max-w-narrow">
+        Last 2 versions of Chrome, Safari, Firefox, Edge. Safari 14+ minimum (WASM). The dev
+        path (<code class="font-mono">curl … | sh</code>) works regardless of browser.
+      </p>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

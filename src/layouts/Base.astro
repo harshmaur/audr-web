@@ -59,6 +59,8 @@ const canonical = new URL(Astro.url.pathname, "https://audr.dev").href;
         />
       )
     }
+
+    <slot name="head" />
   </head>
   <body>
     <slot />

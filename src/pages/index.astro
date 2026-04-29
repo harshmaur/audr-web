@@ -8,14 +8,47 @@ import CVEStrip from "../components/CVEStrip.astro";
 import SampleReportTeaser from "../components/SampleReportTeaser.astro";
 import Footer from "../components/Footer.astro";
 import { loadCVEs } from "../lib/cves";
+import { getWasmSha } from "../lib/wasmSha";
 
 const cves = loadCVEs();
 const hero = cves[0];
+const wasmSha = getWasmSha();
 
 const description = `audr scans Claude Code, Cursor, Codex CLI, Windsurf, and MCP server configs for security misconfigurations. Single binary, offline by default. ${hero.cve_id} detected on the first run.`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "audr",
+  description:
+    "Single static binary that scans AI coding agent configs (Claude Code, Cursor, Codex CLI, Windsurf, MCP servers, agent skills, GitHub Actions) for security misconfigurations. Offline by default.",
+  applicationCategory: "SecurityApplication",
+  operatingSystem: "macOS, Linux",
+  url: "https://audr.dev",
+  downloadUrl: "https://audr.dev/install.sh",
+  softwareVersion: "0.3.1",
+  license: "https://spdx.org/licenses/MIT.html",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: {
+    "@type": "Person",
+    name: "Harsh Maur",
+    email: "harsh@saasalerts.com",
+  },
+  codeRepository: "https://github.com/harshmaur/audr",
+};
 ---
 
 <Base title="audr — scan your AI agent configs" description={description}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(jsonLd)}
+  />
   <Toolbar />
   <LiveTag cve={hero} />
   <Hero cve={hero} />
@@ -30,7 +63,7 @@ const description = `audr scans Claude Code, Cursor, Codex CLI, Windsurf, and MC
           Same engine the binary ships. Compiled to WASM. Runs in your tab.
         </h2>
       </header>
-      <ScanDemo client:visible />
+      <ScanDemo client:visible wasmSha={wasmSha} />
     </div>
   </section>
 

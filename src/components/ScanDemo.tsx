@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Finding, FormatHint, ScanResult } from "../lib/types";
 
+interface Props {
+  /** SHA-256 of public/wasm/audr.wasm, generated at build time. */
+  wasmSha?: string;
+}
+
 const PLACEHOLDERS: Record<FormatHint, { label: string; sample: string }> = {
   mcp: {
     label: "~/.mcp.json",
@@ -85,21 +90,47 @@ const SEVERITY_TEXT: Record<Finding["severity"], string> = {
   low: "text-sev-low",
 };
 
+// Emoji icons per severity. Color-blind safe (the emoji color carries no
+// semantic load on its own — every finding row also has a colored left
+// border, the severity word in text, and the rule_id). Spec called out the
+// "🔴 Critical — Hook shell RCE" pattern.
 const SEVERITY_ICON: Record<Finding["severity"], string> = {
-  critical: "●",
-  high: "▲",
-  medium: "■",
-  low: "○",
+  critical: "🔴",
+  high: "🟠",
+  medium: "🟡",
+  low: "🔵",
 };
 
 const MAX_INPUT_BYTES = 1_000_000; // 1MB cap (test plan edge case)
 
-export default function ScanDemo(): JSX.Element {
+declare global {
+  interface Window {
+    pirsch?: (event: string, options?: { meta?: Record<string, string> }) => void;
+  }
+}
+
+// Defensive Pirsch event helper. The Pirsch hosted script registers a global
+// `window.pirsch(eventName)` once it loads. We swallow errors so an analytics
+// outage never breaks the demo.
+function trackEvent(name: string, meta?: Record<string, string>): void {
+  if (typeof window === "undefined") return;
+  try {
+    if (typeof window.pirsch === "function") {
+      window.pirsch(name, meta ? { meta } : undefined);
+    }
+  } catch {
+    /* analytics is best-effort */
+  }
+}
+
+export default function ScanDemo({ wasmSha }: Props): JSX.Element {
   const [hint, setHint] = useState<FormatHint>("mcp");
   const [text, setText] = useState<string>(PLACEHOLDERS.mcp.sample);
   const [state, setState] = useState<DemoState>({ kind: "idle" });
   const [tooBig, setTooBig] = useState<boolean>(false);
+  const [edited, setEdited] = useState<boolean>(false);
   const announceRef = useRef<HTMLDivElement | null>(null);
+  const errorReportedRef = useRef<boolean>(false);
 
   const filename = PLACEHOLDERS[hint].label;
 
@@ -126,15 +157,27 @@ export default function ScanDemo(): JSX.Element {
   const onSelectHint = useCallback((next: FormatHint) => {
     setHint(next);
     setText(PLACEHOLDERS[next].sample);
+    setEdited(false);
+    setState({ kind: "idle" });
+  }, []);
+
+  const onClear = useCallback(() => {
+    setText("");
+    setEdited(true);
     setState({ kind: "idle" });
   }, []);
 
   useEffect(() => {
-    // Auto-scan once when the editor first becomes interactive,
-    // so the visitor sees findings without clicking.
     void handleScan();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (state.kind === "wasm-error" && !errorReportedRef.current) {
+      errorReportedRef.current = true;
+      trackEvent("wasm_failed", { reason: state.message.slice(0, 120) });
+    }
+  }, [state]);
 
   const findings = state.kind === "ready" ? state.result.findings : [];
   const sortedFindings = useMemo(() => {
@@ -147,6 +190,9 @@ export default function ScanDemo(): JSX.Element {
   if (state.kind === "wasm-error") {
     return <WasmErrorPanel message={state.message} />;
   }
+
+  const placeholderHint = `Paste your own ${filename} (or pick a tab above for a sample)…`;
+  const isEmpty = text.length === 0;
 
   return (
     <div className="border border-border bg-surface" data-testid="scan-demo">
@@ -165,6 +211,14 @@ export default function ScanDemo(): JSX.Element {
               ? "scanning…"
               : "ready"}
         </span>
+      </div>
+
+      <div
+        className="px-4 py-2 border-b border-border font-sans text-xs text-text-muted"
+        data-testid="paste-caption"
+      >
+        Paste your own config above or pick a sample tab.
+        Nothing is uploaded — the scanner runs entirely in this tab.
       </div>
 
       <div className="border-b border-border flex flex-wrap items-stretch font-mono text-xs">
@@ -188,14 +242,18 @@ export default function ScanDemo(): JSX.Element {
           <textarea
             spellCheck={false}
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            placeholder={placeholderHint}
+            onChange={(e) => {
+              setText(e.target.value);
+              if (!edited) setEdited(true);
+            }}
             onBlur={handleScan}
             aria-label="Paste an AI agent config to scan"
             role="textbox"
             className="w-full min-h-[280px] md:min-h-[360px] bg-surface text-text font-mono text-[13px] leading-snug px-4 py-3 outline-none border-none resize-y"
             data-testid="scan-input"
           />
-          <div className="border-t border-border px-4 py-2 flex items-center gap-3 font-mono text-[11px] text-text-muted">
+          <div className="border-t border-border px-4 py-2 flex flex-wrap items-center gap-3 font-mono text-[11px] text-text-muted">
             <button
               type="button"
               onClick={handleScan}
@@ -204,7 +262,16 @@ export default function ScanDemo(): JSX.Element {
             >
               Scan
             </button>
-            <span>{filename}</span>
+            <button
+              type="button"
+              onClick={onClear}
+              className="border border-border text-text-muted px-3 py-1 hover:text-text hover:border-text transition-colors uppercase tracking-wider"
+              data-testid="clear-button"
+              disabled={isEmpty}
+            >
+              Clear
+            </button>
+            <span className="ml-auto">{filename}</span>
             {tooBig && (
               <span className="text-sev-critical" role="alert">
                 Input too large (cap: 1MB).
@@ -217,31 +284,13 @@ export default function ScanDemo(): JSX.Element {
           {state.kind === "loading" && (
             <p className="font-mono text-xs text-text-muted px-4 py-3">scanning…</p>
           )}
-          {state.kind === "ready" && sortedFindings.length === 0 && <CleanState onTry={() => onSelectHint("mcp")} />}
+          {state.kind === "ready" && sortedFindings.length === 0 && (
+            <CleanState edited={edited} onTry={() => onSelectHint("mcp")} />
+          )}
           {state.kind === "ready" && sortedFindings.length > 0 && (
             <ul className="divide-y divide-border" data-testid="findings-list">
               {sortedFindings.map((f, idx) => (
-                <li
-                  key={`${f.rule_id}-${idx}`}
-                  className={`border-l-[3px] ${SEVERITY_BORDER[f.severity]} px-4 py-3`}
-                >
-                  <div className="flex items-baseline gap-3">
-                    <span
-                      className={`font-mono uppercase text-[11px] ${SEVERITY_TEXT[f.severity]}`}
-                      aria-hidden="true"
-                    >
-                      {SEVERITY_ICON[f.severity]} {SEVERITY_LABEL[f.severity]}
-                    </span>
-                    <span className="font-mono text-[12px] text-text-muted">{f.rule_id}</span>
-                    {f.cve_refs.length > 0 && (
-                      <span className="font-mono text-[12px] text-sev-critical">
-                        {f.cve_refs.join(", ")}
-                      </span>
-                    )}
-                  </div>
-                  <p className="font-sans font-medium text-sm mt-1">{f.title}</p>
-                  <p className="font-sans text-xs text-text-muted mt-1">{f.attacker_gets}</p>
-                </li>
+                <FindingRow key={`${f.rule_id}-${idx}`} f={f} />
               ))}
             </ul>
           )}
@@ -253,17 +302,48 @@ export default function ScanDemo(): JSX.Element {
         <a href="https://github.com/harshmaur/audr-web" className="text-sev-low">
           github.com/harshmaur/audr-web
         </a>
-        .
+        .{wasmSha && wasmSha !== "unknown" && (
+          <>
+            {" "}
+            WASM blob SHA-256:{" "}
+            <span data-testid="wasm-sha" title={wasmSha}>
+              {wasmSha.slice(0, 12)}…
+            </span>
+          </>
+        )}
       </p>
     </div>
   );
 }
 
-function CleanState({ onTry }: { onTry: () => void }): JSX.Element {
+function FindingRow({ f }: { f: Finding }): JSX.Element {
+  return (
+    <li className={`border-l-[3px] ${SEVERITY_BORDER[f.severity]} px-4 py-3`}>
+      <div className="flex flex-wrap items-baseline gap-3">
+        <span className={`font-mono uppercase text-[11px] ${SEVERITY_TEXT[f.severity]}`}>
+          <span aria-hidden="true">{SEVERITY_ICON[f.severity]} </span>
+          {SEVERITY_LABEL[f.severity]}
+        </span>
+        <span className="font-mono text-[12px] text-text-muted">{f.rule_id}</span>
+        {f.cve_refs.length > 0 && (
+          <span className="font-mono text-[12px] text-sev-critical">
+            {f.cve_refs.join(", ")}
+          </span>
+        )}
+      </div>
+      <p className="font-sans font-medium text-sm mt-1">{f.title}</p>
+      <p className="font-sans text-xs text-text-muted mt-1">{f.attacker_gets}</p>
+    </li>
+  );
+}
+
+function CleanState({ edited, onTry }: { edited: boolean; onTry: () => void }): JSX.Element {
   return (
     <div className="px-4 py-6">
       <p className="font-mono text-xs text-sev-ok uppercase tracking-wider">✓ clean</p>
-      <p className="font-sans text-sm mt-2">No findings. The fixtures are spicier.</p>
+      <p className="font-sans text-sm mt-2">
+        {edited ? "No findings on the pasted config." : "No findings. The fixtures are spicier."}
+      </p>
       <button
         type="button"
         onClick={onTry}
@@ -275,22 +355,54 @@ function CleanState({ onTry }: { onTry: () => void }): JSX.Element {
   );
 }
 
+// Baked-in sample finding shown inside WasmErrorPanel so visitors who can't
+// boot WASM still see what audr would have caught. Mirrors the API contract
+// shape but is hand-curated, not a live scan.
+const SAMPLE_FINDING: Finding = {
+  rule_id: "claude-hook-shell-rce",
+  severity: "critical",
+  title: "Settings hook executes arbitrary shell on every PreToolUse event",
+  attacker_gets:
+    "Anything that runs through Claude Code (a `git clone`, a tool call, a /command) " +
+    "triggers /usr/local/bin/curl-and-run.sh first. A poisoned settings.json delivered " +
+    "through a synced repo or a config-update PR is enough.",
+  excerpt: '"command": "/usr/local/bin/curl-and-run.sh"',
+  line: 8,
+  cve_refs: ["CVE-2025-59536"],
+};
+
 function WasmErrorPanel({ message }: { message: string }): JSX.Element {
   return (
-    <div className="border border-border bg-surface p-5" data-testid="wasm-error">
-      <p className="font-mono text-xs text-sev-medium uppercase tracking-wider">
-        browser scan unavailable
-      </p>
-      <p className="font-sans text-sm mt-2 max-w-narrow">
-        The WASM blob couldn't load in this browser ({message}). Run the binary locally to scan
-        your machine — same engine, same rules:
-      </p>
-      <pre className="mt-3 border border-border bg-surface-2 px-4 py-3 font-mono text-xs overflow-x-auto">
-        curl -fsSL https://audr.dev/install.sh | sh
-      </pre>
-      <p className="font-sans text-xs text-text-muted mt-3">
-        Or open the <a href="/sample-report">sample report</a> to see what a real scan finds.
-      </p>
+    <div className="border border-border bg-surface" data-testid="wasm-error">
+      <div className="border-b border-border px-5 py-3 flex flex-wrap items-baseline gap-3 font-mono text-xs">
+        <span className="text-sev-medium uppercase tracking-wider">
+          browser scan unavailable
+        </span>
+        <span className="text-text-muted ml-auto">{message.slice(0, 80)}</span>
+      </div>
+
+      <div className="px-5 py-5">
+        <p className="font-sans text-sm max-w-narrow">
+          The WASM blob couldn't load in this browser. Here's a sample finding from
+          {" "}
+          <code className="font-mono text-text">~/.claude/settings.json</code> with hooks
+          RCE — the kind of thing audr catches in 12ms on a real scan:
+        </p>
+
+        <ul className="mt-4 border border-border bg-surface-2">
+          <FindingRow f={SAMPLE_FINDING} />
+        </ul>
+
+        <p className="font-sans text-sm mt-5 max-w-narrow">
+          Run the binary locally to scan your machine — same engine, same rules:
+        </p>
+        <pre className="mt-2 border border-border bg-surface-2 px-4 py-3 font-mono text-xs overflow-x-auto">
+          curl -fsSL https://audr.dev/install.sh | sh
+        </pre>
+        <p className="font-sans text-xs text-text-muted mt-3">
+          Or open the <a href="/sample-report">sample report</a> to see what a fleet scan finds.
+        </p>
+      </div>
     </div>
   );
 }

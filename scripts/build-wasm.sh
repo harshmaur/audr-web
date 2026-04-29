@@ -65,6 +65,23 @@ SIZE_BYTES=$(stat -c%s public/wasm/audr.wasm 2>/dev/null || stat -f%z public/was
 SIZE_KB=$((SIZE_BYTES / 1024))
 echo "build-wasm: wrote public/wasm/audr.wasm (${SIZE_KB} KB uncompressed)"
 
+# SHA-256 of the blob, surfaced in the demo's privacy line so visitors can
+# verify what's running in their browser. Two outputs:
+#   public/wasm/audr.wasm.sha256 — public, fetchable
+#   src/generated/wasm-sha.txt   — read at Astro build time, inlined into HTML
+WASM_SHA_HEX=""
+if command -v sha256sum >/dev/null 2>&1; then
+  WASM_SHA_HEX="$(sha256sum public/wasm/audr.wasm | awk '{print $1}')"
+elif command -v shasum >/dev/null 2>&1; then
+  WASM_SHA_HEX="$(shasum -a 256 public/wasm/audr.wasm | awk '{print $1}')"
+fi
+if [[ -n "$WASM_SHA_HEX" ]]; then
+  echo "$WASM_SHA_HEX  audr.wasm" > public/wasm/audr.wasm.sha256
+  mkdir -p src/generated
+  printf '%s' "$WASM_SHA_HEX" > src/generated/wasm-sha.txt
+  echo "build-wasm: SHA-256 ${WASM_SHA_HEX:0:12}…"
+fi
+
 if command -v brotli >/dev/null 2>&1; then
   brotli -f -o public/wasm/audr.wasm.br public/wasm/audr.wasm
   BR_BYTES=$(stat -c%s public/wasm/audr.wasm.br 2>/dev/null || stat -f%z public/wasm/audr.wasm.br)

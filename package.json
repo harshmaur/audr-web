@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "polish": "node scripts/polish-sample-report.mjs",
     "build:wasm": "bash scripts/build-wasm.sh",
-    "build:wasm:if-missing": "test -f public/wasm/audr.wasm || npm run build:wasm",
+    "build:wasm:if-missing": "test -f public/wasm/audr.wasm -a -f src/generated/wasm-sha.txt || npm run build:wasm",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",

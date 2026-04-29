@@ -22,3 +22,7 @@ test-results/
 
 # Coverage
 coverage/
+
+# Vercel link state — committed to the repo would leak the orgId scoping.
+# Add to git only if you want every contributor to deploy to the same project.
+.vercel

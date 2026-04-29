@@ -9,7 +9,7 @@ Live at https://audr.dev.
 - **Astro 5** static site, **React** islands (one: the WASM scan demo)
 - **Tailwind** for styling, **IBM Plex Mono / Sans** self-hosted (no Google Fonts)
 - **WASM** scan engine compiled from [`harshmaur/audr`](https://github.com/harshmaur/audr) (pinned via git submodule)
-- **Cloudflare Pages** hosting, **Pirsch** for analytics
+- **Vercel** hosting (Git integration), **Pirsch** for analytics
 - **Vitest** + **Playwright** + **Lighthouse CI** in CI
 
 ## Development

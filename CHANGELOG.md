@@ -25,5 +25,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Vitest unit + integration tests (CVE schema validation, polish script
   assertions, install.sh contract, WASM API contract), Playwright e2e specs
   (homepage, sample-report, security, no-JS, WASM-fail), Lighthouse CI gates.
-- GitHub Actions: lint → typecheck → unit → wasm build+smoke → astro build →
-  polish → e2e → lighthouse → Cloudflare Pages deploy.
+- GitHub Actions test gate: lint → typecheck → unit → wasm build+smoke →
+  polish → astro build → e2e → lighthouse. Deploy is handled by Vercel's
+  Git integration (separate channel, posts preview URLs on PRs).
+- `vercel.json` configures the Astro framework, the WASM build prelude
+  (`scripts/install-go.sh` downloads Go 1.22.5 into the build sandbox),
+  CSP headers, and the `/sample-report` rewrite.

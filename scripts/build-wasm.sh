@@ -24,6 +24,9 @@ if [[ ! -d vendor/audr/internal ]]; then
 fi
 
 AUDR_SHA="$(git -C vendor/audr rev-parse HEAD)"
+# actions/checkout initializes submodules without tag refs by default. Fetching
+# tags here keeps the embedded provenance stable between local and CI builds.
+git -C vendor/audr fetch --tags --force origin '+refs/tags/*:refs/tags/*' >/dev/null 2>&1 || true
 AUDR_TAG="$(git -C vendor/audr describe --tags --always --dirty 2>/dev/null || echo "untagged")"
 
 echo "build-wasm: audr@${AUDR_SHA:0:8} (${AUDR_TAG})"

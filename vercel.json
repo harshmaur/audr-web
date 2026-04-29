@@ -6,13 +6,6 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/sample-report",
-      "destination": "/sample-report.html",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",

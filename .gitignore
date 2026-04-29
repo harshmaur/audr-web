@@ -10,6 +10,8 @@ dist/
 
 # WASM build output is not committed; CI rebuilds it from the audr submodule.
 public/wasm/*.wasm
+public/wasm/*.wasm.br
+public/wasm/*.wasm.sha256
 public/wasm/wasm_exec.js
 
 # Polished sample report is generated; CI rebuilds it on every deploy.

@@ -8,7 +8,7 @@ Marketing site for [audr](https://github.com/harshmaur/audr). Static, privacy-fi
 
 ## Hard rules
 
-1. **No third-party JS that violates the offline-by-default brand promise.** Pirsch is the only allowed third-party network call. No GA, no Segment, no Hotjar, no Sentry without explicit approval.
+1. **No third-party JS or network calls.** The page makes zero third-party requests. No GA, no Segment, no Hotjar, no Sentry, no analytics of any kind without explicit approval.
 2. **No path leaks in the polished sample report.** `/home/`, `/Users/`, `/parallels/` must never reach `dist/sample-report.html`. The polish script asserts this and fails the build.
 3. **No real credentials anywhere.** This is a security tool's marketing site. Use repeated-character placeholders for fixtures (`ghp_aaaa...`, `sk-ant-api03-cccc...`).
 4. **WASM blob ships with the audr commit SHA embedded.** Display it in the demo's chrome bar. Provenance matters — visitors are CISOs.

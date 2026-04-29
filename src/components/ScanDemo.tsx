@@ -103,26 +103,6 @@ const SEVERITY_ICON: Record<Finding["severity"], string> = {
 
 const MAX_INPUT_BYTES = 1_000_000; // 1MB cap (test plan edge case)
 
-declare global {
-  interface Window {
-    pirsch?: (event: string, options?: { meta?: Record<string, string> }) => void;
-  }
-}
-
-// Defensive Pirsch event helper. The Pirsch hosted script registers a global
-// `window.pirsch(eventName)` once it loads. We swallow errors so an analytics
-// outage never breaks the demo.
-function trackEvent(name: string, meta?: Record<string, string>): void {
-  if (typeof window === "undefined") return;
-  try {
-    if (typeof window.pirsch === "function") {
-      window.pirsch(name, meta ? { meta } : undefined);
-    }
-  } catch {
-    /* analytics is best-effort */
-  }
-}
-
 export default function ScanDemo({ wasmSha }: Props): JSX.Element {
   const [hint, setHint] = useState<FormatHint>("mcp");
   const [text, setText] = useState<string>(PLACEHOLDERS.mcp.sample);
@@ -130,7 +110,6 @@ export default function ScanDemo({ wasmSha }: Props): JSX.Element {
   const [tooBig, setTooBig] = useState<boolean>(false);
   const [edited, setEdited] = useState<boolean>(false);
   const announceRef = useRef<HTMLDivElement | null>(null);
-  const errorReportedRef = useRef<boolean>(false);
 
   const filename = PLACEHOLDERS[hint].label;
 
@@ -171,13 +150,6 @@ export default function ScanDemo({ wasmSha }: Props): JSX.Element {
     void handleScan();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    if (state.kind === "wasm-error" && !errorReportedRef.current) {
-      errorReportedRef.current = true;
-      trackEvent("wasm_failed", { reason: state.message.slice(0, 120) });
-    }
-  }, [state]);
 
   const findings = state.kind === "ready" ? state.result.findings : [];
   const sortedFindings = useMemo(() => {

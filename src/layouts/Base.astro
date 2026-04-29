@@ -4,13 +4,9 @@ import "../styles/globals.css";
 interface Props {
   title: string;
   description: string;
-  /**
-   * Set true on /404 to suppress analytics — no telemetry on error pages.
-   */
-  noAnalytics?: boolean;
 }
 
-const { title, description, noAnalytics = false } = Astro.props;
+const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, "https://audr.dev").href;
 ---
 
@@ -48,17 +44,6 @@ const canonical = new URL(Astro.url.pathname, "https://audr.dev").href;
         /* localStorage may be blocked in private browsing — fall through to dark */
       }
     </script>
-
-    {
-      !noAnalytics && (
-        <script
-          is:inline
-          defer
-          src="https://api.pirsch.io/pirsch.js"
-          data-code="audr-dev-analytics"
-        />
-      )
-    }
 
     <slot name="head" />
   </head>

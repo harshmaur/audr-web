@@ -61,12 +61,20 @@ html = html.replace(
 
 // --- 5. Inject the redacted-excerpt note immediately after <body> opens, so
 //        a visitor lands on it before reading findings.
+//
+// Use the report's own CSS variables (--card-tint, --rule-soft, --ink,
+// --ink-muted) so the banner respects whichever color scheme the report is
+// in — the report has its own @media (prefers-color-scheme: dark) block
+// that flips --paper/--ink, and the banner needs to flip with it.
+// The inline <code> for the curl line stays terminal-themed in both modes;
+// that's deliberate (it reads as a copyable command, not body prose).
 const banner = `
-  <aside style="border:1px solid var(--audr-border,#e5e5e0);padding:14px 16px;margin:20px auto;max-width:980px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13.5px;line-height:1.55;background:var(--audr-surface-2,#f7f7f2);">
-    <strong>Note —</strong> this is a redacted excerpt of a real audr scan against a
+  <aside style="border:1px solid var(--rule-soft);padding:14px 16px;margin:20px auto;max-width:980px;font-family:var(--font-body);font-size:13.5px;line-height:1.55;background:var(--card-tint);color:var(--ink);">
+    <strong style="color:var(--ink);font-weight:600;">Note —</strong>
+    <span style="color:var(--ink-soft);">this is a redacted excerpt of a real audr scan against a
     development machine. Paths and identifiers are normalized so this artifact can be
-    safely linked. To run audr against your own machine:
-    <code style="display:inline-block;padding:2px 6px;background:#0e0e0c;color:#f5f5f0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;">curl -fsSL https://audr.dev/install.sh | sh</code>
+    safely linked. To run audr against your own machine:</span>
+    <code style="display:inline-block;padding:2px 6px;background:#0e0e0c;color:#f5f5f0;font-family:var(--font-mono);">curl -fsSL https://audr.dev/install.sh | sh</code>
   </aside>
 `;
 if (html.includes("<body")) {

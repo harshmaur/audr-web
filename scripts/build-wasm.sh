@@ -24,9 +24,14 @@ if [[ ! -d vendor/audr/internal ]]; then
 fi
 
 AUDR_SHA="$(git -C vendor/audr rev-parse HEAD)"
-# actions/checkout initializes submodules without tag refs by default. Fetching
-# tags here keeps the embedded provenance stable between local and CI builds.
-git -C vendor/audr fetch --tags --force origin '+refs/tags/*:refs/tags/*' >/dev/null 2>&1 || true
+# actions/checkout initializes submodules shallowly and without tag ancestry by
+# default. Fetch enough history + tags so `git describe` embeds the same release
+# provenance in CI as it does on developer machines.
+if [[ "$(git -C vendor/audr rev-parse --is-shallow-repository 2>/dev/null || echo false)" == "true" ]]; then
+  git -C vendor/audr fetch --tags --force --deepen=1000 origin '+refs/heads/*:refs/remotes/origin/*' '+refs/tags/*:refs/tags/*' >/dev/null 2>&1 || true
+else
+  git -C vendor/audr fetch --tags --force origin '+refs/tags/*:refs/tags/*' >/dev/null 2>&1 || true
+fi
 AUDR_TAG="$(git -C vendor/audr describe --tags --always --dirty 2>/dev/null || echo "untagged")"
 
 echo "build-wasm: audr@${AUDR_SHA:0:8} (${AUDR_TAG})"

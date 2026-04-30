@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-41349",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-23",
+    "summary_short": "config.patch can silently disable execution approval.",
+    "visceral_consequence": "config patches turn off host-exec consent",
+    "scope_phrase": "where config patches erase approval prompts",
+    "audr_rule_id": "openclaw-config-patch-consent-bypass"
+  },
+  {
     "cve_id": "CVE-2026-41386",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
@@ -42,16 +53,5 @@
     "visceral_consequence": "a malicious symlink reads files outside the workspace",
     "audr_rule_id": "claude-skip-permission-prompt",
     "scope_phrase": "where the sandbox is already disabled"
-  },
-  {
-    "cve_id": "CVE-2026-32211",
-    "product": "Azure DevOps MCP",
-    "vendor": "Microsoft",
-    "severity": "critical",
-    "published_date": "2026-03-12",
-    "summary_short": "Default config exposes MCP server unauthenticated on localhost.",
-    "visceral_consequence": "any local process talks to your Azure DevOps tenant",
-    "audr_rule_id": "mcp-unauth-remote-url",
-    "scope_phrase": "whose machines run unauth MCP servers"
   }
 ]

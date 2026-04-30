@@ -15,6 +15,13 @@ describe("loadCVEs", () => {
     }
   });
 
+  it("keeps CVEs sorted by newest published date first", () => {
+    const cves = loadCVEs();
+    const dates = cves.map((c) => c.published_date);
+    const sortedDates = [...dates].sort((a, b) => b.localeCompare(a));
+    expect(dates).toEqual(sortedDates);
+  });
+
   it("hero CVE [0] is critical or high — not stale low-priority filler", () => {
     const [hero] = loadCVEs();
     expect(["critical", "high"]).toContain(hero.severity);

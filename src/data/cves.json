@@ -1,16 +1,5 @@
 [
   {
-    "cve_id": "CVE-2026-41349",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-23",
-    "summary_short": "config.patch can silently disable execution approval.",
-    "visceral_consequence": "config patches turn off host-exec consent",
-    "scope_phrase": "where config patches erase approval prompts",
-    "audr_rule_id": "openclaw-config-patch-consent-bypass"
-  },
-  {
     "cve_id": "CVE-2026-41386",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
@@ -20,6 +9,17 @@
     "visceral_consequence": "setup codes mint admin-capable devices",
     "scope_phrase": "where setup codes outgrow their role",
     "audr_rule_id": "openclaw-unbound-bootstrap-setup-code"
+  },
+  {
+    "cve_id": "CVE-2026-41349",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-23",
+    "summary_short": "config.patch can silently disable execution approval.",
+    "visceral_consequence": "config patches turn off host-exec consent",
+    "scope_phrase": "where config patches erase approval prompts",
+    "audr_rule_id": "openclaw-config-patch-consent-bypass"
   },
   {
     "cve_id": "CVE-2025-59536",

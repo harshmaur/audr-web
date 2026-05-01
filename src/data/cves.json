@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-41399",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "WebSocket upgrades consume socket and worker capacity before auth.",
+    "visceral_consequence": "unauthenticated sockets starve legitimate agent sessions",
+    "scope_phrase": "where WebSocket upgrades spend capacity before auth",
+    "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
+  },
+  {
     "cve_id": "CVE-2026-41394",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

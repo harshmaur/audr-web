@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-41394",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "plugin-auth routes receive operator runtime write scopes without auth.",
+    "visceral_consequence": "plugin-auth routes wield operator write scope",
+    "scope_phrase": "where plugin auth routes inherit write power",
+    "audr_rule_id": "openclaw-plugin-auth-operator-write-bypass"
+  },
+  {
     "cve_id": "CVE-2026-41386",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

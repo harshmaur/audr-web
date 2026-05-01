@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-42426",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "node.pair.approve accepts broad operator.write instead of pairing scope.",
+    "visceral_consequence": "write-scoped operators approve exec-capable nodes",
+    "scope_phrase": "where node pairing trusts broad write scopes",
+    "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
+  },
+  {
     "cve_id": "CVE-2026-41386",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

@@ -24,10 +24,10 @@ test.describe("homepage", () => {
     await expect(link).toHaveAttribute("href", "/sample-report");
   });
 
-  test("CVE strip shows 5 cards", async ({ page }) => {
+  test("CVE strip shows the full CVE store", async ({ page }) => {
     await page.goto("/");
     const cards = page.locator("article", { has: page.locator(".text-sev-ok") });
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(8);
   });
 
   test("theme toggle persists across reload", async ({ page }) => {

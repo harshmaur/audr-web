@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-41405",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "MS Teams webhook bodies are parsed before JWT validation.",
+    "visceral_consequence": "unauthenticated webhook payloads spend server capacity",
+    "scope_phrase": "where Teams webhooks spend capacity before auth",
+    "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
+  },
+  {
     "cve_id": "CVE-2026-41399",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

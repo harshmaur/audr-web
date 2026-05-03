@@ -1,4 +1,7 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+
+const cveCount = JSON.parse(readFileSync("src/data/cves.json", "utf8")).length;
 
 test.describe("homepage", () => {
   test("renders H1 with the hero CVE id", async ({ page }) => {
@@ -27,7 +30,7 @@ test.describe("homepage", () => {
   test("CVE strip shows the full CVE store", async ({ page }) => {
     await page.goto("/");
     const cards = page.locator("article", { has: page.locator(".text-sev-ok") });
-    await expect(cards).toHaveCount(8);
+    await expect(cards).toHaveCount(cveCount);
   });
 
   test("theme toggle persists across reload", async ({ page }) => {

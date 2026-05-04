@@ -66,6 +66,17 @@
     "audr_rule_id": "openclaw-config-patch-consent-bypass"
   },
   {
+    "cve_id": "CVE-2026-41336",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-23",
+    "summary_short": "Workspace .env overrides the bundled hooks trust root.",
+    "visceral_consequence": "workspace env swaps trusted hooks for attacker code",
+    "scope_phrase": "where workspace env redirects bundled hooks",
+    "audr_rule_id": "openclaw-bundled-hooks-env-override"
+  },
+  {
     "cve_id": "CVE-2025-59536",
     "product": "Claude Code",
     "vendor": "Anthropic",

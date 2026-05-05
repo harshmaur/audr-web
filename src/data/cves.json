@@ -33,6 +33,17 @@
     "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
   },
   {
+    "cve_id": "CVE-2026-41396",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Workspace .env overrides the bundled plugin trust root.",
+    "visceral_consequence": "workspace env swaps trusted plugins for attacker code",
+    "scope_phrase": "where workspace env redirects bundled plugins",
+    "audr_rule_id": "openclaw-bundled-plugins-env-override"
+  },
+  {
     "cve_id": "CVE-2026-41394",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

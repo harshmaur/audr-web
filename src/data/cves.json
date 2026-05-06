@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-43566",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-05",
+    "summary_short": "Heartbeat owner downgrade weakens channel ownership boundaries.",
+    "visceral_consequence": "heartbeat state strips owners from agent channels",
+    "scope_phrase": "where heartbeat state downgrades channel owners",
+    "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
+  },
+  {
     "cve_id": "CVE-2026-42426",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

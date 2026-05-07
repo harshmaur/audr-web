@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
   },
   {
+    "cve_id": "CVE-2026-43534",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-05",
+    "summary_short": "External hook metadata is queued as trusted system events.",
+    "visceral_consequence": "hook names cross into trusted agent context",
+    "scope_phrase": "where hook metadata enters trusted event queues",
+    "audr_rule_id": "openclaw-trusted-hook-metadata-injection"
+  },
+  {
     "cve_id": "CVE-2026-42426",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

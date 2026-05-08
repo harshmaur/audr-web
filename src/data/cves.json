@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-44109",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Feishu webhook validation fails open when auth material is blank.",
+    "visceral_consequence": "blank webhook secrets reach command dispatch",
+    "scope_phrase": "where Feishu webhook auth fails open",
+    "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
+  },
+  {
     "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

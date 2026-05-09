@@ -22,6 +22,12 @@ export function loadCVEs(): CVE[] {
   return cvesJson.map((raw, idx) => validate(raw, idx));
 }
 
+export function latestCVEs(cves: CVE[], limit = 5): CVE[] {
+  return [...cves]
+    .sort((a, b) => Date.parse(b.published_date) - Date.parse(a.published_date))
+    .slice(0, limit);
+}
+
 function validate(raw: unknown, idx: number): CVE {
   if (!raw || typeof raw !== "object") {
     throw new Error(`cves.json[${idx}] is not an object`);

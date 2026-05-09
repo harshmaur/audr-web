@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { daysSince, loadCVEs } from "../../src/lib/cves";
+import { daysSince, latestCVEs, loadCVEs } from "../../src/lib/cves";
 
 describe("loadCVEs", () => {
   it("returns at least 5 entries shaped like CVE", () => {
@@ -25,6 +25,16 @@ describe("loadCVEs", () => {
   it("hero CVE [0] is critical or high — not stale low-priority filler", () => {
     const [hero] = loadCVEs();
     expect(["critical", "high"]).toContain(hero.severity);
+  });
+
+  it("selects the latest 5 CVEs for the homepage strip", () => {
+    const cves = loadCVEs();
+    const latest = latestCVEs(cves, 5);
+
+    expect(latest).toHaveLength(5);
+    expect(latest.map((c) => c.cve_id)).toEqual(
+      cves.slice(0, 5).map((c) => c.cve_id),
+    );
   });
 });
 

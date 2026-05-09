@@ -163,7 +163,7 @@ export default function ScanDemo({ wasmSha }: Props): JSX.Element {
     return <WasmErrorPanel message={state.message} />;
   }
 
-  const placeholderHint = `Paste your own ${filename} (or pick a tab above for a sample)…`;
+  const placeholderHint = `Paste a redacted ${filename} (or pick a tab above for a sample)…`;
   const isEmpty = text.length === 0;
 
   return (
@@ -189,7 +189,7 @@ export default function ScanDemo({ wasmSha }: Props): JSX.Element {
         className="px-4 py-2 border-b border-border font-sans text-xs text-text-muted"
         data-testid="paste-caption"
       >
-        Paste your own config above or pick a sample tab.
+        Paste a redacted config or pick a sample tab.
         Nothing is uploaded — the scanner runs entirely in this tab.
       </div>
 

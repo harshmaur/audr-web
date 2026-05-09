@@ -22,9 +22,9 @@ describe("loadCVEs", () => {
     expect(dates).toEqual(sortedDates);
   });
 
-  it("hero CVE [0] is critical or high — not stale low-priority filler", () => {
-    const [hero] = loadCVEs();
-    expect(["critical", "high"]).toContain(hero.severity);
+  it("latest advisory [0] is critical or high — not stale low-priority filler", () => {
+    const [latestAdvisory] = loadCVEs();
+    expect(["critical", "high"]).toContain(latestAdvisory.severity);
   });
 
   it("selects the latest 5 CVEs for the homepage strip", () => {

@@ -1,14 +1,13 @@
 import { expect, test } from "@playwright/test";
-import { readFileSync } from "node:fs";
-
-const cveCount = JSON.parse(readFileSync("src/data/cves.json", "utf8")).length;
 
 test.describe("homepage", () => {
-  test("renders H1 with the hero CVE id", async ({ page }) => {
+  test("renders category-led agent posture H1", async ({ page }) => {
     await page.goto("/");
     const h1 = page.locator("h1").first();
     await expect(h1).toBeVisible();
-    await expect(h1).toContainText("CVE-");
+    await expect(h1).toContainText("AI coding agents");
+    await expect(h1).toContainText("local config risk");
+    await expect(h1).not.toContainText("CVE-");
   });
 
   test("install curl block is copyable", async ({ page, browserName }) => {
@@ -27,10 +26,24 @@ test.describe("homepage", () => {
     await expect(link).toHaveAttribute("href", "/sample-report");
   });
 
-  test("CVE strip shows the full CVE store", async ({ page }) => {
+  test("homepage repositioning proof copy is visible", async ({ page }) => {
     await page.goto("/");
-    const cards = page.locator("article", { has: page.locator(".text-sev-ok") });
-    await expect(cards).toHaveCount(cveCount);
+
+    const metaDescription = page.locator('meta[name="description"]');
+    await expect(metaDescription).toHaveAttribute("content", /AI-agent configuration/);
+    await expect(metaDescription).not.toHaveAttribute("content", /detected on the first run/);
+
+    await expect(page.locator("text=fresh local posture checks")).toBeVisible();
+    await expect(page.locator("text=live: CVE-")).toHaveCount(0);
+    await expect(page.locator("text=Paste a redacted config and see the same agent-posture checks Audr runs locally.")).toBeVisible();
+    await expect(page.locator("text=Signed release. SHA-256 verified. No telemetry.")).toBeVisible();
+    await expect(page.locator("text=Then run audr scan")).toBeVisible();
+  });
+
+  test("CVE strip shows latest five advisory proof cards", async ({ page }) => {
+    await page.goto("/");
+    const cards = page.locator('[data-section="advisory-proof"] [data-cve-card]');
+    await expect(cards).toHaveCount(5);
   });
 
   test("theme toggle persists across reload", async ({ page }) => {

@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
   },
   {
+    "cve_id": "CVE-2026-43585",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Bearer SecretRefs are cached through token rotation.",
+    "visceral_consequence": "revoked bearer tokens keep gateway access",
+    "scope_phrase": "where bearer SecretRefs stay valid after rotation",
+    "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
+  },
+  {
     "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

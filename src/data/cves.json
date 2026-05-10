@@ -22,6 +22,17 @@
     "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
   },
   {
+    "cve_id": "CVE-2026-43581",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Sandbox CDP relay binds Chrome DevTools to all interfaces.",
+    "visceral_consequence": "exposed DevTools sessions hand over browser control",
+    "scope_phrase": "where sandbox CDP relays bind beyond localhost",
+    "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
+  },
+  {
     "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

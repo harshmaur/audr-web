@@ -33,6 +33,17 @@
     "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
   },
   {
+    "cve_id": "CVE-2026-43578",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Async exec completions bypass heartbeat owner downgrade checks.",
+    "visceral_consequence": "background exec output keeps privileged agent context",
+    "scope_phrase": "where async exec completions outrun owner downgrades",
+    "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
+  },
+  {
     "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

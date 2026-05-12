@@ -1,0 +1,47 @@
+---
+const checks = [
+  "OSV-Scanner flags known malicious npm package versions in manifests and lockfiles when dependency scanning is available.",
+  "Audr-native rules flag Claude Code SessionStart and VS Code folder-open persistence.",
+  "Audr-native rules flag toJSON(secrets) GitHub Actions exfil workflows and gh-token-monitor services.",
+  "A bounded node_modules IOC pass checks package-root router_init.js / tanstack_runner.js payloads without walking the full tree.",
+];
+---
+
+<section class="border-y border-border bg-surface" data-section="mini-shai-hulud-coverage">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-8 md:py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-6 lg:gap-10 items-start">
+      <div>
+        <p class="font-mono text-xs text-sev-high uppercase tracking-wider">current supply-chain campaign</p>
+        <h2 class="font-sans font-semibold text-2xl mt-2">
+          Mini Shai-Hulud coverage is now in Audr.
+        </h2>
+        <p class="font-sans text-sm text-text-muted mt-3 max-w-narrow">
+          The worm is not just an npm advisory. It leaves local developer-machine evidence: package versions, AI-tool persistence hooks, workflow secret exfiltration, and dropped payload files.
+        </p>
+      </div>
+      <div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {checks.map((check) => (
+            <li class="border border-border bg-bg p-4 font-sans text-sm text-text-muted">
+              <span class="font-mono text-sev-ok">✓</span> {check}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-5 flex flex-col sm:flex-row gap-3">
+          <a
+            href="/coverage"
+            class="font-sans font-medium text-sm text-text border border-text px-4 py-3 no-underline hover:bg-text hover:text-bg transition-colors text-center"
+          >
+            View advisory ledger →
+          </a>
+          <a
+            href="/sample-report"
+            class="font-sans font-medium text-sm text-sev-low border border-sev-low px-4 py-3 no-underline hover:bg-sev-low hover:text-bg transition-colors text-center"
+          >
+            Inspect report detail →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

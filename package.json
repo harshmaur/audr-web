@@ -14,6 +14,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "polish": "node scripts/polish-sample-report.mjs",
+    "generate:coverage-ledger": "node scripts/generate-coverage-ledger.mjs",
     "build:wasm": "bash scripts/build-wasm.sh",
     "build:wasm:if-missing": "test -f public/wasm/audr.wasm -a -f src/generated/wasm-sha.txt || npm run build:wasm",
     "test": "vitest run",

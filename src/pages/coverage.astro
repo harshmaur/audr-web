@@ -1,0 +1,114 @@
+---
+import Base from "../layouts/Base.astro";
+import Toolbar from "../components/Toolbar.astro";
+import Footer from "../components/Footer.astro";
+import CoverageCard from "../components/CoverageCard.astro";
+import {
+  coverageStats,
+  loadCoverageSnapshot,
+  selectedTriageEntries,
+  shippedCoverageEntries,
+} from "../lib/coverage";
+
+const snapshot = loadCoverageSnapshot();
+const stats = coverageStats(snapshot);
+const shipped = shippedCoverageEntries(snapshot);
+const triage = selectedTriageEntries(snapshot, snapshot.selected_triage_limit);
+
+const description = "Public snapshot of Audr shipped local checks and selected advisory triage for AI-agent local configuration risk. Candidate rows are not detection coverage.";
+---
+
+<Base title="Audr advisory ledger — shipped local checks and advisory triage" description={description}>
+  <Toolbar />
+
+  <main class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <section data-section="coverage-hero">
+      <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+        public advisory ledger · shipped checks first
+      </p>
+      <h1 class="font-mono font-medium leading-tight text-text max-w-h1 mt-3" style="font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.01em;">
+        Audr advisory ledger
+      </h1>
+      <p class="mt-5 max-w-narrow text-text-muted text-base leading-relaxed">
+        A public snapshot of shipped local checks and selected advisory triage for AI-agent configuration risk.
+      </p>
+
+      <div class="mt-8 border border-sev-medium bg-surface px-4 py-4" role="note">
+        <p class="font-mono text-sm text-text">
+          Only rows marked “shipped local check” are detected by Audr today. Candidate and investigating rows show advisory triage discipline, not detection coverage.
+        </p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-border bg-surface">
+        <div class="p-4 border-b sm:border-r lg:border-b-0 border-border">
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">shipped local checks</p>
+          <p class="font-mono text-3xl mt-2 text-text">{stats.shippedLocalCheckCount}</p>
+        </div>
+        <div class="p-4 border-b lg:border-r lg:border-b-0 border-border">
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">latest advisory reviewed</p>
+          <p class="font-mono text-3xl mt-2 text-text">{stats.latestAdvisoryReviewed}</p>
+        </div>
+        <div class="p-4 border-b sm:border-r sm:border-b-0 border-border">
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">agent products represented</p>
+          <p class="font-mono text-3xl mt-2 text-text">{stats.agentProductsRepresented}</p>
+        </div>
+        <div class="p-4">
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">public snapshot updated</p>
+          <p class="font-mono text-3xl mt-2 text-text">{stats.publicSnapshotUpdated}</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 border border-border bg-surface">
+        <div class="p-4 border-b md:border-r md:border-b-0 border-border" data-status="shipped">
+          <p class="font-mono text-xs text-sev-ok uppercase tracking-wider">shipped local check</p>
+          <p class="font-sans text-sm text-text-muted mt-2">Audr has a local scanner rule for this advisory signal today.</p>
+        </div>
+        <div class="p-4 border-b md:border-r md:border-b-0 border-border" data-status="actionable">
+          <p class="font-mono text-xs text-sev-medium uppercase tracking-wider">candidate local signal</p>
+          <p class="font-sans text-sm text-text-muted mt-2">Audr has identified a plausible local config, manifest, or posture signal. This is triage, not current detection.</p>
+        </div>
+        <div class="p-4" data-status="investigating">
+          <p class="font-mono text-xs text-sev-low uppercase tracking-wider">under investigation</p>
+          <p class="font-sans text-sm text-text-muted mt-2">Audr is still validating whether there is an honest local signal. This is not current detection.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8" data-section="shipped-checks">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-6">
+        <div>
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">detected today</p>
+          <h2 class="font-sans font-semibold text-2xl mt-2">Shipped local checks</h2>
+        </div>
+        <p class="font-mono text-xs text-text-muted">{shipped.length} public shipped rows</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-3">
+        {shipped.map((entry) => <CoverageCard entry={entry} />)}
+      </div>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8" data-section="selected-triage">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-6">
+        <div>
+          <p class="font-mono text-xs text-text-muted uppercase tracking-wider">public-safe research snapshot</p>
+          <h2 class="font-sans font-semibold text-2xl mt-2">Selected advisory triage</h2>
+          <p class="font-sans text-sm text-text-muted mt-2 max-w-narrow">
+            These rows are not detected by Audr unless marked shipped. They show where Audr is evaluating honest local-config evidence next.
+          </p>
+        </div>
+        <p class="font-mono text-xs text-text-muted">capped at {snapshot.selected_triage_limit} rows</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-3">
+        {triage.map((entry) => <CoverageCard entry={entry} />)}
+      </div>
+    </section>
+
+    <p class="mt-10 font-mono text-xs text-text-muted">
+      Static public snapshot generated {snapshot.generated_at} from advisory triage reviewed through {snapshot.source_last_discovery_at}. This page is not a live vulnerability feed.
+    </p>
+  </main>
+
+  <Footer />
+</Base>

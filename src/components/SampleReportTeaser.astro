@@ -2,8 +2,32 @@
 const stats = [
   { label: "laptops scanned", value: "200", color: "text-text" },
   { label: "critical findings", value: "14", color: "text-sev-critical" },
-  { label: "attack chains", value: "5", color: "text-sev-high" },
+  { label: "priority attack paths", value: "3", color: "text-sev-high" },
   { label: "scan time", value: "4.2s", color: "text-sev-ok" },
+];
+
+const attackPaths = [
+  {
+    risk: "Agent hook becomes shell execution",
+    attackerGets: "A poisoned workspace or synced config can run commands before every trusted tool call.",
+    evidence: "Claude Code hook command + file:line citation",
+    fix: "Disable the hook, pin trusted commands, then rerun audr.",
+    impact: "Stops a local dev-tool foothold from becoming repo or laptop compromise.",
+  },
+  {
+    risk: "MCP server exposes internal tokens",
+    attackerGets: "Remote MCP traffic can carry bearer tokens or broad GitHub/Linear scopes out of the laptop.",
+    evidence: "MCP URL, header key, and redacted credential shape",
+    fix: "Remove remote server, narrow scopes, rotate exposed tokens.",
+    impact: "Reduces blast radius before the same config appears across the fleet.",
+  },
+  {
+    risk: "Trusted repo bypasses agent prompts",
+    attackerGets: "A repo marked trusted can combine broad shell permissions with CI or local credentials.",
+    evidence: "Trusted workspace entry + dangerous approval/sandbox posture",
+    fix: "Downgrade trust, restore approval prompts, baseline the policy.",
+    impact: "Gives security a prioritized rollout order instead of a flat rule list.",
+  },
 ];
 ---
 
@@ -14,16 +38,16 @@ const stats = [
         what a real scan looks like
       </p>
       <h2 class="font-sans font-semibold text-2xl mt-2">
-        Forensic HTML report. Redacted excerpt — 200 dev laptops, real findings.
+        Top 3 ways your AI-agent setup can currently be abused.
       </h2>
       <p class="font-sans text-base text-text-muted mt-2 max-w-narrow">
-        audr emits an HTML report you can forward up the chain. Each finding has a one-line
-        attacker-gets, a file:line citation, and lands on the Attack Chain it belongs to.
+        The report is organized for security triage: risk, evidence, attacker gets,
+        fix order, and business impact — not just a dump of rule IDs.
       </p>
     </header>
 
     <div class="border border-border bg-surface">
-      <div class="border-b border-border px-5 py-3 flex items-baseline gap-3 font-mono text-xs">
+      <div class="border-b border-border px-5 py-3 flex flex-wrap items-baseline gap-3 font-mono text-xs">
         <span class="text-text-muted">audr scan</span>
         <span class="text-text-muted">·</span>
         <span class="text-text-muted">redacted excerpt</span>
@@ -47,12 +71,45 @@ const stats = [
           ))
         }
       </div>
-      <div class="px-5 py-5">
+      <div class="grid grid-cols-1 lg:grid-cols-3 border-b border-border">
+        {
+          attackPaths.map((path) => (
+            <article class="border-b lg:border-b-0 lg:border-r border-border last:border-b-0 lg:last:border-r-0 px-5 py-5">
+              <h3 class="font-sans font-semibold text-base">{path.risk}</h3>
+              <dl class="font-sans text-sm text-text-muted mt-3 space-y-2">
+                <div>
+                  <dt class="font-mono text-[10px] uppercase tracking-wider">Attacker gets</dt>
+                  <dd>{path.attackerGets}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-[10px] uppercase tracking-wider">Evidence</dt>
+                  <dd>{path.evidence}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-[10px] uppercase tracking-wider">Fix order</dt>
+                  <dd>{path.fix}</dd>
+                </div>
+                <div>
+                  <dt class="font-mono text-[10px] uppercase tracking-wider">Business impact</dt>
+                  <dd>{path.impact}</dd>
+                </div>
+              </dl>
+            </article>
+          ))
+        }
+      </div>
+      <div class="px-5 py-5 flex flex-col sm:flex-row gap-3">
         <a
           href="/sample-report"
           class="font-sans font-medium text-sm border border-text px-4 py-3 no-underline inline-block hover:bg-text hover:text-bg transition-colors"
         >
           Open the full sample report →
+        </a>
+        <a
+          href="#fleet-pilot"
+          class="font-sans font-medium text-sm border border-sev-low text-sev-low px-4 py-3 no-underline inline-block hover:bg-sev-low hover:text-bg transition-colors"
+        >
+          Review this as a fleet pilot →
         </a>
       </div>
     </div>

@@ -260,11 +260,14 @@ export default function ScanDemo({ wasmSha }: Props): JSX.Element {
             <CleanState edited={edited} onTry={() => onSelectHint("mcp")} />
           )}
           {state.kind === "ready" && sortedFindings.length > 0 && (
-            <ul className="divide-y divide-border" data-testid="findings-list">
-              {sortedFindings.map((f, idx) => (
-                <FindingRow key={`${f.rule_id}-${idx}`} f={f} />
-              ))}
-            </ul>
+            <>
+              <ul className="divide-y divide-border" data-testid="findings-list">
+                {sortedFindings.map((f, idx) => (
+                  <FindingRow key={`${f.rule_id}-${idx}`} f={f} />
+                ))}
+              </ul>
+              <DemoConversionPanel />
+            </>
           )}
         </div>
       </div>
@@ -305,7 +308,65 @@ function FindingRow({ f }: { f: Finding }): JSX.Element {
       </div>
       <p className="font-sans font-medium text-sm mt-1">{f.title}</p>
       <p className="font-sans text-xs text-text-muted mt-1">{f.attacker_gets}</p>
+      <dl className="mt-3 grid grid-cols-1 gap-2 font-sans text-xs text-text-muted">
+        <div>
+          <dt className="font-mono uppercase tracking-wider text-[10px] text-text-muted">Evidence</dt>
+          <dd>
+            {f.excerpt ? (
+              <code className="font-mono text-text break-all">{f.excerpt}</code>
+            ) : (
+              "Config key or path captured in the full local report."
+            )}
+            {f.line > 0 && <span className="font-mono"> · line {f.line}</span>}
+          </dd>
+        </div>
+        <div>
+          <dt className="font-mono uppercase tracking-wider text-[10px] text-text-muted">Fix order</dt>
+          <dd>Remove the risky grant first, then rerun audr to confirm the finding fingerprint is gone.</dd>
+        </div>
+        <div>
+          <dt className="font-mono uppercase tracking-wider text-[10px] text-text-muted">Fleet relevance</dt>
+          <dd>Use this rule ID to find the same agent posture issue across developer laptops and CI runners.</dd>
+        </div>
+      </dl>
     </li>
+  );
+}
+
+function DemoConversionPanel(): JSX.Element {
+  return (
+    <div className="border-t border-border px-4 py-4 bg-surface font-sans" data-testid="demo-cta-panel">
+      <p className="font-mono text-[11px] uppercase tracking-wider text-sev-low">
+        next step: run this against the real machine
+      </p>
+      <p className="text-sm text-text-muted mt-2">
+        The browser demo uses redacted fixtures. The binary produces the shareable HTML/SARIF/JSON
+        evidence security teams need for a fleet pilot.
+      </p>
+      <div className="mt-4 flex flex-col sm:flex-row gap-3">
+        <a
+          href="#what-happens"
+          className="font-mono text-xs border border-text text-text px-3 py-2 no-underline hover:bg-text hover:text-bg transition-colors"
+          data-cta="demo-run-local"
+        >
+          Run this on your real laptop →
+        </a>
+        <a
+          href="/sample-report"
+          className="font-mono text-xs border border-border text-text-muted px-3 py-2 no-underline hover:text-text hover:border-text transition-colors"
+          data-cta="demo-sample-report"
+        >
+          Open full report example →
+        </a>
+        <a
+          href="#fleet-pilot"
+          className="font-mono text-xs border border-sev-low text-sev-low px-3 py-2 no-underline hover:bg-sev-low hover:text-bg transition-colors"
+          data-cta="demo-design-partner"
+        >
+          Start design-partner pilot →
+        </a>
+      </div>
+    </div>
   );
 }
 

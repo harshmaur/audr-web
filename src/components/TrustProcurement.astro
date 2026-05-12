@@ -1,0 +1,65 @@
+---
+const proof = [
+  {
+    title: "Offline by default",
+    body: "Runs on the developer machine. No telemetry, no third-party analytics, and no hosted account required for the local scan path.",
+  },
+  {
+    title: "Verifiable release path",
+    body: "Single static binary with signed releases, SHA-256 checks, cosign verification, SBOM/provenance hooks, and an inspectable install script.",
+  },
+  {
+    title: "Security-team outputs",
+    body: "HTML for executive review, SARIF for code/security tooling, and JSON for fleet baselines or evidence bundles.",
+  },
+  {
+    title: "Clear read boundaries",
+    body: "Audr inspects AI-agent configuration surfaces: Claude Code, Cursor, Codex CLI, Windsurf, MCP servers, agent skills, trusted repos, and CI paths.",
+  },
+];
+---
+
+<section id="fleet-pilot" class="audr-rule">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-10 items-start">
+      <div>
+        <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+          trust and procurement proof
+        </p>
+        <h2 class="font-sans font-semibold text-2xl mt-2">
+          Built for a security-team pilot, not a growth funnel.
+        </h2>
+        <p class="font-sans text-base text-text-muted mt-3 max-w-narrow">
+          Start with a small design-partner fleet: 5–20 developer machines, redacted
+          evidence, one prioritized attack-path report, and a clear go/no-go for wider rollout.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a
+            href="mailto:harsh@saasalerts.com?subject=Audr%20fleet%20risk%20review"
+            class="font-sans font-medium text-sm text-text border border-text px-4 py-3 no-underline hover:bg-text hover:text-bg transition-colors"
+            data-cta="mail-fleet-review"
+          >
+            Request a fleet risk review →
+          </a>
+          <a
+            href="/security"
+            class="font-sans font-medium text-sm text-text-muted border border-border px-4 py-3 no-underline hover:text-text hover:border-text transition-colors"
+          >
+            Read /security →
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 border border-border bg-surface">
+        {
+          proof.map((item) => (
+            <article class="border-b sm:border-r border-border px-5 py-5 even:sm:border-r-0 last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0">
+              <h3 class="font-sans font-semibold text-base">{item.title}</h3>
+              <p class="font-sans text-sm text-text-muted mt-2">{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

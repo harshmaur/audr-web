@@ -28,9 +28,10 @@ describe("polish-sample-report.mjs output", () => {
     expect(html).toMatch(/<details class="path-group"/);
   });
 
-  it("contains the redacted-excerpt note linking to the canonical install command", () => {
+  it("contains the attack-path note linking to the canonical install command", () => {
     const html = readFileSync(POLISHED, "utf8");
-    expect(html).toMatch(/redacted excerpt/i);
+    expect(html).toMatch(/Top attack paths/i);
+    expect(html).toMatch(/redacted fleet scan/i);
     expect(html).toMatch(/curl -fsSL https:\/\/audr\.dev\/install\.sh/);
   });
 });

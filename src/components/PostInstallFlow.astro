@@ -1,0 +1,52 @@
+---
+const steps = [
+  {
+    label: "01",
+    title: "Install a signed single binary",
+    body: "Use the curl installer or verify the release yourself before it touches a developer machine.",
+    detail: "No account, no SaaS tenant, no background daemon.",
+  },
+  {
+    label: "02",
+    title: "Run audr scan locally",
+    body: "Audr reads AI-agent configs, MCP server definitions, trusted workspaces, hooks, skills, and CI agent paths from the machine it runs on.",
+    detail: "No upload by default. No telemetry. Scans complete in seconds.",
+  },
+  {
+    label: "03",
+    title: "Share evidence, not raw secrets",
+    body: "Open the local HTML report or export SARIF/JSON for security review, ticketing, or CI baselines.",
+    detail: "Findings include evidence path/key, attacker impact, and remediation order.",
+  },
+];
+---
+
+<section id="what-happens" class="audr-rule">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <header class="mb-6">
+      <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+        what happens after install
+      </p>
+      <h2 class="font-sans font-semibold text-2xl mt-2">
+        Install → scan → share a local report. No account ceremony.
+      </h2>
+      <p class="font-sans text-base text-text-muted mt-2 max-w-narrow">
+        Security teams can trial Audr on a few laptops without routing sensitive developer
+        configs through a hosted service.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 border border-border bg-surface">
+      {
+        steps.map((step) => (
+          <article class="border-b md:border-b-0 md:border-r border-border last:border-b-0 md:last:border-r-0 px-5 py-5">
+            <p class="font-mono text-xs text-sev-low uppercase tracking-wider">{step.label}</p>
+            <h3 class="font-sans font-semibold text-lg mt-3">{step.title}</h3>
+            <p class="font-sans text-sm text-text-muted mt-2">{step.body}</p>
+            <p class="font-mono text-[11px] text-text-muted mt-4">{step.detail}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

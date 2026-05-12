@@ -40,6 +40,53 @@ test.describe("homepage", () => {
     await expect(page.locator("text=Then run audr scan")).toBeVisible();
   });
 
+  test("buyer conversion sections are visible", async ({ page }) => {
+    await page.goto("/");
+
+    const fleetCta = page.locator('[data-cta="fleet-risk-review"]');
+    await expect(fleetCta).toBeVisible();
+    await expect(fleetCta).toHaveAttribute("href", "#fleet-pilot");
+
+    await expect(page.locator("text=Install → scan → share a local report")).toBeVisible();
+    await expect(page.locator("text=No account, no SaaS tenant, no background daemon.")).toBeVisible();
+    await expect(page.locator("text=Built for a security-team pilot, not a growth funnel.")).toBeVisible();
+    await expect(page.locator("text=Offline by default")).toBeVisible();
+    await expect(page.locator('[data-cta="mail-fleet-review"]')).toHaveAttribute(
+      "href",
+      /mailto:harsh@saasalerts\.com/,
+    );
+  });
+
+  test("demo results include conversion CTAs", async ({ page }) => {
+    await page.goto("/");
+    await page.click('[data-format="claude"]');
+    await page.click('[data-testid="scan-button"]');
+
+    const panel = page.locator('[data-testid="demo-cta-panel"]');
+    await expect(panel).toBeVisible();
+    await expect(panel).toContainText("Run this on your real laptop");
+    await expect(page.locator('[data-cta="demo-sample-report"]')).toHaveAttribute(
+      "href",
+      "/sample-report",
+    );
+    await expect(page.locator('[data-cta="demo-design-partner"]')).toHaveAttribute(
+      "href",
+      "#fleet-pilot",
+    );
+    await expect(page.locator("text=Evidence").first()).toBeVisible();
+    await expect(page.locator("text=Fleet relevance").first()).toBeVisible();
+  });
+
+  test("sample report teaser is attack-path oriented", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(
+      page.locator("text=Top 3 ways your AI-agent setup can currently be abused."),
+    ).toBeVisible();
+    await expect(page.locator("text=Attacker gets").first()).toBeVisible();
+    await expect(page.locator("text=Business impact").first()).toBeVisible();
+  });
+
   test("CVE strip shows latest five advisory proof cards", async ({ page }) => {
     await page.goto("/");
     const cards = page.locator('[data-section="advisory-proof"] [data-cve-card]');

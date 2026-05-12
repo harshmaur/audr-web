@@ -4,6 +4,8 @@ import Toolbar from "../components/Toolbar.astro";
 import LiveTag from "../components/LiveTag.astro";
 import Hero from "../components/Hero.astro";
 import ScanDemo from "../components/ScanDemo.tsx";
+import PostInstallFlow from "../components/PostInstallFlow.astro";
+import TrustProcurement from "../components/TrustProcurement.astro";
 import CVEStrip from "../components/CVEStrip.astro";
 import SampleReportTeaser from "../components/SampleReportTeaser.astro";
 import Footer from "../components/Footer.astro";
@@ -70,6 +72,9 @@ const jsonLd = {
       <ScanDemo client:visible wasmSha={wasmSha} />
     </div>
   </section>
+
+  <PostInstallFlow />
+  <TrustProcurement />
 
   <CVEStrip cves={recentCVEs} />
   <SampleReportTeaser />

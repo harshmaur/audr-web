@@ -47,14 +47,14 @@ html = html.replace(/path-testdata-laptops-dirty/g, "path-laptop-dev-machine-12"
 // --- 3. Rewrite the page <title>.
 html = html.replace(
   /<title>[\s\S]*?<\/title>/,
-  "<title>Audr — Sample fleet scan (redacted excerpt) · 200-laptop dev fleet</title>",
+  "<title>Audr — Top AI-agent attack paths (redacted fleet scan) · 200-laptop dev fleet</title>",
 );
 
 // --- 4. Rewrite the eyebrow + verdict tag-version banner.
 html = html.replace(
   /<div class="eyebrow">[\s\S]*?<\/div>/,
   `<div class="eyebrow">
-    <span><strong>AUDR</strong> · sample fleet scan · redacted excerpt</span>
+    <span><strong>AUDR</strong> · top AI-agent attack paths · redacted fleet scan</span>
     <span class="tag-version">200-laptop dev fleet</span>
   </div>`,
 );
@@ -70,9 +70,10 @@ html = html.replace(
 // that's deliberate (it reads as a copyable command, not body prose).
 const banner = `
   <aside style="border:1px solid var(--rule-soft);padding:14px 16px;margin:20px auto;max-width:980px;font-family:var(--font-body);font-size:13.5px;line-height:1.55;background:var(--card-tint);color:var(--ink);">
-    <strong style="color:var(--ink);font-weight:600;">Note —</strong>
-    <span style="color:var(--ink-soft);">this is a redacted excerpt of a real audr scan against a
-    development machine. Paths and identifiers are normalized so this artifact can be
+    <strong style="color:var(--ink);font-weight:600;">Top attack paths —</strong>
+    <span style="color:var(--ink-soft);">this redacted fleet excerpt shows the practical ways an
+    AI-agent setup can be abused: shell execution through hooks, exposed MCP credentials,
+    and trusted-workspace bypasses. Paths and identifiers are normalized so this artifact can be
     safely linked. To run audr against your own machine:</span>
     <code style="display:inline-block;padding:2px 6px;background:#0e0e0c;color:#f5f5f0;font-family:var(--font-mono);">curl -fsSL https://audr.dev/install.sh | sh</code>
   </aside>

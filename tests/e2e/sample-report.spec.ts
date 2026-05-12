@@ -14,5 +14,8 @@ test("sample report renders and contains zero path leaks", async ({ page }) => {
   expect(html).not.toMatch(/testdata\//);
 
   await expect(page.locator("h1.verdict-lead")).toBeVisible();
+  await expect(page.locator("text=top AI-agent attack paths")).toBeVisible();
+  await expect(page.locator("text=Top attack paths")).toBeVisible();
+  await expect(page).toHaveTitle(/Top AI-agent attack paths/);
   expect(errors).toEqual([]);
 });

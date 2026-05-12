@@ -18,12 +18,12 @@ Marketing site for [audr](https://github.com/harshmaur/audr). Static, privacy-fi
 
 ```sh
 git submodule update --init
-npm install
-npm run build:wasm  # requires Go 1.22+
-npm run polish      # generates public/sample-report.html
-npm run build       # astro build (depends on wasm + polish)
-npm test            # vitest
-npm run test:e2e    # playwright
+bun install
+bun run build:wasm  # requires Go 1.22+
+bun run polish      # generates public/sample-report.html
+bun run build       # astro build (depends on wasm + polish)
+bun run test        # vitest
+bun run test:e2e    # playwright
 ```
 
 ## Style

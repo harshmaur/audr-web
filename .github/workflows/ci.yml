@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: "22"
+  BUN_VERSION: "1.3.13"
   GO_VERSION: "1.22.5"
 
 jobs:
@@ -26,11 +26,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: npm
+          bun-version: ${{ env.BUN_VERSION }}
 
       - name: Setup Go
         uses: actions/setup-go@v5
@@ -42,36 +41,36 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y brotli
 
       - name: Install JS deps
-        run: npm ci --no-audit --no-fund
+        run: bun install --frozen-lockfile
 
       - name: Build WASM scan engine
         run: bash scripts/build-wasm.sh
 
       - name: WASM smoke test
-        run: node scripts/wasm-smoke-test.mjs
+        run: bun scripts/wasm-smoke-test.mjs
 
       - name: Polish sample report
-        run: node scripts/polish-sample-report.mjs
+        run: bun scripts/polish-sample-report.mjs
 
       - name: Astro check (typecheck)
-        run: npx astro check
+        run: bun run check
 
       - name: Vitest (unit + integration)
-        run: npx vitest run --reporter=verbose
+        run: bun run test -- --reporter=verbose
 
       - name: Astro build
-        run: npx astro build
+        run: bun run build
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium
 
       - name: Playwright e2e
-        run: npx playwright test
+        run: bun run test:e2e
         env:
           CI: "true"
 
       - name: Lighthouse CI
-        run: npx lhci autorun --config=./lighthouserc.cjs || echo "lhci is non-blocking until thresholds are tuned to real CDN"
+        run: bunx lhci autorun --config=./lighthouserc.cjs || echo "lhci is non-blocking until thresholds are tuned to real CDN"
         continue-on-error: true
 
       - name: Upload dist as artifact
@@ -83,6 +82,6 @@ jobs:
           retention-days: 7
 
 # Deployment is handled by Vercel's GitHub integration — Vercel watches the
-# repo and runs `npm run build` on every push, with preview URLs commented
+# repo and runs `bun run build` on every push, with preview URLs commented
 # on PRs automatically. This workflow is the test gate that GitHub branch
 # protection points at; it does not deploy.

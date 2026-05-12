@@ -17,7 +17,7 @@ export default defineConfig({
     { name: "mobile-chrome", use: { ...devices["Pixel 5"] } },
   ],
   webServer: {
-    command: "npm run preview -- --host 127.0.0.1 --port 4321",
+    command: "bun run preview -- --host 127.0.0.1 --port 4321",
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

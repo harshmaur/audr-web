@@ -6,7 +6,7 @@
 
 **Architecture:** This is a copy and layout change in the existing Astro marketing page. Keep the current static Astro/Tailwind structure, the WASM demo, install CTA, sample report CTA, and CVE data pipeline. Update the hero, advisory strip framing, and metadata copy without introducing third-party JS, analytics, new dependencies, or runtime network calls.
 
-**Tech Stack:** Astro 5, Tailwind, React island for ScanDemo, existing npm project conventions.
+**Tech Stack:** Astro 5, Tailwind, React island for ScanDemo, existing Bun project conventions.
 
 ---
 
@@ -182,17 +182,17 @@ Before final copy ships, each hero claim must map to product evidence:
 - Replace `h1-template.test.ts` with a test that checks the hero source no longer requires CVE interpolation, or rename it to a category-positioning test if that is cleaner.
 
 **Verification:**
-- `npm test` passes.
-- `npm run test:e2e` passes or the relevant homepage spec passes if running the full suite is too slow.
+- `bun run test` passes.
+- `bun run test:e2e` passes or the relevant homepage spec passes if running the full suite is too slow.
 
 ### Task 7: Verify and ship this slice
 
 **Objective:** Prove the copy change is safe and the static site still builds.
 
 **Commands:**
-- `npm test`
-- `npm run build`
-- `npm run test:e2e` if Playwright is available in the local environment; otherwise run the targeted homepage spec or document the blocker.
+- `bun run test`
+- `bun run build`
+- `bun run test:e2e` if Playwright is available in the local environment; otherwise run the targeted homepage spec or document the blocker.
 - Inspect `dist/index.html` for:
   - category-led hero copy
   - updated meta description

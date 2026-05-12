@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Vercel buildCommand entrypoint. Sourced or executed — either way,
-# it sets up the Go toolchain in the same shell that runs npm.
+# it sets up the Go toolchain in the same shell that runs Bun.
 #
-# Stays as a single script (rather than `install-go && npm run build`)
-# so PATH exported here is visible to the npm sub-process.
+# Stays as a single script (rather than `install-go && bun run build`)
+# so PATH exported here is visible to the Bun sub-process.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -12,4 +12,4 @@ cd "$(dirname "$0")/.."
 # shellcheck source=./install-go.sh
 source scripts/install-go.sh
 
-npm run build
+bun run build

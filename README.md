@@ -19,16 +19,16 @@ Live at https://audr.dev.
 git submodule update --init --recursive
 
 # 2) Install JS deps
-npm install
+bun install
 
 # 3) Build the WASM scan engine (requires Go 1.22+)
-npm run build:wasm
+bun run build:wasm
 
 # 4) Polish the sample report from the audr submodule
-npm run polish
+bun run polish
 
 # 5) Dev server
-npm run dev
+bun run dev
 ```
 
 ## Repo layout
@@ -45,10 +45,10 @@ npm run dev
 ## Tests
 
 ```sh
-npm run lint && npm run typecheck
-npm run test           # vitest unit + integration
-npm run test:e2e       # playwright e2e
-npm run lighthouse     # lighthouse ci
+bun run lint && bun run typecheck
+bun run test          # vitest unit + integration
+bun run test:e2e      # playwright e2e
+bun run lighthouse    # lighthouse ci
 ```
 
 ## License

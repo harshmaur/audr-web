@@ -10,7 +10,7 @@ const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
-// These tests require the WASM blob to have been built via `npm run build:wasm`.
+// These tests require the WASM blob to have been built via `bun run build:wasm`.
 // Skip locally if it's missing — the CI workflow always builds before testing.
 describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)", () => {
   let scan: (text: string, hint: string) => string;

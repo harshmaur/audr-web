@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
-  "installCommand": "git submodule update --init --recursive && npm ci --no-audit --no-fund",
+  "installCommand": "git submodule update --init --recursive && bun install --frozen-lockfile",
   "buildCommand": "bash scripts/vercel-build.sh",
   "outputDirectory": "dist",
   "cleanUrls": true,

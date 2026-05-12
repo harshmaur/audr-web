@@ -44,6 +44,17 @@
     "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
   },
   {
+    "cve_id": "CVE-2026-43575",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Sandbox noVNC helper route exposes browser session credentials.",
+    "visceral_consequence": "unauthenticated routes hand over live browser sessions",
+    "scope_phrase": "where vulnerable OpenClaw installs expose noVNC helper credentials",
+    "audr_rule_id": "agent-package-known-vulnerable"
+  },
+  {
     "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

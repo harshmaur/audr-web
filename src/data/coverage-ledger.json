@@ -1,17 +1,33 @@
 {
-  "generated_at": "2026-05-12T05:04:21Z",
-  "source_last_discovery_at": "2026-05-10",
-  "source_entry_count": 170,
-  "public_entry_count": 29,
+  "generated_at": "2026-05-12T09:36:49Z",
+  "source_last_discovery_at": "2026-05-12",
+  "source_entry_count": 190,
+  "public_entry_count": 30,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 141,
+  "excluded_public_safe_candidate_count": 160,
   "excluded_status_counts": {
-    "irrelevant": 37
+    "irrelevant": 38
   },
   "excluded_unknown_vendor_product_count": 29,
-  "excluded_unknown_severity_count": 18,
-  "enriched_from_cves_json_count": 12,
+  "excluded_unknown_severity_count": 19,
+  "enriched_from_cves_json_count": 13,
   "entries": [
+    {
+      "cve_id": "CVE-2026-43575",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-06",
+      "last_seen_at": "2026-05-12",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43575",
+      "summary_short": "Sandbox noVNC helper route exposes browser session credentials.",
+      "audr_rule_id": "agent-package-known-vulnerable"
+    },
     {
       "cve_id": "CVE-2026-43578",
       "status": "shipped",
@@ -19,7 +35,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -35,7 +51,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -51,7 +67,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -67,7 +83,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -83,7 +99,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-05",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -99,7 +115,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-05",
-      "last_seen_at": "2026-05-10",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
@@ -285,184 +301,187 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-41495",
+      "cve_id": "CVE-2026-43901",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "Model Context Protocol",
+      "vendor": "MCP",
       "product": "MCP server",
-      "published_date": "2026-05-08",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41495",
-      "summary_short": "n8n-MCP is an MCP server that provides AI assistants access to n8n node documentation, properties, and operations. Prior to version 2.47.11, when n8n-mcp…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43901",
+      "summary_short": "Wireshark MCP is an MCP Server that turns tshark into a structured analysis interface, then layers in optional Wireshark suite utilities. In 1.1.5 and…"
     },
     {
-      "cve_id": "CVE-2026-41496",
+      "cve_id": "CVE-2026-44991",
       "status": "actionable",
-      "severity": "high",
-      "vendor": "PraisonAI",
-      "product": "PraisonAI / praisonaiagents",
-      "published_date": "2026-05-08",
-      "last_seen_at": "2026-05-10",
-      "keywords": [
-        "Roo Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41496",
-      "summary_short": "PraisonAI is a multi-agent teams system. Prior to praisonai version 4.6.9 and praisonaiagents version 1.6.9, the fix for CVE-2026-40315 added input…"
-    },
-    {
-      "cve_id": "CVE-2026-42282",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Model Context Protocol",
-      "product": "MCP server",
-      "published_date": "2026-05-08",
-      "last_seen_at": "2026-05-10",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42282",
-      "summary_short": "n8n-MCP is an MCP server that provides AI assistants access to n8n node documentation, properties, and operations. Prior to version 2.47.13, when n8n-mcp…"
-    },
-    {
-      "cve_id": "CVE-2026-44336",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "PraisonAI",
-      "product": "PraisonAI MCP server",
-      "published_date": "2026-05-08",
-      "last_seen_at": "2026-05-10",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44336",
-      "summary_short": "PraisonAI is a multi-agent teams system. Prior to version 4.6.34, PraisonAI's MCP (Model Context Protocol) server (praisonai mcp serve) registers four…"
-    },
-    {
-      "cve_id": "CVE-2026-43575",
-      "status": "actionable",
-      "severity": "critical",
+      "severity": "low",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43575",
-      "summary_short": "OpenClaw versions 2026.2.21 before 2026.4.10 contain an authentication bypass vulnerability in the sandbox noVNC helper route that exposes interactive…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44991",
+      "summary_short": "OpenClaw before 2026.4.21 contains an authorization bypass vulnerability in command-auth.ts that allows non-owner senders to execute owner-enforced slash…"
     },
     {
-      "cve_id": "CVE-2026-43576",
+      "cve_id": "CVE-2026-44992",
       "status": "actionable",
       "severity": "medium",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43576",
-      "summary_short": "OpenClaw before 2026.4.5 contains a server-side request forgery vulnerability in the CDP /json/version WebSocket endpoint that allows attackers to pivot to…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44992",
+      "summary_short": "OpenClaw versions 2026.4.5 before 2026.4.20 contain an environment variable injection vulnerability allowing workspace dotenv to override MINIMAX_API_HOST.…"
     },
     {
-      "cve_id": "CVE-2026-43577",
+      "cve_id": "CVE-2026-44993",
       "status": "actionable",
-      "severity": "high",
+      "severity": "low",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43577",
-      "summary_short": "OpenClaw before 2026.4.9 contains a file read vulnerability allowing attackers to bypass navigation guards through browser act/evaluate interactions.…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44993",
+      "summary_short": "OpenClaw before 2026.4.20 contains a message classification vulnerability in Feishu card-action callbacks that misclassifies direct messages as group…"
     },
     {
-      "cve_id": "CVE-2026-43579",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43579",
-      "summary_short": "OpenClaw before 2026.4.10 contains an insufficient access control vulnerability in Nostr plugin HTTP profile routes that allows operators with write…"
-    },
-    {
-      "cve_id": "CVE-2026-43580",
+      "cve_id": "CVE-2026-44994",
       "status": "actionable",
       "severity": "medium",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43580",
-      "summary_short": "OpenClaw before 2026.4.10 contains an incomplete navigation guard vulnerability that allows attackers to trigger navigation without complete SSRF policy…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44994",
+      "summary_short": "OpenClaw before 2026.4.22 contains an authentication bypass vulnerability in the Control UI bootstrap config endpoint that allows unauthenticated attackers…"
     },
     {
-      "cve_id": "CVE-2026-43582",
+      "cve_id": "CVE-2026-44995",
       "status": "actionable",
       "severity": "medium",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
+        "MCP server",
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43582",
-      "summary_short": "OpenClaw before 2026.4.10 contains a server-side request forgery vulnerability in browser navigation policy that allows attackers to bypass hostname…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44995",
+      "summary_short": "OpenClaw before 2026.4.20 contains an improper environment variable validation vulnerability in MCP stdio server configuration that allows attackers to…"
     },
     {
-      "cve_id": "CVE-2026-43583",
+      "cve_id": "CVE-2026-44996",
       "status": "actionable",
       "severity": "medium",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43583",
-      "summary_short": "OpenClaw versions 2026.4.10 before 2026.4.14 fail to persist session context during delivery queue recovery for media replay. Attackers can exploit…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44996",
+      "summary_short": "OpenClaw before 2026.4.15 contains an arbitrary local file read vulnerability in the webchat audio embedding helper that fails to apply local media root…"
     },
     {
-      "cve_id": "CVE-2026-43584",
+      "cve_id": "CVE-2026-44997",
       "status": "actionable",
-      "severity": "high",
+      "severity": "low",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
-      "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-10",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43584",
-      "summary_short": "OpenClaw before 2026.4.10 contains an insufficient environment variable denylist vulnerability in its exec environment policy that allows operator-supplied…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44997",
+      "summary_short": "OpenClaw before 2026.4.22 contains a security envelope constraint bypass vulnerability allowing restricted subagents to spawn ACP child sessions that fail…"
+    },
+    {
+      "cve_id": "CVE-2026-44998",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44998",
+      "summary_short": "OpenClaw before 2026.4.20 contains a tool policy bypass vulnerability allowing bundled MCP and LSP tools to circumvent configured tool restrictions.…"
+    },
+    {
+      "cve_id": "CVE-2026-44999",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44999",
+      "summary_short": "OpenClaw before 2026.4.20 fails to properly preserve untrusted labels for isolated cron awareness events, allowing webhook-triggered cron agent output to be…"
+    },
+    {
+      "cve_id": "CVE-2026-45000",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45000",
+      "summary_short": "OpenClaw before 2026.4.20 contains a server-side request forgery vulnerability in browser CDP profile creation that skips strict-mode SSRF policy checks.…"
+    },
+    {
+      "cve_id": "CVE-2026-45001",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-12",
+      "keywords": [
+        "MCP server",
+        "OpenClaw",
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45001",
+      "summary_short": "OpenClaw before 2026.4.20 contains a guard bypass vulnerability in the agent-facing gateway config.patch and config.apply endpoints that fails to protect…"
     }
   ]
 }

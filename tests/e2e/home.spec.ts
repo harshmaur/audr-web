@@ -53,7 +53,7 @@ test.describe("homepage", () => {
     await expect(page.locator("text=Offline by default")).toBeVisible();
     await expect(page.locator('[data-cta="mail-fleet-review"]')).toHaveAttribute(
       "href",
-      /mailto:harsh@saasalerts\.com/,
+      /mailto:harshmaur@gmail\.com/,
     );
   });
 

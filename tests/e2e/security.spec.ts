@@ -8,7 +8,7 @@ test("security page loads", async ({ page }) => {
 test("security.txt is reachable", async ({ request }) => {
   const res = await request.get("/.well-known/security.txt");
   expect(res.ok()).toBeTruthy();
-  expect(await res.text()).toMatch(/Contact: mailto:harsh@saasalerts\.com/);
+  expect(await res.text()).toMatch(/Contact: mailto:harshmaur@gmail\.com/);
 });
 
 test("robots.txt allows AI scrapers", async ({ request }) => {

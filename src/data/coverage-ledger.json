@@ -1,17 +1,35 @@
 {
-  "generated_at": "2026-05-12T09:36:49Z",
-  "source_last_discovery_at": "2026-05-12",
-  "source_entry_count": 190,
-  "public_entry_count": 30,
+  "generated_at": "2026-05-16T09:42:05Z",
+  "source_last_discovery_at": "2026-05-16",
+  "source_entry_count": 237,
+  "public_entry_count": 31,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 160,
+  "excluded_public_safe_candidate_count": 206,
   "excluded_status_counts": {
-    "irrelevant": 38
+    "osv_covered": 4,
+    "not_auditable": 5,
+    "irrelevant": 63
   },
-  "excluded_unknown_vendor_product_count": 29,
-  "excluded_unknown_severity_count": 19,
-  "enriched_from_cves_json_count": 13,
+  "excluded_unknown_vendor_product_count": 33,
+  "excluded_unknown_severity_count": 20,
+  "enriched_from_cves_json_count": 14,
   "entries": [
+    {
+      "cve_id": "CVE-2026-44717",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "611711Dark",
+      "product": "MCP Calculate Server",
+      "published_date": "2026-05-15",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44717",
+      "summary_short": "SymPy expression tool input reaches Python eval before 0.1.1.",
+      "audr_rule_id": "mcp-calculate-server-eval-rce"
+    },
     {
       "cve_id": "CVE-2026-43575",
       "status": "shipped",
@@ -19,7 +37,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-13",
       "keywords": [
         "OpenClaw"
       ],
@@ -35,7 +53,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-13",
       "keywords": [
         "OpenClaw"
       ],
@@ -51,7 +69,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-13",
       "keywords": [
         "OpenClaw"
       ],
@@ -67,7 +85,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-13",
       "keywords": [
         "OpenClaw"
       ],
@@ -83,7 +101,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-06",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-13",
       "keywords": [
         "OpenClaw"
       ],
@@ -301,13 +319,135 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-44641",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "APM",
+      "published_date": "2026-05-15",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "agent plugin",
+        "agent skills"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44641",
+      "summary_short": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. Prior to 0.8.12, Microsoft APM normalizes marketplace plugins by copying…"
+    },
+    {
+      "cve_id": "CVE-2026-44467",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Anthropic",
+      "product": "Claude Desktop / Claude Code",
+      "published_date": "2026-05-13",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44467",
+      "summary_short": "The Claude Desktop app gives you Claude Code with a graphical interface built for running multiple sessions side by side. From 1.2581.0 to before 1.4304.0,…"
+    },
+    {
+      "cve_id": "CVE-2026-45033",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "GitHub",
+      "product": "GitHub Copilot CLI",
+      "published_date": "2026-05-13",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "AI coding agent",
+        "coding agent"
+      ],
+      "local_signal_category": "plugin/hook config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45033",
+      "summary_short": "GitHub Copilot CLI brings AI-powered coding assistance directly to your command line. Prior to 1.0.43, a security vulnerability has been identified in…"
+    },
+    {
+      "cve_id": "CVE-2026-42260",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "MCP",
+      "product": "MCP server",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "agent config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42260",
+      "summary_short": "Open-WebSearch is a multi-engine MCP server, CLI, and local daemon for agent web search and content retrieval. Prior to 2.1.7, isPublicHttpUrl /…"
+    },
+    {
+      "cve_id": "CVE-2026-43990",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990",
+      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, plugin-shell's run_command wrapped every agent-supplied command in 'sh…"
+    },
+    {
+      "cve_id": "CVE-2026-43991",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
+      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could…"
+    },
+    {
+      "cve_id": "CVE-2026-44246",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Anthropic",
+      "product": "Claude/Anthropic SDK",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "Anthropic"
+      ],
+      "local_signal_category": "permissions/trust config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44246",
+      "summary_short": "nnU-Net is a semantic segmentation framework that automatically adapts its pipeline to a dataset. Prior to 2.4.1, the nnU-Net Issue Triage workflow in…"
+    },
+    {
+      "cve_id": "CVE-2026-5029",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "MCP",
+      "product": "MCP server",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-16",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5029",
+      "summary_short": "A remote code execution vulnerability exists in Code Runner MCP Server when run with the --transport http option, which exposes the /mcp JSON-RPC endpoint…"
+    },
+    {
       "cve_id": "CVE-2026-43901",
       "status": "actionable",
       "severity": "medium",
       "vendor": "MCP",
       "product": "MCP server",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-16",
       "keywords": [
         "MCP server"
       ],
@@ -322,7 +462,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -337,7 +477,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -352,136 +492,13 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
+      "last_seen_at": "2026-05-16",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44993",
       "summary_short": "OpenClaw before 2026.4.20 contains a message classification vulnerability in Feishu card-action callbacks that misclassifies direct messages as group…"
-    },
-    {
-      "cve_id": "CVE-2026-44994",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44994",
-      "summary_short": "OpenClaw before 2026.4.22 contains an authentication bypass vulnerability in the Control UI bootstrap config endpoint that allows unauthenticated attackers…"
-    },
-    {
-      "cve_id": "CVE-2026-44995",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "MCP server",
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44995",
-      "summary_short": "OpenClaw before 2026.4.20 contains an improper environment variable validation vulnerability in MCP stdio server configuration that allows attackers to…"
-    },
-    {
-      "cve_id": "CVE-2026-44996",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44996",
-      "summary_short": "OpenClaw before 2026.4.15 contains an arbitrary local file read vulnerability in the webchat audio embedding helper that fails to apply local media root…"
-    },
-    {
-      "cve_id": "CVE-2026-44997",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44997",
-      "summary_short": "OpenClaw before 2026.4.22 contains a security envelope constraint bypass vulnerability allowing restricted subagents to spawn ACP child sessions that fail…"
-    },
-    {
-      "cve_id": "CVE-2026-44998",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44998",
-      "summary_short": "OpenClaw before 2026.4.20 contains a tool policy bypass vulnerability allowing bundled MCP and LSP tools to circumvent configured tool restrictions.…"
-    },
-    {
-      "cve_id": "CVE-2026-44999",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44999",
-      "summary_short": "OpenClaw before 2026.4.20 fails to properly preserve untrusted labels for isolated cron awareness events, allowing webhook-triggered cron agent output to be…"
-    },
-    {
-      "cve_id": "CVE-2026-45000",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45000",
-      "summary_short": "OpenClaw before 2026.4.20 contains a server-side request forgery vulnerability in browser CDP profile creation that skips strict-mode SSRF policy checks.…"
-    },
-    {
-      "cve_id": "CVE-2026-45001",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-12",
-      "keywords": [
-        "MCP server",
-        "OpenClaw",
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45001",
-      "summary_short": "OpenClaw before 2026.4.20 contains a guard bypass vulnerability in the agent-facing gateway config.patch and config.apply endpoints that fails to protect…"
     }
   ]
 }

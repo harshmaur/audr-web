@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-16T09:42:05Z",
-  "source_last_discovery_at": "2026-05-16",
+  "generated_at": "2026-05-17T09:46:29Z",
+  "source_last_discovery_at": "2026-05-17",
   "source_entry_count": 237,
-  "public_entry_count": 31,
+  "public_entry_count": 32,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 206,
+  "excluded_public_safe_candidate_count": 205,
   "excluded_status_counts": {
     "osv_covered": 4,
     "not_auditable": 5,
@@ -12,7 +12,7 @@
   },
   "excluded_unknown_vendor_product_count": 33,
   "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 14,
+  "enriched_from_cves_json_count": 15,
   "entries": [
     {
       "cve_id": "CVE-2026-44717",
@@ -21,7 +21,7 @@
       "vendor": "611711Dark",
       "product": "MCP Calculate Server",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "MCP server"
       ],
@@ -223,6 +223,22 @@
       "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
     },
     {
+      "cve_id": "CVE-2026-42422",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-04-28",
+      "last_seen_at": "2026-05-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42422",
+      "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
+      "audr_rule_id": "openclaw-device-token-role-minting"
+    },
+    {
       "cve_id": "CVE-2026-42426",
       "status": "shipped",
       "severity": "high",
@@ -325,7 +341,7 @@
       "vendor": "Microsoft",
       "product": "APM",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "agent plugin",
         "agent skills"
@@ -341,7 +357,7 @@
       "vendor": "Anthropic",
       "product": "Claude Desktop / Claude Code",
       "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "Claude Code"
       ],
@@ -356,7 +372,7 @@
       "vendor": "GitHub",
       "product": "GitHub Copilot CLI",
       "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "AI coding agent",
         "coding agent"
@@ -372,7 +388,7 @@
       "vendor": "MCP",
       "product": "MCP server",
       "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "MCP server"
       ],
@@ -387,7 +403,7 @@
       "vendor": "JunoClaw",
       "product": "JunoClaw",
       "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "agent plugin"
       ],
@@ -402,7 +418,7 @@
       "vendor": "JunoClaw",
       "product": "JunoClaw",
       "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "agent plugin"
       ],
@@ -417,7 +433,7 @@
       "vendor": "Anthropic",
       "product": "Claude/Anthropic SDK",
       "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "Anthropic"
       ],
@@ -432,7 +448,7 @@
       "vendor": "MCP",
       "product": "MCP server",
       "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "MCP server"
       ],
@@ -447,7 +463,7 @@
       "vendor": "MCP",
       "product": "MCP server",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "MCP server"
       ],
@@ -462,7 +478,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -477,7 +493,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -492,7 +508,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-16",
+      "last_seen_at": "2026-05-17",
       "keywords": [
         "OpenClaw"
       ],

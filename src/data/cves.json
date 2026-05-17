@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-42422",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
+    "visceral_consequence": "rotated device tokens gain unapproved agent roles",
+    "scope_phrase": "where device token rotation trusts vulnerable OpenClaw versions",
+    "audr_rule_id": "openclaw-device-token-role-minting"
+  },
+  {
     "cve_id": "CVE-2026-41405",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

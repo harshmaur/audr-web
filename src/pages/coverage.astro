@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Toolbar from "../components/Toolbar.astro";
 import Footer from "../components/Footer.astro";
 import CoverageCard from "../components/CoverageCard.astro";
+import MiniShaiHuludCoverage from "../components/MiniShaiHuludCoverage.astro";
 import {
   coverageStats,
   loadCoverageSnapshot,
@@ -73,6 +74,10 @@ const description = "Public snapshot of Audr shipped local checks and selected a
         </div>
       </div>
     </section>
+
+    <div class="mt-12">
+      <MiniShaiHuludCoverage />
+    </div>
 
     <section class="audr-rule mt-12 pt-8" data-section="shipped-checks">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-6">

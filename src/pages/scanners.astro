@@ -1,0 +1,243 @@
+---
+import Base from "../layouts/Base.astro";
+import Toolbar from "../components/Toolbar.astro";
+import Footer from "../components/Footer.astro";
+
+const backends = [
+  {
+    name: "Native agent-rule engine",
+    role: "in-repo",
+    scans: "AI-agent and developer-machine configuration surfaces",
+    detail:
+      "Audr's own pattern + AST rules for MCP servers, Claude Code settings, Cursor permissions, Codex CLI config, Windsurf, GitHub Actions workflows, shell rcs, and agent skills. Around 80 rules ship in v0.13; the cron-driven CVE pipeline lands new rules as advisories shipped.",
+    sources: [
+      {
+        label: "internal/rules/builtin (Go source)",
+        href: "https://github.com/harshmaur/audr/tree/main/internal/rules/builtin",
+      },
+      {
+        label: "Advisory triage ledger",
+        href: "/coverage",
+      },
+    ],
+    license: "FSL-1.1-MIT (audr's source license)",
+    produces: "Agent-config finding",
+  },
+  {
+    name: "OSV-Scanner",
+    role: "external · invoked by audr",
+    scans: "Package CVEs across npm, Go, PyPI, Crates.io, Maven, and more",
+    detail:
+      "Google's open-source scanner against the OSV.dev database. Audr orchestrates osv-scanner against the manifest files it finds on the developer machine and re-keys findings into audr's dedup + fix-authority taxonomy. The vuln DB is OSV; audr does not maintain a parallel DB.",
+    sources: [
+      {
+        label: "OSV-Scanner on GitHub",
+        href: "https://github.com/google/osv-scanner",
+      },
+      {
+        label: "OSV.dev — the vulnerability database",
+        href: "https://osv.dev/",
+      },
+    ],
+    license: "Apache-2.0 (Google)",
+    produces: "Dep-package finding",
+  },
+  {
+    name: "Betterleaks",
+    role: "external · invoked by audr",
+    scans: "Exposed secrets with provider validation",
+    detail:
+      "Secret scanner with active provider validation — Betterleaks doesn't just regex-match credential shapes, it (optionally) verifies they're live by hitting the issuing provider's identity endpoint. Audr invokes it via `audr scan --secrets` and folds findings through redaction + dedup. Valid vs. unverified findings collapse into one fingerprint so a validation flap doesn't churn finding identity.",
+    sources: [
+      {
+        label: "Betterleaks on GitHub",
+        href: "https://github.com/betterleaks/betterleaks",
+      },
+    ],
+    license: "MIT (Betterleaks)",
+    produces: "Secret finding",
+  },
+  {
+    name: "ospkg",
+    role: "in-repo · Linux only",
+    scans: "OS-package CVEs (dpkg / rpm / apk)",
+    detail:
+      "Audr enumerates installed OS packages via dpkg-query / rpm / apk, hands the list to OSV-Scanner's --osv-bundle mode, and surfaces CVEs against the operating system itself. Linux-only by design; macOS and Windows do not have an equivalent system-wide package inventory.",
+    sources: [
+      {
+        label: "internal/ospkg (Go source)",
+        href: "https://github.com/harshmaur/audr/tree/main/internal/ospkg",
+      },
+    ],
+    license: "FSL-1.1-MIT (audr's source license)",
+    produces: "OS-package finding",
+  },
+];
+
+const description =
+  "How audr orchestrates four scanners — the native agent-rule engine, OSV-Scanner, Betterleaks, and ospkg — into one report. We do not maintain a parallel vuln database.";
+---
+
+<Base title="Inside audr — the four scanner backends" description={description}>
+  <Toolbar />
+
+  <main class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <section data-section="scanners-hero">
+      <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+        inside audr · pillar 02
+      </p>
+      <h1
+        class="font-mono font-medium leading-tight text-text max-w-h1 mt-3"
+        style="font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.01em;"
+      >
+        Audr orchestrates four scanners. It does not maintain a fifth vuln database.
+      </h1>
+      <p class="mt-5 max-w-narrow text-text-muted" style="font-size: 1.05rem; line-height: 1.55;">
+        Most security tools either roll their own vulnerability database (and fall
+        behind) or wrap one (and miss the others). Audr coordinates the scanners
+        the open-source security community already maintains, plus a native rule
+        engine for AI-agent posture, and presents one deduplicated report.
+      </p>
+      <p class="mt-3 font-mono text-xs text-text-muted">
+        The DB authors do their job. Audr does the orchestration.
+      </p>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8" data-section="backends">
+      <h2 class="font-mono font-medium text-2xl">The four backends</h2>
+      <p class="font-sans text-sm text-text-muted mt-2 max-w-narrow">
+        Each backend has a single job. Audr re-keys findings into a unified
+        fingerprint, dedup-groups them by underlying advisory, classifies fix
+        authority (you / maintainer / upstream), and emits the combined result.
+      </p>
+
+      <div class="mt-8 grid grid-cols-1 gap-6">
+        {
+          backends.map((backend, idx) => (
+            <article class="border border-border bg-surface">
+              <header class="border-b border-border px-5 py-4 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+                <p class="font-mono text-xs text-sev-low uppercase tracking-wider">
+                  {String(idx + 1).padStart(2, "0")}
+                </p>
+                <h3 class="font-sans font-semibold text-xl">{backend.name}</h3>
+                <p class="font-mono text-[11px] text-text-muted uppercase tracking-wider sm:ml-auto">
+                  {backend.role}
+                </p>
+              </header>
+              <div class="px-5 py-5 grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-6">
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+                    scans
+                  </p>
+                  <p class="font-sans text-sm text-text mt-1">{backend.scans}</p>
+                  <p class="font-mono text-xs uppercase tracking-wider text-text-muted mt-4">
+                    emits
+                  </p>
+                  <p class="font-sans text-sm text-text mt-1">{backend.produces}</p>
+                  <p class="font-mono text-xs uppercase tracking-wider text-text-muted mt-4">
+                    license
+                  </p>
+                  <p class="font-mono text-xs text-text-muted mt-1">{backend.license}</p>
+                </div>
+                <div>
+                  <p class="font-sans text-sm text-text-muted">{backend.detail}</p>
+                  <ul class="mt-4 space-y-1.5">
+                    {backend.sources.map((source) => (
+                      <li>
+                        <a
+                          href={source.href}
+                          class="font-mono text-xs text-text border-b border-border hover:border-text"
+                        >
+                          {source.label} →
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8" data-section="why-orchestrate">
+      <h2 class="font-mono font-medium text-2xl">Why orchestration instead of one big scanner</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-wider text-sev-low">
+            01 — focus
+          </p>
+          <p class="font-sans text-sm text-text mt-2">
+            Each backend is the best at one job. OSV.dev curates package CVEs at a
+            cadence no in-repo rule set can match. Betterleaks validates secrets
+            against live provider endpoints. ospkg knows OS package managers.
+            Audr's job is the agent-config layer no one else covers — and then
+            stitching the rest together.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-xs uppercase tracking-wider text-sev-low">
+            02 — trust posture
+          </p>
+          <p class="font-sans text-sm text-text mt-2">
+            A vuln DB is a moat that ages. Audr does not own one. When OSV.dev
+            adds an advisory, audr picks it up at the next scan with no audr
+            release required. When Betterleaks adds a provider, audr's secret
+            coverage grows with it. We follow upstream; we don't fork.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-xs uppercase tracking-wider text-sev-low">
+            03 — dedup is the value-add
+          </p>
+          <p class="font-sans text-sm text-text mt-2">
+            The same OpenClaw CVE shows up in package.json, package-lock.json,
+            yarn.lock, and a vendored copy under node_modules. OSV-Scanner reports
+            four findings; audr dedup-groups them by advisory + ecosystem + package
+            + fixed-version, surfaces one row, and lists the affected paths under
+            it.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-xs uppercase tracking-wider text-sev-low">
+            04 — fix authority
+          </p>
+          <p class="font-sans text-sm text-text mt-2">
+            Each finding is classified as your-fix, maintainer-fix, or upstream-fix.
+            A secret in your repo is your-fix. A CVE in a vendored plugin under
+            ~/.cursor/extensions is the plugin maintainer's fix. The CLI's
+            <code class="font-mono">--fix-authority you</code> filter is the natural input
+            for a coding agent — the other classes need human action.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="audr-rule mt-12 pt-8" data-section="cta">
+      <h2 class="font-mono font-medium text-2xl">Try it</h2>
+      <p class="font-sans text-sm text-text-muted mt-2 max-w-narrow">
+        The single binary ships with all four backends wired up. OSV-Scanner and
+        Betterleaks are installed on-demand on first scan; ospkg is built in and
+        only runs on Linux. The local-machine scan never uploads anything by
+        default.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <a
+          href="/"
+          class="font-sans font-medium text-sm text-text border border-text px-4 py-3 no-underline hover:bg-text hover:text-bg transition-colors"
+        >
+          ← Back to audr.dev
+        </a>
+        <a
+          href="/coverage"
+          class="font-sans font-medium text-sm text-sev-low border border-sev-low px-4 py-3 no-underline hover:bg-sev-low hover:text-bg transition-colors"
+        >
+          See what rules ship today →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

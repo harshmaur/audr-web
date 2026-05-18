@@ -10,7 +10,7 @@ const audrVersion = (() => {
     const url = new URL("../../vendor/audr/VERSION", import.meta.url);
     return readFileSync(fileURLToPath(url), "utf8").trim();
   } catch {
-    return "v0.3.1";
+    return "v0.13.0";
   }
 })();
 ---

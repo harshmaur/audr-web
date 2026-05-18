@@ -1,17 +1,24 @@
 ---
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { AUDR_VERSION_TAG } from "../lib/audr-version";
 
 const pkgUrl = new URL("../../package.json", import.meta.url);
 const pkg = JSON.parse(readFileSync(fileURLToPath(pkgUrl), "utf8"));
 const version = pkg.version ?? "0.0.0";
+// Audr binary repo uses git tags, not a VERSION file. The vendor submodule
+// check stays as forward-compat if that ever changes; the real source of
+// truth is src/lib/audr-version.ts, bumped per release by hermes via
+// `bun run sync:audr <tag>`. See AGENTS.md "Release sync from audr binary".
 const audrVersion = (() => {
   try {
     const url = new URL("../../vendor/audr/VERSION", import.meta.url);
-    return readFileSync(fileURLToPath(url), "utf8").trim();
+    const fromFile = readFileSync(fileURLToPath(url), "utf8").trim();
+    if (fromFile) return fromFile;
   } catch {
-    return "v0.13.0";
+    /* fall through */
   }
+  return AUDR_VERSION_TAG;
 })();
 ---
 

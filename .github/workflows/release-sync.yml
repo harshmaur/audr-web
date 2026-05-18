@@ -1,0 +1,209 @@
+name: release-sync
+
+# Watches the audr binary repo for new release tags and runs the
+# release-sync contract from AGENTS.md whenever audr's latest tag is
+# newer than what audr-web currently advertises.
+#
+# Layer 1 (mechanical) runs autonomously in this workflow:
+#   - Bump vendor/audr submodule to the new tag
+#   - bun run sync:audr <tag>          (rewrites src/lib/audr-version.ts)
+#   - bun run sync:audr-schema         (copies /schema/*.json if changed)
+#   - bun run typecheck && build && test
+#   - Open a PR titled `chore(site): sync to audr <tag>`
+#
+# Layer 2 (content audit) is left for the PR review (hermes or human
+# per AGENTS.md "Release sync from audr binary"). The PR body links to
+# the contract and to the audr CHANGELOG entry for the new tag.
+#
+# Idempotent on every axis:
+#   - Same-tag invocation = early exit (no commits, no PR)
+#   - Re-run during an open PR = peter-evans/create-pull-request updates
+#     the existing branch in place instead of opening a duplicate
+
+on:
+  schedule:
+    # Daily at 06:13 UTC. Off-the-hour minute reduces contention with
+    # other scheduled workflows on GitHub's runner pool.
+    - cron: "13 6 * * *"
+  workflow_dispatch:
+    inputs:
+      force_tag:
+        description: "Explicit audr tag to sync to (e.g. v0.14.0). Leave blank to use the latest GitHub release."
+        required: false
+        type: string
+      dry_run:
+        description: "Run all the steps but skip the PR open (for testing the workflow logic)."
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout audr-web (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.13"
+
+      - name: Resolve target tag
+        id: target
+        env:
+          FORCE_TAG: ${{ github.event.inputs.force_tag }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FORCE_TAG:-}" ]; then
+            tag="$FORCE_TAG"
+            echo "Using forced tag from workflow_dispatch input: $tag"
+          else
+            tag=$(gh release view --repo harshmaur/audr --json tagName --jq '.tagName')
+            echo "Latest audr release: $tag"
+          fi
+          # Sanity check the format. We reject pre-release / alpha / rc /
+          # build-suffixed tags — site documents stable releases only.
+          if ! echo "$tag" | grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::warning::Tag '$tag' is not a stable vX.Y.Z release; skipping sync."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - name: Compare against current AUDR_VERSION_TAG
+        id: compare
+        if: steps.target.outputs.skip == 'false'
+        run: |
+          set -euo pipefail
+          target='${{ steps.target.outputs.tag }}'
+          current=$(grep -oE 'AUDR_VERSION_TAG = "v[0-9]+\.[0-9]+\.[0-9]+"' src/lib/audr-version.ts | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' || echo "v0.0.0")
+          echo "Current AUDR_VERSION_TAG: $current"
+          echo "Target tag:               $target"
+          if [ "$current" = "$target" ]; then
+            echo "Already at $target — no sync needed."
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+
+      - name: Update vendor/audr submodule to target tag
+        if: steps.compare.outputs.needed == 'true'
+        run: |
+          set -euo pipefail
+          target='${{ steps.target.outputs.tag }}'
+          cd vendor/audr
+          git fetch --tags origin
+          # Fail loudly if the tag doesn't exist upstream — better than
+          # silently advancing to a sibling SHA.
+          git rev-parse --verify "refs/tags/$target" >/dev/null
+          git checkout "$target"
+
+      - name: Bump version constants
+        if: steps.compare.outputs.needed == 'true'
+        run: bun run sync:audr '${{ steps.target.outputs.tag }}'
+
+      - name: Sync embedded JSON Schema
+        if: steps.compare.outputs.needed == 'true'
+        run: bun run sync:audr-schema
+
+      - name: Install dependencies
+        if: steps.compare.outputs.needed == 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck + test + build
+        if: steps.compare.outputs.needed == 'true'
+        env:
+          # The astro build runs the WASM build step too; skip it if the
+          # binary is already cached. Release sync doesn't need to rebuild
+          # WASM — that's a separate cron concern. If the WASM blob is
+          # missing entirely (rare in CI), let the build:wasm:if-missing
+          # script handle it.
+          CI: "true"
+        run: |
+          bun run typecheck
+          bun run test
+          bun run build
+
+      - name: Open / update sync PR
+        if: steps.compare.outputs.needed == 'true' && github.event.inputs.dry_run != 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/release-sync-${{ steps.target.outputs.tag }}
+          base: main
+          # peter-evans/create-pull-request stages everything modified
+          # (we let it pick up vendor/audr submodule pointer, scripts'
+          # output, schema file, etc.).
+          add-paths: |
+            vendor/audr
+            src/lib/audr-version.ts
+            public/schema/
+          commit-message: |
+            chore(site): sync to audr ${{ steps.target.outputs.tag }} (Layer 1)
+
+            Auto-generated by .github/workflows/release-sync.yml.
+
+            Mechanical sync only. Layer 2 content audit per AGENTS.md
+            still required before merge — review the audr CHANGELOG entry
+            for ${{ steps.target.outputs.tag }} and propose any content
+            updates (new scanner backend → /scanners; new CLI command →
+            AIFixLoop / PostInstallFlow; deprecated feature → grep + remove
+            stale claims).
+          title: "chore(site): sync to audr ${{ steps.target.outputs.tag }}"
+          body: |
+            ## Layer 1 — Mechanical sync (this PR)
+
+            audr published **${{ steps.target.outputs.tag }}** (previously this site documented `${{ steps.compare.outputs.current }}`). The autonomous workflow ran:
+
+            - `vendor/audr` submodule bumped to `${{ steps.target.outputs.tag }}`
+            - `bun run sync:audr ${{ steps.target.outputs.tag }}` — rewrites `src/lib/audr-version.ts`
+            - `bun run sync:audr-schema` — copies `internal/output/schema/*.json` from the bumped submodule
+            - `bun run typecheck && bun run test && bun run build` — all green or this PR would not exist
+
+            ## Layer 2 — Content audit (REQUIRED before merge)
+
+            **Hermes or human**: read the contract in [`AGENTS.md`](../blob/main/AGENTS.md#release-sync-from-audr-binary) and run the per-CHANGELOG-subsection content audit. The audr release notes for this tag: https://github.com/harshmaur/audr/releases/tag/${{ steps.target.outputs.tag }}
+
+            For each:
+
+            - **Added** — new scanner backend, new CLI command, new output format, new agent integration? Propose copy in this PR (separate commit prefixed `content(site):`).
+            - **Changed** — grep audr-web for any term the release renames or repositions; fix or flag DRAFT.
+            - **Removed / Deprecated** — grep audr-web for stale capability claims and remove.
+            - **Security** — `/security` may need an update if the trust posture or signing model changed.
+
+            If the CHANGELOG entry is a patch release with no user-visible changes (e.g. test-only or internal refactor), state "No Layer 2 audit needed — patch release with internal changes only" in a PR comment and merge.
+
+            ---
+
+            **Why this PR exists autonomously**: the `release-sync.yml` workflow runs daily and on manual dispatch. It will keep updating this PR if subsequent audr releases ship before merge (the branch is `chore/release-sync-${{ steps.target.outputs.tag }}` — a newer tag overwrites the branch).
+
+            🤖 Generated by [.github/workflows/release-sync.yml](../blob/main/.github/workflows/release-sync.yml)
+          labels: |
+            release-sync
+            audr-version-bump
+          delete-branch: true
+
+      - name: Skip notice
+        if: steps.target.outputs.skip == 'true' || steps.compare.outputs.needed != 'true'
+        run: |
+          if [ "${{ steps.target.outputs.skip }}" = "true" ]; then
+            echo "Skipped: tag is not a stable release."
+          else
+            echo "Skipped: already at ${{ steps.target.outputs.tag }}, nothing to sync."
+          fi

@@ -13,6 +13,7 @@ import SampleReportTeaser from "../components/SampleReportTeaser.astro";
 import Footer from "../components/Footer.astro";
 import { latestCVEs, loadCVEs } from "../lib/cves";
 import { getWasmSha } from "../lib/wasmSha";
+import { AUDR_VERSION } from "../lib/audr-version";
 
 const cves = loadCVEs();
 const recentCVEs = latestCVEs(cves, 5);
@@ -31,7 +32,7 @@ const jsonLd = {
   operatingSystem: "macOS, Linux, Windows",
   url: "https://audr.dev",
   downloadUrl: "https://audr.dev/install.sh",
-  softwareVersion: "0.13.0",
+  softwareVersion: AUDR_VERSION,
   license: "https://spdx.org/licenses/MIT.html",
   offers: {
     "@type": "Offer",

@@ -16,6 +16,8 @@
     "typecheck": "tsc --noEmit",
     "polish": "node scripts/polish-sample-report.mjs",
     "generate:coverage-ledger": "node scripts/generate-coverage-ledger.mjs",
+    "sync:audr": "node scripts/sync-audr-version.mjs",
+    "sync:audr-schema": "node scripts/sync-audr-schema.mjs",
     "build:wasm": "bash scripts/build-wasm.sh",
     "build:wasm:if-missing": "test -f public/wasm/audr.wasm -a -f src/generated/wasm-sha.txt || bun run build:wasm",
     "test": "vitest run",

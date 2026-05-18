@@ -2,24 +2,26 @@
 import Base from "../layouts/Base.astro";
 import Toolbar from "../components/Toolbar.astro";
 import Footer from "../components/Footer.astro";
+import { AUDR_VERSION_TAG } from "../lib/audr-version";
 
+const tarball = `audr-${AUDR_VERSION_TAG}-linux-arm64.tar.gz`;
 const verifyCmd = `# Audr uses sigstore keyless signing — there is no static pubkey to pin.
 # The signing identity is the GitHub Actions workflow at
 # github.com/harshmaur/audr/.github/workflows/release.yml@<tag>, attested
 # via the public sigstore Rekor transparency log.
 #
 # Verify a downloaded tarball yourself:
-audr verify audr-v0.13.0-linux-arm64.tar.gz
+audr verify ${tarball}
 #   → checks SHA-256 against SHA256SUMS
 #   → if cosign is on PATH, also verifies the sigstore signature and
 #     asserts the cert identity matches the audr release workflow
 #
 # Or use cosign directly:
 cosign verify-blob \\
-  --bundle audr-v0.13.0-linux-arm64.tar.gz.sig \\
+  --bundle ${tarball}.sig \\
   --certificate-identity-regexp 'https://github.com/harshmaur/audr/' \\
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \\
-  audr-v0.13.0-linux-arm64.tar.gz
+  ${tarball}
 `;
 ---
 

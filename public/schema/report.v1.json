@@ -5,7 +5,7 @@
   "description": "Wire-shape of `audr scan -f json` and `audr findings ls --format json`. Audr commits to this shape across the v1 line: new optional fields may land in minor releases, existing fields keep their names and types.",
   "type": "object",
   "required": ["schema", "version", "generated_at", "stats", "findings"],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "schema": {
       "type": "string",
@@ -82,7 +82,7 @@
     "Stats": {
       "type": "object",
       "required": ["files_seen", "files_parsed", "suppressed", "skipped", "total", "critical", "high", "medium", "low"],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "files_seen": { "type": "integer", "minimum": 0 },
         "files_parsed": { "type": "integer", "minimum": 0 },
@@ -98,7 +98,7 @@
     "Finding": {
       "type": "object",
       "required": ["rule_id", "severity", "taxonomy", "title", "description"],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "rule_id": {
           "type": "string",
@@ -157,7 +157,7 @@
     },
     "AppliedFilters": {
       "type": "object",
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "severity": {
           "type": "string",
@@ -173,7 +173,7 @@
     "BaselineDiff": {
       "type": "object",
       "required": ["baseline_path", "resolved", "still_present", "newly_introduced", "suppressions_off"],
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "baseline_path": {
           "type": "string",

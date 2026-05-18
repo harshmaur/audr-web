@@ -3,9 +3,23 @@ import Base from "../layouts/Base.astro";
 import Toolbar from "../components/Toolbar.astro";
 import Footer from "../components/Footer.astro";
 
-const pubKey = `# audr release-signing key (cosign / sigstore)
-# Fingerprint will be published here once v0.4 lands. Until then verify via
-# the keyless signature attached to each GitHub Release.
+const verifyCmd = `# Audr uses sigstore keyless signing — there is no static pubkey to pin.
+# The signing identity is the GitHub Actions workflow at
+# github.com/harshmaur/audr/.github/workflows/release.yml@<tag>, attested
+# via the public sigstore Rekor transparency log.
+#
+# Verify a downloaded tarball yourself:
+audr verify audr-v0.13.0-linux-arm64.tar.gz
+#   → checks SHA-256 against SHA256SUMS
+#   → if cosign is on PATH, also verifies the sigstore signature and
+#     asserts the cert identity matches the audr release workflow
+#
+# Or use cosign directly:
+cosign verify-blob \\
+  --bundle audr-v0.13.0-linux-arm64.tar.gz.sig \\
+  --certificate-identity-regexp 'https://github.com/harshmaur/audr/' \\
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com \\
+  audr-v0.13.0-linux-arm64.tar.gz
 `;
 ---
 
@@ -26,14 +40,15 @@ const pubKey = `# audr release-signing key (cosign / sigstore)
       <p class="mt-3 max-w-narrow">
         Every audr release is signed via{" "}
         <a href="https://docs.sigstore.dev/cosign/overview/">cosign</a>{" "}
-        (sigstore keyless mode). The transparency log entry is publicly verifiable. The install
-        script verifies the signature when{" "}
-        <code class="font-mono">cosign</code> is on PATH; otherwise it falls back to SHA-256
-        verification.
+        (sigstore keyless mode). There is no static public key to pin: the signer is
+        identified by an OIDC certificate proving the binary was built by audr's GitHub
+        Actions release workflow, and the signature is attested via the public sigstore
+        Rekor transparency log. The <code class="font-mono">audr verify</code> subcommand
+        and standalone <code class="font-mono">cosign verify-blob</code> both check this.
       </p>
       <pre
         class="mt-4 border border-border bg-surface px-4 py-3 font-mono text-xs overflow-x-auto"
-      >{pubKey}</pre>
+      >{verifyCmd}</pre>
     </section>
 
     <section class="audr-rule mt-12 pt-8">

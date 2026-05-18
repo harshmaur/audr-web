@@ -3,8 +3,9 @@ import Base from "../layouts/Base.astro";
 import Toolbar from "../components/Toolbar.astro";
 import LiveTag from "../components/LiveTag.astro";
 import Hero from "../components/Hero.astro";
-import MiniShaiHuludCoverage from "../components/MiniShaiHuludCoverage.astro";
+import ThreePillars from "../components/ThreePillars.astro";
 import ScanDemo from "../components/ScanDemo.tsx";
+import AIFixLoop from "../components/AIFixLoop.astro";
 import PostInstallFlow from "../components/PostInstallFlow.astro";
 import TrustProcurement from "../components/TrustProcurement.astro";
 import CVEStrip from "../components/CVEStrip.astro";
@@ -27,10 +28,10 @@ const jsonLd = {
   description:
     "Single static binary that scans AI coding agent configs (Claude Code, Cursor, Codex CLI, Windsurf, MCP servers, agent skills, GitHub Actions) for security misconfigurations. Offline by default.",
   applicationCategory: "SecurityApplication",
-  operatingSystem: "macOS, Linux",
+  operatingSystem: "macOS, Linux, Windows",
   url: "https://audr.dev",
   downloadUrl: "https://audr.dev/install.sh",
-  softwareVersion: "0.3.1",
+  softwareVersion: "0.13.0",
   license: "https://spdx.org/licenses/MIT.html",
   offers: {
     "@type": "Offer",
@@ -56,13 +57,13 @@ const jsonLd = {
   <Toolbar />
   <LiveTag cve={latestAdvisory} />
   <Hero />
-  <MiniShaiHuludCoverage />
+  <ThreePillars />
 
-  <section class="audr-rule">
+  <section class="audr-rule" data-section="scan-demo">
     <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
       <header class="mb-6">
         <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
-          in-browser scan · no install · runs locally in your tab
+          in-browser scan · proof of pillar 01
         </p>
         <h2 class="font-sans font-semibold text-2xl mt-2">
           Same engine the binary ships. Compiled to WASM. Runs in your tab.
@@ -74,6 +75,8 @@ const jsonLd = {
       <ScanDemo client:visible wasmSha={wasmSha} />
     </div>
   </section>
+
+  <AIFixLoop />
 
   <PostInstallFlow />
   <TrustProcurement />

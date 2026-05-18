@@ -1,0 +1,96 @@
+---
+const recipe = `# baseline scan
+audr scan . -f json -o before.json
+
+# agent reads the actionable subset
+audr findings ls \\
+  --from before.json \\
+  --severity ge:high \\
+  --fix-authority you
+
+# render one finding as an injection-safe prompt
+audr findings show <id> \\
+  --from before.json --format prompt | <agent>
+
+# agent edits source
+# audr re-scans and tells you what got fixed
+audr scan . -f json --baseline=before.json
+# read baseline_diff.resolved
+`;
+
+const claims = [
+  {
+    label: "01",
+    eyebrow: "injection-safe prompts",
+    body: "Untrusted file content wraps in an UNTRUSTED-CONTEXT envelope. ANSI escapes, zero-width and bidi Unicode, and ASCII smuggling via Unicode Tag-block codepoints all stripped before the agent sees the prompt. A 19-pattern adversarial corpus plus a Go fuzz target with 64k+ executions ran clean.",
+  },
+  {
+    label: "02",
+    eyebrow: "suppressions-off diff",
+    body: "The --baseline diff is computed against the unsuppressed scanner result. An agent that adds a rule to .audrignore instead of fixing the code does not see the finding appear in baseline_diff.resolved. The security invariant is enforced, not advertised.",
+  },
+  {
+    label: "03",
+    eyebrow: "stable ids across surfaces",
+    body: "The 12-character finding id the CLI prints is the same id the daemon dashboard's \"Copy AI prompt\" affordance produces and the same SQLite primary key the findings table uses. Pasting between surfaces just works.",
+  },
+  {
+    label: "04",
+    eyebrow: "wire shape published",
+    body: "The JSON Schema for audr scan -f json output ships at /schema/report.v1.json and is embedded in the binary via audr scan --print-schema. Validate audr output online or offline; same bytes either way.",
+  },
+];
+---
+
+<section id="ai-fix-loop" class="audr-rule" data-section="ai-fix-loop">
+  <div class="max-w-page mx-auto px-6 md:px-8 py-12 md:py-16">
+    <header class="mb-6">
+      <p class="font-mono text-xs text-text-muted uppercase tracking-wider">
+        ai fix loop
+      </p>
+      <h2 class="font-sans font-semibold text-2xl mt-2">
+        Findings agents can act on, with verification baked in.
+      </h2>
+      <p class="font-sans text-base text-text-muted mt-2 max-w-narrow">
+        Pipe one finding to Claude Code, Cursor, Codex CLI, or any agent that reads
+        stdin. The agent edits source. Audr re-scans against the baseline and
+        tells you what got fixed — without trusting the agent's claim that the fix
+        worked.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <div class="border border-border bg-surface">
+        <div class="border-b border-border px-5 py-3 flex items-center gap-3">
+          <span class="font-mono text-xs text-text-muted uppercase tracking-wider"
+            >the loop</span
+          >
+          <span class="font-mono text-[10px] text-sev-low uppercase tracking-wider"
+            >four commands</span
+          >
+        </div>
+        <pre
+          class="px-5 py-4 font-mono text-xs leading-relaxed text-text overflow-x-auto"
+          aria-label="audr fix-loop command sequence">{recipe}</pre>
+      </div>
+
+      <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+        {
+          claims.map((claim) => (
+            <li>
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-xs text-sev-low uppercase tracking-wider">
+                  {claim.label}
+                </span>
+                <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+                  {claim.eyebrow}
+                </p>
+              </div>
+              <p class="text-sm text-text mt-2">{claim.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

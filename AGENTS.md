@@ -31,12 +31,30 @@ bun run test:e2e    # playwright
 When the audr binary repo publishes a new release tag (e.g. `v0.14.0`), audr-web
 needs a corresponding sync PR. This is a two-layer job: **mechanical** (version
 strings, schema bytes) and **judgment** (does the new release add features that
-the site should describe?). The mechanical layer is fully scripted; the
-judgment layer is a content audit the agent runs against the audr CHANGELOG
-entry.
+the site should describe?). The mechanical layer is fully scripted AND automated
+via GitHub Actions; the judgment layer is a content audit a reviewer (hermes or
+human) runs against the audr CHANGELOG entry before merging the auto-PR.
 
-The whole sync is one PR titled `chore(site): sync to audr <tag>` containing
-both layers' commits.
+### How this is wired (the cron)
+
+`.github/workflows/release-sync.yml` runs daily at 06:13 UTC and on manual
+dispatch. It:
+
+1. Queries the audr binary's latest GitHub release tag via `gh release view`.
+2. Compares against the current `AUDR_VERSION_TAG` constant in
+   `src/lib/audr-version.ts`.
+3. If unchanged → exits clean. If pre-release / alpha / RC → skips with a
+   warning. Otherwise → runs the Layer 1 mechanical sync below.
+4. Runs `typecheck`, `test`, and `build` to verify the bumped state.
+5. Opens (or updates) a PR titled `chore(site): sync to audr <tag>` via
+   `peter-evans/create-pull-request`.
+
+The auto-PR body links here and asks the reviewer to perform Layer 2.
+
+**Running manually:** `gh workflow run release-sync.yml` (auto-detects latest
+tag), or `gh workflow run release-sync.yml -f force_tag=v0.14.0` (override),
+or `gh workflow run release-sync.yml -f dry_run=true` (run steps but skip PR
+open — useful for testing workflow changes).
 
 ### Layer 1 — Mechanical sync (always run, zero judgment)
 

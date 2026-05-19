@@ -121,6 +121,17 @@
     "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
   },
   {
+    "cve_id": "CVE-2026-41404",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Trusted-proxy scope clearing lets non-Control-UI clients self-declare operator scopes.",
+    "visceral_consequence": "trusted-proxy clients can mint operator-level scopes",
+    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
+    "audr_rule_id": "openclaw-trusted-proxy-scope-clearing"
+  },
+  {
     "cve_id": "CVE-2026-41399",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

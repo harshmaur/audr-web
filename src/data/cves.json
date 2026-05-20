@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-2611",
+    "product": "MLflow Assistant",
+    "vendor": "MLflow",
+    "severity": "critical",
+    "published_date": "2026-05-19",
+    "summary_short": "Assistant ajax-api origin validation lets hostile pages reconfigure local agents.",
+    "visceral_consequence": "a web page can turn local Assistant config into Claude Code command execution",
+    "scope_phrase": "where MLflow Assistant 3.9.x dependencies are present",
+    "audr_rule_id": "mlflow-assistant-origin-bypass"
+  },
+  {
     "cve_id": "CVE-2026-44717",
     "product": "MCP Calculate Server",
     "vendor": "611711Dark",

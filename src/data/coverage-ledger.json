@@ -1,19 +1,35 @@
 {
-  "generated_at": "2026-05-19T09:32:58Z",
-  "source_last_discovery_at": "2026-05-19",
-  "source_entry_count": 244,
-  "public_entry_count": 33,
+  "generated_at": "2026-05-20T09:40:08Z",
+  "source_last_discovery_at": "2026-05-20",
+  "source_entry_count": 248,
+  "public_entry_count": 34,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 211,
+  "excluded_public_safe_candidate_count": 214,
   "excluded_status_counts": {
     "osv_covered": 4,
     "not_auditable": 5,
-    "irrelevant": 67
+    "irrelevant": 70
   },
   "excluded_unknown_vendor_product_count": 33,
   "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 16,
+  "enriched_from_cves_json_count": 17,
   "entries": [
+    {
+      "cve_id": "CVE-2026-2611",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "MLflow",
+      "product": "MLflow Assistant",
+      "published_date": "2026-05-19",
+      "last_seen_at": "2026-05-20",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2611",
+      "summary_short": "Assistant ajax-api origin validation lets hostile pages reconfigure local agents.",
+      "audr_rule_id": "mlflow-assistant-origin-bypass"
+    },
     {
       "cve_id": "CVE-2026-44717",
       "status": "shipped",
@@ -21,7 +37,7 @@
       "vendor": "611711Dark",
       "product": "MCP Calculate Server",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "MCP server"
       ],
@@ -357,7 +373,7 @@
       "vendor": "Claude HUD",
       "product": "Claude HUD",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "Claude Code"
       ],
@@ -372,7 +388,7 @@
       "vendor": "Claude HUD",
       "product": "Claude HUD",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "Claude Code"
       ],
@@ -387,7 +403,7 @@
       "vendor": "continuedev",
       "product": "Continue",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "Continue"
       ],
@@ -402,7 +418,7 @@
       "vendor": "Microsoft",
       "product": "APM",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "agent plugin",
         "agent skills"
@@ -418,7 +434,7 @@
       "vendor": "Anthropic",
       "product": "Claude Desktop / Claude Code",
       "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "Claude Code"
       ],
@@ -433,7 +449,7 @@
       "vendor": "GitHub",
       "product": "GitHub Copilot CLI",
       "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-19",
+      "last_seen_at": "2026-05-20",
       "keywords": [
         "AI coding agent",
         "coding agent"

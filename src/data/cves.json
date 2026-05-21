@@ -187,6 +187,17 @@
     "audr_rule_id": "openclaw-unbound-bootstrap-setup-code"
   },
   {
+    "cve_id": "CVE-2026-41378",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "node.event requests can reach unrestricted gateway tools.",
+    "visceral_consequence": "node-scoped agents gain gateway-side tool access beyond their role",
+    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
+    "audr_rule_id": "openclaw-node-event-tool-access"
+  },
+  {
     "cve_id": "CVE-2026-41349",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

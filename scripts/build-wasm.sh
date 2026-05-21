@@ -65,6 +65,7 @@ cp scripts/wasm-src/main.go "$WRAPPER_DIR/main.go"
 (
   cd vendor/audr
   GOOS=js GOARCH=wasm go build \
+    -trimpath \
     -ldflags="-X main.audrSHA=${AUDR_SHA} -X main.audrTag=${AUDR_TAG}" \
     -o ../../public/wasm/audr.wasm \
     ./cmd/audr-wasm

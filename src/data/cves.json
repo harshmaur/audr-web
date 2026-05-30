@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-44450",
+    "product": "Lumiverse",
+    "vendor": "prolix-oc",
+    "severity": "critical",
+    "published_date": "2026-05-26",
+    "summary_short": "MCP server args are forwarded to code-capable allowlisted binaries before 0.9.7.",
+    "visceral_consequence": "logged-in users can turn MCP server setup into OS command execution",
+    "scope_phrase": "where Lumiverse / lumiverse-backend dependencies are older than 0.9.7",
+    "audr_rule_id": "lumiverse-mcp-args-rce"
+  },
+  {
     "cve_id": "CVE-2026-2611",
     "product": "MLflow Assistant",
     "vendor": "MLflow",

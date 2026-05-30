@@ -1,19 +1,35 @@
 {
-  "generated_at": "2026-05-21T09:42:28Z",
-  "source_last_discovery_at": "2026-05-20",
-  "source_entry_count": 252,
-  "public_entry_count": 35,
+  "generated_at": "2026-05-30T09:40:08Z",
+  "source_last_discovery_at": "2026-05-30",
+  "source_entry_count": 317,
+  "public_entry_count": 36,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 217,
+  "excluded_public_safe_candidate_count": 281,
   "excluded_status_counts": {
-    "osv_covered": 4,
+    "osv_covered": 10,
     "not_auditable": 5,
-    "irrelevant": 73
+    "irrelevant": 111
   },
-  "excluded_unknown_vendor_product_count": 33,
+  "excluded_unknown_vendor_product_count": 49,
   "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 18,
+  "enriched_from_cves_json_count": 19,
   "entries": [
+    {
+      "cve_id": "CVE-2026-44450",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "prolix-oc",
+      "product": "Lumiverse",
+      "published_date": "2026-05-26",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44450",
+      "summary_short": "MCP server args are forwarded to code-capable allowlisted binaries before 0.9.7.",
+      "audr_rule_id": "lumiverse-mcp-args-rce"
+    },
     {
       "cve_id": "CVE-2026-2611",
       "status": "shipped",
@@ -21,7 +37,7 @@
       "vendor": "MLflow",
       "product": "MLflow Assistant",
       "published_date": "2026-05-19",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-26",
       "keywords": [
         "Claude Code"
       ],
@@ -37,7 +53,7 @@
       "vendor": "611711Dark",
       "product": "MCP Calculate Server",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-22",
       "keywords": [
         "MCP server"
       ],
@@ -383,13 +399,133 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-32905",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32905",
+      "summary_short": "OpenClaw before 2026.5.4 contains an authorization bypass vulnerability in the bundled device-pair plugin that allows non-owner authorized chat senders to…"
+    },
+    {
+      "cve_id": "CVE-2026-32906",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32906",
+      "summary_short": "OpenClaw before 2026.5.12 contains a privilege escalation vulnerability in Slack plugin approvals that allows exec-authorized users to resolve plugin…"
+    },
+    {
+      "cve_id": "CVE-2026-34507",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34507",
+      "summary_short": "OpenClaw before 2026.4.29 contains a policy bypass vulnerability in QQBot admin commands that allows authenticated senders to skip DM-only and allowFrom…"
+    },
+    {
+      "cve_id": "CVE-2026-35630",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35630",
+      "summary_short": "OpenClaw before 2026.5.18 contains an authorization bypass vulnerability in QQBot native approval buttons that fails to enforce configured approver…"
+    },
+    {
+      "cve_id": "CVE-2026-35673",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35673",
+      "summary_short": "OpenClaw before 2026.4.29 contains an SSRF policy bypass vulnerability in browser debug and export routes that allows reuse of already-open blocked tabs.…"
+    },
+    {
+      "cve_id": "CVE-2026-35674",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35674",
+      "summary_short": "OpenClaw before 2026.5.18 contains a scope bypass vulnerability in the Gateway chat.send route that allows scoped clients to execute privileged commands.…"
+    },
+    {
+      "cve_id": "CVE-2026-9468",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "A security flaw",
+      "product": "A security flaw",
+      "published_date": "2026-05-25",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "Cline"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9468",
+      "summary_short": "A security flaw has been discovered in dazeb cline-mcp-memory-bank up to 55c81b9cf6c16700983c84dc4cdea3cafa19a75f. The affected element is the function…"
+    },
+    {
+      "cve_id": "CVE-2026-9353",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "A security vulnerability",
+      "product": "A security vulnerability",
+      "published_date": "2026-05-24",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "agent skills"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9353",
+      "summary_short": "A security vulnerability has been detected in NousResearch hermes-agent up to 2026.4.23. Impacted is an unknown function of the file agent/skills_guard.py…"
+    },
+    {
       "cve_id": "CVE-2026-47090",
       "status": "actionable",
       "severity": "medium",
       "vendor": "Claude HUD",
       "product": "Claude HUD",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-25",
       "keywords": [
         "Claude Code"
       ],
@@ -404,7 +540,7 @@
       "vendor": "Claude HUD",
       "product": "Claude HUD",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-25",
       "keywords": [
         "Claude Code"
       ],
@@ -419,7 +555,7 @@
       "vendor": "continuedev",
       "product": "Continue",
       "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-24",
       "keywords": [
         "Continue"
       ],
@@ -434,7 +570,7 @@
       "vendor": "Microsoft",
       "product": "APM",
       "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-20",
+      "last_seen_at": "2026-05-22",
       "keywords": [
         "agent plugin",
         "agent skills"
@@ -442,127 +578,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44641",
       "summary_short": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. Prior to 0.8.12, Microsoft APM normalizes marketplace plugins by copying…"
-    },
-    {
-      "cve_id": "CVE-2026-44467",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Anthropic",
-      "product": "Claude Desktop / Claude Code",
-      "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-20",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44467",
-      "summary_short": "The Claude Desktop app gives you Claude Code with a graphical interface built for running multiple sessions side by side. From 1.2581.0 to before 1.4304.0,…"
-    },
-    {
-      "cve_id": "CVE-2026-45033",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "GitHub",
-      "product": "GitHub Copilot CLI",
-      "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-20",
-      "keywords": [
-        "AI coding agent",
-        "coding agent"
-      ],
-      "local_signal_category": "plugin/hook config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45033",
-      "summary_short": "GitHub Copilot CLI brings AI-powered coding assistance directly to your command line. Prior to 1.0.43, a security vulnerability has been identified in…"
-    },
-    {
-      "cve_id": "CVE-2026-42260",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "MCP",
-      "product": "MCP server",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "agent config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42260",
-      "summary_short": "Open-WebSearch is a multi-engine MCP server, CLI, and local daemon for agent web search and content retrieval. Prior to 2.1.7, isPublicHttpUrl /…"
-    },
-    {
-      "cve_id": "CVE-2026-43990",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "JunoClaw",
-      "product": "JunoClaw",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990",
-      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, plugin-shell's run_command wrapped every agent-supplied command in 'sh…"
-    },
-    {
-      "cve_id": "CVE-2026-43991",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "JunoClaw",
-      "product": "JunoClaw",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
-      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could…"
-    },
-    {
-      "cve_id": "CVE-2026-44246",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Anthropic",
-      "product": "Claude/Anthropic SDK",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "Anthropic"
-      ],
-      "local_signal_category": "permissions/trust config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44246",
-      "summary_short": "nnU-Net is a semantic segmentation framework that automatically adapts its pipeline to a dataset. Prior to 2.4.1, the nnU-Net Issue Triage workflow in…"
-    },
-    {
-      "cve_id": "CVE-2026-5029",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "MCP",
-      "product": "MCP server",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5029",
-      "summary_short": "A remote code execution vulnerability exists in Code Runner MCP Server when run with the --transport http option, which exposes the /mcp JSON-RPC endpoint…"
-    },
-    {
-      "cve_id": "CVE-2026-43901",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "MCP",
-      "product": "MCP server",
-      "published_date": "2026-05-11",
-      "last_seen_at": "2026-05-18",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43901",
-      "summary_short": "Wireshark MCP is an MCP Server that turns tshark into a structured analysis interface, then layers in optional Wireshark suite utilities. In 1.1.5 and…"
     }
   ]
 }

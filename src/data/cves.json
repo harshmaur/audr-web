@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-44895",
+    "product": "GitLab MCP Server",
+    "vendor": "yoda-digital",
+    "severity": "critical",
+    "published_date": "2026-05-26",
+    "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
+    "visceral_consequence": "a hostile browser can drive the operator's GitLab MCP tools",
+    "scope_phrase": "where vulnerable GitLab MCP Server configs use HTTP/SSE transport",
+    "audr_rule_id": "gitlab-mcp-server-unauth-http"
+  },
+  {
     "cve_id": "CVE-2026-44450",
     "product": "Lumiverse",
     "vendor": "prolix-oc",

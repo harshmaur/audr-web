@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-05-30T09:40:08Z",
-  "source_last_discovery_at": "2026-05-30",
+  "generated_at": "2026-05-31T09:40:18Z",
+  "source_last_discovery_at": "2026-05-31",
   "source_entry_count": 317,
-  "public_entry_count": 36,
+  "public_entry_count": 37,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 281,
+  "excluded_public_safe_candidate_count": 280,
   "excluded_status_counts": {
     "osv_covered": 10,
     "not_auditable": 5,
     "irrelevant": 111
   },
-  "excluded_unknown_vendor_product_count": 49,
+  "excluded_unknown_vendor_product_count": 48,
   "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 19,
+  "enriched_from_cves_json_count": 20,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -21,7 +21,7 @@
       "vendor": "prolix-oc",
       "product": "Lumiverse",
       "published_date": "2026-05-26",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "MCP server"
       ],
@@ -29,6 +29,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44450",
       "summary_short": "MCP server args are forwarded to code-capable allowlisted binaries before 0.9.7.",
       "audr_rule_id": "lumiverse-mcp-args-rce"
+    },
+    {
+      "cve_id": "CVE-2026-44895",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "yoda-digital",
+      "product": "GitLab MCP Server",
+      "published_date": "2026-05-26",
+      "last_seen_at": "2026-05-31",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44895",
+      "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
+      "audr_rule_id": "gitlab-mcp-server-unauth-http"
     },
     {
       "cve_id": "CVE-2026-2611",
@@ -405,7 +421,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -420,7 +436,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -435,7 +451,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -450,7 +466,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -465,7 +481,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -480,7 +496,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "OpenClaw"
       ],
@@ -495,7 +511,7 @@
       "vendor": "A security flaw",
       "product": "A security flaw",
       "published_date": "2026-05-25",
-      "last_seen_at": "2026-05-30",
+      "last_seen_at": "2026-05-31",
       "keywords": [
         "Cline"
       ],

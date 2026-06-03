@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-05-31T09:40:18Z",
-  "source_last_discovery_at": "2026-05-31",
-  "source_entry_count": 317,
+  "generated_at": "2026-06-03T11:33:12Z",
+  "source_last_discovery_at": "2026-06-03",
+  "source_entry_count": 336,
   "public_entry_count": 37,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 280,
+  "excluded_public_safe_candidate_count": 299,
   "excluded_status_counts": {
-    "osv_covered": 10,
+    "osv_covered": 13,
     "not_auditable": 5,
-    "irrelevant": 111
+    "irrelevant": 117
   },
-  "excluded_unknown_vendor_product_count": 48,
+  "excluded_unknown_vendor_product_count": 54,
   "excluded_unknown_severity_count": 20,
   "enriched_from_cves_json_count": 20,
   "entries": [
@@ -21,7 +21,7 @@
       "vendor": "prolix-oc",
       "product": "Lumiverse",
       "published_date": "2026-05-26",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-02",
       "keywords": [
         "MCP server"
       ],
@@ -37,11 +37,11 @@
       "vendor": "yoda-digital",
       "product": "GitLab MCP Server",
       "published_date": "2026-05-26",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-02",
       "keywords": [
         "MCP server"
       ],
-      "local_signal_category": "dependency manifest",
+      "local_signal_category": "MCP server config",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44895",
       "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
       "audr_rule_id": "gitlab-mcp-server-unauth-http"
@@ -415,13 +415,73 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-10174",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Aider-AI",
+      "product": "Aider",
+      "published_date": "2026-05-31",
+      "last_seen_at": "2026-06-03",
+      "keywords": [
+        "Aider"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10174",
+      "summary_short": "A vulnerability was identified in Aider-AI Aider 0.86.3. Affected is an unknown function of the file aider/args.py of the component Pre-commit Hook Handler.…"
+    },
+    {
+      "cve_id": "CVE-2026-10175",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Aider-AI",
+      "product": "Aider",
+      "published_date": "2026-05-31",
+      "last_seen_at": "2026-06-03",
+      "keywords": [
+        "Aider"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10175",
+      "summary_short": "A security flaw has been discovered in Aider-AI Aider 0.86.3. Affected by this vulnerability is the function editor_coder.run of the file auth.py of the…"
+    },
+    {
+      "cve_id": "CVE-2026-10176",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Aider-AI",
+      "product": "Aider",
+      "published_date": "2026-05-31",
+      "last_seen_at": "2026-06-03",
+      "keywords": [
+        "Aider"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10176",
+      "summary_short": "A weakness has been identified in Aider-AI Aider 0.86.3. Affected by this issue is some unknown functionality of the component Code Generation Workflow.…"
+    },
+    {
+      "cve_id": "CVE-2026-10177",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Aider-AI",
+      "product": "Aider",
+      "published_date": "2026-05-31",
+      "last_seen_at": "2026-06-03",
+      "keywords": [
+        "Aider"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10177",
+      "summary_short": "A security vulnerability has been detected in Aider-AI Aider 0.86.3. This affects the function requests.get of the file api_docs.py of the component AWS EC2…"
+    },
+    {
       "cve_id": "CVE-2026-32905",
       "status": "actionable",
       "severity": "high",
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -436,7 +496,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -451,7 +511,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -466,7 +526,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -481,7 +541,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -496,7 +556,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-03",
       "keywords": [
         "OpenClaw"
       ],
@@ -511,7 +571,7 @@
       "vendor": "A security flaw",
       "product": "A security flaw",
       "published_date": "2026-05-25",
-      "last_seen_at": "2026-05-31",
+      "last_seen_at": "2026-06-01",
       "keywords": [
         "Cline"
       ],
@@ -533,67 +593,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9353",
       "summary_short": "A security vulnerability has been detected in NousResearch hermes-agent up to 2026.4.23. Impacted is an unknown function of the file agent/skills_guard.py…"
-    },
-    {
-      "cve_id": "CVE-2026-47090",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Claude HUD",
-      "product": "Claude HUD",
-      "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-25",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47090",
-      "summary_short": "Claude HUD through 0.0.12, patched in commit 234d9aa, constructs OSC 8 terminal hyperlink escape sequences using raw cwd and branchUrl values without…"
-    },
-    {
-      "cve_id": "CVE-2026-47092",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Claude HUD",
-      "product": "Claude HUD",
-      "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-25",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47092",
-      "summary_short": "Claude HUD through 0.0.12, patched in commit 234d9aa, contains a command injection vulnerability that allows local attackers to execute arbitrary commands…"
-    },
-    {
-      "cve_id": "CVE-2026-8770",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "continuedev",
-      "product": "Continue",
-      "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-24",
-      "keywords": [
-        "Continue"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8770",
-      "summary_short": "A vulnerability was identified in continuedev continue up to 1.2.22. This affects the function lsTool of the file core/tools/implementations/lsTool.ts of…"
-    },
-    {
-      "cve_id": "CVE-2026-44641",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Microsoft",
-      "product": "APM",
-      "published_date": "2026-05-15",
-      "last_seen_at": "2026-05-22",
-      "keywords": [
-        "agent plugin",
-        "agent skills"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44641",
-      "summary_short": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. Prior to 0.8.12, Microsoft APM normalizes marketplace plugins by copying…"
     }
   ]
 }

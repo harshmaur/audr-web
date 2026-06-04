@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-03T11:33:12Z",
-  "source_last_discovery_at": "2026-06-03",
-  "source_entry_count": 336,
-  "public_entry_count": 37,
+  "generated_at": "2026-06-04T09:40:48Z",
+  "source_last_discovery_at": "2026-06-04",
+  "source_entry_count": 339,
+  "public_entry_count": 38,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 299,
+  "excluded_public_safe_candidate_count": 301,
   "excluded_status_counts": {
-    "osv_covered": 13,
+    "osv_covered": 40,
     "not_auditable": 5,
-    "irrelevant": 117
+    "irrelevant": 120
   },
-  "excluded_unknown_vendor_product_count": 54,
+  "excluded_unknown_vendor_product_count": 36,
   "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 20,
+  "enriched_from_cves_json_count": 21,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -77,6 +77,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44717",
       "summary_short": "SymPy expression tool input reaches Python eval before 0.1.1.",
       "audr_rule_id": "mcp-calculate-server-eval-rce"
+    },
+    {
+      "cve_id": "CVE-2026-44246",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Anthropic / Claude Code Action",
+      "product": "nnU-Net issue triage workflow",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "Anthropic"
+      ],
+      "local_signal_category": "permissions/trust config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44246",
+      "summary_short": "Issue-triggered Claude Code workflows embed untrusted issue title/body content.",
+      "audr_rule_id": "gha-claude-issue-agent-injection"
     },
     {
       "cve_id": "CVE-2026-43575",
@@ -421,7 +437,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "Aider"
       ],
@@ -436,7 +452,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "Aider"
       ],
@@ -451,7 +467,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "Aider"
       ],
@@ -466,7 +482,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "Aider"
       ],
@@ -481,7 +497,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],
@@ -496,7 +512,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],
@@ -511,7 +527,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],
@@ -526,7 +542,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],
@@ -541,7 +557,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],
@@ -556,7 +572,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-03",
+      "last_seen_at": "2026-06-04",
       "keywords": [
         "OpenClaw"
       ],

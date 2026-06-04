@@ -44,6 +44,17 @@
     "audr_rule_id": "mcp-calculate-server-eval-rce"
   },
   {
+    "cve_id": "CVE-2026-44246",
+    "product": "nnU-Net issue triage workflow",
+    "vendor": "Anthropic / Claude Code Action",
+    "severity": "high",
+    "published_date": "2026-05-12",
+    "summary_short": "Issue-triggered Claude Code workflows embed untrusted issue title/body content.",
+    "visceral_consequence": "an external GitHub issue can steer a command-capable triage agent",
+    "scope_phrase": "where issue workflows run Claude Code Action on raw issue title/body input",
+    "audr_rule_id": "gha-claude-issue-agent-injection"
+  },
+  {
     "cve_id": "CVE-2026-44109",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

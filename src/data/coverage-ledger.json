@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-04T09:40:48Z",
-  "source_last_discovery_at": "2026-06-04",
-  "source_entry_count": 339,
-  "public_entry_count": 38,
+  "generated_at": "2026-06-05T16:43:30Z",
+  "source_last_discovery_at": "2026-06-05",
+  "source_entry_count": 343,
+  "public_entry_count": 39,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 301,
+  "excluded_public_safe_candidate_count": 304,
   "excluded_status_counts": {
-    "osv_covered": 40,
+    "osv_covered": 79,
     "not_auditable": 5,
-    "irrelevant": 120
+    "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 36,
-  "excluded_unknown_severity_count": 20,
-  "enriched_from_cves_json_count": 21,
+  "excluded_unknown_vendor_product_count": 23,
+  "excluded_unknown_severity_count": 19,
+  "enriched_from_cves_json_count": 22,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -93,6 +93,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44246",
       "summary_short": "Issue-triggered Claude Code workflows embed untrusted issue title/body content.",
       "audr_rule_id": "gha-claude-issue-agent-injection"
+    },
+    {
+      "cve_id": "CVE-2026-5029",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "formulahendry",
+      "product": "Code Runner MCP Server",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5029",
+      "summary_short": "HTTP transport exposes the run-code MCP tool without authentication on port 3088.",
+      "audr_rule_id": "code-runner-mcp-unauth-http-rce"
     },
     {
       "cve_id": "CVE-2026-43575",
@@ -437,7 +453,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "Aider"
       ],
@@ -452,7 +468,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "Aider"
       ],
@@ -467,7 +483,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "Aider"
       ],
@@ -482,7 +498,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "Aider"
       ],
@@ -497,7 +513,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],
@@ -512,7 +528,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],
@@ -527,7 +543,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],
@@ -542,7 +558,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],
@@ -557,7 +573,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],
@@ -572,7 +588,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-04",
+      "last_seen_at": "2026-06-05",
       "keywords": [
         "OpenClaw"
       ],

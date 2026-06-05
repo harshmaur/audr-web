@@ -44,6 +44,17 @@
     "audr_rule_id": "mcp-calculate-server-eval-rce"
   },
   {
+    "cve_id": "CVE-2026-5029",
+    "product": "Code Runner MCP Server",
+    "vendor": "formulahendry",
+    "severity": "critical",
+    "published_date": "2026-05-12",
+    "summary_short": "HTTP transport exposes the run-code MCP tool without authentication on port 3088.",
+    "visceral_consequence": "a LAN-reachable MCP endpoint becomes arbitrary command execution",
+    "scope_phrase": "where Code Runner MCP Server is launched with HTTP transport",
+    "audr_rule_id": "code-runner-mcp-unauth-http-rce"
+  },
+  {
     "cve_id": "CVE-2026-44246",
     "product": "nnU-Net issue triage workflow",
     "vendor": "Anthropic / Claude Code Action",

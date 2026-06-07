@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-05T16:43:30Z",
-  "source_last_discovery_at": "2026-06-05",
+  "generated_at": "2026-06-07T09:43:39Z",
+  "source_last_discovery_at": "2026-06-07",
   "source_entry_count": 343,
-  "public_entry_count": 39,
+  "public_entry_count": 40,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 304,
+  "excluded_public_safe_candidate_count": 303,
   "excluded_status_counts": {
-    "osv_covered": 79,
+    "osv_covered": 110,
     "not_auditable": 5,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 23,
-  "excluded_unknown_severity_count": 19,
-  "enriched_from_cves_json_count": 22,
+  "excluded_unknown_vendor_product_count": 22,
+  "excluded_unknown_severity_count": 14,
+  "enriched_from_cves_json_count": 23,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -61,6 +61,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2611",
       "summary_short": "Assistant ajax-api origin validation lets hostile pages reconfigure local agents.",
       "audr_rule_id": "mlflow-assistant-origin-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-47092",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Claude HUD",
+      "product": "Claude HUD",
+      "published_date": "2026-05-18",
+      "last_seen_at": "2026-05-25",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47092",
+      "summary_short": "COMSPEC is trusted during Windows version checks through 0.0.12.",
+      "audr_rule_id": "claude-hud-comspec-command-injection"
     },
     {
       "cve_id": "CVE-2026-44717",
@@ -453,7 +469,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-05",
+      "last_seen_at": "2026-06-07",
       "keywords": [
         "Aider"
       ],
@@ -468,7 +484,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-05",
+      "last_seen_at": "2026-06-07",
       "keywords": [
         "Aider"
       ],
@@ -483,7 +499,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-05",
+      "last_seen_at": "2026-06-07",
       "keywords": [
         "Aider"
       ],
@@ -498,7 +514,7 @@
       "vendor": "Aider-AI",
       "product": "Aider",
       "published_date": "2026-05-31",
-      "last_seen_at": "2026-06-05",
+      "last_seen_at": "2026-06-07",
       "keywords": [
         "Aider"
       ],

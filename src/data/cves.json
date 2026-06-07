@@ -33,6 +33,17 @@
     "audr_rule_id": "mlflow-assistant-origin-bypass"
   },
   {
+    "cve_id": "CVE-2026-47092",
+    "product": "Claude HUD",
+    "vendor": "Claude HUD",
+    "severity": "high",
+    "published_date": "2026-05-18",
+    "summary_short": "COMSPEC is trusted during Windows version checks through 0.0.12.",
+    "visceral_consequence": "a poisoned environment variable can turn a version check into code execution",
+    "scope_phrase": "where Claude HUD dependencies are version 0.0.12 or older",
+    "audr_rule_id": "claude-hud-comspec-command-injection"
+  },
+  {
     "cve_id": "CVE-2026-44717",
     "product": "MCP Calculate Server",
     "vendor": "611711Dark",

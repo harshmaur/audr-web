@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-07T09:43:39Z",
+  "generated_at": "2026-06-08T09:43:14Z",
   "source_last_discovery_at": "2026-06-07",
-  "source_entry_count": 343,
-  "public_entry_count": 40,
+  "source_entry_count": 344,
+  "public_entry_count": 41,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 303,
   "excluded_status_counts": {
-    "osv_covered": 110,
+    "osv_covered": 121,
     "not_auditable": 5,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 22,
-  "excluded_unknown_severity_count": 14,
-  "enriched_from_cves_json_count": 23,
+  "excluded_unknown_severity_count": 13,
+  "enriched_from_cves_json_count": 24,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -61,6 +61,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2611",
       "summary_short": "Assistant ajax-api origin validation lets hostile pages reconfigure local agents.",
       "audr_rule_id": "mlflow-assistant-origin-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-47090",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "Claude HUD",
+      "product": "Claude HUD",
+      "published_date": "2026-05-18",
+      "last_seen_at": "2026-05-25",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47090",
+      "summary_short": "OSC 8 hyperlinks use raw cwd and branch URL values through 0.0.12.",
+      "audr_rule_id": "claude-hud-osc8-terminal-injection"
     },
     {
       "cve_id": "CVE-2026-47092",

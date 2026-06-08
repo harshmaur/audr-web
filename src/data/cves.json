@@ -44,6 +44,17 @@
     "audr_rule_id": "claude-hud-comspec-command-injection"
   },
   {
+    "cve_id": "CVE-2026-47090",
+    "product": "Claude HUD",
+    "vendor": "Claude HUD",
+    "severity": "medium",
+    "published_date": "2026-05-18",
+    "summary_short": "OSC 8 hyperlinks use raw cwd and branch URL values through 0.0.12.",
+    "visceral_consequence": "a malicious repo path can forge terminal output or clipboard-linked prompts",
+    "scope_phrase": "where Claude HUD dependencies are version 0.0.12 or older",
+    "audr_rule_id": "claude-hud-osc8-terminal-injection"
+  },
+  {
     "cve_id": "CVE-2026-44717",
     "product": "MCP Calculate Server",
     "vendor": "611711Dark",

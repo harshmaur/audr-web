@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-08T09:43:14Z",
+  "generated_at": "2026-06-08T10:28:02Z",
   "source_last_discovery_at": "2026-06-07",
   "source_entry_count": 344,
-  "public_entry_count": 41,
+  "public_entry_count": 42,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 303,
+  "excluded_public_safe_candidate_count": 302,
   "excluded_status_counts": {
-    "osv_covered": 121,
+    "osv_covered": 127,
     "not_auditable": 5,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 22,
-  "excluded_unknown_severity_count": 13,
-  "enriched_from_cves_json_count": 24,
+  "excluded_unknown_vendor_product_count": 20,
+  "excluded_unknown_severity_count": 11,
+  "enriched_from_cves_json_count": 25,
   "entries": [
     {
       "cve_id": "CVE-2026-44450",
@@ -93,6 +93,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47092",
       "summary_short": "COMSPEC is trusted during Windows version checks through 0.0.12.",
       "audr_rule_id": "claude-hud-comspec-command-injection"
+    },
+    {
+      "cve_id": "CVE-2026-44641",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft APM",
+      "published_date": "2026-05-15",
+      "last_seen_at": "2026-05-22",
+      "keywords": [
+        "agent plugin",
+        "agent skills"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44641",
+      "summary_short": "plugin.json component paths can escape the plugin directory before 0.8.12.",
+      "audr_rule_id": "microsoft-apm-plugin-component-traversal"
     },
     {
       "cve_id": "CVE-2026-44717",

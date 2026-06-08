@@ -66,6 +66,17 @@
     "audr_rule_id": "mcp-calculate-server-eval-rce"
   },
   {
+    "cve_id": "CVE-2026-44641",
+    "product": "Microsoft APM",
+    "vendor": "Microsoft",
+    "severity": "high",
+    "published_date": "2026-05-15",
+    "summary_short": "plugin.json component paths can escape the plugin directory before 0.8.12.",
+    "visceral_consequence": "a malicious agent plugin can copy arbitrary local files during install",
+    "scope_phrase": "where Microsoft APM plugin manifests reference absolute or ../ component paths",
+    "audr_rule_id": "microsoft-apm-plugin-component-traversal"
+  },
+  {
     "cve_id": "CVE-2026-5029",
     "product": "Code Runner MCP Server",
     "vendor": "formulahendry",

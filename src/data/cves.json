@@ -99,6 +99,17 @@
     "audr_rule_id": "gha-claude-issue-agent-injection"
   },
   {
+    "cve_id": "CVE-2026-43901",
+    "product": "Wireshark MCP",
+    "vendor": "MCP",
+    "severity": "medium",
+    "published_date": "2026-05-11",
+    "summary_short": "export_objects accepts attacker-controlled destination directories when no allowlist is configured.",
+    "visceral_consequence": "agent-controlled packet exports can write files outside the intended workspace",
+    "scope_phrase": "where Wireshark MCP servers run without WIRESHARK_MCP_ALLOWED_DIRS",
+    "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
+  },
+  {
     "cve_id": "CVE-2026-44109",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

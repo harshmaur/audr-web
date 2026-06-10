@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-32625",
+    "product": "LibreChat",
+    "vendor": "LibreChat",
+    "severity": "critical",
+    "published_date": "2026-06-02",
+    "summary_short": "MCP URL placeholders resolve server environment secrets through 0.8.3.",
+    "visceral_consequence": "a user-created MCP URL can exfiltrate LibreChat process secrets",
+    "scope_phrase": "where LibreChat dependencies are version 0.8.3 or older",
+    "audr_rule_id": "librechat-mcp-env-secret-leak"
+  },
+  {
     "cve_id": "CVE-2026-44830",
     "product": "Nocturne Memory",
     "vendor": "Nocturne Memory",

@@ -1,19 +1,36 @@
 {
-  "generated_at": "2026-06-10T09:43:44Z",
-  "source_last_discovery_at": "2026-06-08",
+  "generated_at": "2026-06-10T16:46:08Z",
+  "source_last_discovery_at": "2026-06-09",
   "source_entry_count": 344,
-  "public_entry_count": 44,
+  "public_entry_count": 45,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 300,
+  "excluded_public_safe_candidate_count": 299,
   "excluded_status_counts": {
-    "osv_covered": 132,
+    "osv_covered": 134,
     "not_auditable": 5,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 16,
+  "excluded_unknown_vendor_product_count": 13,
   "excluded_unknown_severity_count": 10,
-  "enriched_from_cves_json_count": 27,
+  "enriched_from_cves_json_count": 28,
   "entries": [
+    {
+      "cve_id": "CVE-2026-32625",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "LibreChat",
+      "product": "LibreChat",
+      "published_date": "2026-06-02",
+      "last_seen_at": "2026-06-09",
+      "keywords": [
+        "MCP server",
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32625",
+      "summary_short": "MCP URL placeholders resolve server environment secrets through 0.8.3.",
+      "audr_rule_id": "librechat-mcp-env-secret-leak"
+    },
     {
       "cve_id": "CVE-2026-44830",
       "status": "shipped",

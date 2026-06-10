@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-44830",
+    "product": "Nocturne Memory",
+    "vendor": "Nocturne Memory",
+    "severity": "high",
+    "published_date": "2026-05-27",
+    "summary_short": "empty API_TOKEN disables bearer-token auth before 2.4.1.",
+    "visceral_consequence": "LAN clients can rewrite agent memory into persistent prompt injection",
+    "scope_phrase": "where Nocturne Memory MCP/server configs omit a non-empty API_TOKEN",
+    "audr_rule_id": "nocturne-memory-missing-api-token"
+  },
+  {
     "cve_id": "CVE-2026-44895",
     "product": "GitLab MCP Server",
     "vendor": "yoda-digital",

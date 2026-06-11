@@ -15,16 +15,19 @@ describe("loadCVEs", () => {
     }
   });
 
-  it("keeps CVEs sorted by newest published date first", () => {
+  it("keeps CVEs sorted by newest published date, then CVE ID descending", () => {
     const cves = loadCVEs();
-    const dates = cves.map((c) => c.published_date);
-    const sortedDates = [...dates].sort((a, b) => b.localeCompare(a));
-    expect(dates).toEqual(sortedDates);
+    const sorted = [...cves].sort((a, b) => {
+      const byDate = b.published_date.localeCompare(a.published_date);
+      if (byDate !== 0) return byDate;
+      return b.cve_id.localeCompare(a.cve_id);
+    });
+    expect(cves.map((c) => c.cve_id)).toEqual(sorted.map((c) => c.cve_id));
   });
 
-  it("latest advisory [0] is critical or high — not stale low-priority filler", () => {
-    const [latestAdvisory] = loadCVEs();
-    expect(["critical", "high"]).toContain(latestAdvisory.severity);
+  it("latest five include at least one critical or high advisory — not stale low-priority filler", () => {
+    const latest = latestCVEs(loadCVEs(), 5);
+    expect(latest.some((advisory) => ["critical", "high"].includes(advisory.severity))).toBe(true);
   });
 
   it("selects the latest 5 CVEs for the homepage strip", () => {

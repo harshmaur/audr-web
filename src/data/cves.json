@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-44653",
+    "product": "LibreChat",
+    "vendor": "LibreChat",
+    "severity": "medium",
+    "published_date": "2026-06-02",
+    "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
+    "visceral_consequence": "low-privilege users can read MCP server credentials configured by admins",
+    "scope_phrase": "where LibreChat dependencies are version 0.8.3 or older",
+    "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
+  },
+  {
     "cve_id": "CVE-2026-32625",
     "product": "LibreChat",
     "vendor": "LibreChat",
@@ -17,20 +28,9 @@
     "severity": "high",
     "published_date": "2026-06-02",
     "summary_short": "API key updates can target another user through request body userId fields before 0.8.3.",
-    "visceral_consequence": "an authenticated user can tamper with another user\u2019s provider API keys",
+    "visceral_consequence": "an authenticated user can tamper with another user’s provider API keys",
     "scope_phrase": "where LibreChat manifests resolve below 0.8.3",
     "audr_rule_id": "librechat-api-keys-userid-idor"
-  },
-  {
-    "cve_id": "CVE-2026-44653",
-    "product": "LibreChat",
-    "vendor": "LibreChat",
-    "severity": "medium",
-    "published_date": "2026-06-02",
-    "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
-    "visceral_consequence": "low-privilege users can read MCP server credentials configured by admins",
-    "scope_phrase": "where LibreChat dependencies are version 0.8.3 or older",
-    "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
   },
   {
     "cve_id": "CVE-2026-10280",
@@ -44,15 +44,26 @@
     "audr_rule_id": "mcpilot-serverbaseurl-ssrf"
   },
   {
-    "cve_id": "CVE-2026-32905",
+    "cve_id": "CVE-2026-35674",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "high",
     "published_date": "2026-05-29",
-    "summary_short": "device-pair plugin can issue bootstrap codes from non-owner chats before 2026.5.4.",
-    "visceral_consequence": "authorized chat senders can mint device-pairing codes outside intended ownership",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.4",
-    "audr_rule_id": "openclaw-device-pair-bootstrap-scope-bypass"
+    "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
+    "visceral_consequence": "a scoped Gateway client can mutate plugins, config, MCP, allowlists, or ACP state",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-35673",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
+    "visceral_consequence": "blocked private-network tabs can be reused to bypass SSRF policy",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
   },
   {
     "cve_id": "CVE-2026-35630",
@@ -66,15 +77,15 @@
     "audr_rule_id": "openclaw-qqbot-approval-button-bypass"
   },
   {
-    "cve_id": "CVE-2026-35674",
+    "cve_id": "CVE-2026-34507",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
-    "severity": "high",
+    "severity": "medium",
     "published_date": "2026-05-29",
-    "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
-    "visceral_consequence": "a scoped Gateway client can mutate plugins, config, MCP, allowlists, or ACP state",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
-    "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
+    "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
+    "visceral_consequence": "admin commands can be routed from unauthorized QQBot contexts",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
   },
   {
     "cve_id": "CVE-2026-32906",
@@ -88,26 +99,15 @@
     "audr_rule_id": "openclaw-slack-plugin-approval-gate-bypass"
   },
   {
-    "cve_id": "CVE-2026-34507",
+    "cve_id": "CVE-2026-32905",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
-    "severity": "medium",
+    "severity": "high",
     "published_date": "2026-05-29",
-    "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
-    "visceral_consequence": "admin commands can be routed from unauthorized QQBot contexts",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
-    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-35673",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "medium",
-    "published_date": "2026-05-29",
-    "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
-    "visceral_consequence": "blocked private-network tabs can be reused to bypass SSRF policy",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
-    "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
+    "summary_short": "device-pair plugin can issue bootstrap codes from non-owner chats before 2026.5.4.",
+    "visceral_consequence": "authorized chat senders can mint device-pairing codes outside intended ownership",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.4",
+    "audr_rule_id": "openclaw-device-pair-bootstrap-scope-bypass"
   },
   {
     "cve_id": "CVE-2026-48116",
@@ -132,17 +132,6 @@
     "audr_rule_id": "nocturne-memory-missing-api-token"
   },
   {
-    "cve_id": "CVE-2026-44450",
-    "product": "Lumiverse",
-    "vendor": "prolix-oc",
-    "severity": "critical",
-    "published_date": "2026-05-26",
-    "summary_short": "MCP server args are forwarded to code-capable allowlisted binaries before 0.9.7.",
-    "visceral_consequence": "logged-in users can turn MCP server setup into OS command execution",
-    "scope_phrase": "where Lumiverse / lumiverse-backend dependencies are older than 0.9.7",
-    "audr_rule_id": "lumiverse-mcp-args-rce"
-  },
-  {
     "cve_id": "CVE-2026-44895",
     "product": "GitLab MCP Server",
     "vendor": "yoda-digital",
@@ -152,6 +141,17 @@
     "visceral_consequence": "a hostile browser can drive the operator's GitLab MCP tools",
     "scope_phrase": "where vulnerable GitLab MCP Server configs use HTTP/SSE transport",
     "audr_rule_id": "gitlab-mcp-server-unauth-http"
+  },
+  {
+    "cve_id": "CVE-2026-44450",
+    "product": "Lumiverse",
+    "vendor": "prolix-oc",
+    "severity": "critical",
+    "published_date": "2026-05-26",
+    "summary_short": "MCP server args are forwarded to code-capable allowlisted binaries before 0.9.7.",
+    "visceral_consequence": "logged-in users can turn MCP server setup into OS command execution",
+    "scope_phrase": "where Lumiverse / lumiverse-backend dependencies are older than 0.9.7",
+    "audr_rule_id": "lumiverse-mcp-args-rce"
   },
   {
     "cve_id": "CVE-2026-9468",
@@ -242,15 +242,15 @@
     "audr_rule_id": "code-runner-mcp-unauth-http-rce"
   },
   {
-    "cve_id": "CVE-2026-43990",
-    "product": "JunoClaw plugin-shell",
-    "vendor": "JunoClaw",
+    "cve_id": "CVE-2026-44246",
+    "product": "nnU-Net issue triage workflow",
+    "vendor": "Anthropic / Claude Code Action",
     "severity": "high",
     "published_date": "2026-05-12",
-    "summary_short": "agent commands are wrapped in sh -c or cmd /C in plugin-shell 0.1.0.",
-    "visceral_consequence": "shell metacharacters from agent-supplied commands can execute in the host shell",
-    "scope_phrase": "where plugin-shell Cargo manifests resolve below 0.1.1",
-    "audr_rule_id": "junoclaw-plugin-shell-sh-c-agent-command"
+    "summary_short": "Issue-triggered Claude Code workflows embed untrusted issue title/body content.",
+    "visceral_consequence": "an external GitHub issue can steer a command-capable triage agent",
+    "scope_phrase": "where issue workflows run Claude Code Action on raw issue title/body input",
+    "audr_rule_id": "gha-claude-issue-agent-injection"
   },
   {
     "cve_id": "CVE-2026-43991",
@@ -264,26 +264,15 @@
     "audr_rule_id": "junoclaw-plugin-shell-raw-blocklist-bypass"
   },
   {
-    "cve_id": "CVE-2026-44246",
-    "product": "nnU-Net issue triage workflow",
-    "vendor": "Anthropic / Claude Code Action",
+    "cve_id": "CVE-2026-43990",
+    "product": "JunoClaw plugin-shell",
+    "vendor": "JunoClaw",
     "severity": "high",
     "published_date": "2026-05-12",
-    "summary_short": "Issue-triggered Claude Code workflows embed untrusted issue title/body content.",
-    "visceral_consequence": "an external GitHub issue can steer a command-capable triage agent",
-    "scope_phrase": "where issue workflows run Claude Code Action on raw issue title/body input",
-    "audr_rule_id": "gha-claude-issue-agent-injection"
-  },
-  {
-    "cve_id": "CVE-2026-43901",
-    "product": "Wireshark MCP",
-    "vendor": "MCP",
-    "severity": "medium",
-    "published_date": "2026-05-11",
-    "summary_short": "export_objects accepts attacker-controlled destination directories when no allowlist is configured.",
-    "visceral_consequence": "agent-controlled packet exports can write files outside the intended workspace",
-    "scope_phrase": "where Wireshark MCP servers run without WIRESHARK_MCP_ALLOWED_DIRS",
-    "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
+    "summary_short": "agent commands are wrapped in sh -c or cmd /C in plugin-shell 0.1.0.",
+    "visceral_consequence": "shell metacharacters from agent-supplied commands can execute in the host shell",
+    "scope_phrase": "where plugin-shell Cargo manifests resolve below 0.1.1",
+    "audr_rule_id": "junoclaw-plugin-shell-sh-c-agent-command"
   },
   {
     "cve_id": "CVE-2026-8305",
@@ -297,59 +286,15 @@
     "audr_rule_id": "openclaw-bluebubbles-webhook-auth-bypass"
   },
   {
-    "cve_id": "CVE-2026-43575",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Sandbox noVNC helper route exposes browser session credentials.",
-    "visceral_consequence": "unauthenticated routes hand over live browser sessions",
-    "scope_phrase": "where vulnerable OpenClaw installs expose noVNC helper credentials",
-    "audr_rule_id": "agent-package-known-vulnerable"
-  },
-  {
-    "cve_id": "CVE-2026-43578",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Async exec completions bypass heartbeat owner downgrade checks.",
-    "visceral_consequence": "background exec output keeps privileged agent context",
-    "scope_phrase": "where async exec completions outrun owner downgrades",
-    "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
-  },
-  {
-    "cve_id": "CVE-2026-43581",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Sandbox CDP relay binds Chrome DevTools to all interfaces.",
-    "visceral_consequence": "exposed DevTools sessions hand over browser control",
-    "scope_phrase": "where sandbox CDP relays bind beyond localhost",
-    "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
-  },
-  {
-    "cve_id": "CVE-2026-43585",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Bearer SecretRefs are cached through token rotation.",
-    "visceral_consequence": "revoked bearer tokens keep gateway access",
-    "scope_phrase": "where bearer SecretRefs stay valid after rotation",
-    "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-44109",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Feishu webhook validation fails open when auth material is blank.",
-    "visceral_consequence": "blank webhook secrets reach command dispatch",
-    "scope_phrase": "where Feishu webhook auth fails open",
-    "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
+    "cve_id": "CVE-2026-43901",
+    "product": "Wireshark MCP",
+    "vendor": "MCP",
+    "severity": "medium",
+    "published_date": "2026-05-11",
+    "summary_short": "export_objects accepts attacker-controlled destination directories when no allowlist is configured.",
+    "visceral_consequence": "agent-controlled packet exports can write files outside the intended workspace",
+    "scope_phrase": "where Wireshark MCP servers run without WIRESHARK_MCP_ALLOWED_DIRS",
+    "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
   },
   {
     "cve_id": "CVE-2026-44110",
@@ -363,15 +308,59 @@
     "audr_rule_id": "openclaw-matrix-dm-pairing-auth-bypass"
   },
   {
-    "cve_id": "CVE-2026-43534",
+    "cve_id": "CVE-2026-44109",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "critical",
-    "published_date": "2026-05-05",
-    "summary_short": "External hook metadata is queued as trusted system events.",
-    "visceral_consequence": "hook names cross into trusted agent context",
-    "scope_phrase": "where hook metadata enters trusted event queues",
-    "audr_rule_id": "openclaw-trusted-hook-metadata-injection"
+    "published_date": "2026-05-06",
+    "summary_short": "Feishu webhook validation fails open when auth material is blank.",
+    "visceral_consequence": "blank webhook secrets reach command dispatch",
+    "scope_phrase": "where Feishu webhook auth fails open",
+    "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-43585",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Bearer SecretRefs are cached through token rotation.",
+    "visceral_consequence": "revoked bearer tokens keep gateway access",
+    "scope_phrase": "where bearer SecretRefs stay valid after rotation",
+    "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-43581",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Sandbox CDP relay binds Chrome DevTools to all interfaces.",
+    "visceral_consequence": "exposed DevTools sessions hand over browser control",
+    "scope_phrase": "where sandbox CDP relays bind beyond localhost",
+    "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
+  },
+  {
+    "cve_id": "CVE-2026-43578",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Async exec completions bypass heartbeat owner downgrade checks.",
+    "visceral_consequence": "background exec output keeps privileged agent context",
+    "scope_phrase": "where async exec completions outrun owner downgrades",
+    "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
+  },
+  {
+    "cve_id": "CVE-2026-43575",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Sandbox noVNC helper route exposes browser session credentials.",
+    "visceral_consequence": "unauthenticated routes hand over live browser sessions",
+    "scope_phrase": "where vulnerable OpenClaw installs expose noVNC helper credentials",
+    "audr_rule_id": "agent-package-known-vulnerable"
   },
   {
     "cve_id": "CVE-2026-43566",
@@ -385,6 +374,17 @@
     "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
   },
   {
+    "cve_id": "CVE-2026-43534",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-05",
+    "summary_short": "External hook metadata is queued as trusted system events.",
+    "visceral_consequence": "hook names cross into trusted agent context",
+    "scope_phrase": "where hook metadata enters trusted event queues",
+    "audr_rule_id": "openclaw-trusted-hook-metadata-injection"
+  },
+  {
     "cve_id": "CVE-2026-7729",
     "product": "directus-mcp",
     "vendor": "pixelsock",
@@ -394,28 +394,6 @@
     "visceral_consequence": "agent-supplied Directus file URLs can reach unintended services",
     "scope_phrase": "where directus-mcp manifests resolve to version 1.0.0",
     "audr_rule_id": "directus-mcp-fileurl-ssrf"
-  },
-  {
-    "cve_id": "CVE-2026-41366",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-03",
-    "summary_short": "local media roots can be self-whitelisted before 2026.3.31.",
-    "visceral_consequence": "model-initiated media access can expand into host file reads",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
-    "audr_rule_id": "openclaw-local-media-root-self-whitelist"
-  },
-  {
-    "cve_id": "CVE-2026-41368",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-03",
-    "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
-    "visceral_consequence": "agent-controlled jq transforms can expose process secrets",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.28",
-    "audr_rule_id": "openclaw-jq-env-disclosure"
   },
   {
     "cve_id": "CVE-2026-41370",
@@ -429,15 +407,26 @@
     "audr_rule_id": "openclaw-acp-attachment-path-traversal"
   },
   {
-    "cve_id": "CVE-2026-7221",
-    "product": "CloudBase-MCP",
-    "vendor": "TencentCloudBase",
-    "severity": "medium",
-    "published_date": "2026-04-29",
-    "summary_short": "openUrl can be abused for SSRF before CloudBase-MCP 2.17.1.",
-    "visceral_consequence": "an MCP caller can make CloudBase-MCP fetch internal or attacker-chosen URLs",
-    "scope_phrase": "where @cloudbase/cloudbase-mcp manifests resolve below 2.17.1",
-    "audr_rule_id": "cloudbase-mcp-openurl-ssrf"
+    "cve_id": "CVE-2026-41368",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-03",
+    "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
+    "visceral_consequence": "agent-controlled jq transforms can expose process secrets",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.28",
+    "audr_rule_id": "openclaw-jq-env-disclosure"
+  },
+  {
+    "cve_id": "CVE-2026-41366",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-03",
+    "summary_short": "local media roots can be self-whitelisted before 2026.3.31.",
+    "visceral_consequence": "model-initiated media access can expand into host file reads",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
+    "audr_rule_id": "openclaw-local-media-root-self-whitelist"
   },
   {
     "cve_id": "CVE-2026-7417",
@@ -449,6 +438,105 @@
     "visceral_consequence": "an agent prompt can push xhs-mcp toward internal URLs through media_paths",
     "scope_phrase": "where xhs-mcp manifests resolve to version 0.8.11",
     "audr_rule_id": "xhs-mcp-media-paths-ssrf"
+  },
+  {
+    "cve_id": "CVE-2026-7221",
+    "product": "CloudBase-MCP",
+    "vendor": "TencentCloudBase",
+    "severity": "medium",
+    "published_date": "2026-04-29",
+    "summary_short": "openUrl can be abused for SSRF before CloudBase-MCP 2.17.1.",
+    "visceral_consequence": "an MCP caller can make CloudBase-MCP fetch internal or attacker-chosen URLs",
+    "scope_phrase": "where @cloudbase/cloudbase-mcp manifests resolve below 2.17.1",
+    "audr_rule_id": "cloudbase-mcp-openurl-ssrf"
+  },
+  {
+    "cve_id": "CVE-2026-7316",
+    "product": "aider-mcp",
+    "vendor": "eiliyaabedini",
+    "severity": "medium",
+    "published_date": "2026-04-28",
+    "summary_short": "working_dir and editable_files handling can allow command injection in vulnerable GitHub source installs.",
+    "visceral_consequence": "an MCP config launched from the vulnerable repo can expose shell injection through file arguments",
+    "scope_phrase": "where MCP configs launch github.com/eiliyaabedini/aider-mcp",
+    "audr_rule_id": "aider-mcp-working-dir-editable-files-command-injection"
+  },
+  {
+    "cve_id": "CVE-2026-42426",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "node.pair.approve accepts broad operator.write instead of pairing scope.",
+    "visceral_consequence": "write-scoped operators approve exec-capable nodes",
+    "scope_phrase": "where node pairing trusts broad write scopes",
+    "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-42422",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
+    "visceral_consequence": "rotated device tokens gain unapproved agent roles",
+    "scope_phrase": "where device token rotation trusts vulnerable OpenClaw versions",
+    "audr_rule_id": "openclaw-device-token-role-minting"
+  },
+  {
+    "cve_id": "CVE-2026-41405",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "MS Teams webhook bodies are parsed before JWT validation.",
+    "visceral_consequence": "unauthenticated webhook payloads spend server capacity",
+    "scope_phrase": "where Teams webhooks spend capacity before auth",
+    "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
+  },
+  {
+    "cve_id": "CVE-2026-41404",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Trusted-proxy scope clearing lets non-Control-UI clients self-declare operator scopes.",
+    "visceral_consequence": "trusted-proxy clients can mint operator-level scopes",
+    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
+    "audr_rule_id": "openclaw-trusted-proxy-scope-clearing"
+  },
+  {
+    "cve_id": "CVE-2026-41399",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "WebSocket upgrades consume socket and worker capacity before auth.",
+    "visceral_consequence": "unauthenticated sockets starve legitimate agent sessions",
+    "scope_phrase": "where WebSocket upgrades spend capacity before auth",
+    "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
+  },
+  {
+    "cve_id": "CVE-2026-41396",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Workspace .env overrides the bundled plugin trust root.",
+    "visceral_consequence": "workspace env swaps trusted plugins for attacker code",
+    "scope_phrase": "where workspace env redirects bundled plugins",
+    "audr_rule_id": "openclaw-bundled-plugins-env-override"
+  },
+  {
+    "cve_id": "CVE-2026-41394",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "plugin-auth routes receive operator runtime write scopes without auth.",
+    "visceral_consequence": "plugin-auth routes wield operator write scope",
+    "scope_phrase": "where plugin auth routes inherit write power",
+    "audr_rule_id": "openclaw-plugin-auth-operator-write-bypass"
   },
   {
     "cve_id": "CVE-2026-41386",
@@ -473,114 +561,15 @@
     "audr_rule_id": "openclaw-node-event-tool-access"
   },
   {
-    "cve_id": "CVE-2026-41394",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "plugin-auth routes receive operator runtime write scopes without auth.",
-    "visceral_consequence": "plugin-auth routes wield operator write scope",
-    "scope_phrase": "where plugin auth routes inherit write power",
-    "audr_rule_id": "openclaw-plugin-auth-operator-write-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-41396",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "Workspace .env overrides the bundled plugin trust root.",
-    "visceral_consequence": "workspace env swaps trusted plugins for attacker code",
-    "scope_phrase": "where workspace env redirects bundled plugins",
-    "audr_rule_id": "openclaw-bundled-plugins-env-override"
-  },
-  {
-    "cve_id": "CVE-2026-41399",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "WebSocket upgrades consume socket and worker capacity before auth.",
-    "visceral_consequence": "unauthenticated sockets starve legitimate agent sessions",
-    "scope_phrase": "where WebSocket upgrades spend capacity before auth",
-    "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
-  },
-  {
-    "cve_id": "CVE-2026-41404",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "Trusted-proxy scope clearing lets non-Control-UI clients self-declare operator scopes.",
-    "visceral_consequence": "trusted-proxy clients can mint operator-level scopes",
-    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
-    "audr_rule_id": "openclaw-trusted-proxy-scope-clearing"
-  },
-  {
-    "cve_id": "CVE-2026-41405",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "MS Teams webhook bodies are parsed before JWT validation.",
-    "visceral_consequence": "unauthenticated webhook payloads spend server capacity",
-    "scope_phrase": "where Teams webhooks spend capacity before auth",
-    "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
-  },
-  {
-    "cve_id": "CVE-2026-42422",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
-    "visceral_consequence": "rotated device tokens gain unapproved agent roles",
-    "scope_phrase": "where device token rotation trusts vulnerable OpenClaw versions",
-    "audr_rule_id": "openclaw-device-token-role-minting"
-  },
-  {
-    "cve_id": "CVE-2026-42426",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "node.pair.approve accepts broad operator.write instead of pairing scope.",
-    "visceral_consequence": "write-scoped operators approve exec-capable nodes",
-    "scope_phrase": "where node pairing trusts broad write scopes",
-    "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-7316",
-    "product": "aider-mcp",
-    "vendor": "eiliyaabedini",
-    "severity": "medium",
-    "published_date": "2026-04-28",
-    "summary_short": "working_dir and editable_files handling can allow command injection in vulnerable GitHub source installs.",
-    "visceral_consequence": "an MCP config launched from the vulnerable repo can expose shell injection through file arguments",
-    "scope_phrase": "where MCP configs launch github.com/eiliyaabedini/aider-mcp",
-    "audr_rule_id": "aider-mcp-working-dir-editable-files-command-injection"
-  },
-  {
-    "cve_id": "CVE-2026-7146",
-    "product": "mcp-data-vis",
-    "vendor": "AlejandroArciniegas",
+    "cve_id": "CVE-2026-7158",
+    "product": "mcp-url-downloader",
+    "vendor": "dmitryglhf",
     "severity": "medium",
     "published_date": "2026-04-27",
-    "summary_short": "web-scraper URL handling can be abused for SSRF in 1.0.0.",
-    "visceral_consequence": "an MCP caller can make the visualizer fetch internal or attacker-chosen URLs",
-    "scope_phrase": "where mcp-data-vis manifests resolve to version 1.0.0",
-    "audr_rule_id": "mcp-data-vis-web-scraper-ssrf"
-  },
-  {
-    "cve_id": "CVE-2026-7147",
-    "product": "mcp-chat-studio",
-    "vendor": "JoeCastrom",
-    "severity": "medium",
-    "published_date": "2026-04-27",
-    "summary_short": "model API base_url handling can allow SSRF through 1.5.0.",
-    "visceral_consequence": "agent-controlled model URLs can make the MCP server reach internal services",
-    "scope_phrase": "where mcp-chat-studio manifests resolve to 1.5.0 or older",
-    "audr_rule_id": "mcp-chat-studio-models-base-url-ssrf"
+    "summary_short": "URL validation can be bypassed for SSRF in 0.1.0.",
+    "visceral_consequence": "an agent prompt can turn the downloader into an internal URL fetcher",
+    "scope_phrase": "where mcp-url-downloader manifests resolve to version 0.1.0",
+    "audr_rule_id": "mcp-url-downloader-validate-url-safe-ssrf"
   },
   {
     "cve_id": "CVE-2026-7157",
@@ -594,26 +583,26 @@
     "audr_rule_id": "aider-mcp-server-relative-editable-files-command-injection"
   },
   {
-    "cve_id": "CVE-2026-7158",
-    "product": "mcp-url-downloader",
-    "vendor": "dmitryglhf",
+    "cve_id": "CVE-2026-7147",
+    "product": "mcp-chat-studio",
+    "vendor": "JoeCastrom",
     "severity": "medium",
     "published_date": "2026-04-27",
-    "summary_short": "URL validation can be bypassed for SSRF in 0.1.0.",
-    "visceral_consequence": "an agent prompt can turn the downloader into an internal URL fetcher",
-    "scope_phrase": "where mcp-url-downloader manifests resolve to version 0.1.0",
-    "audr_rule_id": "mcp-url-downloader-validate-url-safe-ssrf"
+    "summary_short": "model API base_url handling can allow SSRF through 1.5.0.",
+    "visceral_consequence": "agent-controlled model URLs can make the MCP server reach internal services",
+    "scope_phrase": "where mcp-chat-studio manifests resolve to 1.5.0 or older",
+    "audr_rule_id": "mcp-chat-studio-models-base-url-ssrf"
   },
   {
-    "cve_id": "CVE-2026-41336",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-23",
-    "summary_short": "Workspace .env overrides the bundled hooks trust root.",
-    "visceral_consequence": "workspace env swaps trusted hooks for attacker code",
-    "scope_phrase": "where workspace env redirects bundled hooks",
-    "audr_rule_id": "openclaw-bundled-hooks-env-override"
+    "cve_id": "CVE-2026-7146",
+    "product": "mcp-data-vis",
+    "vendor": "AlejandroArciniegas",
+    "severity": "medium",
+    "published_date": "2026-04-27",
+    "summary_short": "web-scraper URL handling can be abused for SSRF in 1.0.0.",
+    "visceral_consequence": "an MCP caller can make the visualizer fetch internal or attacker-chosen URLs",
+    "scope_phrase": "where mcp-data-vis manifests resolve to version 1.0.0",
+    "audr_rule_id": "mcp-data-vis-web-scraper-ssrf"
   },
   {
     "cve_id": "CVE-2026-41349",
@@ -625,6 +614,17 @@
     "visceral_consequence": "config patches turn off host-exec consent",
     "scope_phrase": "where config patches erase approval prompts",
     "audr_rule_id": "openclaw-config-patch-consent-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-41336",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-23",
+    "summary_short": "Workspace .env overrides the bundled hooks trust root.",
+    "visceral_consequence": "workspace env swaps trusted hooks for attacker code",
+    "scope_phrase": "where workspace env redirects bundled hooks",
+    "audr_rule_id": "openclaw-bundled-hooks-env-override"
   },
   {
     "cve_id": "CVE-2025-59536",

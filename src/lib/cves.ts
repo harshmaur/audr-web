@@ -24,7 +24,11 @@ export function loadCVEs(): CVE[] {
 
 export function latestCVEs(cves: CVE[], limit = 5): CVE[] {
   return [...cves]
-    .sort((a, b) => Date.parse(b.published_date) - Date.parse(a.published_date))
+    .sort((a, b) => {
+      const byDate = b.published_date.localeCompare(a.published_date);
+      if (byDate !== 0) return byDate;
+      return b.cve_id.localeCompare(a.cve_id);
+    })
     .slice(0, limit);
 }
 

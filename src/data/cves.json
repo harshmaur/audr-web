@@ -11,6 +11,72 @@
     "audr_rule_id": "librechat-mcp-env-secret-leak"
   },
   {
+    "cve_id": "CVE-2026-35674",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-29",
+    "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
+    "visceral_consequence": "a scoped Gateway client can mutate plugins, config, MCP, allowlists, or ACP state",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-35673",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
+    "visceral_consequence": "blocked private-network tabs can be reused to bypass SSRF policy",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
+  },
+  {
+    "cve_id": "CVE-2026-35630",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-29",
+    "summary_short": "QQBot native approval buttons miss approver identity checks before 2026.5.18.",
+    "visceral_consequence": "non-approvers can click agent approval buttons and release pending actions",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-qqbot-approval-button-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-34507",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
+    "visceral_consequence": "admin commands can be routed from unauthorized QQBot contexts",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-32906",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "Slack plugin approvals use the wrong approval gate before 2026.5.12.",
+    "visceral_consequence": "exec-authorized Slack users can resolve plugin approvals they should not control",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.12",
+    "audr_rule_id": "openclaw-slack-plugin-approval-gate-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-32905",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-29",
+    "summary_short": "device-pair plugin can issue bootstrap codes from non-owner chats before 2026.5.4.",
+    "visceral_consequence": "authorized chat senders can mint device-pairing codes outside intended ownership",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.4",
+    "audr_rule_id": "openclaw-device-pair-bootstrap-scope-bypass"
+  },
+  {
     "cve_id": "CVE-2026-44830",
     "product": "Nocturne Memory",
     "vendor": "Nocturne Memory",
@@ -121,6 +187,17 @@
     "audr_rule_id": "gha-claude-issue-agent-injection"
   },
   {
+    "cve_id": "CVE-2026-8305",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-11",
+    "summary_short": "BlueBubbles webhook handling is authorization-bypass prone before 2026.2.12.",
+    "visceral_consequence": "webhook traffic can reach agent-control handling without the intended authorization",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.2.12",
+    "audr_rule_id": "openclaw-bluebubbles-webhook-auth-bypass"
+  },
+  {
     "cve_id": "CVE-2026-43901",
     "product": "Wireshark MCP",
     "vendor": "MCP",
@@ -130,6 +207,17 @@
     "visceral_consequence": "agent-controlled packet exports can write files outside the intended workspace",
     "scope_phrase": "where Wireshark MCP servers run without WIRESHARK_MCP_ALLOWED_DIRS",
     "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
+  },
+  {
+    "cve_id": "CVE-2026-44110",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-06",
+    "summary_short": "Matrix room control commands trust DM pairing-store entries before 2026.4.15.",
+    "visceral_consequence": "DM-paired sender IDs can execute room control commands without proper room authorization",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.15",
+    "audr_rule_id": "openclaw-matrix-dm-pairing-auth-bypass"
   },
   {
     "cve_id": "CVE-2026-44109",
@@ -207,6 +295,39 @@
     "visceral_consequence": "hook names cross into trusted agent context",
     "scope_phrase": "where hook metadata enters trusted event queues",
     "audr_rule_id": "openclaw-trusted-hook-metadata-injection"
+  },
+  {
+    "cve_id": "CVE-2026-41370",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-03",
+    "summary_short": "ACP attachment paths can traverse outside the workspace before 2026.3.31.",
+    "visceral_consequence": "agent attachments can become arbitrary local file reads",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
+    "audr_rule_id": "openclaw-acp-attachment-path-traversal"
+  },
+  {
+    "cve_id": "CVE-2026-41368",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-03",
+    "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
+    "visceral_consequence": "agent-controlled jq transforms can expose process secrets",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.28",
+    "audr_rule_id": "openclaw-jq-env-disclosure"
+  },
+  {
+    "cve_id": "CVE-2026-41366",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-03",
+    "summary_short": "local media roots can be self-whitelisted before 2026.3.31.",
+    "visceral_consequence": "model-initiated media access can expand into host file reads",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
+    "audr_rule_id": "openclaw-local-media-root-self-whitelist"
   },
   {
     "cve_id": "CVE-2026-42426",

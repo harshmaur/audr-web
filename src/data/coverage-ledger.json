@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-10T16:46:08Z",
+  "generated_at": "2026-06-11T04:17:06Z",
   "source_last_discovery_at": "2026-06-09",
   "source_entry_count": 344,
-  "public_entry_count": 45,
+  "public_entry_count": 56,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 299,
+  "excluded_public_safe_candidate_count": 288,
   "excluded_status_counts": {
-    "osv_covered": 134,
+    "osv_covered": 135,
     "not_auditable": 5,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 13,
-  "excluded_unknown_severity_count": 10,
-  "enriched_from_cves_json_count": 28,
+  "excluded_unknown_severity_count": 7,
+  "enriched_from_cves_json_count": 39,
   "entries": [
     {
       "cve_id": "CVE-2026-32625",
@@ -30,6 +30,102 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32625",
       "summary_short": "MCP URL placeholders resolve server environment secrets through 0.8.3.",
       "audr_rule_id": "librechat-mcp-env-secret-leak"
+    },
+    {
+      "cve_id": "CVE-2026-32905",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32905",
+      "summary_short": "device-pair plugin can issue bootstrap codes from non-owner chats before 2026.5.4.",
+      "audr_rule_id": "openclaw-device-pair-bootstrap-scope-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-32906",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32906",
+      "summary_short": "Slack plugin approvals use the wrong approval gate before 2026.5.12.",
+      "audr_rule_id": "openclaw-slack-plugin-approval-gate-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-34507",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34507",
+      "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
+      "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-35630",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35630",
+      "summary_short": "QQBot native approval buttons miss approver identity checks before 2026.5.18.",
+      "audr_rule_id": "openclaw-qqbot-approval-button-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-35673",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35673",
+      "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
+      "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
+    },
+    {
+      "cve_id": "CVE-2026-35674",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-29",
+      "last_seen_at": "2026-06-05",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35674",
+      "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
+      "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
     },
     {
       "cve_id": "CVE-2026-44830",
@@ -209,6 +305,22 @@
       "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
     },
     {
+      "cve_id": "CVE-2026-8305",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-11",
+      "last_seen_at": "2026-05-18",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8305",
+      "summary_short": "BlueBubbles webhook handling is authorization-bypass prone before 2026.2.12.",
+      "audr_rule_id": "openclaw-bluebubbles-webhook-auth-bypass"
+    },
+    {
       "cve_id": "CVE-2026-43575",
       "status": "shipped",
       "severity": "critical",
@@ -289,6 +401,22 @@
       "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
     },
     {
+      "cve_id": "CVE-2026-44110",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-06",
+      "last_seen_at": "2026-05-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44110",
+      "summary_short": "Matrix room control commands trust DM pairing-store entries before 2026.4.15.",
+      "audr_rule_id": "openclaw-matrix-dm-pairing-auth-bypass"
+    },
+    {
       "cve_id": "CVE-2026-43534",
       "status": "shipped",
       "severity": "critical",
@@ -319,6 +447,54 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43566",
       "summary_short": "Heartbeat owner downgrade weakens channel ownership boundaries.",
       "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
+    },
+    {
+      "cve_id": "CVE-2026-41366",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-03",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41366",
+      "summary_short": "local media roots can be self-whitelisted before 2026.3.31.",
+      "audr_rule_id": "openclaw-local-media-root-self-whitelist"
+    },
+    {
+      "cve_id": "CVE-2026-41368",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-03",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41368",
+      "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
+      "audr_rule_id": "openclaw-jq-env-disclosure"
+    },
+    {
+      "cve_id": "CVE-2026-41370",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-05-03",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41370",
+      "summary_short": "ACP attachment paths can traverse outside the workspace before 2026.3.31.",
+      "audr_rule_id": "openclaw-acp-attachment-path-traversal"
     },
     {
       "cve_id": "CVE-2026-41378",
@@ -545,8 +721,99 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-10174",
+      "cve_id": "CVE-2026-44467",
       "status": "actionable",
+      "severity": "high",
+      "vendor": "Anthropic",
+      "product": "Claude Desktop / Claude Code",
+      "published_date": "2026-05-13",
+      "last_seen_at": "2026-05-20",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44467",
+      "summary_short": "The Claude Desktop app gives you Claude Code with a graphical interface built for running multiple sessions side by side. From 1.2581.0 to before 1.4304.0,…"
+    },
+    {
+      "cve_id": "CVE-2026-45033",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "GitHub",
+      "product": "GitHub Copilot CLI",
+      "published_date": "2026-05-13",
+      "last_seen_at": "2026-05-20",
+      "keywords": [
+        "AI coding agent",
+        "coding agent"
+      ],
+      "local_signal_category": "plugin/hook config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45033",
+      "summary_short": "GitHub Copilot CLI brings AI-powered coding assistance directly to your command line. Prior to 1.0.43, a security vulnerability has been identified in…"
+    },
+    {
+      "cve_id": "CVE-2026-43990",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990",
+      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, plugin-shell's run_command wrapped every agent-supplied command in 'sh…"
+    },
+    {
+      "cve_id": "CVE-2026-43991",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
+      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could…"
+    },
+    {
+      "cve_id": "CVE-2026-7729",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "pixelsock",
+      "product": "directus-mcp",
+      "published_date": "2026-05-04",
+      "last_seen_at": "2026-05-10",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7729",
+      "summary_short": "pixelsock directus-mcp 1.0.0 MCP Interface validateUrl fileUrl SSRF. Candidate local posture: MCP config/package manifest detection for `directus-mcp` 1.0.0…"
+    },
+    {
+      "cve_id": "CVE-2026-7417",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Algovate",
+      "product": "xhs-mcp",
+      "published_date": "2026-04-29",
+      "last_seen_at": "2026-05-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7417",
+      "summary_short": "Algovate xhs-mcp 0.8.11 — MCP media_paths SSRF. Candidate local posture: MCP config/package manifest detection for `xhs-mcp` 0.8.11 or vulnerable GitHub source."
+    },
+    {
+      "cve_id": "CVE-2026-10174",
+      "status": "investigating",
       "severity": "medium",
       "vendor": "Aider-AI",
       "product": "Aider",
@@ -561,7 +828,7 @@
     },
     {
       "cve_id": "CVE-2026-10175",
-      "status": "actionable",
+      "status": "investigating",
       "severity": "medium",
       "vendor": "Aider-AI",
       "product": "Aider",
@@ -576,7 +843,7 @@
     },
     {
       "cve_id": "CVE-2026-10176",
-      "status": "actionable",
+      "status": "investigating",
       "severity": "medium",
       "vendor": "Aider-AI",
       "product": "Aider",
@@ -591,7 +858,7 @@
     },
     {
       "cve_id": "CVE-2026-10177",
-      "status": "actionable",
+      "status": "investigating",
       "severity": "medium",
       "vendor": "Aider-AI",
       "product": "Aider",
@@ -605,98 +872,8 @@
       "summary_short": "A security vulnerability has been detected in Aider-AI Aider 0.86.3. This affects the function requests.get of the file api_docs.py of the component AWS EC2…"
     },
     {
-      "cve_id": "CVE-2026-32905",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32905",
-      "summary_short": "OpenClaw before 2026.5.4 contains an authorization bypass vulnerability in the bundled device-pair plugin that allows non-owner authorized chat senders to…"
-    },
-    {
-      "cve_id": "CVE-2026-32906",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32906",
-      "summary_short": "OpenClaw before 2026.5.12 contains a privilege escalation vulnerability in Slack plugin approvals that allows exec-authorized users to resolve plugin…"
-    },
-    {
-      "cve_id": "CVE-2026-34507",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34507",
-      "summary_short": "OpenClaw before 2026.4.29 contains a policy bypass vulnerability in QQBot admin commands that allows authenticated senders to skip DM-only and allowFrom…"
-    },
-    {
-      "cve_id": "CVE-2026-35630",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35630",
-      "summary_short": "OpenClaw before 2026.5.18 contains an authorization bypass vulnerability in QQBot native approval buttons that fails to enforce configured approver…"
-    },
-    {
-      "cve_id": "CVE-2026-35673",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35673",
-      "summary_short": "OpenClaw before 2026.4.29 contains an SSRF policy bypass vulnerability in browser debug and export routes that allows reuse of already-open blocked tabs.…"
-    },
-    {
-      "cve_id": "CVE-2026-35674",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-05-29",
-      "last_seen_at": "2026-06-05",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35674",
-      "summary_short": "OpenClaw before 2026.5.18 contains a scope bypass vulnerability in the Gateway chat.send route that allows scoped clients to execute privileged commands.…"
-    },
-    {
       "cve_id": "CVE-2026-9468",
-      "status": "actionable",
+      "status": "investigating",
       "severity": "medium",
       "vendor": "A security flaw",
       "product": "A security flaw",
@@ -711,7 +888,7 @@
     },
     {
       "cve_id": "CVE-2026-9353",
-      "status": "actionable",
+      "status": "investigating",
       "severity": "high",
       "vendor": "A security vulnerability",
       "product": "A security vulnerability",

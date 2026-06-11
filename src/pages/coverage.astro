@@ -105,9 +105,16 @@ const description = "Public snapshot of Audr shipped local checks and selected a
         <p class="font-mono text-xs text-text-muted">capped at {snapshot.selected_triage_limit} rows</p>
       </div>
 
-      <div class="grid grid-cols-1 gap-3">
-        {triage.map((entry) => <CoverageCard entry={entry} />)}
-      </div>
+      {triage.length > 0 ? (
+        <div class="grid grid-cols-1 gap-3">
+          {triage.map((entry) => <CoverageCard entry={entry} />)}
+        </div>
+      ) : (
+        <div class="border border-border bg-surface px-4 py-4" data-status="cleared">
+          <p class="font-mono text-xs text-sev-ok uppercase tracking-wider">triage queue cleared</p>
+          <p class="font-sans text-sm text-text-muted mt-2">No public-safe actionable or investigating advisory rows remain in this snapshot.</p>
+        </div>
+      )}
     </section>
 
     <p class="mt-10 font-mono text-xs text-text-muted">

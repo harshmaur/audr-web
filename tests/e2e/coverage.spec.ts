@@ -15,7 +15,9 @@ test.describe("coverage ledger", () => {
     await expect(page.locator("text=public snapshot updated")).toBeVisible();
 
     await expect(page.locator('[data-section="shipped-checks"] [data-status="shipped"]').first()).toBeVisible();
-    await expect(page.locator('[data-section="selected-triage"] [data-status="actionable"], [data-section="selected-triage"] [data-status="investigating"]').first()).toBeVisible();
+    const selectedRows = page.locator('[data-section="selected-triage"] [data-status="actionable"], [data-section="selected-triage"] [data-status="investigating"]');
+    const clearedState = page.locator('[data-section="selected-triage"] [data-status="cleared"]');
+    await expect(selectedRows.first().or(clearedState)).toBeVisible();
     await expect(page.locator('[data-status="irrelevant"], [data-status="duplicate"], [data-status="not_auditable"]')).toHaveCount(0);
     await expect(page.locator('a[href^="https://nvd.nist.gov/vuln/detail/CVE-"]').first()).toBeVisible();
   });

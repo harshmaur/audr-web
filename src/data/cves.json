@@ -231,6 +231,17 @@
     "audr_rule_id": "microsoft-apm-plugin-component-traversal"
   },
   {
+    "cve_id": "CVE-2026-45033",
+    "product": "GitHub Copilot CLI",
+    "vendor": "GitHub",
+    "severity": "high",
+    "published_date": "2026-05-13",
+    "summary_short": "nested bare Git repositories can execute configured helpers during agent git operations before 1.0.43.",
+    "visceral_consequence": "a malicious repository can run shell commands when the agent performs routine git status/diff/rev-parse work",
+    "scope_phrase": "where workspaces contain nested bare Git configs with executable helper keys",
+    "audr_rule_id": "copilot-cli-nested-git-config-exec"
+  },
+  {
     "cve_id": "CVE-2026-5029",
     "product": "Code Runner MCP Server",
     "vendor": "formulahendry",

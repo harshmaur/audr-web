@@ -11,59 +11,15 @@
     "audr_rule_id": "librechat-mcp-env-secret-leak"
   },
   {
-    "cve_id": "CVE-2026-35674",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-29",
-    "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
-    "visceral_consequence": "a scoped Gateway client can mutate plugins, config, MCP, allowlists, or ACP state",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
-    "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-35673",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
+    "cve_id": "CVE-2026-44653",
+    "product": "LibreChat",
+    "vendor": "LibreChat",
     "severity": "medium",
-    "published_date": "2026-05-29",
-    "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
-    "visceral_consequence": "blocked private-network tabs can be reused to bypass SSRF policy",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
-    "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
-  },
-  {
-    "cve_id": "CVE-2026-35630",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-29",
-    "summary_short": "QQBot native approval buttons miss approver identity checks before 2026.5.18.",
-    "visceral_consequence": "non-approvers can click agent approval buttons and release pending actions",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
-    "audr_rule_id": "openclaw-qqbot-approval-button-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-34507",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "medium",
-    "published_date": "2026-05-29",
-    "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
-    "visceral_consequence": "admin commands can be routed from unauthorized QQBot contexts",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
-    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-32906",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "medium",
-    "published_date": "2026-05-29",
-    "summary_short": "Slack plugin approvals use the wrong approval gate before 2026.5.12.",
-    "visceral_consequence": "exec-authorized Slack users can resolve plugin approvals they should not control",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.12",
-    "audr_rule_id": "openclaw-slack-plugin-approval-gate-bypass"
+    "published_date": "2026-06-02",
+    "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
+    "visceral_consequence": "low-privilege users can read MCP server credentials configured by admins",
+    "scope_phrase": "where LibreChat dependencies are version 0.8.3 or older",
+    "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
   },
   {
     "cve_id": "CVE-2026-32905",
@@ -77,6 +33,61 @@
     "audr_rule_id": "openclaw-device-pair-bootstrap-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-35630",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-29",
+    "summary_short": "QQBot native approval buttons miss approver identity checks before 2026.5.18.",
+    "visceral_consequence": "non-approvers can click agent approval buttons and release pending actions",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-qqbot-approval-button-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-35674",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-29",
+    "summary_short": "Gateway chat.send scope checks allow privileged command paths before 2026.5.18.",
+    "visceral_consequence": "a scoped Gateway client can mutate plugins, config, MCP, allowlists, or ACP state",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-32906",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "Slack plugin approvals use the wrong approval gate before 2026.5.12.",
+    "visceral_consequence": "exec-authorized Slack users can resolve plugin approvals they should not control",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.12",
+    "audr_rule_id": "openclaw-slack-plugin-approval-gate-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-34507",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "QQBot admin commands can skip DM-only and allowFrom policy before 2026.4.29.",
+    "visceral_consequence": "admin commands can be routed from unauthorized QQBot contexts",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-35673",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-05-29",
+    "summary_short": "browser debug/export routes can reuse blocked tabs before 2026.4.29.",
+    "visceral_consequence": "blocked private-network tabs can be reused to bypass SSRF policy",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.29",
+    "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
+  },
+  {
     "cve_id": "CVE-2026-44830",
     "product": "Nocturne Memory",
     "vendor": "Nocturne Memory",
@@ -88,17 +99,6 @@
     "audr_rule_id": "nocturne-memory-missing-api-token"
   },
   {
-    "cve_id": "CVE-2026-44895",
-    "product": "GitLab MCP Server",
-    "vendor": "yoda-digital",
-    "severity": "critical",
-    "published_date": "2026-05-26",
-    "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
-    "visceral_consequence": "a hostile browser can drive the operator's GitLab MCP tools",
-    "scope_phrase": "where vulnerable GitLab MCP Server configs use HTTP/SSE transport",
-    "audr_rule_id": "gitlab-mcp-server-unauth-http"
-  },
-  {
     "cve_id": "CVE-2026-44450",
     "product": "Lumiverse",
     "vendor": "prolix-oc",
@@ -108,6 +108,17 @@
     "visceral_consequence": "logged-in users can turn MCP server setup into OS command execution",
     "scope_phrase": "where Lumiverse / lumiverse-backend dependencies are older than 0.9.7",
     "audr_rule_id": "lumiverse-mcp-args-rce"
+  },
+  {
+    "cve_id": "CVE-2026-44895",
+    "product": "GitLab MCP Server",
+    "vendor": "yoda-digital",
+    "severity": "critical",
+    "published_date": "2026-05-26",
+    "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
+    "visceral_consequence": "a hostile browser can drive the operator's GitLab MCP tools",
+    "scope_phrase": "where vulnerable GitLab MCP Server configs use HTTP/SSE transport",
+    "audr_rule_id": "gitlab-mcp-server-unauth-http"
   },
   {
     "cve_id": "CVE-2026-2611",
@@ -187,17 +198,6 @@
     "audr_rule_id": "gha-claude-issue-agent-injection"
   },
   {
-    "cve_id": "CVE-2026-8305",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "medium",
-    "published_date": "2026-05-11",
-    "summary_short": "BlueBubbles webhook handling is authorization-bypass prone before 2026.2.12.",
-    "visceral_consequence": "webhook traffic can reach agent-control handling without the intended authorization",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.2.12",
-    "audr_rule_id": "openclaw-bluebubbles-webhook-auth-bypass"
-  },
-  {
     "cve_id": "CVE-2026-43901",
     "product": "Wireshark MCP",
     "vendor": "MCP",
@@ -209,59 +209,15 @@
     "audr_rule_id": "wireshark-mcp-export-objects-unbounded"
   },
   {
-    "cve_id": "CVE-2026-44110",
+    "cve_id": "CVE-2026-8305",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-06",
-    "summary_short": "Matrix room control commands trust DM pairing-store entries before 2026.4.15.",
-    "visceral_consequence": "DM-paired sender IDs can execute room control commands without proper room authorization",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.15",
-    "audr_rule_id": "openclaw-matrix-dm-pairing-auth-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-44109",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Feishu webhook validation fails open when auth material is blank.",
-    "visceral_consequence": "blank webhook secrets reach command dispatch",
-    "scope_phrase": "where Feishu webhook auth fails open",
-    "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-43585",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Bearer SecretRefs are cached through token rotation.",
-    "visceral_consequence": "revoked bearer tokens keep gateway access",
-    "scope_phrase": "where bearer SecretRefs stay valid after rotation",
-    "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
-  },
-  {
-    "cve_id": "CVE-2026-43581",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Sandbox CDP relay binds Chrome DevTools to all interfaces.",
-    "visceral_consequence": "exposed DevTools sessions hand over browser control",
-    "scope_phrase": "where sandbox CDP relays bind beyond localhost",
-    "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
-  },
-  {
-    "cve_id": "CVE-2026-43578",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "critical",
-    "published_date": "2026-05-06",
-    "summary_short": "Async exec completions bypass heartbeat owner downgrade checks.",
-    "visceral_consequence": "background exec output keeps privileged agent context",
-    "scope_phrase": "where async exec completions outrun owner downgrades",
-    "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
+    "severity": "medium",
+    "published_date": "2026-05-11",
+    "summary_short": "BlueBubbles webhook handling is authorization-bypass prone before 2026.2.12.",
+    "visceral_consequence": "webhook traffic can reach agent-control handling without the intended authorization",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.2.12",
+    "audr_rule_id": "openclaw-bluebubbles-webhook-auth-bypass"
   },
   {
     "cve_id": "CVE-2026-43575",
@@ -275,15 +231,59 @@
     "audr_rule_id": "agent-package-known-vulnerable"
   },
   {
-    "cve_id": "CVE-2026-43566",
+    "cve_id": "CVE-2026-43578",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "critical",
-    "published_date": "2026-05-05",
-    "summary_short": "Heartbeat owner downgrade weakens channel ownership boundaries.",
-    "visceral_consequence": "heartbeat state strips owners from agent channels",
-    "scope_phrase": "where heartbeat state downgrades channel owners",
-    "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
+    "published_date": "2026-05-06",
+    "summary_short": "Async exec completions bypass heartbeat owner downgrade checks.",
+    "visceral_consequence": "background exec output keeps privileged agent context",
+    "scope_phrase": "where async exec completions outrun owner downgrades",
+    "audr_rule_id": "openclaw-async-exec-completion-owner-downgrade"
+  },
+  {
+    "cve_id": "CVE-2026-43581",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Sandbox CDP relay binds Chrome DevTools to all interfaces.",
+    "visceral_consequence": "exposed DevTools sessions hand over browser control",
+    "scope_phrase": "where sandbox CDP relays bind beyond localhost",
+    "audr_rule_id": "openclaw-sandbox-cdp-relay-public-bind"
+  },
+  {
+    "cve_id": "CVE-2026-43585",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Bearer SecretRefs are cached through token rotation.",
+    "visceral_consequence": "revoked bearer tokens keep gateway access",
+    "scope_phrase": "where bearer SecretRefs stay valid after rotation",
+    "audr_rule_id": "openclaw-bearer-secretref-rotation-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-44109",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-05-06",
+    "summary_short": "Feishu webhook validation fails open when auth material is blank.",
+    "visceral_consequence": "blank webhook secrets reach command dispatch",
+    "scope_phrase": "where Feishu webhook auth fails open",
+    "audr_rule_id": "openclaw-feishu-webhook-auth-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-44110",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-05-06",
+    "summary_short": "Matrix room control commands trust DM pairing-store entries before 2026.4.15.",
+    "visceral_consequence": "DM-paired sender IDs can execute room control commands without proper room authorization",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.15",
+    "audr_rule_id": "openclaw-matrix-dm-pairing-auth-bypass"
   },
   {
     "cve_id": "CVE-2026-43534",
@@ -297,26 +297,26 @@
     "audr_rule_id": "openclaw-trusted-hook-metadata-injection"
   },
   {
-    "cve_id": "CVE-2026-41370",
+    "cve_id": "CVE-2026-43566",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-03",
-    "summary_short": "ACP attachment paths can traverse outside the workspace before 2026.3.31.",
-    "visceral_consequence": "agent attachments can become arbitrary local file reads",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
-    "audr_rule_id": "openclaw-acp-attachment-path-traversal"
+    "severity": "critical",
+    "published_date": "2026-05-05",
+    "summary_short": "Heartbeat owner downgrade weakens channel ownership boundaries.",
+    "visceral_consequence": "heartbeat state strips owners from agent channels",
+    "scope_phrase": "where heartbeat state downgrades channel owners",
+    "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
   },
   {
-    "cve_id": "CVE-2026-41368",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-05-03",
-    "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
-    "visceral_consequence": "agent-controlled jq transforms can expose process secrets",
-    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.28",
-    "audr_rule_id": "openclaw-jq-env-disclosure"
+    "cve_id": "CVE-2026-7729",
+    "product": "directus-mcp",
+    "vendor": "pixelsock",
+    "severity": "low",
+    "published_date": "2026-05-04",
+    "summary_short": "fileUrl validation can allow SSRF in directus-mcp 1.0.0.",
+    "visceral_consequence": "agent-supplied Directus file URLs can reach unintended services",
+    "scope_phrase": "where directus-mcp manifests resolve to version 1.0.0",
+    "audr_rule_id": "directus-mcp-fileurl-ssrf"
   },
   {
     "cve_id": "CVE-2026-41366",
@@ -330,81 +330,48 @@
     "audr_rule_id": "openclaw-local-media-root-self-whitelist"
   },
   {
-    "cve_id": "CVE-2026-42426",
+    "cve_id": "CVE-2026-41368",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "node.pair.approve accepts broad operator.write instead of pairing scope.",
-    "visceral_consequence": "write-scoped operators approve exec-capable nodes",
-    "scope_phrase": "where node pairing trusts broad write scopes",
-    "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
+    "published_date": "2026-05-03",
+    "summary_short": "jq safe-bin expressions can disclose process environment before 2026.3.28.",
+    "visceral_consequence": "agent-controlled jq transforms can expose process secrets",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.28",
+    "audr_rule_id": "openclaw-jq-env-disclosure"
   },
   {
-    "cve_id": "CVE-2026-42422",
+    "cve_id": "CVE-2026-41370",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
-    "visceral_consequence": "rotated device tokens gain unapproved agent roles",
-    "scope_phrase": "where device token rotation trusts vulnerable OpenClaw versions",
-    "audr_rule_id": "openclaw-device-token-role-minting"
+    "published_date": "2026-05-03",
+    "summary_short": "ACP attachment paths can traverse outside the workspace before 2026.3.31.",
+    "visceral_consequence": "agent attachments can become arbitrary local file reads",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.3.31",
+    "audr_rule_id": "openclaw-acp-attachment-path-traversal"
   },
   {
-    "cve_id": "CVE-2026-41405",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "MS Teams webhook bodies are parsed before JWT validation.",
-    "visceral_consequence": "unauthenticated webhook payloads spend server capacity",
-    "scope_phrase": "where Teams webhooks spend capacity before auth",
-    "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
+    "cve_id": "CVE-2026-7221",
+    "product": "CloudBase-MCP",
+    "vendor": "TencentCloudBase",
+    "severity": "medium",
+    "published_date": "2026-04-29",
+    "summary_short": "openUrl can be abused for SSRF before CloudBase-MCP 2.17.1.",
+    "visceral_consequence": "an MCP caller can make CloudBase-MCP fetch internal or attacker-chosen URLs",
+    "scope_phrase": "where @cloudbase/cloudbase-mcp manifests resolve below 2.17.1",
+    "audr_rule_id": "cloudbase-mcp-openurl-ssrf"
   },
   {
-    "cve_id": "CVE-2026-41404",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "Trusted-proxy scope clearing lets non-Control-UI clients self-declare operator scopes.",
-    "visceral_consequence": "trusted-proxy clients can mint operator-level scopes",
-    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
-    "audr_rule_id": "openclaw-trusted-proxy-scope-clearing"
-  },
-  {
-    "cve_id": "CVE-2026-41399",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "WebSocket upgrades consume socket and worker capacity before auth.",
-    "visceral_consequence": "unauthenticated sockets starve legitimate agent sessions",
-    "scope_phrase": "where WebSocket upgrades spend capacity before auth",
-    "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
-  },
-  {
-    "cve_id": "CVE-2026-41396",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "Workspace .env overrides the bundled plugin trust root.",
-    "visceral_consequence": "workspace env swaps trusted plugins for attacker code",
-    "scope_phrase": "where workspace env redirects bundled plugins",
-    "audr_rule_id": "openclaw-bundled-plugins-env-override"
-  },
-  {
-    "cve_id": "CVE-2026-41394",
-    "product": "OpenClaw",
-    "vendor": "OpenClaw",
-    "severity": "high",
-    "published_date": "2026-04-28",
-    "summary_short": "plugin-auth routes receive operator runtime write scopes without auth.",
-    "visceral_consequence": "plugin-auth routes wield operator write scope",
-    "scope_phrase": "where plugin auth routes inherit write power",
-    "audr_rule_id": "openclaw-plugin-auth-operator-write-bypass"
+    "cve_id": "CVE-2026-7417",
+    "product": "xhs-mcp",
+    "vendor": "Algovate",
+    "severity": "medium",
+    "published_date": "2026-04-29",
+    "summary_short": "MCP media_paths handling can be steered into SSRF in 0.8.11.",
+    "visceral_consequence": "an agent prompt can push xhs-mcp toward internal URLs through media_paths",
+    "scope_phrase": "where xhs-mcp manifests resolve to version 0.8.11",
+    "audr_rule_id": "xhs-mcp-media-paths-ssrf"
   },
   {
     "cve_id": "CVE-2026-41386",
@@ -429,15 +396,81 @@
     "audr_rule_id": "openclaw-node-event-tool-access"
   },
   {
-    "cve_id": "CVE-2026-41349",
+    "cve_id": "CVE-2026-41394",
     "product": "OpenClaw",
     "vendor": "OpenClaw",
     "severity": "high",
-    "published_date": "2026-04-23",
-    "summary_short": "config.patch can silently disable execution approval.",
-    "visceral_consequence": "config patches turn off host-exec consent",
-    "scope_phrase": "where config patches erase approval prompts",
-    "audr_rule_id": "openclaw-config-patch-consent-bypass"
+    "published_date": "2026-04-28",
+    "summary_short": "plugin-auth routes receive operator runtime write scopes without auth.",
+    "visceral_consequence": "plugin-auth routes wield operator write scope",
+    "scope_phrase": "where plugin auth routes inherit write power",
+    "audr_rule_id": "openclaw-plugin-auth-operator-write-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-41396",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Workspace .env overrides the bundled plugin trust root.",
+    "visceral_consequence": "workspace env swaps trusted plugins for attacker code",
+    "scope_phrase": "where workspace env redirects bundled plugins",
+    "audr_rule_id": "openclaw-bundled-plugins-env-override"
+  },
+  {
+    "cve_id": "CVE-2026-41399",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "WebSocket upgrades consume socket and worker capacity before auth.",
+    "visceral_consequence": "unauthenticated sockets starve legitimate agent sessions",
+    "scope_phrase": "where WebSocket upgrades spend capacity before auth",
+    "audr_rule_id": "openclaw-websocket-upgrade-exhaustion"
+  },
+  {
+    "cve_id": "CVE-2026-41404",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "Trusted-proxy scope clearing lets non-Control-UI clients self-declare operator scopes.",
+    "visceral_consequence": "trusted-proxy clients can mint operator-level scopes",
+    "scope_phrase": "where OpenClaw installs are older than 2026.3.31",
+    "audr_rule_id": "openclaw-trusted-proxy-scope-clearing"
+  },
+  {
+    "cve_id": "CVE-2026-41405",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "MS Teams webhook bodies are parsed before JWT validation.",
+    "visceral_consequence": "unauthenticated webhook payloads spend server capacity",
+    "scope_phrase": "where Teams webhooks spend capacity before auth",
+    "audr_rule_id": "openclaw-teams-webhook-preauth-body-dos"
+  },
+  {
+    "cve_id": "CVE-2026-42422",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "device.token.rotate can mint roles that were not approved for the device.",
+    "visceral_consequence": "rotated device tokens gain unapproved agent roles",
+    "scope_phrase": "where device token rotation trusts vulnerable OpenClaw versions",
+    "audr_rule_id": "openclaw-device-token-role-minting"
+  },
+  {
+    "cve_id": "CVE-2026-42426",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-28",
+    "summary_short": "node.pair.approve accepts broad operator.write instead of pairing scope.",
+    "visceral_consequence": "write-scoped operators approve exec-capable nodes",
+    "scope_phrase": "where node pairing trusts broad write scopes",
+    "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
   },
   {
     "cve_id": "CVE-2026-41336",
@@ -449,6 +482,17 @@
     "visceral_consequence": "workspace env swaps trusted hooks for attacker code",
     "scope_phrase": "where workspace env redirects bundled hooks",
     "audr_rule_id": "openclaw-bundled-hooks-env-override"
+  },
+  {
+    "cve_id": "CVE-2026-41349",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-04-23",
+    "summary_short": "config.patch can silently disable execution approval.",
+    "visceral_consequence": "config patches turn off host-exec consent",
+    "scope_phrase": "where config patches erase approval prompts",
+    "audr_rule_id": "openclaw-config-patch-consent-bypass"
   },
   {
     "cve_id": "CVE-2025-59536",

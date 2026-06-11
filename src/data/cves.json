@@ -121,6 +121,17 @@
     "audr_rule_id": "gitlab-mcp-server-unauth-http"
   },
   {
+    "cve_id": "CVE-2026-9468",
+    "product": "cline-mcp-memory-bank",
+    "vendor": "dazeb",
+    "severity": "medium",
+    "published_date": "2026-05-25",
+    "summary_short": "initialize projectPath handling can write outside the intended memory-bank directory.",
+    "visceral_consequence": "agent-influenced memory-bank initialization can traverse into unintended paths",
+    "scope_phrase": "where memory-bank-server manifests resolve to version 0.1.0",
+    "audr_rule_id": "cline-mcp-memory-bank-initialize-path-traversal"
+  },
+  {
     "cve_id": "CVE-2026-2611",
     "product": "MLflow Assistant",
     "vendor": "MLflow",
@@ -471,6 +482,50 @@
     "visceral_consequence": "write-scoped operators approve exec-capable nodes",
     "scope_phrase": "where node pairing trusts broad write scopes",
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-7146",
+    "product": "mcp-data-vis",
+    "vendor": "AlejandroArciniegas",
+    "severity": "medium",
+    "published_date": "2026-04-27",
+    "summary_short": "web-scraper URL handling can be abused for SSRF in 1.0.0.",
+    "visceral_consequence": "an MCP caller can make the visualizer fetch internal or attacker-chosen URLs",
+    "scope_phrase": "where mcp-data-vis manifests resolve to version 1.0.0",
+    "audr_rule_id": "mcp-data-vis-web-scraper-ssrf"
+  },
+  {
+    "cve_id": "CVE-2026-7147",
+    "product": "mcp-chat-studio",
+    "vendor": "JoeCastrom",
+    "severity": "medium",
+    "published_date": "2026-04-27",
+    "summary_short": "model API base_url handling can allow SSRF through 1.5.0.",
+    "visceral_consequence": "agent-controlled model URLs can make the MCP server reach internal services",
+    "scope_phrase": "where mcp-chat-studio manifests resolve to 1.5.0 or older",
+    "audr_rule_id": "mcp-chat-studio-models-base-url-ssrf"
+  },
+  {
+    "cve_id": "CVE-2026-7157",
+    "product": "aider-mcp-server",
+    "vendor": "disler",
+    "severity": "medium",
+    "published_date": "2026-04-27",
+    "summary_short": "editable file path handling can lead to command injection in 0.1.0.",
+    "visceral_consequence": "agent-controlled editable file arguments can cross into shell execution",
+    "scope_phrase": "where aider-mcp-server manifests resolve to version 0.1.0",
+    "audr_rule_id": "aider-mcp-server-relative-editable-files-command-injection"
+  },
+  {
+    "cve_id": "CVE-2026-7158",
+    "product": "mcp-url-downloader",
+    "vendor": "dmitryglhf",
+    "severity": "medium",
+    "published_date": "2026-04-27",
+    "summary_short": "URL validation can be bypassed for SSRF in 0.1.0.",
+    "visceral_consequence": "an agent prompt can turn the downloader into an internal URL fetcher",
+    "scope_phrase": "where mcp-url-downloader manifests resolve to version 0.1.0",
+    "audr_rule_id": "mcp-url-downloader-validate-url-safe-ssrf"
   },
   {
     "cve_id": "CVE-2026-41336",

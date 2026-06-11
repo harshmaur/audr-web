@@ -1,83 +1,19 @@
 {
-  "generated_at": "2026-06-11T05:19:31Z",
+  "generated_at": "2026-06-11T05:41:52Z",
   "source_last_discovery_at": "2026-06-09",
   "source_entry_count": 344,
-  "public_entry_count": 56,
+  "public_entry_count": 60,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 288,
+  "excluded_public_safe_candidate_count": 284,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 14,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 8,
-  "excluded_unknown_severity_count": 4,
-  "enriched_from_cves_json_count": 43,
+  "excluded_unknown_severity_count": 0,
+  "enriched_from_cves_json_count": 48,
   "entries": [
-    {
-      "cve_id": "CVE-2026-7221",
-      "status": "shipped",
-      "severity": "medium",
-      "vendor": "TencentCloudBase",
-      "product": "CloudBase-MCP",
-      "published_date": "2026-06-10",
-      "last_seen_at": "2026-05-04",
-      "keywords": [
-        "CloudBase-MCP"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7221",
-      "summary_short": "openUrl can be abused for SSRF before CloudBase-MCP 2.17.1.",
-      "audr_rule_id": "cloudbase-mcp-openurl-ssrf"
-    },
-    {
-      "cve_id": "CVE-2026-7417",
-      "status": "shipped",
-      "severity": "medium",
-      "vendor": "Algovate",
-      "product": "xhs-mcp",
-      "published_date": "2026-06-10",
-      "last_seen_at": "2026-05-06",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7417",
-      "summary_short": "MCP media_paths handling can be steered into SSRF in 0.8.11.",
-      "audr_rule_id": "xhs-mcp-media-paths-ssrf"
-    },
-    {
-      "cve_id": "CVE-2026-7729",
-      "status": "shipped",
-      "severity": "low",
-      "vendor": "pixelsock",
-      "product": "directus-mcp",
-      "published_date": "2026-06-10",
-      "last_seen_at": "2026-05-10",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7729",
-      "summary_short": "fileUrl validation can allow SSRF in directus-mcp 1.0.0.",
-      "audr_rule_id": "directus-mcp-fileurl-ssrf"
-    },
-    {
-      "cve_id": "CVE-2026-44653",
-      "status": "shipped",
-      "severity": "medium",
-      "vendor": "LibreChat",
-      "product": "LibreChat",
-      "published_date": "2026-06-09",
-      "last_seen_at": "2026-06-09",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44653",
-      "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
-      "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
-    },
     {
       "cve_id": "CVE-2026-32625",
       "status": "shipped",
@@ -94,6 +30,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32625",
       "summary_short": "MCP URL placeholders resolve server environment secrets through 0.8.3.",
       "audr_rule_id": "librechat-mcp-env-secret-leak"
+    },
+    {
+      "cve_id": "CVE-2026-44653",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "LibreChat",
+      "product": "LibreChat",
+      "published_date": "2026-06-02",
+      "last_seen_at": "2026-06-09",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44653",
+      "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
+      "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
     },
     {
       "cve_id": "CVE-2026-32905",
@@ -238,6 +190,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44895",
       "summary_short": "HTTP/SSE transport exposes GitLab token-backed MCP tools without authentication before 0.6.0.",
       "audr_rule_id": "gitlab-mcp-server-unauth-http"
+    },
+    {
+      "cve_id": "CVE-2026-9468",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "dazeb",
+      "product": "cline-mcp-memory-bank",
+      "published_date": "2026-05-25",
+      "last_seen_at": "2026-06-01",
+      "keywords": [
+        "Cline"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9468",
+      "summary_short": "initialize projectPath handling can write outside the intended memory-bank directory.",
+      "audr_rule_id": "cline-mcp-memory-bank-initialize-path-traversal"
     },
     {
       "cve_id": "CVE-2026-2611",
@@ -513,6 +481,22 @@
       "audr_rule_id": "openclaw-heartbeat-owner-downgrade"
     },
     {
+      "cve_id": "CVE-2026-7729",
+      "status": "shipped",
+      "severity": "low",
+      "vendor": "pixelsock",
+      "product": "directus-mcp",
+      "published_date": "2026-05-04",
+      "last_seen_at": "2026-05-10",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7729",
+      "summary_short": "fileUrl validation can allow SSRF in directus-mcp 1.0.0.",
+      "audr_rule_id": "directus-mcp-fileurl-ssrf"
+    },
+    {
       "cve_id": "CVE-2026-41366",
       "status": "shipped",
       "severity": "high",
@@ -559,6 +543,38 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41370",
       "summary_short": "ACP attachment paths can traverse outside the workspace before 2026.3.31.",
       "audr_rule_id": "openclaw-acp-attachment-path-traversal"
+    },
+    {
+      "cve_id": "CVE-2026-7221",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "TencentCloudBase",
+      "product": "CloudBase-MCP",
+      "published_date": "2026-04-29",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "CloudBase-MCP"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7221",
+      "summary_short": "openUrl can be abused for SSRF before CloudBase-MCP 2.17.1.",
+      "audr_rule_id": "cloudbase-mcp-openurl-ssrf"
+    },
+    {
+      "cve_id": "CVE-2026-7417",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "Algovate",
+      "product": "xhs-mcp",
+      "published_date": "2026-04-29",
+      "last_seen_at": "2026-05-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7417",
+      "summary_short": "MCP media_paths handling can be steered into SSRF in 0.8.11.",
+      "audr_rule_id": "xhs-mcp-media-paths-ssrf"
     },
     {
       "cve_id": "CVE-2026-41378",
@@ -705,6 +721,70 @@
       "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
     },
     {
+      "cve_id": "CVE-2026-7146",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "AlejandroArciniegas",
+      "product": "mcp-data-vis",
+      "published_date": "2026-04-27",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "mcp-data-vis"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7146",
+      "summary_short": "web-scraper URL handling can be abused for SSRF in 1.0.0.",
+      "audr_rule_id": "mcp-data-vis-web-scraper-ssrf"
+    },
+    {
+      "cve_id": "CVE-2026-7147",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "JoeCastrom",
+      "product": "mcp-chat-studio",
+      "published_date": "2026-04-27",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "mcp-chat-studio"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7147",
+      "summary_short": "model API base_url handling can allow SSRF through 1.5.0.",
+      "audr_rule_id": "mcp-chat-studio-models-base-url-ssrf"
+    },
+    {
+      "cve_id": "CVE-2026-7157",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "disler",
+      "product": "aider-mcp-server",
+      "published_date": "2026-04-27",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "aider-mcp-server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7157",
+      "summary_short": "editable file path handling can lead to command injection in 0.1.0.",
+      "audr_rule_id": "aider-mcp-server-relative-editable-files-command-injection"
+    },
+    {
+      "cve_id": "CVE-2026-7158",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "dmitryglhf",
+      "product": "mcp-url-downloader",
+      "published_date": "2026-04-27",
+      "last_seen_at": "2026-05-04",
+      "keywords": [
+        "mcp-url-downloader"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7158",
+      "summary_short": "URL validation can be bypassed for SSRF in 0.1.0.",
+      "audr_rule_id": "mcp-url-downloader-validate-url-safe-ssrf"
+    },
+    {
       "cve_id": "CVE-2026-41336",
       "status": "shipped",
       "severity": "high",
@@ -844,21 +924,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
       "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could…"
-    },
-    {
-      "cve_id": "CVE-2026-9468",
-      "status": "investigating",
-      "severity": "medium",
-      "vendor": "A security flaw",
-      "product": "A security flaw",
-      "published_date": "2026-05-25",
-      "last_seen_at": "2026-06-01",
-      "keywords": [
-        "Cline"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9468",
-      "summary_short": "A security flaw has been discovered in dazeb cline-mcp-memory-bank up to 55c81b9cf6c16700983c84dc4cdea3cafa19a75f. The affected element is the function…"
     },
     {
       "cve_id": "CVE-2026-9353",

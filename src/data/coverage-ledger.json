@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T05:41:52Z",
+  "generated_at": "2026-06-11T08:15:42Z",
   "source_last_discovery_at": "2026-06-09",
   "source_entry_count": 344,
   "public_entry_count": 60,
@@ -7,13 +7,30 @@
   "excluded_public_safe_candidate_count": 284,
   "excluded_status_counts": {
     "osv_covered": 139,
-    "not_auditable": 14,
+    "blocked": 7,
+    "not_auditable": 16,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 8,
+  "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 48,
+  "enriched_from_cves_json_count": 55,
   "entries": [
+    {
+      "cve_id": "CVE-2026-31942",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "LibreChat",
+      "product": "LibreChat",
+      "published_date": "2026-06-02",
+      "last_seen_at": "2026-06-09",
+      "keywords": [
+        "Anthropic"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31942",
+      "summary_short": "API key updates can target another user through request body userId fields before 0.8.3.",
+      "audr_rule_id": "librechat-api-keys-userid-idor"
+    },
     {
       "cve_id": "CVE-2026-32625",
       "status": "shipped",
@@ -46,6 +63,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44653",
       "summary_short": "VIEW users can receive decrypted admin-managed MCP secrets through 0.8.3.",
       "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
+    },
+    {
+      "cve_id": "CVE-2026-10280",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "horizon921",
+      "product": "mcpilot",
+      "published_date": "2026-06-01",
+      "last_seen_at": "2026-06-08",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10280",
+      "summary_short": "serverBaseUrl handling can allow SSRF in mcpilot client 0.1.0.",
+      "audr_rule_id": "mcpilot-serverbaseurl-ssrf"
     },
     {
       "cve_id": "CVE-2026-32905",
@@ -144,6 +177,22 @@
       "audr_rule_id": "openclaw-gateway-chat-send-scope-bypass"
     },
     {
+      "cve_id": "CVE-2026-48116",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "AnythingLLM",
+      "product": "AnythingLLM",
+      "published_date": "2026-05-28",
+      "last_seen_at": "2026-06-04",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48116",
+      "summary_short": "filesystem search passes prompt-controlled terms to ripgrep as options before 1.13.0.",
+      "audr_rule_id": "anythingllm-filesystem-rg-option-injection"
+    },
+    {
       "cve_id": "CVE-2026-44830",
       "status": "shipped",
       "severity": "high",
@@ -206,6 +255,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9468",
       "summary_short": "initialize projectPath handling can write outside the intended memory-bank directory.",
       "audr_rule_id": "cline-mcp-memory-bank-initialize-path-traversal"
+    },
+    {
+      "cve_id": "CVE-2026-9353",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "NousResearch",
+      "product": "hermes-agent",
+      "published_date": "2026-05-24",
+      "last_seen_at": "2026-05-30",
+      "keywords": [
+        "agent skills"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9353",
+      "summary_short": "Skills Guard multi-word prompt pattern hardening is missing before 0.15.0.",
+      "audr_rule_id": "hermes-agent-skills-guard-multiword-patterns"
     },
     {
       "cve_id": "CVE-2026-2611",
@@ -287,6 +352,38 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44717",
       "summary_short": "SymPy expression tool input reaches Python eval before 0.1.1.",
       "audr_rule_id": "mcp-calculate-server-eval-rce"
+    },
+    {
+      "cve_id": "CVE-2026-43990",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw plugin-shell",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990",
+      "summary_short": "agent commands are wrapped in sh -c or cmd /C in plugin-shell 0.1.0.",
+      "audr_rule_id": "junoclaw-plugin-shell-sh-c-agent-command"
+    },
+    {
+      "cve_id": "CVE-2026-43991",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "JunoClaw",
+      "product": "JunoClaw plugin-shell",
+      "published_date": "2026-05-12",
+      "last_seen_at": "2026-05-19",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
+      "summary_short": "raw command blocklist checks can be bypassed in plugin-shell 0.1.0.",
+      "audr_rule_id": "junoclaw-plugin-shell-raw-blocklist-bypass"
     },
     {
       "cve_id": "CVE-2026-44246",
@@ -721,6 +818,22 @@
       "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
     },
     {
+      "cve_id": "CVE-2026-7316",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "eiliyaabedini",
+      "product": "aider-mcp",
+      "published_date": "2026-04-28",
+      "last_seen_at": "2026-05-05",
+      "keywords": [
+        "aider-mcp"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7316",
+      "summary_short": "working_dir and editable_files handling can allow command injection in vulnerable GitHub source installs.",
+      "audr_rule_id": "aider-mcp-working-dir-editable-files-command-injection"
+    },
+    {
       "cve_id": "CVE-2026-7146",
       "status": "shipped",
       "severity": "medium",
@@ -863,110 +976,6 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39861",
       "summary_short": "Symlink in workspace allows sandbox escape on read.",
       "audr_rule_id": "claude-skip-permission-prompt"
-    },
-    {
-      "cve_id": "CVE-2026-44467",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Anthropic",
-      "product": "Claude Desktop / Claude Code",
-      "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-20",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44467",
-      "summary_short": "The Claude Desktop app gives you Claude Code with a graphical interface built for running multiple sessions side by side. From 1.2581.0 to before 1.4304.0,…"
-    },
-    {
-      "cve_id": "CVE-2026-45033",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "GitHub",
-      "product": "GitHub Copilot CLI",
-      "published_date": "2026-05-13",
-      "last_seen_at": "2026-05-20",
-      "keywords": [
-        "AI coding agent",
-        "coding agent"
-      ],
-      "local_signal_category": "plugin/hook config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45033",
-      "summary_short": "GitHub Copilot CLI brings AI-powered coding assistance directly to your command line. Prior to 1.0.43, a security vulnerability has been identified in…"
-    },
-    {
-      "cve_id": "CVE-2026-43990",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "JunoClaw",
-      "product": "JunoClaw",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990",
-      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, plugin-shell's run_command wrapped every agent-supplied command in 'sh…"
-    },
-    {
-      "cve_id": "CVE-2026-43991",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "JunoClaw",
-      "product": "JunoClaw",
-      "published_date": "2026-05-12",
-      "last_seen_at": "2026-05-19",
-      "keywords": [
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991",
-      "summary_short": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could…"
-    },
-    {
-      "cve_id": "CVE-2026-9353",
-      "status": "investigating",
-      "severity": "high",
-      "vendor": "A security vulnerability",
-      "product": "A security vulnerability",
-      "published_date": "2026-05-24",
-      "last_seen_at": "2026-05-30",
-      "keywords": [
-        "agent skills"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9353",
-      "summary_short": "A security vulnerability has been detected in NousResearch hermes-agent up to 2026.4.23. Impacted is an unknown function of the file agent/skills_guard.py…"
-    },
-    {
-      "cve_id": "CVE-2026-8770",
-      "status": "investigating",
-      "severity": "low",
-      "vendor": "continuedev",
-      "product": "Continue",
-      "published_date": "2026-05-18",
-      "last_seen_at": "2026-05-24",
-      "keywords": [
-        "Continue"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8770",
-      "summary_short": "A vulnerability was identified in continuedev continue up to 1.2.22. This affects the function lsTool of the file core/tools/implementations/lsTool.ts of…"
-    },
-    {
-      "cve_id": "CVE-2026-7316",
-      "status": "investigating",
-      "severity": "medium",
-      "vendor": "eiliyaabedini",
-      "product": "aider-mcp",
-      "published_date": "2026-04-28",
-      "last_seen_at": "2026-05-05",
-      "keywords": [],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7316",
-      "summary_short": "eiliyaabedini aider-mcp rolling release — command injection via `working_dir` / `editable_files`. Candidate local posture: MCP config detecting vulnerable…"
     }
   ]
 }

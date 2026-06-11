@@ -172,7 +172,8 @@ for (const raw of sourceEntries) {
   if (!validCve(raw.cve_id) || emitted.has(raw.cve_id)) continue;
   const status = raw.status;
   if (!ALLOWED_STATUSES.has(status)) {
-    excludedStatusCounts[status ?? "missing"] = (excludedStatusCounts[status ?? "missing"] ?? 0) + 1;
+    const publicStatusKey = String(status ?? "missing").startsWith("blocked_") ? "blocked" : (status ?? "missing");
+    excludedStatusCounts[publicStatusKey] = (excludedStatusCounts[publicStatusKey] ?? 0) + 1;
     continue;
   }
   if (!ALLOWED_SEVERITIES.has(raw.severity)) {

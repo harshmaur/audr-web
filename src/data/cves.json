@@ -11,6 +11,17 @@
     "audr_rule_id": "librechat-mcp-env-secret-leak"
   },
   {
+    "cve_id": "CVE-2026-31942",
+    "product": "LibreChat",
+    "vendor": "LibreChat",
+    "severity": "high",
+    "published_date": "2026-06-02",
+    "summary_short": "API key updates can target another user through request body userId fields before 0.8.3.",
+    "visceral_consequence": "an authenticated user can tamper with another user\u2019s provider API keys",
+    "scope_phrase": "where LibreChat manifests resolve below 0.8.3",
+    "audr_rule_id": "librechat-api-keys-userid-idor"
+  },
+  {
     "cve_id": "CVE-2026-44653",
     "product": "LibreChat",
     "vendor": "LibreChat",
@@ -20,6 +31,17 @@
     "visceral_consequence": "low-privilege users can read MCP server credentials configured by admins",
     "scope_phrase": "where LibreChat dependencies are version 0.8.3 or older",
     "audr_rule_id": "librechat-mcp-admin-secret-response-leak"
+  },
+  {
+    "cve_id": "CVE-2026-10280",
+    "product": "mcpilot",
+    "vendor": "horizon921",
+    "severity": "high",
+    "published_date": "2026-06-01",
+    "summary_short": "serverBaseUrl handling can allow SSRF in mcpilot client 0.1.0.",
+    "visceral_consequence": "agent-controlled server URLs can point MCP API calls at internal services",
+    "scope_phrase": "where mcpilot-client manifests resolve to version 0.1.0",
+    "audr_rule_id": "mcpilot-serverbaseurl-ssrf"
   },
   {
     "cve_id": "CVE-2026-32905",
@@ -88,6 +110,17 @@
     "audr_rule_id": "openclaw-browser-tab-ssrf-reuse"
   },
   {
+    "cve_id": "CVE-2026-48116",
+    "product": "AnythingLLM",
+    "vendor": "AnythingLLM",
+    "severity": "high",
+    "published_date": "2026-05-28",
+    "summary_short": "filesystem search passes prompt-controlled terms to ripgrep as options before 1.13.0.",
+    "visceral_consequence": "agent search terms can become ripgrep options against local files",
+    "scope_phrase": "where anything-llm manifests resolve below 1.13.0",
+    "audr_rule_id": "anythingllm-filesystem-rg-option-injection"
+  },
+  {
     "cve_id": "CVE-2026-44830",
     "product": "Nocturne Memory",
     "vendor": "Nocturne Memory",
@@ -130,6 +163,17 @@
     "visceral_consequence": "agent-influenced memory-bank initialization can traverse into unintended paths",
     "scope_phrase": "where memory-bank-server manifests resolve to version 0.1.0",
     "audr_rule_id": "cline-mcp-memory-bank-initialize-path-traversal"
+  },
+  {
+    "cve_id": "CVE-2026-9353",
+    "product": "hermes-agent",
+    "vendor": "NousResearch",
+    "severity": "high",
+    "published_date": "2026-05-24",
+    "summary_short": "Skills Guard multi-word prompt pattern hardening is missing before 0.15.0.",
+    "visceral_consequence": "older Hermes installs have weaker heuristic coverage for multi-word prompt-injection patterns",
+    "scope_phrase": "where hermes-agent manifests resolve below 0.15.0",
+    "audr_rule_id": "hermes-agent-skills-guard-multiword-patterns"
   },
   {
     "cve_id": "CVE-2026-2611",
@@ -196,6 +240,28 @@
     "visceral_consequence": "a LAN-reachable MCP endpoint becomes arbitrary command execution",
     "scope_phrase": "where Code Runner MCP Server is launched with HTTP transport",
     "audr_rule_id": "code-runner-mcp-unauth-http-rce"
+  },
+  {
+    "cve_id": "CVE-2026-43990",
+    "product": "JunoClaw plugin-shell",
+    "vendor": "JunoClaw",
+    "severity": "high",
+    "published_date": "2026-05-12",
+    "summary_short": "agent commands are wrapped in sh -c or cmd /C in plugin-shell 0.1.0.",
+    "visceral_consequence": "shell metacharacters from agent-supplied commands can execute in the host shell",
+    "scope_phrase": "where plugin-shell Cargo manifests resolve below 0.1.1",
+    "audr_rule_id": "junoclaw-plugin-shell-sh-c-agent-command"
+  },
+  {
+    "cve_id": "CVE-2026-43991",
+    "product": "JunoClaw plugin-shell",
+    "vendor": "JunoClaw",
+    "severity": "high",
+    "published_date": "2026-05-12",
+    "summary_short": "raw command blocklist checks can be bypassed in plugin-shell 0.1.0.",
+    "visceral_consequence": "prompt-injected shell payloads can slip past substring-based command blocking",
+    "scope_phrase": "where plugin-shell Cargo manifests resolve below 0.1.1",
+    "audr_rule_id": "junoclaw-plugin-shell-raw-blocklist-bypass"
   },
   {
     "cve_id": "CVE-2026-44246",
@@ -482,6 +548,17 @@
     "visceral_consequence": "write-scoped operators approve exec-capable nodes",
     "scope_phrase": "where node pairing trusts broad write scopes",
     "audr_rule_id": "openclaw-node-pair-approve-scope-bypass"
+  },
+  {
+    "cve_id": "CVE-2026-7316",
+    "product": "aider-mcp",
+    "vendor": "eiliyaabedini",
+    "severity": "medium",
+    "published_date": "2026-04-28",
+    "summary_short": "working_dir and editable_files handling can allow command injection in vulnerable GitHub source installs.",
+    "visceral_consequence": "an MCP config launched from the vulnerable repo can expose shell injection through file arguments",
+    "scope_phrase": "where MCP configs launch github.com/eiliyaabedini/aider-mcp",
+    "audr_rule_id": "aider-mcp-working-dir-editable-files-command-injection"
   },
   {
     "cve_id": "CVE-2026-7146",

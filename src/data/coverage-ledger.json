@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-12T09:49:39Z",
+  "generated_at": "2026-06-12T16:42:35Z",
   "source_last_discovery_at": "2026-06-12",
   "source_entry_count": 361,
-  "public_entry_count": 63,
+  "public_entry_count": 64,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 298,
+  "excluded_public_safe_candidate_count": 297,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 15,
+  "excluded_unknown_vendor_product_count": 14,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 57,
+  "enriched_from_cves_json_count": 58,
   "entries": [
     {
       "cve_id": "CVE-2026-46519",
@@ -31,6 +31,24 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46519",
       "summary_short": "tool allowlist environment variables were enforced only during tools/list before 3.6.0.",
       "audr_rule_id": "mcp-server-kubernetes-tool-filter-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-47250",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "MCP Server Kubernetes",
+      "product": "MCP Server Kubernetes",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-12",
+      "keywords": [
+        "MCP server",
+        "Model Context Protocol",
+        "developer tool"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47250",
+      "summary_short": "kubectl_generic passed user-supplied flags to kubectl before 3.7.0.",
+      "audr_rule_id": "mcp-server-kubernetes-kubectl-flag-token-exfil"
     },
     {
       "cve_id": "CVE-2026-31942",

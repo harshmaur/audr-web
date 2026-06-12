@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-47250",
+    "product": "MCP Server Kubernetes",
+    "vendor": "MCP Server Kubernetes",
+    "severity": "medium",
+    "published_date": "2026-06-11",
+    "summary_short": "kubectl_generic passed user-supplied flags to kubectl before 3.7.0.",
+    "visceral_consequence": "a prompt-injected agent can redirect kubectl to leak the operator’s Kubernetes bearer token",
+    "scope_phrase": "where MCP Server Kubernetes configs launch vulnerable versions with an explicit kubeconfig",
+    "audr_rule_id": "mcp-server-kubernetes-kubectl-flag-token-exfil"
+  },
+  {
     "cve_id": "CVE-2026-46519",
     "product": "MCP Server Kubernetes",
     "vendor": "MCP Server Kubernetes",

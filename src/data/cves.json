@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-46519",
+    "product": "MCP Server Kubernetes",
+    "vendor": "MCP Server Kubernetes",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "tool allowlist environment variables were enforced only during tools/list before 3.6.0.",
+    "visceral_consequence": "agents that know a hidden tool name can invoke restricted Kubernetes operations anyway",
+    "scope_phrase": "where MCP Server Kubernetes configs rely on ALLOW_ONLY_* or ALLOWED_TOOLS restrictions",
+    "audr_rule_id": "mcp-server-kubernetes-tool-filter-bypass"
+  },
+  {
     "cve_id": "CVE-2026-44653",
     "product": "LibreChat",
     "vendor": "LibreChat",

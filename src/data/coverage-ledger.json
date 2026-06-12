@@ -1,20 +1,37 @@
 {
-  "generated_at": "2026-06-11T16:44:41Z",
-  "source_last_discovery_at": "2026-06-09",
-  "source_entry_count": 344,
-  "public_entry_count": 61,
+  "generated_at": "2026-06-12T09:49:39Z",
+  "source_last_discovery_at": "2026-06-12",
+  "source_entry_count": 361,
+  "public_entry_count": 63,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 283,
+  "excluded_public_safe_candidate_count": 298,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 0,
+  "excluded_unknown_vendor_product_count": 15,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 56,
+  "enriched_from_cves_json_count": 57,
   "entries": [
+    {
+      "cve_id": "CVE-2026-46519",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "MCP Server Kubernetes",
+      "product": "MCP Server Kubernetes",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-12",
+      "keywords": [
+        "MCP server",
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46519",
+      "summary_short": "tool allowlist environment variables were enforced only during tools/list before 3.6.0.",
+      "audr_rule_id": "mcp-server-kubernetes-tool-filter-bypass"
+    },
     {
       "cve_id": "CVE-2026-31942",
       "status": "shipped",
@@ -993,6 +1010,21 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39861",
       "summary_short": "Symlink in workspace allows sandbox escape on read.",
       "audr_rule_id": "claude-skip-permission-prompt"
+    },
+    {
+      "cve_id": "CVE-2026-49949",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "CodexBar",
+      "product": "CodexBar",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-12",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49949",
+      "summary_short": "CodexBar before 0.33.0 contains a credential forwarding vulnerability that allows network-adjacent attackers to intercept sensitive credentials by issuing…"
     }
   ]
 }

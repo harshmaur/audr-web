@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-53838",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "critical",
+    "published_date": "2026-06-12",
+    "summary_short": "node pairing reconnection can confuse approval scope decisions before 2026.5.27.",
+    "visceral_consequence": "a paired node can regain or present broader authority than intended after reconnecting",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.27",
+    "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
+  },
+  {
     "cve_id": "CVE-2026-47250",
     "product": "MCP Server Kubernetes",
     "vendor": "MCP Server Kubernetes",

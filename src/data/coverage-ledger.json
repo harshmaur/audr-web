@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-12T16:42:35Z",
-  "source_last_discovery_at": "2026-06-12",
-  "source_entry_count": 361,
-  "public_entry_count": 64,
+  "generated_at": "2026-06-13T09:38:41Z",
+  "source_last_discovery_at": "2026-06-13",
+  "source_entry_count": 381,
+  "public_entry_count": 76,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 297,
+  "excluded_public_safe_candidate_count": 305,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
@@ -13,8 +13,24 @@
   },
   "excluded_unknown_vendor_product_count": 14,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 58,
+  "enriched_from_cves_json_count": 59,
   "entries": [
+    {
+      "cve_id": "CVE-2026-53838",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53838",
+      "summary_short": "node pairing reconnection can confuse approval scope decisions before 2026.5.27.",
+      "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
+    },
     {
       "cve_id": "CVE-2026-46519",
       "status": "shipped",
@@ -1030,19 +1046,185 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-49949",
+      "cve_id": "CVE-2026-53820",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "CodexBar",
-      "product": "CodexBar",
-      "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-12",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
       "keywords": [
-        "Codex"
+        "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49949",
-      "summary_short": "CodexBar before 0.33.0 contains a credential forwarding vulnerability that allows network-adjacent attackers to intercept sensitive credentials by issuing…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53820",
+      "summary_short": "OpenClaw before 2026.5.12 contains an exec denylist bypass vulnerability in the bundle MCP loopback session-spawn path that allows authenticated callers to…"
+    },
+    {
+      "cve_id": "CVE-2026-53821",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53821",
+      "summary_short": "OpenClaw before 2026.5.18 accepts WebSocket client-declared operator scopes before binding to server-approved pairing or trusted-proxy authorization…"
+    },
+    {
+      "cve_id": "CVE-2026-53822",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53822",
+      "summary_short": "OpenClaw before 2026.5.18 contains a command injection vulnerability where shell wrapper argv could change between approval and execution. Attackers can…"
+    },
+    {
+      "cve_id": "CVE-2026-53823",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53823",
+      "summary_short": "OpenClaw before 2026.5.3 contains a privilege escalation vulnerability in the allowFrom feature that binds to mutable Slack display names. Attackers with…"
+    },
+    {
+      "cve_id": "CVE-2026-53824",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "Continue",
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53824",
+      "summary_short": "OpenClaw before 2026.4.24 contains a token revocation vulnerability allowing callers with revoked slash tokens to continue executing commands during monitor…"
+    },
+    {
+      "cve_id": "CVE-2026-53825",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53825",
+      "summary_short": "OpenClaw before 2026.4.7 contains an arbitrary file read vulnerability in the memory-wiki ingest feature that allows authenticated Gateway operators with…"
+    },
+    {
+      "cve_id": "CVE-2026-53826",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53826",
+      "summary_short": "OpenClaw before 2026.4.26 contains an information disclosure vulnerability in sandboxed session spawning that exposes the real workspace path to child…"
+    },
+    {
+      "cve_id": "CVE-2026-53827",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53827",
+      "summary_short": "OpenClaw before 2026.5.2 contains a credential exposure vulnerability in message.action forwarding that allows model-controlled metadata to forward action…"
+    },
+    {
+      "cve_id": "CVE-2026-53828",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
+      "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
+    },
+    {
+      "cve_id": "CVE-2026-53829",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
+      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
+    },
+    {
+      "cve_id": "CVE-2026-53830",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53830",
+      "summary_short": "OpenClaw before 2026.4.22 contains a webhook secret revocation bypass vulnerability allowing callers with old Slack and Zalo webhook secrets to remain…"
+    },
+    {
+      "cve_id": "CVE-2026-53831",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
+      "summary_short": "OpenClaw before 2026.5.18 contains a policy enforcement vulnerability in system.run safe-bin allowlist validation that allows shell expansion to modify…"
     }
   ]
 }

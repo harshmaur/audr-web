@@ -11,6 +11,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53806",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "combined POSIX shell flags can bypass exec revalidation before 2026.5.12.",
+    "visceral_consequence": "approved command checks can miss inline shell content hidden behind combined shell options",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.12",
+    "audr_rule_id": "openclaw-shell-option-revalidation-bypass"
+  },
+  {
     "cve_id": "CVE-2026-47250",
     "product": "MCP Server Kubernetes",
     "vendor": "MCP Server Kubernetes",

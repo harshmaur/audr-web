@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-13T09:38:41Z",
+  "generated_at": "2026-06-13T16:38:44Z",
   "source_last_discovery_at": "2026-06-13",
   "source_entry_count": 381,
-  "public_entry_count": 76,
+  "public_entry_count": 77,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 305,
+  "excluded_public_safe_candidate_count": 304,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 14,
+  "excluded_unknown_vendor_product_count": 13,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 59,
+  "enriched_from_cves_json_count": 60,
   "entries": [
     {
       "cve_id": "CVE-2026-53838",
@@ -65,6 +65,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47250",
       "summary_short": "kubectl_generic passed user-supplied flags to kubectl before 3.7.0.",
       "audr_rule_id": "mcp-server-kubernetes-kubectl-flag-token-exfil"
+    },
+    {
+      "cve_id": "CVE-2026-53806",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-13",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53806",
+      "summary_short": "combined POSIX shell flags can bypass exec revalidation before 2026.5.12.",
+      "audr_rule_id": "openclaw-shell-option-revalidation-bypass"
     },
     {
       "cve_id": "CVE-2026-31942",

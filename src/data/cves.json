@@ -22,6 +22,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53807",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "Telegram interactive callbacks can skip commands.allowFrom validation before 2026.5.6.",
+    "visceral_consequence": "authenticated Telegram users can trigger command behavior outside configured sender restrictions",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.6",
+    "audr_rule_id": "openclaw-telegram-callback-allowfrom-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53806",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-14T09:44:43Z",
+  "generated_at": "2026-06-14T16:49:03Z",
   "source_last_discovery_at": "2026-06-14",
   "source_entry_count": 382,
-  "public_entry_count": 78,
+  "public_entry_count": 79,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 304,
+  "excluded_public_safe_candidate_count": 303,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 13,
+  "excluded_unknown_vendor_product_count": 12,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 61,
+  "enriched_from_cves_json_count": 62,
   "entries": [
     {
       "cve_id": "CVE-2026-11624",
@@ -97,6 +97,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53806",
       "summary_short": "combined POSIX shell flags can bypass exec revalidation before 2026.5.12.",
       "audr_rule_id": "openclaw-shell-option-revalidation-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-53807",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53807",
+      "summary_short": "Telegram interactive callbacks can skip commands.allowFrom validation before 2026.5.6.",
+      "audr_rule_id": "openclaw-telegram-callback-allowfrom-bypass"
     },
     {
       "cve_id": "CVE-2026-31942",

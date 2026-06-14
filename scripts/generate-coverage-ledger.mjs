@@ -54,6 +54,12 @@ function isRealDate(value) {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
+function publicDate(value) {
+  if (typeof value !== "string") return "";
+  const date = value.slice(0, 10);
+  return isRealDate(date) ? date : "";
+}
+
 function validCve(id) {
   return typeof id === "string" && /^CVE-\d{4}-\d{3,7}$/.test(id);
 }
@@ -156,8 +162,8 @@ for (const cve of cves) {
     severity: cve.severity,
     vendor: cve.vendor,
     product: cve.product,
-    published_date: cve.published_date,
-    last_seen_at: isRealDate(source.last_seen_at) ? source.last_seen_at : cve.published_date,
+    published_date: publicDate(cve.published_date),
+    last_seen_at: publicDate(source.last_seen_at) || publicDate(cve.published_date),
     keywords: Array.isArray(source.keywords) ? source.keywords.slice(0, 4) : [cve.product],
     local_signal_category: localSignalCategory(surface, localSignalFromRule(cve.audr_rule_id)),
     nvd_url: nvdUrl(cve.cve_id),
@@ -184,7 +190,9 @@ for (const raw of sourceEntries) {
     excludedUnknownVendorProductCount += 1;
     continue;
   }
-  if (!isRealDate(raw.published_date) || !isRealDate(raw.last_seen_at)) continue;
+  const publishedDate = publicDate(raw.published_date);
+  const lastSeenAt = publicDate(raw.last_seen_at);
+  if (!publishedDate || !lastSeenAt) continue;
   const sourceSignal = localSignalCategory(raw.proposed_detection_surface);
   if (sourceSignal === "needs research") continue;
   const row = {
@@ -193,8 +201,8 @@ for (const raw of sourceEntries) {
     severity: raw.severity,
     vendor: raw.vendor,
     product: raw.product,
-    published_date: raw.published_date,
-    last_seen_at: raw.last_seen_at,
+    published_date: publishedDate,
+    last_seen_at: lastSeenAt,
     keywords: Array.isArray(raw.keywords) ? raw.keywords.slice(0, 4) : [],
     local_signal_category: sourceSignal,
     nvd_url: nvdUrl(raw.cve_id),
@@ -211,7 +219,9 @@ const candidates = sourceEntries
     if (!validCve(raw.cve_id)) return null;
     if (!ALLOWED_SEVERITIES.has(raw.severity)) return null;
     if (!raw.vendor || raw.vendor === "unknown" || !raw.product || raw.product === "unknown") return null;
-    if (!isRealDate(raw.published_date) || !isRealDate(raw.last_seen_at)) return null;
+    const publishedDate = publicDate(raw.published_date);
+    const lastSeenAt = publicDate(raw.last_seen_at);
+    if (!publishedDate || !lastSeenAt) return null;
     const signal = localSignalCategory(raw.proposed_detection_surface);
     if (signal === "needs research") return null;
     const row = {
@@ -220,8 +230,8 @@ const candidates = sourceEntries
       severity: raw.severity,
       vendor: raw.vendor,
       product: raw.product,
-      published_date: raw.published_date,
-      last_seen_at: raw.last_seen_at,
+      published_date: publishedDate,
+      last_seen_at: lastSeenAt,
       keywords: Array.isArray(raw.keywords) ? raw.keywords.slice(0, 4) : [],
       local_signal_category: signal,
       nvd_url: nvdUrl(raw.cve_id),

@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-11624",
+    "product": "MCP Toolbox for Databases",
+    "vendor": "Google APIs",
+    "severity": "high",
+    "published_date": "2026-06-13",
+    "summary_short": "wildcard Origin and Host defaults allow DNS rebinding against local Toolbox MCP servers before hardened startup flags are used.",
+    "visceral_consequence": "a malicious browser page can drive a local database-capable MCP server as if it were the connected agent",
+    "scope_phrase": "where MCP Toolbox configs launch with missing or wildcard --allowed-hosts/--allowed-origins",
+    "audr_rule_id": "googleapis-mcp-toolbox-wildcard-origin-host"
+  },
+  {
     "cve_id": "CVE-2026-53838",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-15T09:40:43Z",
+  "generated_at": "2026-06-15T16:41:33Z",
   "source_last_discovery_at": "2026-06-15",
   "source_entry_count": 382,
-  "public_entry_count": 80,
+  "public_entry_count": 81,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 302,
+  "excluded_public_safe_candidate_count": 301,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 11,
+  "excluded_unknown_vendor_product_count": 10,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 63,
+  "enriched_from_cves_json_count": 64,
   "entries": [
     {
       "cve_id": "CVE-2026-11624",
@@ -129,6 +129,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53810",
       "summary_short": "marketplace runtime extension metadata can redirect loading toward unscanned package payloads before 2026.5.18.",
       "audr_rule_id": "openclaw-marketplace-extension-metadata-redirect"
+    },
+    {
+      "cve_id": "CVE-2026-53811",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-15",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53811",
+      "summary_short": "Matrix allowFrom policy can match mutable display-name metadata before 2026.5.7.",
+      "audr_rule_id": "openclaw-matrix-allowfrom-displayname-bypass"
     },
     {
       "cve_id": "CVE-2026-31942",

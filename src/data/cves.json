@@ -22,6 +22,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53811",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "Matrix allowFrom policy can match mutable display-name metadata before 2026.5.7.",
+    "visceral_consequence": "a Matrix account that changes its display name can receive agent access intended for another identity",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.7",
+    "audr_rule_id": "openclaw-matrix-allowfrom-displayname-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53810",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

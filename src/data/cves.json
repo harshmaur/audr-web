@@ -22,6 +22,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53810",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "marketplace runtime extension metadata can redirect loading toward unscanned package payloads before 2026.5.18.",
+    "visceral_consequence": "trusted extension metadata can steer OpenClaw into loading plugin code outside reviewed package entry points",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-marketplace-extension-metadata-redirect"
+  },
+  {
     "cve_id": "CVE-2026-53807",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

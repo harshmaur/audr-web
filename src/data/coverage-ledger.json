@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-16T09:32:42Z",
+  "generated_at": "2026-06-16T16:40:58Z",
   "source_last_discovery_at": "2026-06-16",
   "source_entry_count": 383,
-  "public_entry_count": 82,
+  "public_entry_count": 83,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 301,
+  "excluded_public_safe_candidate_count": 300,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 10,
+  "excluded_unknown_vendor_product_count": 9,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 65,
+  "enriched_from_cves_json_count": 66,
   "entries": [
     {
       "cve_id": "CVE-2026-48124",
@@ -161,6 +161,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53811",
       "summary_short": "Matrix allowFrom policy can match mutable display-name metadata before 2026.5.7.",
       "audr_rule_id": "openclaw-matrix-allowfrom-displayname-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-53812",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-16",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53812",
+      "summary_short": "browser-control redirects can bypass private-network navigation blocks before 2026.5.18.",
+      "audr_rule_id": "openclaw-browser-control-private-network-ssrf"
     },
     {
       "cve_id": "CVE-2026-31942",

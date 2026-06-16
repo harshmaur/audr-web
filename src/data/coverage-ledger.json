@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-15T16:41:33Z",
-  "source_last_discovery_at": "2026-06-15",
-  "source_entry_count": 382,
-  "public_entry_count": 81,
+  "generated_at": "2026-06-16T09:32:42Z",
+  "source_last_discovery_at": "2026-06-16",
+  "source_entry_count": 383,
+  "public_entry_count": 82,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 301,
   "excluded_status_counts": {
@@ -13,8 +13,24 @@
   },
   "excluded_unknown_vendor_product_count": 10,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 64,
+  "enriched_from_cves_json_count": 65,
   "entries": [
+    {
+      "cve_id": "CVE-2026-48124",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Cursor",
+      "product": "Cursor Desktop",
+      "published_date": "2026-06-15",
+      "last_seen_at": "2026-06-16",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "plugin/hook config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48124",
+      "summary_short": "workspace-defined Claude hook commands could run without dedicated approval before 3.0.0.",
+      "audr_rule_id": "claude-hook-shell-rce"
+    },
     {
       "cve_id": "CVE-2026-11624",
       "status": "shipped",
@@ -22,7 +38,7 @@
       "vendor": "Google APIs",
       "product": "MCP Toolbox for Databases",
       "published_date": "2026-06-13",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -38,7 +54,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -54,7 +70,7 @@
       "vendor": "MCP Server Kubernetes",
       "product": "MCP Server Kubernetes",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -71,7 +87,7 @@
       "vendor": "MCP Server Kubernetes",
       "product": "MCP Server Kubernetes",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "MCP server",
         "Model Context Protocol",
@@ -89,7 +105,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -105,7 +121,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -121,7 +137,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -137,7 +153,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1132,7 +1148,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1147,7 +1163,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1162,7 +1178,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1177,7 +1193,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1192,7 +1208,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "Continue",
         "OpenClaw"
@@ -1208,7 +1224,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1223,7 +1239,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1238,7 +1254,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1253,7 +1269,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1268,7 +1284,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1283,7 +1299,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -1298,7 +1314,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-15",
+      "last_seen_at": "2026-06-16",
       "keywords": [
         "OpenClaw"
       ],

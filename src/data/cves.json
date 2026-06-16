@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-48124",
+    "product": "Cursor Desktop",
+    "vendor": "Cursor",
+    "severity": "high",
+    "published_date": "2026-06-15",
+    "summary_short": "workspace-defined Claude hook commands could run without dedicated approval before 3.0.0.",
+    "visceral_consequence": "a malicious workspace can turn an agent stop hook into local command execution on the developer machine",
+    "scope_phrase": "where .claude/settings.local.json or .claude/settings.json defines shell-running hook commands",
+    "audr_rule_id": "claude-hook-shell-rce"
+  },
+  {
     "cve_id": "CVE-2026-11624",
     "product": "MCP Toolbox for Databases",
     "vendor": "Google APIs",

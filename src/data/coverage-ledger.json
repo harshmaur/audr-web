@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-16T16:40:58Z",
-  "source_last_discovery_at": "2026-06-16",
-  "source_entry_count": 383,
-  "public_entry_count": 83,
+  "generated_at": "2026-06-17T09:42:26Z",
+  "source_last_discovery_at": "2026-06-17",
+  "source_entry_count": 411,
+  "public_entry_count": 84,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 300,
+  "excluded_public_safe_candidate_count": 327,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 9,
+  "excluded_unknown_vendor_product_count": 35,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 66,
+  "enriched_from_cves_json_count": 67,
   "entries": [
     {
       "cve_id": "CVE-2026-48124",
@@ -22,9 +22,10 @@
       "vendor": "Cursor",
       "product": "Cursor Desktop",
       "published_date": "2026-06-15",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
-        "Claude Code"
+        "Claude Code",
+        "Cursor"
       ],
       "local_signal_category": "plugin/hook config",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48124",
@@ -38,7 +39,7 @@
       "vendor": "Google APIs",
       "product": "MCP Toolbox for Databases",
       "published_date": "2026-06-13",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -54,7 +55,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -70,7 +71,7 @@
       "vendor": "MCP Server Kubernetes",
       "product": "MCP Server Kubernetes",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -87,7 +88,7 @@
       "vendor": "MCP Server Kubernetes",
       "product": "MCP Server Kubernetes",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "MCP server",
         "Model Context Protocol",
@@ -105,7 +106,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -121,7 +122,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -137,7 +138,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -153,7 +154,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -169,7 +170,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -177,6 +178,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53812",
       "summary_short": "browser-control redirects can bypass private-network navigation blocks before 2026.5.18.",
       "audr_rule_id": "openclaw-browser-control-private-network-ssrf"
+    },
+    {
+      "cve_id": "CVE-2026-53813",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw",
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53813",
+      "summary_short": "memory-core artifact root resolution can traverse to unintended local package roots before 2026.4.25.",
+      "audr_rule_id": "openclaw-memory-core-artifact-root-traversal"
     },
     {
       "cve_id": "CVE-2026-31942",
@@ -1164,7 +1182,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1179,7 +1197,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1194,7 +1212,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1209,7 +1227,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1224,7 +1242,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "Continue",
         "OpenClaw"
@@ -1240,7 +1258,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1255,7 +1273,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1270,7 +1288,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1285,7 +1303,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1300,7 +1318,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1315,7 +1333,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -1330,7 +1348,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-16",
+      "last_seen_at": "2026-06-17",
       "keywords": [
         "OpenClaw"
       ],

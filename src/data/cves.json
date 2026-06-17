@@ -33,6 +33,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53813",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "memory-core artifact root resolution can traverse to unintended local package roots before 2026.4.25.",
+    "visceral_consequence": "workspace state can steer OpenClaw into loading memory-core artifacts from attacker-influenced local locations",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.25",
+    "audr_rule_id": "openclaw-memory-core-artifact-root-traversal"
+  },
+  {
     "cve_id": "CVE-2026-53812",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

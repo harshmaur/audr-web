@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-17T09:42:26Z",
+  "generated_at": "2026-06-17T16:41:59Z",
   "source_last_discovery_at": "2026-06-17",
   "source_entry_count": 411,
-  "public_entry_count": 84,
+  "public_entry_count": 85,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 327,
+  "excluded_public_safe_candidate_count": 326,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 35,
+  "excluded_unknown_vendor_product_count": 34,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 67,
+  "enriched_from_cves_json_count": 68,
   "entries": [
     {
       "cve_id": "CVE-2026-48124",
@@ -195,6 +195,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53813",
       "summary_short": "memory-core artifact root resolution can traverse to unintended local package roots before 2026.4.25.",
       "audr_rule_id": "openclaw-memory-core-artifact-root-traversal"
+    },
+    {
+      "cve_id": "CVE-2026-53814",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53814",
+      "summary_short": "hook-triggered agent runs can incorrectly receive owner-scoped MCP loopback access before 2026.5.20.",
+      "audr_rule_id": "openclaw-hook-triggered-owner-loopback-escalation"
     },
     {
       "cve_id": "CVE-2026-31942",

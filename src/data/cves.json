@@ -33,6 +33,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53816",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "paired or compromised nodes can forge exec lifecycle events before 2026.5.18.",
+    "visceral_consequence": "a lower-trust paired node can make unauthorized exec activity look like an approved lifecycle event",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-node-event-provenance-forgery"
+  },
+  {
     "cve_id": "CVE-2026-53814",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

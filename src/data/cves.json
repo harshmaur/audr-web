@@ -33,6 +33,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53817",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "Control UI pairing can trust spoofed locality information before 2026.5.22.",
+    "visceral_consequence": "a network-adjacent attacker can turn temporary shared access into durable admin-capable device tokens",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.22",
+    "audr_rule_id": "openclaw-control-ui-pairing-locality-spoof"
+  },
+  {
     "cve_id": "CVE-2026-53816",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

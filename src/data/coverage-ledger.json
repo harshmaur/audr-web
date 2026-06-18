@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-18T09:43:07Z",
+  "generated_at": "2026-06-18T16:42:24Z",
   "source_last_discovery_at": "2026-06-17",
   "source_entry_count": 411,
-  "public_entry_count": 86,
+  "public_entry_count": 87,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 325,
+  "excluded_public_safe_candidate_count": 324,
   "excluded_status_counts": {
     "osv_covered": 139,
     "not_auditable": 16,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 33,
+  "excluded_unknown_vendor_product_count": 32,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 69,
+  "enriched_from_cves_json_count": 70,
   "entries": [
     {
       "cve_id": "CVE-2026-48124",
@@ -227,6 +227,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53816",
       "summary_short": "paired or compromised nodes can forge exec lifecycle events before 2026.5.18.",
       "audr_rule_id": "openclaw-node-event-provenance-forgery"
+    },
+    {
+      "cve_id": "CVE-2026-53817",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53817",
+      "summary_short": "Control UI pairing can trust spoofed locality information before 2026.5.22.",
+      "audr_rule_id": "openclaw-control-ui-pairing-locality-spoof"
     },
     {
       "cve_id": "CVE-2026-31942",

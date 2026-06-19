@@ -1,20 +1,37 @@
 {
-  "generated_at": "2026-06-18T16:42:24Z",
-  "source_last_discovery_at": "2026-06-17",
-  "source_entry_count": 411,
-  "public_entry_count": 87,
+  "generated_at": "2026-06-19T09:41:48Z",
+  "source_last_discovery_at": "2026-06-19",
+  "source_entry_count": 416,
+  "public_entry_count": 88,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 324,
+  "excluded_public_safe_candidate_count": 328,
   "excluded_status_counts": {
-    "osv_covered": 139,
-    "not_auditable": 16,
+    "osv_covered": 140,
+    "not_auditable": 17,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 32,
+  "excluded_unknown_vendor_product_count": 31,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 70,
+  "enriched_from_cves_json_count": 71,
   "entries": [
+    {
+      "cve_id": "CVE-2026-49257",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "StarTreeData",
+      "product": "mcp-pinot",
+      "published_date": "2026-06-18",
+      "last_seen_at": "2026-06-19",
+      "keywords": [
+        "MCP server",
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49257",
+      "summary_short": "mcp-pinot 3.0.1 and earlier default to an unauthenticated HTTP MCP server on 0.0.0.0:8080.",
+      "audr_rule_id": "mcp-pinot-unauth-http-default"
+    },
     {
       "cve_id": "CVE-2026-48124",
       "status": "shipped",
@@ -22,7 +39,7 @@
       "vendor": "Cursor",
       "product": "Cursor Desktop",
       "published_date": "2026-06-15",
-      "last_seen_at": "2026-06-17",
+      "last_seen_at": "2026-06-19",
       "keywords": [
         "Claude Code",
         "Cursor"
@@ -39,7 +56,7 @@
       "vendor": "Google APIs",
       "product": "MCP Toolbox for Databases",
       "published_date": "2026-06-13",
-      "last_seen_at": "2026-06-17",
+      "last_seen_at": "2026-06-19",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -1224,6 +1241,51 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-11719",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Google APIs",
+      "product": "MCP Toolbox for Databases",
+      "published_date": "2026-06-18",
+      "last_seen_at": "2026-06-19",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11719",
+      "summary_short": "An authenticated authorization bypass vulnerability exists in MCP Toolbox for Databases due to missing scope enforcement across older protocol handlers.…"
+    },
+    {
+      "cve_id": "CVE-2026-48814",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "Network-AI",
+      "product": "Network-AI",
+      "published_date": "2026-06-17",
+      "last_seen_at": "2026-06-19",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48814",
+      "summary_short": "Network-AI is a TypeScript/Node.js multi-agent orchestrator. In versions 5.7.1 and earlier, the MCP SSE server allows unauthenticated cross-origin MCP tool…"
+    },
+    {
+      "cve_id": "CVE-2026-48989",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "CursorTouch",
+      "product": "Windows-MCP",
+      "published_date": "2026-06-17",
+      "last_seen_at": "2026-06-19",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48989",
+      "summary_short": "Windows-MCP is an open-source project that integrates AI agents with Windows. In versions prior to 0.7.5, certain HTTP modes exposed the MCP control plane…"
+    },
+    {
       "cve_id": "CVE-2026-53820",
       "status": "actionable",
       "severity": "medium",
@@ -1290,7 +1352,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw",
       "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
+      "last_seen_at": "2026-06-19",
       "keywords": [
         "Continue",
         "OpenClaw"
@@ -1358,51 +1420,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
       "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
-    },
-    {
-      "cve_id": "CVE-2026-53829",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
-      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
-    },
-    {
-      "cve_id": "CVE-2026-53830",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53830",
-      "summary_short": "OpenClaw before 2026.4.22 contains a webhook secret revocation bypass vulnerability allowing callers with old Slack and Zalo webhook secrets to remain…"
-    },
-    {
-      "cve_id": "CVE-2026-53831",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
-      "summary_short": "OpenClaw before 2026.5.18 contains a policy enforcement vulnerability in system.run safe-bin allowlist validation that allows shell expansion to modify…"
     }
   ]
 }

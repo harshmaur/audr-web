@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-49257",
+    "product": "mcp-pinot",
+    "vendor": "StarTreeData",
+    "severity": "critical",
+    "published_date": "2026-06-18",
+    "summary_short": "mcp-pinot 3.0.1 and earlier default to an unauthenticated HTTP MCP server on 0.0.0.0:8080.",
+    "visceral_consequence": "any client that can reach the endpoint can drive Apache Pinot operations through the developer's MCP server",
+    "scope_phrase": "where MCP configs launch mcp-pinot at 3.0.1 or earlier via uvx/npx package specs",
+    "audr_rule_id": "mcp-pinot-unauth-http-default"
+  },
+  {
     "cve_id": "CVE-2026-48124",
     "product": "Cursor Desktop",
     "vendor": "Cursor",

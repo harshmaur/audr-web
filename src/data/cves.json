@@ -11,6 +11,17 @@
     "audr_rule_id": "mcp-pinot-unauth-http-default"
   },
   {
+    "cve_id": "CVE-2026-11719",
+    "product": "MCP Toolbox for Databases",
+    "vendor": "Google APIs",
+    "severity": "high",
+    "published_date": "2026-06-18",
+    "summary_short": "legacy MCP protocol handlers before 1.4.0 skip per-tool scopesRequired checks.",
+    "visceral_consequence": "a low-privilege authenticated client can select an older protocol path and invoke higher-privilege database tools",
+    "scope_phrase": "where MCP configs launch @toolbox-sdk/server or Google APIs MCP Toolbox package versions before 1.4.0",
+    "audr_rule_id": "googleapis-mcp-toolbox-legacy-protocol-scope-bypass"
+  },
+  {
     "cve_id": "CVE-2026-48124",
     "product": "Cursor Desktop",
     "vendor": "Cursor",

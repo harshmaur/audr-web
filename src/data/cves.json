@@ -44,6 +44,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53819",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-11",
+    "summary_short": "workspace .env files can override Homebrew executable selection during skill install before 2026.5.27.",
+    "visceral_consequence": "a trusted-workspace attacker can make skill setup run an unintended Homebrew-compatible executable on the developer machine",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.27",
+    "audr_rule_id": "openclaw-skill-install-homebrew-env-override"
+  },
+  {
     "cve_id": "CVE-2026-53817",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

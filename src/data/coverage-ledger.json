@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T16:42:04Z",
-  "source_last_discovery_at": "2026-06-19",
-  "source_entry_count": 416,
-  "public_entry_count": 90,
+  "generated_at": "2026-06-21T09:43:39Z",
+  "source_last_discovery_at": "2026-06-21",
+  "source_entry_count": 419,
+  "public_entry_count": 91,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 326,
+  "excluded_public_safe_candidate_count": 328,
   "excluded_status_counts": {
     "osv_covered": 140,
     "not_auditable": 17,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 30,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 73,
+  "enriched_from_cves_json_count": 74,
   "entries": [
     {
       "cve_id": "CVE-2026-11719",
@@ -22,7 +22,7 @@
       "vendor": "Google APIs",
       "product": "MCP Toolbox for Databases",
       "published_date": "2026-06-18",
-      "last_seen_at": "2026-06-19",
+      "last_seen_at": "2026-06-21",
       "keywords": [
         "MCP server"
       ],
@@ -38,7 +38,7 @@
       "vendor": "StarTreeData",
       "product": "mcp-pinot",
       "published_date": "2026-06-18",
-      "last_seen_at": "2026-06-19",
+      "last_seen_at": "2026-06-21",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -49,13 +49,29 @@
       "audr_rule_id": "mcp-pinot-unauth-http-default"
     },
     {
+      "cve_id": "CVE-2026-48814",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "Network-AI",
+      "product": "Network-AI",
+      "published_date": "2026-06-17",
+      "last_seen_at": "2026-06-21",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48814",
+      "summary_short": "Network-AI 5.7.1 and earlier keep the MCP SSE server authorized when its secret is empty/default.",
+      "audr_rule_id": "network-ai-mcp-sse-empty-secret"
+    },
+    {
       "cve_id": "CVE-2026-48124",
       "status": "shipped",
       "severity": "high",
       "vendor": "Cursor",
       "product": "Cursor Desktop",
       "published_date": "2026-06-15",
-      "last_seen_at": "2026-06-19",
+      "last_seen_at": "2026-06-21",
       "keywords": [
         "Claude Code",
         "Cursor"
@@ -1273,19 +1289,34 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-48814",
+      "cve_id": "CVE-2026-12774",
       "status": "actionable",
-      "severity": "critical",
-      "vendor": "Network-AI",
-      "product": "Network-AI",
-      "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-19",
+      "severity": "low",
+      "vendor": "BerriAI",
+      "product": "litellm",
+      "published_date": "2026-06-21",
+      "last_seen_at": "2026-06-21",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48814",
-      "summary_short": "Network-AI is a TypeScript/Node.js multi-agent orchestrator. In versions 5.7.1 and earlier, the MCP SSE server allows unauthenticated cross-origin MCP tool…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12774",
+      "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
+    },
+    {
+      "cve_id": "CVE-2026-49357",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Line Desktop MCP",
+      "product": "line-desktop-mcp",
+      "published_date": "2026-06-19",
+      "last_seen_at": "2026-06-21",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49357",
+      "summary_short": "Line Desktop MCP is a project that, while unaffiliated with the official line-bot-mcp-server, allows users to directly operate the LINE Desktop application…"
     },
     {
       "cve_id": "CVE-2026-48989",
@@ -1294,7 +1325,7 @@
       "vendor": "CursorTouch",
       "product": "Windows-MCP",
       "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-19",
+      "last_seen_at": "2026-06-21",
       "keywords": [
         "MCP server"
       ],
@@ -1437,21 +1468,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
       "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
-    },
-    {
-      "cve_id": "CVE-2026-53829",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
-      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
     }
   ]
 }

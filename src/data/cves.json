@@ -22,6 +22,17 @@
     "audr_rule_id": "googleapis-mcp-toolbox-legacy-protocol-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-48814",
+    "product": "Network-AI",
+    "vendor": "Network-AI",
+    "severity": "critical",
+    "published_date": "2026-06-17",
+    "summary_short": "Network-AI 5.7.1 and earlier keep the MCP SSE server authorized when its secret is empty/default.",
+    "visceral_consequence": "any non-browser caller that can reach the endpoint can invoke agent_spawn, config_set, token, and blackboard tools without credentials",
+    "scope_phrase": "where MCP configs launch network-ai at 5.7.1 or earlier without a strong non-default MCP secret",
+    "audr_rule_id": "network-ai-mcp-sse-empty-secret"
+  },
+  {
     "cve_id": "CVE-2026-48124",
     "product": "Cursor Desktop",
     "vendor": "Cursor",

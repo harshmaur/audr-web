@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-49357",
+    "product": "line-desktop-mcp",
+    "vendor": "Line Desktop MCP",
+    "severity": "high",
+    "published_date": "2026-06-19",
+    "summary_short": "Streamable HTTP mode before 1.1.2 binds the MCP endpoint on 0.0.0.0 without MCP-layer authentication.",
+    "visceral_consequence": "any network client that can reach the port can read LINE Desktop chat history or send messages through the logged-in desktop app",
+    "scope_phrase": "where MCP configs launch line-desktop-mcp before 1.1.2 with --http-mode",
+    "audr_rule_id": "line-desktop-mcp-unauth-http-mode"
+  },
+  {
     "cve_id": "CVE-2026-49257",
     "product": "mcp-pinot",
     "vendor": "StarTreeData",

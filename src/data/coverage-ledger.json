@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-22T16:42:54Z",
+  "generated_at": "2026-06-22T16:50:25Z",
   "source_last_discovery_at": "2026-06-22",
   "source_entry_count": 420,
   "public_entry_count": 94,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 326,
   "excluded_status_counts": {
-    "osv_covered": 165,
+    "osv_covered": 166,
     "not_auditable": 17,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 5,
+  "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
   "enriched_from_cves_json_count": 77,
   "entries": [

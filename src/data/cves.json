@@ -77,6 +77,17 @@
     "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
   },
   {
+    "cve_id": "CVE-2026-53836",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "PowerShell encoded-command alias handling can bypass exec allowlist checks before 2026.5.12.",
+    "visceral_consequence": "an authenticated operator can smuggle encoded PowerShell content past command policy and run arbitrary local commands",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.12",
+    "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53819",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

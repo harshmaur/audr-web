@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-21T16:39:42Z",
-  "source_last_discovery_at": "2026-06-21",
-  "source_entry_count": 419,
-  "public_entry_count": 92,
+  "generated_at": "2026-06-22T09:40:04Z",
+  "source_last_discovery_at": "2026-06-22",
+  "source_entry_count": 420,
+  "public_entry_count": 93,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 327,
   "excluded_status_counts": {
-    "osv_covered": 140,
+    "osv_covered": 159,
     "not_auditable": 17,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 30,
+  "excluded_unknown_vendor_product_count": 11,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 75,
+  "enriched_from_cves_json_count": 76,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -112,6 +112,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11624",
       "summary_short": "wildcard Origin and Host defaults allow DNS rebinding against local Toolbox MCP servers before hardened startup flags are used.",
       "audr_rule_id": "googleapis-mcp-toolbox-wildcard-origin-host"
+    },
+    {
+      "cve_id": "CVE-2026-53836",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53836",
+      "summary_short": "PowerShell encoded-command alias handling can bypass exec allowlist checks before 2026.5.12.",
+      "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
     },
     {
       "cve_id": "CVE-2026-53838",
@@ -1311,7 +1327,7 @@
       "vendor": "BerriAI",
       "product": "litellm",
       "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-22",
       "keywords": [
         "MCP server"
       ],
@@ -1320,13 +1336,28 @@
       "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
     },
     {
+      "cve_id": "CVE-2026-12798",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "BerriAI",
+      "product": "LiteLLM",
+      "published_date": "2026-06-21",
+      "last_seen_at": "2026-06-22",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12798",
+      "summary_short": "A weakness has been identified in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function load_openapi_spec_async of the file…"
+    },
+    {
       "cve_id": "CVE-2026-48989",
       "status": "actionable",
       "severity": "high",
       "vendor": "CursorTouch",
       "product": "Windows-MCP",
       "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-22",
       "keywords": [
         "MCP server"
       ],
@@ -1469,21 +1500,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
       "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
-    },
-    {
-      "cve_id": "CVE-2026-53829",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
-      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
     }
   ]
 }

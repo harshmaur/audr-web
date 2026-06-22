@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-22T09:40:04Z",
+  "generated_at": "2026-06-22T16:42:54Z",
   "source_last_discovery_at": "2026-06-22",
   "source_entry_count": 420,
-  "public_entry_count": 93,
+  "public_entry_count": 94,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 327,
+  "excluded_public_safe_candidate_count": 326,
   "excluded_status_counts": {
-    "osv_covered": 159,
+    "osv_covered": 165,
     "not_auditable": 17,
     "blocked": 6,
     "irrelevant": 124
   },
-  "excluded_unknown_vendor_product_count": 11,
+  "excluded_unknown_vendor_product_count": 5,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 76,
+  "enriched_from_cves_json_count": 77,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -79,6 +79,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48814",
       "summary_short": "Network-AI 5.7.1 and earlier keep the MCP SSE server authorized when its secret is empty/default.",
       "audr_rule_id": "network-ai-mcp-sse-empty-secret"
+    },
+    {
+      "cve_id": "CVE-2026-48989",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "CursorTouch",
+      "product": "Windows-MCP",
+      "published_date": "2026-06-17",
+      "last_seen_at": "2026-06-22",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48989",
+      "summary_short": "HTTP modes before 0.7.5 exposed the MCP control plane without authentication while allowing wildcard CORS.",
+      "audr_rule_id": "windows-mcp-unauth-http-cors"
     },
     {
       "cve_id": "CVE-2026-48124",
@@ -1351,21 +1367,6 @@
       "summary_short": "A weakness has been identified in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function load_openapi_spec_async of the file…"
     },
     {
-      "cve_id": "CVE-2026-48989",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "CursorTouch",
-      "product": "Windows-MCP",
-      "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-22",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48989",
-      "summary_short": "Windows-MCP is an open-source project that integrates AI agents with Windows. In versions prior to 0.7.5, certain HTTP modes exposed the MCP control plane…"
-    },
-    {
       "cve_id": "CVE-2026-53820",
       "status": "actionable",
       "severity": "medium",
@@ -1500,6 +1501,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
       "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
+    },
+    {
+      "cve_id": "CVE-2026-53829",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
+      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
     }
   ]
 }

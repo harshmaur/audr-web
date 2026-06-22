@@ -33,6 +33,17 @@
     "audr_rule_id": "googleapis-mcp-toolbox-legacy-protocol-scope-bypass"
   },
   {
+    "cve_id": "CVE-2026-48989",
+    "product": "Windows-MCP",
+    "vendor": "CursorTouch",
+    "severity": "high",
+    "published_date": "2026-06-17",
+    "summary_short": "HTTP modes before 0.7.5 exposed the MCP control plane without authentication while allowing wildcard CORS.",
+    "visceral_consequence": "a malicious origin or reachable network client can invoke a PowerShell tool and execute commands as the Windows user running the MCP server",
+    "scope_phrase": "where MCP configs launch windows-mcp before 0.7.5 in HTTP/SSE transport with wildcard CORS origins",
+    "audr_rule_id": "windows-mcp-unauth-http-cors"
+  },
+  {
     "cve_id": "CVE-2026-48814",
     "product": "Network-AI",
     "vendor": "Network-AI",

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-23T09:40:55Z",
+  "generated_at": "2026-06-23T16:41:00Z",
   "source_last_discovery_at": "2026-06-22",
   "source_entry_count": 420,
-  "public_entry_count": 95,
+  "public_entry_count": 96,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 325,
+  "excluded_public_safe_candidate_count": 324,
   "excluded_status_counts": {
     "osv_covered": 166,
     "not_auditable": 17,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 78,
+  "enriched_from_cves_json_count": 79,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -144,6 +144,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53821",
       "summary_short": "WebSocket client-declared operator scopes can be accepted before server-approved pairing or trusted-proxy authorization before 2026.5.18.",
       "audr_rule_id": "openclaw-websocket-operator-scope-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-53822",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53822",
+      "summary_short": "Shell wrapper arguments can be rebuilt after allowlist approval before 2026.5.18.",
+      "audr_rule_id": "openclaw-shell-wrapper-argv-mutation"
     },
     {
       "cve_id": "CVE-2026-53836",
@@ -1398,21 +1414,6 @@
       "summary_short": "OpenClaw before 2026.5.12 contains an exec denylist bypass vulnerability in the bundle MCP loopback session-spawn path that allows authenticated callers to…"
     },
     {
-      "cve_id": "CVE-2026-53822",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53822",
-      "summary_short": "OpenClaw before 2026.5.18 contains a command injection vulnerability where shell wrapper argv could change between approval and execution. Attackers can…"
-    },
-    {
       "cve_id": "CVE-2026-53823",
       "status": "actionable",
       "severity": "high",
@@ -1532,6 +1533,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53830",
       "summary_short": "OpenClaw before 2026.4.22 contains a webhook secret revocation bypass vulnerability allowing callers with old Slack and Zalo webhook secrets to remain…"
+    },
+    {
+      "cve_id": "CVE-2026-53831",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
+      "summary_short": "OpenClaw before 2026.5.18 contains a policy enforcement vulnerability in system.run safe-bin allowlist validation that allows shell expansion to modify…"
     }
   ]
 }

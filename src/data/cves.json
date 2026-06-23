@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53822",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "Shell wrapper arguments can be rebuilt after allowlist approval before 2026.5.18.",
+    "visceral_consequence": "an authenticated operator can hide unapproved command suffixes from approval and execute unintended local commands",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-shell-wrapper-argv-mutation"
+  },
+  {
     "cve_id": "CVE-2026-53821",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

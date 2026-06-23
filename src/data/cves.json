@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53821",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "WebSocket client-declared operator scopes can be accepted before server-approved pairing or trusted-proxy authorization before 2026.5.18.",
+    "visceral_consequence": "a restricted or unpaired Control UI client can obtain operator.admin authority and invoke admin-gated Gateway RPCs",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.5.18",
+    "audr_rule_id": "openclaw-websocket-operator-scope-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53819",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-24T09:44:40Z",
+  "generated_at": "2026-06-24T16:41:07Z",
   "source_last_discovery_at": "2026-06-24",
   "source_entry_count": 429,
-  "public_entry_count": 97,
+  "public_entry_count": 98,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 332,
+  "excluded_public_safe_candidate_count": 331,
   "excluded_status_counts": {
     "osv_covered": 170,
     "not_auditable": 17,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 80,
+  "enriched_from_cves_json_count": 81,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -176,6 +176,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53823",
       "summary_short": "Slack allowFrom checks before 2026.5.3 trusted mutable display-name metadata.",
       "audr_rule_id": "openclaw-slack-allowfrom-displayname-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-53828",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
+      "summary_short": "native command handling before 2026.5.6 could skip owner-only command policy enforcement.",
+      "audr_rule_id": "openclaw-native-command-owner-only-bypass"
     },
     {
       "cve_id": "CVE-2026-53836",
@@ -1551,7 +1567,7 @@
       "summary_short": "OpenClaw before 2026.5.2 contains a credential exposure vulnerability in message.action forwarding that allows model-controlled metadata to forward action…"
     },
     {
-      "cve_id": "CVE-2026-53828",
+      "cve_id": "CVE-2026-53829",
       "status": "actionable",
       "severity": "high",
       "vendor": "OpenClaw",
@@ -1562,8 +1578,8 @@
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
-      "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
+      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
     }
   ]
 }

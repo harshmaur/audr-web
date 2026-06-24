@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53828",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "native command handling before 2026.5.6 could skip owner-only command policy enforcement.",
+    "visceral_consequence": "an authenticated non-owner sender can reach privileged native commands that should be restricted to the owner",
+    "scope_phrase": "where local package or dependency manifests install OpenClaw before 2026.5.6",
+    "audr_rule_id": "openclaw-native-command-owner-only-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53823",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

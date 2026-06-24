@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-23T16:41:00Z",
-  "source_last_discovery_at": "2026-06-22",
-  "source_entry_count": 420,
-  "public_entry_count": 96,
+  "generated_at": "2026-06-24T09:44:40Z",
+  "source_last_discovery_at": "2026-06-24",
+  "source_entry_count": 429,
+  "public_entry_count": 97,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 324,
+  "excluded_public_safe_candidate_count": 332,
   "excluded_status_counts": {
-    "osv_covered": 166,
+    "osv_covered": 170,
     "not_auditable": 17,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 79,
+  "enriched_from_cves_json_count": 80,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -22,7 +22,7 @@
       "vendor": "Line Desktop MCP",
       "product": "line-desktop-mcp",
       "published_date": "2026-06-19",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -38,7 +38,7 @@
       "vendor": "Google APIs",
       "product": "MCP Toolbox for Databases",
       "published_date": "2026-06-18",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -54,7 +54,7 @@
       "vendor": "StarTreeData",
       "product": "mcp-pinot",
       "published_date": "2026-06-18",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -71,7 +71,7 @@
       "vendor": "Network-AI",
       "product": "Network-AI",
       "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-21",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -87,7 +87,7 @@
       "vendor": "CursorTouch",
       "product": "Windows-MCP",
       "published_date": "2026-06-17",
-      "last_seen_at": "2026-06-22",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -160,6 +160,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53822",
       "summary_short": "Shell wrapper arguments can be rebuilt after allowlist approval before 2026.5.18.",
       "audr_rule_id": "openclaw-shell-wrapper-argv-mutation"
+    },
+    {
+      "cve_id": "CVE-2026-53823",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53823",
+      "summary_short": "Slack allowFrom checks before 2026.5.3 trusted mutable display-name metadata.",
+      "audr_rule_id": "openclaw-slack-allowfrom-displayname-bypass"
     },
     {
       "cve_id": "CVE-2026-53836",
@@ -1369,13 +1385,73 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-54555",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "rtk-ai",
+      "product": "rtk",
+      "published_date": "2026-06-23",
+      "last_seen_at": "2026-06-24",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54555",
+      "summary_short": "rtk filters and compresses command outputs before they reach your LLM context. Prior to 0.42.2, the permission splitter did not conservatively split or…"
+    },
+    {
+      "cve_id": "CVE-2026-55249",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "rtk-ai",
+      "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
+      "published_date": "2026-06-23",
+      "last_seen_at": "2026-06-24",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55249",
+      "summary_short": "@rtk-ai/rtk-rewrite transparently rewrites shell commands executed via OpenClaw's exec tool to their RTK equivalents. In 1.0.0, the @rtk-ai/rtk-rewrite…"
+    },
+    {
+      "cve_id": "CVE-2026-50178",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Angular",
+      "product": "Angular Language Service VS Code Extension",
+      "published_date": "2026-06-22",
+      "last_seen_at": "2026-06-24",
+      "keywords": [
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
+      "summary_short": "The Angular Language Service VS Code Extension provides a rich editing experience for Angular templates. the client-side Angular Language Service VS Code…"
+    },
+    {
+      "cve_id": "CVE-2026-54232",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "vLLM",
+      "product": "vLLM Dockerfile dependency confusion",
+      "published_date": "2026-06-22",
+      "last_seen_at": "2026-06-24",
+      "keywords": [
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
+      "summary_short": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion…"
+    },
+    {
       "cve_id": "CVE-2026-12774",
       "status": "actionable",
       "severity": "low",
       "vendor": "BerriAI",
       "product": "litellm",
       "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-22",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -1390,7 +1466,7 @@
       "vendor": "BerriAI",
       "product": "LiteLLM",
       "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-22",
+      "last_seen_at": "2026-06-24",
       "keywords": [
         "MCP server"
       ],
@@ -1412,21 +1488,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53820",
       "summary_short": "OpenClaw before 2026.5.12 contains an exec denylist bypass vulnerability in the bundle MCP loopback session-spawn path that allows authenticated callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-53823",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53823",
-      "summary_short": "OpenClaw before 2026.5.3 contains a privilege escalation vulnerability in the allowFrom feature that binds to mutable Slack display names. Attackers with…"
     },
     {
       "cve_id": "CVE-2026-53824",
@@ -1503,51 +1564,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53828",
       "summary_short": "OpenClaw before 2026.5.6 contains an authorization bypass vulnerability in native command handling that allows authenticated senders to execute owner-only…"
-    },
-    {
-      "cve_id": "CVE-2026-53829",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
-      "summary_short": "OpenClaw before 2026.5.18 contains an approval display truncation vulnerability allowing authenticated users to hide command suffixes from approvers.…"
-    },
-    {
-      "cve_id": "CVE-2026-53830",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53830",
-      "summary_short": "OpenClaw before 2026.4.22 contains a webhook secret revocation bypass vulnerability allowing callers with old Slack and Zalo webhook secrets to remain…"
-    },
-    {
-      "cve_id": "CVE-2026-53831",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
-      "summary_short": "OpenClaw before 2026.5.18 contains a policy enforcement vulnerability in system.run safe-bin allowlist validation that allows shell expansion to modify…"
     }
   ]
 }

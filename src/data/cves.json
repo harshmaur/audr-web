@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53823",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "Slack allowFrom checks before 2026.5.3 trusted mutable display-name metadata.",
+    "visceral_consequence": "a Slack user who can change their display name can impersonate an allowlisted identity and gain unintended agent access",
+    "scope_phrase": "where package manifests or dependency manifests reference OpenClaw before 2026.5.3",
+    "audr_rule_id": "openclaw-slack-allowfrom-displayname-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53822",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

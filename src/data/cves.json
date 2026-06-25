@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53831",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "system.run safe-bin allowlist validation before 2026.5.18 lets POSIX shell expansion alter approved command interpretation.",
+    "visceral_consequence": "an authenticated operator can hide shell metacharacter side effects inside approved commands and read unintended node-local files or sensitive configuration data",
+    "scope_phrase": "where local OpenClaw package/dependency manifests show versions before 2026.5.18",
+    "audr_rule_id": "openclaw-system-run-safebin-shell-expansion"
+  },
+  {
     "cve_id": "CVE-2026-53829",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

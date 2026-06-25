@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-25T09:40:45Z",
+  "generated_at": "2026-06-25T16:42:43Z",
   "source_last_discovery_at": "2026-06-25",
   "source_entry_count": 432,
-  "public_entry_count": 99,
+  "public_entry_count": 100,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 333,
+  "excluded_public_safe_candidate_count": 332,
   "excluded_status_counts": {
     "osv_covered": 170,
     "not_auditable": 18,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 82,
+  "enriched_from_cves_json_count": 83,
   "entries": [
     {
       "cve_id": "CVE-2026-49357",
@@ -208,6 +208,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53829",
       "summary_short": "approval prompt rendering before 2026.5.18 can truncate command suffixes or privileged action details.",
       "audr_rule_id": "openclaw-approval-display-truncation"
+    },
+    {
+      "cve_id": "CVE-2026-53831",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
+      "summary_short": "system.run safe-bin allowlist validation before 2026.5.18 lets POSIX shell expansion alter approved command interpretation.",
+      "audr_rule_id": "openclaw-system-run-safebin-shell-expansion"
     },
     {
       "cve_id": "CVE-2026-53836",

@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53829",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "approval prompt rendering before 2026.5.18 can truncate command suffixes or privileged action details.",
+    "visceral_consequence": "an authenticated operator can hide risky command details from the approval prompt and get unintended local actions approved",
+    "scope_phrase": "where package manifests or dependency manifests reference OpenClaw before 2026.5.18",
+    "audr_rule_id": "openclaw-approval-display-truncation"
+  },
+  {
     "cve_id": "CVE-2026-53828",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

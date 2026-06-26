@@ -11,6 +11,17 @@
     "audr_rule_id": "librechat-mcp-oauth-resource-confusion"
   },
   {
+    "cve_id": "CVE-2026-53765",
+    "product": "chrome-devtools-mcp",
+    "vendor": "Chrome DevTools",
+    "severity": "medium",
+    "published_date": "2026-06-24",
+    "summary_short": "versions from 0.20.0 before 1.1.0 can follow symlinks while writing daemon.pid in a deterministic /tmp runtime path.",
+    "visceral_consequence": "a same-host attacker can pre-place a symlink and cause daemon startup to truncate a victim-writable file",
+    "scope_phrase": "where MCP configs launch chrome-devtools-mcp from 0.20.0 before 1.1.0",
+    "audr_rule_id": "chrome-devtools-mcp-daemon-pid-symlink"
+  },
+  {
     "cve_id": "CVE-2026-49357",
     "product": "line-desktop-mcp",
     "vendor": "Line Desktop MCP",

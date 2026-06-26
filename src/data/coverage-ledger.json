@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-26T09:46:56Z",
+  "generated_at": "2026-06-26T16:42:05Z",
   "source_last_discovery_at": "2026-06-26",
   "source_entry_count": 437,
-  "public_entry_count": 101,
+  "public_entry_count": 102,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 336,
+  "excluded_public_safe_candidate_count": 335,
   "excluded_status_counts": {
     "osv_covered": 171,
     "not_auditable": 18,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 84,
+  "enriched_from_cves_json_count": 85,
   "entries": [
     {
       "cve_id": "CVE-2026-54030",
@@ -30,6 +30,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54030",
       "summary_short": "MCP OAuth resource metadata can redirect access tokens to a malicious server before 0.8.5.",
       "audr_rule_id": "librechat-mcp-oauth-resource-confusion"
+    },
+    {
+      "cve_id": "CVE-2026-53765",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "Chrome DevTools",
+      "product": "chrome-devtools-mcp",
+      "published_date": "2026-06-24",
+      "last_seen_at": "2026-06-26",
+      "keywords": [
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53765",
+      "summary_short": "versions from 0.20.0 before 1.1.0 can follow symlinks while writing daemon.pid in a deterministic /tmp runtime path.",
+      "audr_rule_id": "chrome-devtools-mcp-daemon-pid-symlink"
     },
     {
       "cve_id": "CVE-2026-49357",
@@ -1464,21 +1480,6 @@
       "summary_short": "Flowise before 3.0.6 (affected versions 2.2.7-patch.1 and earlier) contains an unsandboxed remote code execution vulnerability in the Custom MCP feature,…"
     },
     {
-      "cve_id": "CVE-2026-53765",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Chrome DevTools",
-      "product": "chrome-devtools-mcp",
-      "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-26",
-      "keywords": [
-        "coding agent"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53765",
-      "summary_short": "Chrome DevTools for agents (chrome-devtools-mcp) from 0.20.0 until 1.1.0 writes daemon.pid to a deterministic /tmp fallback runtime path without O_NOFOLLOW,…"
-    },
-    {
       "cve_id": "CVE-2026-53766",
       "status": "actionable",
       "severity": "medium",
@@ -1630,6 +1631,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53825",
       "summary_short": "OpenClaw before 2026.4.7 contains an arbitrary file read vulnerability in the memory-wiki ingest feature that allows authenticated Gateway operators with…"
+    },
+    {
+      "cve_id": "CVE-2026-53826",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53826",
+      "summary_short": "OpenClaw before 2026.4.26 contains an information disclosure vulnerability in sandboxed session spawning that exposes the real workspace path to child…"
     }
   ]
 }

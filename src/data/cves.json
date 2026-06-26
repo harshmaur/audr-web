@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-54030",
+    "product": "LibreChat MCP OAuth",
+    "vendor": "LibreChat",
+    "severity": "high",
+    "published_date": "2026-06-25",
+    "summary_short": "MCP OAuth resource metadata can redirect access tokens to a malicious server before 0.8.5.",
+    "visceral_consequence": "a malicious MCP server can steal OAuth tokens meant for a trusted LibreChat MCP resource",
+    "scope_phrase": "where LibreChat dependencies are version 0.8.4 or older",
+    "audr_rule_id": "librechat-mcp-oauth-resource-confusion"
+  },
+  {
     "cve_id": "CVE-2026-49357",
     "product": "line-desktop-mcp",
     "vendor": "Line Desktop MCP",

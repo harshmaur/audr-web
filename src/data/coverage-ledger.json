@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-06-26T16:42:05Z",
-  "source_last_discovery_at": "2026-06-26",
-  "source_entry_count": 437,
-  "public_entry_count": 102,
+  "generated_at": "2026-06-27T09:42:56Z",
+  "source_last_discovery_at": "2026-06-27",
+  "source_entry_count": 439,
+  "public_entry_count": 103,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 335,
+  "excluded_public_safe_candidate_count": 336,
   "excluded_status_counts": {
+    "blocked": 6,
     "osv_covered": 171,
     "not_auditable": 18,
-    "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 85,
+  "enriched_from_cves_json_count": 86,
   "entries": [
+    {
+      "cve_id": "CVE-2026-48529",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "GitHub",
+      "product": "GitHub MCP Server",
+      "published_date": "2026-06-26",
+      "last_seen_at": "2026-06-27",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48529",
+      "summary_short": "HTTP lockdown mode from 0.22.0 before 1.1.2 reused a process-global repo access cache across authenticated users.",
+      "audr_rule_id": "github-mcp-server-lockdown-global-cache"
+    },
     {
       "cve_id": "CVE-2026-54030",
       "status": "shipped",
@@ -1465,13 +1481,28 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-4339",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Mattermost",
+      "product": "Mattermost Agents plugin MCP server",
+      "published_date": "2026-06-26",
+      "last_seen_at": "2026-06-27",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4339",
+      "summary_short": "Mattermost versions 10.11.x <= 10.11.18, 11.6.x <= 11.6.3, 11.5.x <= 11.5.6 fail to validate attachment URLs against internal or private IP ranges in the…"
+    },
+    {
       "cve_id": "CVE-2025-71336",
       "status": "actionable",
       "severity": "critical",
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-27",
       "keywords": [
         "MCP server"
       ],
@@ -1486,7 +1517,7 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-27",
       "keywords": [
         "coding agent"
       ],
@@ -1516,7 +1547,7 @@
       "vendor": "rtk-ai",
       "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
       "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-27",
       "keywords": [
         "OpenClaw"
       ],
@@ -1531,10 +1562,10 @@
       "vendor": "Angular",
       "product": "Angular Language Service VS Code Extension",
       "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-27",
       "keywords": [
-        "npm package",
-        "developer tool"
+        "developer tool",
+        "npm package"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
@@ -1563,7 +1594,7 @@
       "vendor": "BerriAI",
       "product": "litellm",
       "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-27",
       "keywords": [
         "MCP server"
       ],
@@ -1631,21 +1662,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53825",
       "summary_short": "OpenClaw before 2026.4.7 contains an arbitrary file read vulnerability in the memory-wiki ingest feature that allows authenticated Gateway operators with…"
-    },
-    {
-      "cve_id": "CVE-2026-53826",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53826",
-      "summary_short": "OpenClaw before 2026.4.26 contains an information disclosure vulnerability in sandboxed session spawning that exposes the real workspace path to child…"
     }
   ]
 }

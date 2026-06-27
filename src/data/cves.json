@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-48529",
+    "product": "GitHub MCP Server",
+    "vendor": "GitHub",
+    "severity": "medium",
+    "published_date": "2026-06-26",
+    "summary_short": "HTTP lockdown mode from 0.22.0 before 1.1.2 reused a process-global repo access cache across authenticated users.",
+    "visceral_consequence": "one HTTP user can inherit repository access decisions cached for another user when a shared MCP server runs in lockdown mode",
+    "scope_phrase": "where MCP configs launch github-mcp-server 0.22.0 through 1.1.1 in HTTP mode with --lockdown-mode",
+    "audr_rule_id": "github-mcp-server-lockdown-global-cache"
+  },
+  {
     "cve_id": "CVE-2026-54030",
     "product": "LibreChat MCP OAuth",
     "vendor": "LibreChat",

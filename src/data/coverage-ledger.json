@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-27T09:42:56Z",
-  "source_last_discovery_at": "2026-06-27",
-  "source_entry_count": 439,
-  "public_entry_count": 103,
+  "generated_at": "2026-06-28T09:41:12Z",
+  "source_last_discovery_at": "2026-06-28",
+  "source_entry_count": 441,
+  "public_entry_count": 104,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 336,
+  "excluded_public_safe_candidate_count": 337,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 86,
+  "enriched_from_cves_json_count": 87,
   "entries": [
     {
       "cve_id": "CVE-2026-48529",
@@ -22,7 +22,7 @@
       "vendor": "GitHub",
       "product": "GitHub MCP Server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-27",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "MCP server"
       ],
@@ -38,7 +38,7 @@
       "vendor": "LibreChat",
       "product": "LibreChat MCP OAuth",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "MCP server"
       ],
@@ -54,7 +54,7 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "coding agent"
       ],
@@ -62,6 +62,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53765",
       "summary_short": "versions from 0.20.0 before 1.1.0 can follow symlinks while writing daemon.pid in a deterministic /tmp runtime path.",
       "audr_rule_id": "chrome-devtools-mcp-daemon-pid-symlink"
+    },
+    {
+      "cve_id": "CVE-2026-55249",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "rtk-ai",
+      "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
+      "published_date": "2026-06-23",
+      "last_seen_at": "2026-06-28",
+      "keywords": [
+        "OpenClaw",
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55249",
+      "summary_short": "version 1.0.0 passes OpenClaw exec tool input into a shell-backed execSync template without shell-safe escaping.",
+      "audr_rule_id": "rtk-rewrite-openclaw-execsync-injection"
     },
     {
       "cve_id": "CVE-2026-49357",
@@ -1481,15 +1498,31 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-58057",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "FlowiseAI",
+      "product": "Flowise Custom MCP",
+      "published_date": "2026-06-28",
+      "last_seen_at": "2026-06-28",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58057",
+      "summary_short": "Flowise before 3.1.3 validates Custom MCP stdio environment variables against a denylist using a case-sensitive comparison, so on Windows, where environment…"
+    },
+    {
       "cve_id": "CVE-2026-4339",
       "status": "actionable",
       "severity": "medium",
       "vendor": "Mattermost",
       "product": "Mattermost Agents plugin MCP server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-27",
+      "last_seen_at": "2026-06-28",
       "keywords": [
-        "MCP server"
+        "MCP server",
+        "agent plugin"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4339",
@@ -1502,7 +1535,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-27",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "MCP server"
       ],
@@ -1511,13 +1544,28 @@
       "summary_short": "Flowise before 3.0.6 (affected versions 2.2.7-patch.1 and earlier) contains an unsandboxed remote code execution vulnerability in the Custom MCP feature,…"
     },
     {
+      "cve_id": "CVE-2026-50017",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "pnpm",
+      "product": "pnpm",
+      "published_date": "2026-06-25",
+      "last_seen_at": "2026-06-28",
+      "keywords": [
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50017",
+      "summary_short": "pnpm is a package manager. Prior to 10.34.0 and 11.4.0, pnpm can send user-level unscoped npm authentication credentials to a registry chosen by a…"
+    },
+    {
       "cve_id": "CVE-2026-53766",
       "status": "actionable",
       "severity": "medium",
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-27",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "coding agent"
       ],
@@ -1532,7 +1580,7 @@
       "vendor": "rtk-ai",
       "product": "rtk",
       "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "Claude Code"
       ],
@@ -1541,28 +1589,13 @@
       "summary_short": "rtk filters and compresses command outputs before they reach your LLM context. Prior to 0.42.2, the permission splitter did not conservatively split or…"
     },
     {
-      "cve_id": "CVE-2026-55249",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "rtk-ai",
-      "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
-      "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-27",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55249",
-      "summary_short": "@rtk-ai/rtk-rewrite transparently rewrites shell commands executed via OpenClaw's exec tool to their RTK equivalents. In 1.0.0, the @rtk-ai/rtk-rewrite…"
-    },
-    {
       "cve_id": "CVE-2026-50178",
       "status": "actionable",
       "severity": "high",
       "vendor": "Angular",
       "product": "Angular Language Service VS Code Extension",
       "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-27",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "developer tool",
         "npm package"
@@ -1578,7 +1611,7 @@
       "vendor": "vLLM",
       "product": "vLLM Dockerfile dependency confusion",
       "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "Roo Code",
         "PyPI package"
@@ -1609,7 +1642,7 @@
       "vendor": "BerriAI",
       "product": "LiteLLM",
       "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-26",
+      "last_seen_at": "2026-06-28",
       "keywords": [
         "MCP server"
       ],
@@ -1647,21 +1680,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53824",
       "summary_short": "OpenClaw before 2026.4.24 contains a token revocation vulnerability allowing callers with revoked slash tokens to continue executing commands during monitor…"
-    },
-    {
-      "cve_id": "CVE-2026-53825",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53825",
-      "summary_short": "OpenClaw before 2026.4.7 contains an arbitrary file read vulnerability in the memory-wiki ingest feature that allows authenticated Gateway operators with…"
     }
   ]
 }

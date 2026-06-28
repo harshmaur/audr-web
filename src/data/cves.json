@@ -33,6 +33,17 @@
     "audr_rule_id": "chrome-devtools-mcp-daemon-pid-symlink"
   },
   {
+    "cve_id": "CVE-2026-55249",
+    "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
+    "vendor": "rtk-ai",
+    "severity": "medium",
+    "published_date": "2026-06-23",
+    "summary_short": "version 1.0.0 passes OpenClaw exec tool input into a shell-backed execSync template without shell-safe escaping.",
+    "visceral_consequence": "a prompt-controlled OpenClaw exec command can smuggle $() or backticks and run a second shell command before rtk is invoked",
+    "scope_phrase": "where package manifests or dependency files include @rtk-ai/rtk-rewrite 1.0.0",
+    "audr_rule_id": "rtk-rewrite-openclaw-execsync-injection"
+  },
+  {
     "cve_id": "CVE-2026-49357",
     "product": "line-desktop-mcp",
     "vendor": "Line Desktop MCP",

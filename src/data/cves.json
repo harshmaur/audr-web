@@ -143,6 +143,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53832",
+    "product": "OpenClaw trusted proxy Gateway",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "before 2026.5.18, trusted-proxy identity headers can be forged by same-host callers reaching the proxy-facing Gateway port.",
+    "visceral_consequence": "a same-host process can present forged proxy identity headers and act as an operator through the Gateway",
+    "scope_phrase": "where package manifests or dependency files include OpenClaw versions before 2026.5.18",
+    "audr_rule_id": "openclaw-trusted-proxy-identity-header-forgery"
+  },
+  {
     "cve_id": "CVE-2026-53831",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

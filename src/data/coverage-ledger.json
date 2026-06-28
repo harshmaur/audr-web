@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-28T09:41:12Z",
+  "generated_at": "2026-06-28T16:40:15Z",
   "source_last_discovery_at": "2026-06-28",
   "source_entry_count": 441,
-  "public_entry_count": 104,
+  "public_entry_count": 105,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 337,
+  "excluded_public_safe_candidate_count": 336,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 87,
+  "enriched_from_cves_json_count": 88,
   "entries": [
     {
       "cve_id": "CVE-2026-48529",
@@ -289,6 +289,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53831",
       "summary_short": "system.run safe-bin allowlist validation before 2026.5.18 lets POSIX shell expansion alter approved command interpretation.",
       "audr_rule_id": "openclaw-system-run-safebin-shell-expansion"
+    },
+    {
+      "cve_id": "CVE-2026-53832",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw trusted proxy Gateway",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53832",
+      "summary_short": "before 2026.5.18, trusted-proxy identity headers can be forged by same-host callers reaching the proxy-facing Gateway port.",
+      "audr_rule_id": "openclaw-trusted-proxy-identity-header-forgery"
     },
     {
       "cve_id": "CVE-2026-53836",

@@ -143,6 +143,17 @@
     "audr_rule_id": "openclaw-powershell-encoded-command-alias-bypass"
   },
   {
+    "cve_id": "CVE-2026-53834",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-06-12",
+    "summary_short": "QQBot pre-dispatch slash commands can skip allowFrom policy checks before 2026.4.27.",
+    "visceral_consequence": "blocked QQBot senders can invoke slash command handling before configured access controls run",
+    "scope_phrase": "where OpenClaw package manifests resolve below 2026.4.27",
+    "audr_rule_id": "openclaw-qqbot-admin-policy-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53833",
     "product": "OpenClaw QQBot streaming config",
     "vendor": "OpenClaw",

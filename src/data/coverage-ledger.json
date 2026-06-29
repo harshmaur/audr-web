@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-28T16:40:15Z",
-  "source_last_discovery_at": "2026-06-28",
-  "source_entry_count": 441,
-  "public_entry_count": 105,
+  "generated_at": "2026-06-29T09:41:26Z",
+  "source_last_discovery_at": "2026-06-29",
+  "source_entry_count": 445,
+  "public_entry_count": 106,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 336,
+  "excluded_public_safe_candidate_count": 339,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 88,
+  "enriched_from_cves_json_count": 89,
   "entries": [
     {
       "cve_id": "CVE-2026-48529",
@@ -305,6 +305,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53832",
       "summary_short": "before 2026.5.18, trusted-proxy identity headers can be forged by same-host callers reaching the proxy-facing Gateway port.",
       "audr_rule_id": "openclaw-trusted-proxy-identity-header-forgery"
+    },
+    {
+      "cve_id": "CVE-2026-53833",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw QQBot streaming config",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53833",
+      "summary_short": "QQBot streaming commands before 2026.4.29 can mutate configuration without explicit allowFrom restrictions.",
+      "audr_rule_id": "openclaw-qqbot-streaming-config-bypass"
     },
     {
       "cve_id": "CVE-2026-53836",
@@ -1514,13 +1530,77 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-13524",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "CherryHQ",
+      "product": "cherry-studio MCP OAuth Local Callback Server",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "MCP server",
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13524",
+      "summary_short": "CherryHQ cherry-studio up to 1.9.6 has improper authorization in src/main/services/mcp/oauth/callback.ts for the MCP OAuth Local Callback Server.…"
+    },
+    {
+      "cve_id": "CVE-2026-50548",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "Cursor",
+      "product": "Cursor",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "Cursor",
+        "AI coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50548",
+      "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default, and the sandbox grants…"
+    },
+    {
+      "cve_id": "CVE-2026-50549",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "Cursor",
+      "product": "Cursor",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "Cursor",
+        "AI coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50549",
+      "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default. Before a Write, the agent…"
+    },
+    {
+      "cve_id": "CVE-2026-50021",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "pnpm",
+      "product": "pnpm",
+      "published_date": "2026-06-28",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "npm package",
+        "developer tool"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50021",
+      "summary_short": "pnpm before 10.34.0 and 11.4.0 skips tarball integrity verification when a pnpm-lock.yaml resolution lacks an integrity field. If an attacker can remove…"
+    },
+    {
       "cve_id": "CVE-2026-58057",
       "status": "actionable",
       "severity": "medium",
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-28",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "MCP server"
       ],
@@ -1535,7 +1615,7 @@
       "vendor": "Mattermost",
       "product": "Mattermost Agents plugin MCP server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "MCP server",
         "agent plugin"
@@ -1551,7 +1631,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "MCP server"
       ],
@@ -1566,7 +1646,7 @@
       "vendor": "pnpm",
       "product": "pnpm",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "npm package"
       ],
@@ -1581,7 +1661,7 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "coding agent"
       ],
@@ -1596,7 +1676,7 @@
       "vendor": "rtk-ai",
       "product": "rtk",
       "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "Claude Code"
       ],
@@ -1611,7 +1691,7 @@
       "vendor": "Angular",
       "product": "Angular Language Service VS Code Extension",
       "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "developer tool",
         "npm package"
@@ -1627,7 +1707,7 @@
       "vendor": "vLLM",
       "product": "vLLM Dockerfile dependency confusion",
       "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-29",
       "keywords": [
         "Roo Code",
         "PyPI package"
@@ -1635,67 +1715,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
       "summary_short": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion…"
-    },
-    {
-      "cve_id": "CVE-2026-12774",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "BerriAI",
-      "product": "litellm",
-      "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-27",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12774",
-      "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
-    },
-    {
-      "cve_id": "CVE-2026-12798",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "BerriAI",
-      "product": "LiteLLM",
-      "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-28",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12798",
-      "summary_short": "A weakness has been identified in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function load_openapi_spec_async of the file…"
-    },
-    {
-      "cve_id": "CVE-2026-53820",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53820",
-      "summary_short": "OpenClaw before 2026.5.12 contains an exec denylist bypass vulnerability in the bundle MCP loopback session-spawn path that allows authenticated callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-53824",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw",
-      "published_date": "2026-06-12",
-      "last_seen_at": "2026-06-19",
-      "keywords": [
-        "Continue",
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53824",
-      "summary_short": "OpenClaw before 2026.4.24 contains a token revocation vulnerability allowing callers with revoked slash tokens to continue executing commands during monitor…"
     }
   ]
 }

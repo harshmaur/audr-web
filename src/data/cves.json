@@ -22,6 +22,17 @@
     "audr_rule_id": "librechat-mcp-oauth-resource-confusion"
   },
   {
+    "cve_id": "CVE-2025-71336",
+    "product": "Flowise Custom MCP",
+    "vendor": "FlowiseAI",
+    "severity": "critical",
+    "published_date": "2026-06-25",
+    "summary_short": "Custom MCP node-load handling before 3.0.6 can execute OS commands when Flowise is left without built-in auth.",
+    "visceral_consequence": "an unauthenticated Flowise deployment can let an attacker trigger Custom MCP command execution inside the app container or host",
+    "scope_phrase": "where Flowise .env files explicitly leave FLOWISE_USERNAME or FLOWISE_PASSWORD blank before upgrading to 3.0.6",
+    "audr_rule_id": "flowise-custom-mcp-missing-auth"
+  },
+  {
     "cve_id": "CVE-2026-53765",
     "product": "chrome-devtools-mcp",
     "vendor": "Chrome DevTools",

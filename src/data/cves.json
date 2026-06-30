@@ -44,6 +44,17 @@
     "audr_rule_id": "rtk-rewrite-openclaw-execsync-injection"
   },
   {
+    "cve_id": "CVE-2026-54555",
+    "product": "rtk",
+    "vendor": "rtk-ai",
+    "severity": "high",
+    "published_date": "2026-06-23",
+    "summary_short": "permission splitter before 0.42.2 can miss shell execution boundaries and return allow for hidden commands.",
+    "visceral_consequence": "a Claude hook can approve a command that starts with an allowed prefix while a second shell command executes behind it",
+    "scope_phrase": "where package manifests include rtk or @rtk-ai/rtk before 0.42.2 for Claude hook permission rewriting",
+    "audr_rule_id": "rtk-permission-splitter-shell-boundary-bypass"
+  },
+  {
     "cve_id": "CVE-2026-49357",
     "product": "line-desktop-mcp",
     "vendor": "Line Desktop MCP",

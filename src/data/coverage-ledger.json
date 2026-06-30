@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-29T16:34:11Z",
-  "source_last_discovery_at": "2026-06-29",
-  "source_entry_count": 445,
-  "public_entry_count": 107,
+  "generated_at": "2026-06-30T09:42:05Z",
+  "source_last_discovery_at": "2026-06-30",
+  "source_entry_count": 447,
+  "public_entry_count": 108,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 338,
+  "excluded_public_safe_candidate_count": 339,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 90,
+  "enriched_from_cves_json_count": 91,
   "entries": [
     {
       "cve_id": "CVE-2026-48529",
@@ -22,7 +22,7 @@
       "vendor": "GitHub",
       "product": "GitHub MCP Server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server"
       ],
@@ -38,7 +38,7 @@
       "vendor": "LibreChat",
       "product": "LibreChat MCP OAuth",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server"
       ],
@@ -54,7 +54,7 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "coding agent"
       ],
@@ -64,13 +64,29 @@
       "audr_rule_id": "chrome-devtools-mcp-daemon-pid-symlink"
     },
     {
+      "cve_id": "CVE-2026-54555",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "rtk-ai",
+      "product": "rtk",
+      "published_date": "2026-06-23",
+      "last_seen_at": "2026-06-30",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54555",
+      "summary_short": "permission splitter before 0.42.2 can miss shell execution boundaries and return allow for hidden commands.",
+      "audr_rule_id": "rtk-permission-splitter-shell-boundary-bypass"
+    },
+    {
       "cve_id": "CVE-2026-55249",
       "status": "shipped",
       "severity": "medium",
       "vendor": "rtk-ai",
       "product": "@rtk-ai/rtk-rewrite OpenClaw plugin",
       "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-28",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "OpenClaw",
         "agent plugin"
@@ -1552,7 +1568,7 @@
       "vendor": "CherryHQ",
       "product": "cherry-studio MCP OAuth Local Callback Server",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -1562,16 +1578,32 @@
       "summary_short": "CherryHQ cherry-studio up to 1.9.6 has improper authorization in src/main/services/mcp/oauth/callback.ts for the MCP OAuth Local Callback Server.…"
     },
     {
+      "cve_id": "CVE-2026-46406",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Claude Code",
+      "product": "Claude Code",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-06-30",
+      "keywords": [
+        "Claude Code",
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46406",
+      "summary_short": "Claude Code is an agentic coding tool. From 2.1.59 until 2.1.128, the Claude Code /copy command wrote responses to a hardcoded, predictable path…"
+    },
+    {
       "cve_id": "CVE-2026-50548",
       "status": "actionable",
       "severity": "critical",
       "vendor": "Cursor",
       "product": "Cursor",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
-        "Cursor",
-        "AI coding agent"
+        "AI coding agent",
+        "Cursor"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50548",
@@ -1584,14 +1616,30 @@
       "vendor": "Cursor",
       "product": "Cursor",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
-        "Cursor",
-        "AI coding agent"
+        "AI coding agent",
+        "Cursor"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50549",
       "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default. Before a Write, the agent…"
+    },
+    {
+      "cve_id": "CVE-2026-55607",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Claude Code",
+      "product": "Claude Code",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-06-30",
+      "keywords": [
+        "Claude Code",
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55607",
+      "summary_short": "Claude Code is an agentic coding tool. From 2.1.38 until 2.1.163, Claude Code's worktree handling allowed creation of worktrees named \".git\" and navigation…"
     },
     {
       "cve_id": "CVE-2026-50021",
@@ -1600,10 +1648,10 @@
       "vendor": "pnpm",
       "product": "pnpm",
       "published_date": "2026-06-28",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
-        "npm package",
-        "developer tool"
+        "developer tool",
+        "npm package"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50021",
@@ -1616,7 +1664,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-28",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server"
       ],
@@ -1631,7 +1679,7 @@
       "vendor": "Mattermost",
       "product": "Mattermost Agents plugin MCP server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server",
         "agent plugin"
@@ -1647,7 +1695,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server"
       ],
@@ -1662,7 +1710,7 @@
       "vendor": "pnpm",
       "product": "pnpm",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "npm package"
       ],
@@ -1677,28 +1725,13 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-29",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "coding agent"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53766",
       "summary_short": "Chrome DevTools for agents (chrome-devtools-mcp) from 0.24.0 until 1.1.0 validates workspace roots with path.resolve() rather than symlink-canonical paths,…"
-    },
-    {
-      "cve_id": "CVE-2026-54555",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "rtk-ai",
-      "product": "rtk",
-      "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-29",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54555",
-      "summary_short": "rtk filters and compresses command outputs before they reach your LLM context. Prior to 0.42.2, the permission splitter did not conservatively split or…"
     },
     {
       "cve_id": "CVE-2026-50178",
@@ -1715,22 +1748,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
       "summary_short": "The Angular Language Service VS Code Extension provides a rich editing experience for Angular templates. the client-side Angular Language Service VS Code…"
-    },
-    {
-      "cve_id": "CVE-2026-54232",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "vLLM",
-      "product": "vLLM Dockerfile dependency confusion",
-      "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-29",
-      "keywords": [
-        "Roo Code",
-        "PyPI package"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
-      "summary_short": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion…"
     }
   ]
 }

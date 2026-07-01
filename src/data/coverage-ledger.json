@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-01T09:42:51Z",
+  "generated_at": "2026-07-01T16:41:45Z",
   "source_last_discovery_at": "2026-07-01",
   "source_entry_count": 449,
-  "public_entry_count": 110,
+  "public_entry_count": 111,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 339,
+  "excluded_public_safe_candidate_count": 338,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,8 +13,24 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 93,
+  "enriched_from_cves_json_count": 94,
   "entries": [
+    {
+      "cve_id": "CVE-2026-58446",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "Presenton",
+      "product": "Presenton MCP",
+      "published_date": "2026-06-30",
+      "last_seen_at": "2026-07-01",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58446",
+      "summary_short": "Server/Docker deployments before 0.8.8-beta can leave the bundled /mcp endpoint outside the session auth gate.",
+      "audr_rule_id": "presenton-mcp-auth-bypass"
+    },
     {
       "cve_id": "CVE-2026-48529",
       "status": "shipped",
@@ -1609,21 +1625,6 @@
       "summary_short": "DeepTutor before version 1.4.10 contains an authorization bypass vulnerability that allows low-privilege users to invoke unrestricted MCP tools due to the…"
     },
     {
-      "cve_id": "CVE-2026-58446",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Presenton",
-      "product": "Presenton",
-      "published_date": "2026-06-30",
-      "last_seen_at": "2026-07-01",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58446",
-      "summary_short": "Presenton before 0.8.8-beta bundles an MCP server that, on server/Docker deployments configured with session authentication (AUTH_USERNAME/AUTH_PASSWORD),…"
-    },
-    {
       "cve_id": "CVE-2026-13524",
       "status": "actionable",
       "severity": "medium",
@@ -1779,6 +1780,22 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53766",
       "summary_short": "Chrome DevTools for agents (chrome-devtools-mcp) from 0.24.0 until 1.1.0 validates workspace roots with path.resolve() rather than symlink-canonical paths,…"
+    },
+    {
+      "cve_id": "CVE-2026-50178",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Angular",
+      "product": "Angular Language Service VS Code Extension",
+      "published_date": "2026-06-22",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "developer tool",
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
+      "summary_short": "The Angular Language Service VS Code Extension provides a rich editing experience for Angular templates. the client-side Angular Language Service VS Code…"
     }
   ]
 }

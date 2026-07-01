@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-58446",
+    "product": "Presenton MCP",
+    "vendor": "Presenton",
+    "severity": "medium",
+    "published_date": "2026-06-30",
+    "summary_short": "Server/Docker deployments before 0.8.8-beta can leave the bundled /mcp endpoint outside the session auth gate.",
+    "visceral_consequence": "an unauthenticated caller can invoke Presenton MCP tools and consume the operator's configured LLM API keys to create presentations",
+    "scope_phrase": "where Presenton package manifests show versions before 0.8.8-beta on server or Docker deployments",
+    "audr_rule_id": "presenton-mcp-auth-bypass"
+  },
+  {
     "cve_id": "CVE-2026-48529",
     "product": "GitHub MCP Server",
     "vendor": "GitHub",

@@ -143,6 +143,17 @@
     "audr_rule_id": "googleapis-mcp-toolbox-wildcard-origin-host"
   },
   {
+    "cve_id": "CVE-2026-53839",
+    "product": "OpenClaw",
+    "vendor": "OpenClaw",
+    "severity": "medium",
+    "published_date": "2026-06-12",
+    "summary_short": "retry endpoint checks before 2026.5.7 use hostname-prefix matching instead of exact hostname validation.",
+    "visceral_consequence": "an attacker-controlled host whose name starts with an allowed hostname can receive agent retry traffic outside the intended endpoint boundary",
+    "scope_phrase": "where package manifests or dependency files include openclaw before 2026.5.7",
+    "audr_rule_id": "openclaw-retry-endpoint-hostname-prefix-bypass"
+  },
+  {
     "cve_id": "CVE-2026-53838",
     "product": "OpenClaw",
     "vendor": "OpenClaw",

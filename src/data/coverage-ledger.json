@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-30T16:39:49Z",
-  "source_last_discovery_at": "2026-06-30",
-  "source_entry_count": 447,
-  "public_entry_count": 109,
+  "generated_at": "2026-07-01T09:42:51Z",
+  "source_last_discovery_at": "2026-07-01",
+  "source_entry_count": 449,
+  "public_entry_count": 110,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 338,
+  "excluded_public_safe_candidate_count": 339,
   "excluded_status_counts": {
     "blocked": 6,
     "osv_covered": 171,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 4,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 92,
+  "enriched_from_cves_json_count": 93,
   "entries": [
     {
       "cve_id": "CVE-2026-48529",
@@ -401,6 +401,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53838",
       "summary_short": "node pairing reconnection can confuse approval scope decisions before 2026.5.27.",
       "audr_rule_id": "openclaw-node-pairing-reconnect-scope-confusion"
+    },
+    {
+      "cve_id": "CVE-2026-53839",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw",
+      "published_date": "2026-06-12",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53839",
+      "summary_short": "retry endpoint checks before 2026.5.7 use hostname-prefix matching instead of exact hostname validation.",
+      "audr_rule_id": "openclaw-retry-endpoint-hostname-prefix-bypass"
     },
     {
       "cve_id": "CVE-2026-46519",
@@ -1578,13 +1594,43 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-58168",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "DeepTutor",
+      "product": "DeepTutor",
+      "published_date": "2026-06-30",
+      "last_seen_at": "2026-07-01",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58168",
+      "summary_short": "DeepTutor before version 1.4.10 contains an authorization bypass vulnerability that allows low-privilege users to invoke unrestricted MCP tools due to the…"
+    },
+    {
+      "cve_id": "CVE-2026-58446",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Presenton",
+      "product": "Presenton",
+      "published_date": "2026-06-30",
+      "last_seen_at": "2026-07-01",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58446",
+      "summary_short": "Presenton before 0.8.8-beta bundles an MCP server that, on server/Docker deployments configured with session authentication (AUTH_USERNAME/AUTH_PASSWORD),…"
+    },
+    {
       "cve_id": "CVE-2026-13524",
       "status": "actionable",
       "severity": "medium",
       "vendor": "CherryHQ",
       "product": "cherry-studio MCP OAuth Local Callback Server",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "MCP server",
         "Model Context Protocol"
@@ -1600,7 +1646,7 @@
       "vendor": "Claude Code",
       "product": "Claude Code",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "Claude Code",
         "coding agent"
@@ -1616,7 +1662,7 @@
       "vendor": "Cursor",
       "product": "Cursor",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "AI coding agent",
         "Cursor"
@@ -1632,7 +1678,7 @@
       "vendor": "Cursor",
       "product": "Cursor",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "AI coding agent",
         "Cursor"
@@ -1648,7 +1694,7 @@
       "vendor": "Claude Code",
       "product": "Claude Code",
       "published_date": "2026-06-29",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "Claude Code",
         "coding agent"
@@ -1664,7 +1710,7 @@
       "vendor": "pnpm",
       "product": "pnpm",
       "published_date": "2026-06-28",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "developer tool",
         "npm package"
@@ -1680,7 +1726,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP",
       "published_date": "2026-06-28",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "MCP server"
       ],
@@ -1695,7 +1741,7 @@
       "vendor": "Mattermost",
       "product": "Mattermost Agents plugin MCP server",
       "published_date": "2026-06-26",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "MCP server",
         "agent plugin"
@@ -1711,7 +1757,7 @@
       "vendor": "pnpm",
       "product": "pnpm",
       "published_date": "2026-06-25",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "npm package"
       ],
@@ -1726,45 +1772,13 @@
       "vendor": "Chrome DevTools",
       "product": "chrome-devtools-mcp",
       "published_date": "2026-06-24",
-      "last_seen_at": "2026-06-30",
+      "last_seen_at": "2026-07-01",
       "keywords": [
         "coding agent"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53766",
       "summary_short": "Chrome DevTools for agents (chrome-devtools-mcp) from 0.24.0 until 1.1.0 validates workspace roots with path.resolve() rather than symlink-canonical paths,…"
-    },
-    {
-      "cve_id": "CVE-2026-50178",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Angular",
-      "product": "Angular Language Service VS Code Extension",
-      "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-29",
-      "keywords": [
-        "developer tool",
-        "npm package"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
-      "summary_short": "The Angular Language Service VS Code Extension provides a rich editing experience for Angular templates. the client-side Angular Language Service VS Code…"
-    },
-    {
-      "cve_id": "CVE-2026-54232",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "vLLM",
-      "product": "vLLM Dockerfile dependency confusion",
-      "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-29",
-      "keywords": [
-        "Roo Code",
-        "PyPI package"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
-      "summary_short": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion…"
     }
   ]
 }

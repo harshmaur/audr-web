@@ -11,6 +11,17 @@
     "audr_rule_id": "presenton-mcp-auth-bypass"
   },
   {
+    "cve_id": "CVE-2026-50021",
+    "product": "pnpm",
+    "vendor": "pnpm",
+    "severity": "medium",
+    "published_date": "2026-06-28",
+    "summary_short": "pnpm before 10.34.0 / 11.4.0 can skip tarball integrity verification when pnpm-lock.yaml resolution entries omit integrity.",
+    "visceral_consequence": "a tampered registry response can be installed under --frozen-lockfile without an integrity mismatch stopping the build",
+    "scope_phrase": "where pnpm-lock.yaml contains tarball resolution entries without integrity fields",
+    "audr_rule_id": "pnpm-lockfile-missing-integrity"
+  },
+  {
     "cve_id": "CVE-2026-48529",
     "product": "GitHub MCP Server",
     "vendor": "GitHub",

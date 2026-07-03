@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-52830",
+    "product": "fast-mcp-telegram",
+    "vendor": "fast-mcp-telegram",
+    "severity": "critical",
+    "published_date": "2026-07-02",
+    "summary_short": "HTTP bearer-token validation before 0.19.1 can traverse into the default legacy Telegram session file.",
+    "visceral_consequence": "a remote HTTP MCP client can authenticate as the operator's default Telegram session by using a path-traversal bearer token",
+    "scope_phrase": "where MCP configs launch fast-mcp-telegram before 0.19.1 in HTTP or streamable-HTTP mode",
+    "audr_rule_id": "fast-mcp-telegram-bearer-token-path-traversal"
+  },
+  {
     "cve_id": "CVE-2026-58446",
     "product": "Presenton MCP",
     "vendor": "Presenton",

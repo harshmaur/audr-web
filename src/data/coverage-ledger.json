@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-03T09:43:33Z",
+  "generated_at": "2026-07-03T16:42:29Z",
   "source_last_discovery_at": "2026-07-03",
   "source_entry_count": 452,
-  "public_entry_count": 113,
+  "public_entry_count": 114,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 339,
+  "excluded_public_safe_candidate_count": 338,
   "excluded_status_counts": {
     "osv_covered": 184,
     "blocked": 6,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 96,
+  "enriched_from_cves_json_count": 97,
   "entries": [
     {
       "cve_id": "CVE-2026-52830",
@@ -79,6 +79,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48529",
       "summary_short": "HTTP lockdown mode from 0.22.0 before 1.1.2 reused a process-global repo access cache across authenticated users.",
       "audr_rule_id": "github-mcp-server-lockdown-global-cache"
+    },
+    {
+      "cve_id": "CVE-2026-54557",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "mise",
+      "product": "mise",
+      "published_date": "2026-06-26",
+      "last_seen_at": "2026-07-03",
+      "keywords": [
+        "developer tool"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54557",
+      "summary_short": "HTTP backend versions before 2026.6.1 can use raw absolute version/bin_path values when creating install symlinks.",
+      "audr_rule_id": "mise-http-backend-symlink-escape"
     },
     {
       "cve_id": "CVE-2025-71336",
@@ -1753,21 +1769,6 @@
       "summary_short": "Mattermost versions 10.11.x <= 10.11.18, 11.6.x <= 11.6.3, 11.5.x <= 11.5.6 fail to validate attachment URLs against internal or private IP ranges in the…"
     },
     {
-      "cve_id": "CVE-2026-54557",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "mise",
-      "product": "mise",
-      "published_date": "2026-06-26",
-      "last_seen_at": "2026-07-03",
-      "keywords": [
-        "developer tool"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54557",
-      "summary_short": "mise manages dev tools like node, python, cmake, and terraform. Prior to 2026.6.1, the mise HTTP backend builds its install symlink destination from the raw…"
-    },
-    {
       "cve_id": "CVE-2026-50017",
       "status": "actionable",
       "severity": "medium",
@@ -1828,6 +1829,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
       "summary_short": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion…"
+    },
+    {
+      "cve_id": "CVE-2026-12774",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "BerriAI",
+      "product": "litellm",
+      "published_date": "2026-06-21",
+      "last_seen_at": "2026-06-27",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12774",
+      "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
     }
   ]
 }

@@ -33,6 +33,17 @@
     "audr_rule_id": "pnpm-lockfile-missing-integrity"
   },
   {
+    "cve_id": "CVE-2026-54557",
+    "product": "mise",
+    "vendor": "mise",
+    "severity": "medium",
+    "published_date": "2026-06-26",
+    "summary_short": "HTTP backend versions before 2026.6.1 can use raw absolute version/bin_path values when creating install symlinks.",
+    "visceral_consequence": "a repository-controlled .tool-versions file can place an executable symlink outside mise's install tree, including a developer-tool prefix later added to PATH",
+    "scope_phrase": "where .tool-versions uses mise HTTP backend entries with absolute version or bin_path targets before upgrading to 2026.6.1",
+    "audr_rule_id": "mise-http-backend-symlink-escape"
+  },
+  {
     "cve_id": "CVE-2026-48529",
     "product": "GitHub MCP Server",
     "vendor": "GitHub",

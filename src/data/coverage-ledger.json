@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-04T09:52:28Z",
+  "generated_at": "2026-07-04T16:43:06Z",
   "source_last_discovery_at": "2026-07-04",
   "source_entry_count": 454,
-  "public_entry_count": 115,
+  "public_entry_count": 116,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 339,
+  "excluded_public_safe_candidate_count": 338,
   "excluded_status_counts": {
     "osv_covered": 184,
     "blocked": 6,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 98,
+  "enriched_from_cves_json_count": 99,
   "entries": [
     {
       "cve_id": "CVE-2026-52830",
@@ -192,6 +192,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55249",
       "summary_short": "version 1.0.0 passes OpenClaw exec tool input into a shell-backed execSync template without shell-safe escaping.",
       "audr_rule_id": "rtk-rewrite-openclaw-execsync-injection"
+    },
+    {
+      "cve_id": "CVE-2026-50178",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Angular",
+      "product": "Angular Language Service VS Code Extension",
+      "published_date": "2026-06-22",
+      "last_seen_at": "2026-06-29",
+      "keywords": [
+        "developer tool",
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
+      "summary_short": "VS Code extension versions before 21.2.4 render hover Markdown with trusted command URIs.",
+      "audr_rule_id": "angular-language-service-trusted-markdown-command-uri"
     },
     {
       "cve_id": "CVE-2026-49357",
@@ -1815,22 +1832,6 @@
       "summary_short": "pnpm is a package manager. Prior to 10.34.0 and 11.4.0, pnpm can send user-level unscoped npm authentication credentials to a registry chosen by a…"
     },
     {
-      "cve_id": "CVE-2026-50178",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Angular",
-      "product": "Angular Language Service VS Code Extension",
-      "published_date": "2026-06-22",
-      "last_seen_at": "2026-06-29",
-      "keywords": [
-        "developer tool",
-        "npm package"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50178",
-      "summary_short": "The Angular Language Service VS Code Extension provides a rich editing experience for Angular templates. the client-side Angular Language Service VS Code…"
-    },
-    {
       "cve_id": "CVE-2026-54232",
       "status": "actionable",
       "severity": "high",
@@ -1860,6 +1861,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12774",
       "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
+    },
+    {
+      "cve_id": "CVE-2026-12798",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "BerriAI",
+      "product": "LiteLLM",
+      "published_date": "2026-06-21",
+      "last_seen_at": "2026-06-28",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12798",
+      "summary_short": "A weakness has been identified in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function load_openapi_spec_async of the file…"
     }
   ]
 }

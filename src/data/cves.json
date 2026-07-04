@@ -121,6 +121,17 @@
     "audr_rule_id": "rtk-permission-splitter-shell-boundary-bypass"
   },
   {
+    "cve_id": "CVE-2026-50178",
+    "product": "Angular Language Service VS Code Extension",
+    "vendor": "Angular",
+    "severity": "high",
+    "published_date": "2026-06-22",
+    "summary_short": "VS Code extension versions before 21.2.4 render hover Markdown with trusted command URIs.",
+    "visceral_consequence": "a malicious project or dependency JSDoc hover can present a command: link that executes on the developer host when clicked",
+    "scope_phrase": "where local VS Code extension package manifests show Angular Language Service before 21.2.4",
+    "audr_rule_id": "angular-language-service-trusted-markdown-command-uri"
+  },
+  {
     "cve_id": "CVE-2026-49357",
     "product": "line-desktop-mcp",
     "vendor": "Line Desktop MCP",

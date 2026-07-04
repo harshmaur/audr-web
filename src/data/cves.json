@@ -77,6 +77,17 @@
     "audr_rule_id": "flowise-custom-mcp-missing-auth"
   },
   {
+    "cve_id": "CVE-2026-53766",
+    "product": "chrome-devtools-mcp",
+    "vendor": "Chrome DevTools",
+    "severity": "medium",
+    "published_date": "2026-06-24",
+    "summary_short": "versions from 0.24.0 before 1.1.0 validate MCP workspace roots through path.resolve() instead of canonical symlink-aware paths.",
+    "visceral_consequence": "a symlink inside an allowed MCP root can let agent file tools read or write outside the intended workspace boundary",
+    "scope_phrase": "where MCP configs launch chrome-devtools-mcp from 0.24.0 before 1.1.0",
+    "audr_rule_id": "chrome-devtools-mcp-roots-symlink-escape"
+  },
+  {
     "cve_id": "CVE-2026-53765",
     "product": "chrome-devtools-mcp",
     "vendor": "Chrome DevTools",

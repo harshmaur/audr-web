@@ -44,6 +44,17 @@
     "audr_rule_id": "pnpm-lockfile-missing-integrity"
   },
   {
+    "cve_id": "CVE-2026-50017",
+    "product": "pnpm",
+    "vendor": "pnpm",
+    "severity": "medium",
+    "published_date": "2026-06-28",
+    "summary_short": "pnpm before 10.34.0 / 11.4.0 can forward user-level unscoped npm credentials to a repository-selected registry.",
+    "visceral_consequence": "a malicious workspace .npmrc can steer pnpm metadata or install requests so an operator's unscoped npm token is sent to an attacker-controlled registry",
+    "scope_phrase": "where .npmrc combines registry= with an unscoped _authToken= entry before upgrading pnpm to 10.34.0 / 11.4.0",
+    "audr_rule_id": "pnpm-unscoped-auth-token-registry-forwarding"
+  },
+  {
     "cve_id": "CVE-2026-54557",
     "product": "mise",
     "vendor": "mise",

@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-13341",
+    "product": "Kong Konnect MCP Server",
+    "vendor": "Kong",
+    "severity": "high",
+    "published_date": "2026-07-03",
+    "summary_short": "Kong Konnect MCP before 1.0.0 can return untrusted analytics/configuration content to agents and construct unintended Konnect API paths.",
+    "visceral_consequence": "a prompt-injected agent can leak Konnect secrets or make unintended Konnect API requests with the operator's token",
+    "scope_phrase": "where MCP configs launch kong-konnect-mcp before 1.0.0 with a KONNECT_ACCESS_TOKEN",
+    "audr_rule_id": "kong-konnect-mcp-prompt-injection"
+  },
+  {
     "cve_id": "CVE-2026-52830",
     "product": "fast-mcp-telegram",
     "vendor": "fast-mcp-telegram",

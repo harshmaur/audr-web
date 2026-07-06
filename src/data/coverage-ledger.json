@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-05T16:43:50Z",
+  "generated_at": "2026-07-06T10:24:43Z",
   "source_last_discovery_at": "2026-07-05",
   "source_entry_count": 454,
-  "public_entry_count": 118,
+  "public_entry_count": 119,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 336,
+  "excluded_public_safe_candidate_count": 335,
   "excluded_status_counts": {
     "osv_covered": 184,
     "blocked": 6,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 101,
+  "enriched_from_cves_json_count": 102,
   "entries": [
     {
       "cve_id": "CVE-2026-13341",
@@ -62,6 +62,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58446",
       "summary_short": "Server/Docker deployments before 0.8.8-beta can leave the bundled /mcp endpoint outside the session auth gate.",
       "audr_rule_id": "presenton-mcp-auth-bypass"
+    },
+    {
+      "cve_id": "CVE-2026-55607",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Anthropic",
+      "product": "Claude Code",
+      "published_date": "2026-06-29",
+      "last_seen_at": "2026-07-05",
+      "keywords": [
+        "Claude Code",
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55607",
+      "summary_short": "Claude Code before 2.1.163 could confuse Git worktree boundaries and run Git helper configuration outside the sandbox.",
+      "audr_rule_id": "claude-code-worktree-git-confusion"
     },
     {
       "cve_id": "CVE-2026-50017",
@@ -1787,22 +1804,6 @@
       "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default. Before a Write, the agent…"
     },
     {
-      "cve_id": "CVE-2026-55607",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Claude Code",
-      "product": "Claude Code",
-      "published_date": "2026-06-29",
-      "last_seen_at": "2026-07-05",
-      "keywords": [
-        "Claude Code",
-        "coding agent"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55607",
-      "summary_short": "Claude Code is an agentic coding tool. From 2.1.38 until 2.1.163, Claude Code's worktree handling allowed creation of worktrees named \".git\" and navigation…"
-    },
-    {
       "cve_id": "CVE-2026-58057",
       "status": "actionable",
       "severity": "medium",
@@ -1908,6 +1909,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12112",
       "summary_short": "A flaw was found in the foreman-mcp-server. A session management vulnerability in the MCP Server allows unauthenticated attackers to hijack active…"
+    },
+    {
+      "cve_id": "CVE-2026-48787",
+      "status": "investigating",
+      "severity": "high",
+      "vendor": "gin-vue-admin",
+      "product": "gin-vue-admin",
+      "published_date": "2026-06-19",
+      "last_seen_at": "2026-06-26",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48787",
+      "summary_short": "gin-vue-admin is an AI-assisted basic development platform. In version 2.9.1, an authenticated attacker with access to the code-generation feature and MCP…"
     }
   ]
 }

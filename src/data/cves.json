@@ -33,6 +33,17 @@
     "audr_rule_id": "presenton-mcp-auth-bypass"
   },
   {
+    "cve_id": "CVE-2026-55607",
+    "product": "Claude Code",
+    "vendor": "Anthropic",
+    "severity": "high",
+    "published_date": "2026-06-29",
+    "summary_short": "Claude Code before 2.1.163 could confuse Git worktree boundaries and run Git helper configuration outside the sandbox.",
+    "visceral_consequence": "a malicious repository plus prompt injection can turn a sandboxed Claude Code session into unsandboxed code execution via Git worktree and symlink tricks",
+    "scope_phrase": "where dependency manifests include @anthropic-ai/claude-code versions 2.1.38 through 2.1.162",
+    "audr_rule_id": "claude-code-worktree-git-confusion"
+  },
+  {
     "cve_id": "CVE-2026-50021",
     "product": "pnpm",
     "vendor": "pnpm",

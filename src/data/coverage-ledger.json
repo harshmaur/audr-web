@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T10:24:43Z",
+  "generated_at": "2026-07-06T16:44:22Z",
   "source_last_discovery_at": "2026-07-05",
   "source_entry_count": 454,
   "public_entry_count": 119,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 102,
+  "enriched_from_cves_json_count": 103,
   "entries": [
     {
       "cve_id": "CVE-2026-13341",
@@ -144,6 +144,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54557",
       "summary_short": "HTTP backend versions before 2026.6.1 can use raw absolute version/bin_path values when creating install symlinks.",
       "audr_rule_id": "mise-http-backend-symlink-escape"
+    },
+    {
+      "cve_id": "CVE-2026-58057",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "FlowiseAI",
+      "product": "Flowise Custom MCP",
+      "published_date": "2026-06-26",
+      "last_seen_at": "2026-07-04",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58057",
+      "summary_short": "Flowise before 3.1.3 can accept case-variant NODE_OPTIONS in Custom MCP stdio environments on Windows.",
+      "audr_rule_id": "flowise-custom-mcp-env-case-bypass"
     },
     {
       "cve_id": "CVE-2025-71336",
@@ -1802,21 +1818,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50549",
       "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default. Before a Write, the agent…"
-    },
-    {
-      "cve_id": "CVE-2026-58057",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "FlowiseAI",
-      "product": "Flowise Custom MCP",
-      "published_date": "2026-06-28",
-      "last_seen_at": "2026-07-04",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58057",
-      "summary_short": "Flowise before 3.1.3 validates Custom MCP stdio environment variables against a denylist using a case-sensitive comparison, so on Windows, where environment…"
     },
     {
       "cve_id": "CVE-2026-4339",

@@ -33,6 +33,17 @@
     "audr_rule_id": "presenton-mcp-auth-bypass"
   },
   {
+    "cve_id": "CVE-2026-58168",
+    "product": "DeepTutor MCP grants",
+    "vendor": "DeepTutor",
+    "severity": "high",
+    "published_date": "2026-06-30",
+    "summary_short": "DeepTutor before 1.4.10 can treat omitted MCP tool grants as unrestricted access for low-privilege users.",
+    "visceral_consequence": "a prompt-injected or low-privilege DeepTutor session can enumerate and invoke configured MCP tools such as shell, filesystem, or browser servers",
+    "scope_phrase": "where dependency manifests include deeptutor versions before 1.4.10",
+    "audr_rule_id": "deeptutor-mcp-tool-grant-bypass"
+  },
+  {
     "cve_id": "CVE-2026-55607",
     "product": "Claude Code",
     "vendor": "Anthropic",

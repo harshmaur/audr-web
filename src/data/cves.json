@@ -132,6 +132,17 @@
     "audr_rule_id": "flowise-custom-mcp-missing-auth"
   },
   {
+    "cve_id": "CVE-2026-54232",
+    "product": "vLLM Dockerfile",
+    "vendor": "vLLM",
+    "severity": "high",
+    "published_date": "2026-06-24",
+    "summary_short": "vLLM before 0.22.1 could install flashinfer-jit-cache from PyPI during Docker builds because unsafe-best-match was paired with a FlashInfer extra index.",
+    "visceral_consequence": "a malicious PyPI package can execute as root during vLLM image builds and backdoor containers that handle prompts, model data, and API credentials",
+    "scope_phrase": "where Dockerfiles install flashinfer-jit-cache with --extra-index-url flashinfer.ai/whl while UV_INDEX_STRATEGY is unsafe-best-match",
+    "audr_rule_id": "vllm-flashinfer-dependency-confusion"
+  },
+  {
     "cve_id": "CVE-2026-53766",
     "product": "chrome-devtools-mcp",
     "vendor": "Chrome DevTools",

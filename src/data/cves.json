@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-49471",
+    "product": "Serena MCP toolkit",
+    "vendor": "Serena",
+    "severity": "high",
+    "published_date": "2026-07-07",
+    "summary_short": "Serena before 1.5.2 exposes an unauthenticated Flask dashboard API on a predictable local port without CSRF or Host header validation.",
+    "visceral_consequence": "a malicious webpage can use DNS rebinding to write persistent agent memory that Serena later reads and acts on autonomously",
+    "scope_phrase": "where dependency manifests include serena-agent or serena versions before 1.5.2",
+    "audr_rule_id": "serena-dashboard-unauth-flask-api"
+  },
+  {
     "cve_id": "CVE-2026-13341",
     "product": "Kong Konnect MCP Server",
     "vendor": "Kong",

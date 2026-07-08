@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-07T16:40:47Z",
-  "source_last_discovery_at": "2026-07-07",
-  "source_entry_count": 455,
-  "public_entry_count": 119,
+  "generated_at": "2026-07-08T09:43:36Z",
+  "source_last_discovery_at": "2026-07-08",
+  "source_entry_count": 457,
+  "public_entry_count": 121,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 336,
   "excluded_status_counts": {
@@ -13,8 +13,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 1,
-  "enriched_from_cves_json_count": 105,
+  "enriched_from_cves_json_count": 106,
   "entries": [
+    {
+      "cve_id": "CVE-2026-49471",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Serena",
+      "product": "Serena MCP toolkit",
+      "published_date": "2026-07-07",
+      "last_seen_at": "2026-07-08",
+      "keywords": [
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49471",
+      "summary_short": "Serena before 1.5.2 exposes an unauthenticated Flask dashboard API on a predictable local port without CSRF or Host header validation.",
+      "audr_rule_id": "serena-dashboard-unauth-flask-api"
+    },
     {
       "cve_id": "CVE-2026-13341",
       "status": "shipped",
@@ -1788,6 +1804,21 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39861",
       "summary_short": "Symlink in workspace allows sandbox escape on read.",
       "audr_rule_id": "claude-skip-permission-prompt"
+    },
+    {
+      "cve_id": "CVE-2026-14748",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "MCP ecosystem",
+      "product": "MCP server",
+      "published_date": "2026-07-05",
+      "last_seen_at": "2026-07-08",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14748",
+      "summary_short": "A flaw has been found in AIAnytime Awesome-MCP-Server up to a884bb51bcd99e08e14fd712c749d55d9d9a13ab. Affected by this issue is some unknown functionality…"
     },
     {
       "cve_id": "CVE-2026-13524",

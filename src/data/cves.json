@@ -11,6 +11,17 @@
     "audr_rule_id": "serena-dashboard-unauth-flask-api"
   },
   {
+    "cve_id": "CVE-2026-14748",
+    "product": "Awesome-MCP-Server mcp-wiki",
+    "vendor": "AIAnytime",
+    "severity": "medium",
+    "published_date": "2026-07-05",
+    "summary_short": "AIAnytime Awesome-MCP-Server mcp-wiki wiki-summary can let attacker-controlled URL arguments trigger server-side requests.",
+    "visceral_consequence": "an agent using the wiki-summary tool can be steered into probing loopback, metadata, or private network endpoints from the developer machine",
+    "scope_phrase": "where MCP configs launch Awesome-MCP-Server's mcp-wiki/wiki-summary component",
+    "audr_rule_id": "awesome-mcp-wiki-summary-ssrf"
+  },
+  {
     "cve_id": "CVE-2026-13341",
     "product": "Kong Konnect MCP Server",
     "vendor": "Kong",

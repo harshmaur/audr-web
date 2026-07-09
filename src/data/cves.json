@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-59723",
+    "product": "Cline Hub dashboard",
+    "vendor": "Cline",
+    "severity": "high",
+    "published_date": "2026-07-08",
+    "summary_short": "Cline Hub dashboard before 3.0.30 accepts /browser WebSocket connections without validating Origin and can trust local requests without ROOM_SECRET.",
+    "visceral_consequence": "a malicious webpage can drive desktopCommand frames that read workspace state, mutate MCP/provider settings, or trigger command execution in a vulnerable local Cline session",
+    "scope_phrase": "where dependency manifests include @cline/cline or cline versions before 3.0.30",
+    "audr_rule_id": "cline-dashboard-browser-origin-bypass"
+  },
+  {
     "cve_id": "CVE-2026-49471",
     "product": "Serena MCP toolkit",
     "vendor": "Serena",

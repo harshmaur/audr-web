@@ -5,9 +5,14 @@
 // Runs in CI before deploy. Failure preserves the last-good wasm and opens
 // a GH issue (per the test plan).
 
+import { webcrypto } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto;
+}
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");

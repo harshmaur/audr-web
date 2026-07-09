@@ -11,6 +11,17 @@
     "audr_rule_id": "cline-dashboard-browser-origin-bypass"
   },
   {
+    "cve_id": "CVE-2026-59261",
+    "product": "OpenClaw workspace dotenv/provider credentials",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-07-08",
+    "summary_short": "OpenClaw before 2026.5.28 can let lower-trust workspace dotenv files override provider credential environment values.",
+    "visceral_consequence": "a workspace an agent opens can redirect or expose LLM provider credentials that should have stayed inside OpenClaw's trusted credential boundary",
+    "scope_phrase": "where dependency manifests include openclaw versions before 2026.5.28",
+    "audr_rule_id": "openclaw-workspace-dotenv-credential-override"
+  },
+  {
     "cve_id": "CVE-2026-49471",
     "product": "Serena MCP toolkit",
     "vendor": "Serena",

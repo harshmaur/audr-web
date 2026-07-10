@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-59726",
+    "product": "Ruflo agent meta-harness MCP bridge",
+    "vendor": "ruvnet",
+    "severity": "critical",
+    "published_date": "2026-07-09",
+    "summary_short": "Ruflo before 3.16.3 exposes unauthenticated MCP bridge POST /mcp tool-call endpoints in the default docker-compose deployment.",
+    "visceral_consequence": "an unauthenticated network attacker can invoke terminal_execute, obtain a shell in the bridge container, read provider API keys, or poison AgentDB learning-store patterns",
+    "scope_phrase": "where dependency manifests include ruflo versions before 3.16.3",
+    "audr_rule_id": "ruflo-mcp-bridge-unauth-rce"
+  },
+  {
     "cve_id": "CVE-2026-59723",
     "product": "Cline Hub dashboard",
     "vendor": "Cline",

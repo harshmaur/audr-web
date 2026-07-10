@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-07-10T09:40:01Z",
+  "generated_at": "2026-07-10T16:42:01Z",
   "source_last_discovery_at": "2026-07-10",
   "source_entry_count": 469,
   "public_entry_count": 127,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 342,
   "excluded_status_counts": {
+    "osv_covered": 190,
     "blocked": 6,
-    "osv_covered": 186,
     "not_auditable": 20,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 110,
+  "enriched_from_cves_json_count": 111,
   "entries": [
+    {
+      "cve_id": "CVE-2026-55605",
+      "status": "shipped",
+      "severity": "medium",
+      "vendor": "arikusi",
+      "product": "DeepSeek MCP Server self-hosted HTTP transport",
+      "published_date": "2026-07-09",
+      "last_seen_at": "2026-07-10",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55605",
+      "summary_short": "@arikusi/deepseek-mcp-server before 1.8.0 can expose self-hosted POST /mcp HTTP transport without authentication.",
+      "audr_rule_id": "deepseek-mcp-server-unauth-http"
+    },
     {
       "cve_id": "CVE-2026-59726",
       "status": "shipped",
@@ -1904,21 +1920,6 @@
       "summary_short": "DeepSeek MCP Server is an MCP server for DeepSeek V4. Starting in version 1.4.2 and prior to version 1.7.0, the process-global `SessionStore` accepts…"
     },
     {
-      "cve_id": "CVE-2026-55605",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "arikusi",
-      "product": "DeepSeek MCP Server self-hosted HTTP transport",
-      "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-10",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55605",
-      "summary_short": "DeepSeek MCP Server is an MCP server for DeepSeek V4. Starting in version 1.4.2 and prior to version 1.8.0, the self-hosted HTTP transport of…"
-    },
-    {
       "cve_id": "CVE-2026-59207",
       "status": "actionable",
       "severity": "medium",
@@ -1932,36 +1933,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59207",
       "summary_short": "n8n is an open source workflow automation platform. Prior to 2.27.4 and 2.28.1, the AI Agents feature did not enforce the Allowed HTTP Request Domains…"
-    },
-    {
-      "cve_id": "CVE-2026-59820",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "LiteLLM",
-      "product": "LiteLLM Skills archive extraction",
-      "published_date": "2026-07-08",
-      "last_seen_at": "2026-07-10",
-      "keywords": [
-        "Anthropic"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59820",
-      "summary_short": "LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prior to 1.83.7-stable, LiteLLM Skills archive extraction did not…"
-    },
-    {
-      "cve_id": "CVE-2026-59822",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "LiteLLM",
-      "product": "LiteLLM MCP Streamable HTTP endpoint",
-      "published_date": "2026-07-08",
-      "last_seen_at": "2026-07-10",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59822",
-      "summary_short": "LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prior to 1.84.0, LiteLLM's MCP Streamable HTTP endpoint allowed an…"
     },
     {
       "cve_id": "CVE-2026-13524",
@@ -2028,34 +1999,64 @@
       "summary_short": "Mattermost versions 10.11.x <= 10.11.18, 11.6.x <= 11.6.3, 11.5.x <= 11.5.6 fail to validate attachment URLs against internal or private IP ranges in the…"
     },
     {
-      "cve_id": "CVE-2026-12774",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "BerriAI",
-      "product": "litellm",
-      "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-27",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12774",
-      "summary_short": "A security vulnerability has been detected in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function _execute_with_mcp_client of the…"
-    },
-    {
-      "cve_id": "CVE-2026-12798",
+      "cve_id": "CVE-2026-49949",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "BerriAI",
-      "product": "LiteLLM",
-      "published_date": "2026-06-21",
-      "last_seen_at": "2026-06-28",
+      "vendor": "CodexBar",
+      "product": "CodexBar",
+      "published_date": "2026-06-11",
+      "last_seen_at": "2026-06-17",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49949",
+      "summary_short": "CodexBar before 0.33.0 contains a credential forwarding vulnerability that allows network-adjacent attackers to intercept sensitive credentials by issuing…"
+    },
+    {
+      "cve_id": "CVE-2026-14898",
+      "status": "investigating",
+      "severity": "medium",
+      "vendor": "OpenAI",
+      "product": "Codex desktop app for macOS",
+      "published_date": "2026-07-06",
+      "last_seen_at": "2026-07-10",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14898",
+      "summary_short": "The OpenAI Codex desktop app for macOS rendered remote images from Markdown in model responses. An attacker who could place an indirect prompt injection in…"
+    },
+    {
+      "cve_id": "CVE-2026-12112",
+      "status": "investigating",
+      "severity": "high",
+      "vendor": "Red Hat",
+      "product": "foreman-mcp-server",
+      "published_date": "2026-06-23",
+      "last_seen_at": "2026-06-30",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12798",
-      "summary_short": "A weakness has been identified in BerriAI litellm up to 1.82.2. Affected by this vulnerability is the function load_openapi_spec_async of the file…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12112",
+      "summary_short": "A flaw was found in the foreman-mcp-server. A session management vulnerability in the MCP Server allows unauthenticated attackers to hijack active…"
+    },
+    {
+      "cve_id": "CVE-2026-48787",
+      "status": "investigating",
+      "severity": "high",
+      "vendor": "gin-vue-admin",
+      "product": "gin-vue-admin",
+      "published_date": "2026-06-19",
+      "last_seen_at": "2026-06-26",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48787",
+      "summary_short": "gin-vue-admin is an AI-assisted basic development platform. In version 2.9.1, an authenticated attacker with access to the code-generation feature and MCP…"
     }
   ]
 }

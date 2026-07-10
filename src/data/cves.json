@@ -11,6 +11,17 @@
     "audr_rule_id": "ruflo-mcp-bridge-unauth-rce"
   },
   {
+    "cve_id": "CVE-2026-55605",
+    "product": "DeepSeek MCP Server self-hosted HTTP transport",
+    "vendor": "arikusi",
+    "severity": "medium",
+    "published_date": "2026-07-09",
+    "summary_short": "@arikusi/deepseek-mcp-server before 1.8.0 can expose self-hosted POST /mcp HTTP transport without authentication.",
+    "visceral_consequence": "a reachable client can invoke DeepSeek MCP tools through the configured server without an auth provider or middleware gate",
+    "scope_phrase": "where MCP configs launch @arikusi/deepseek-mcp-server before 1.8.0 in HTTP or SSE transport mode without explicit auth controls",
+    "audr_rule_id": "deepseek-mcp-server-unauth-http"
+  },
+  {
     "cve_id": "CVE-2026-59723",
     "product": "Cline Hub dashboard",
     "vendor": "Cline",

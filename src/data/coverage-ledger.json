@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-10T16:42:01Z",
-  "source_last_discovery_at": "2026-07-10",
-  "source_entry_count": 469,
-  "public_entry_count": 127,
+  "generated_at": "2026-07-11T10:32:51Z",
+  "source_last_discovery_at": "2026-07-11",
+  "source_entry_count": 470,
+  "public_entry_count": 128,
   "selected_triage_limit": 12,
   "excluded_public_safe_candidate_count": 342,
   "excluded_status_counts": {
@@ -13,8 +13,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 111,
+  "enriched_from_cves_json_count": 112,
   "entries": [
+    {
+      "cve_id": "CVE-2026-61459",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "Flux159",
+      "product": "MCP Server Kubernetes structured kubectl tools",
+      "published_date": "2026-07-10",
+      "last_seen_at": "2026-07-11",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61459",
+      "summary_short": "MCP Server Kubernetes before 3.9.0 accepts leading kubectl flags through structured tool resourceType or name arguments.",
+      "audr_rule_id": "mcp-server-kubernetes-structured-arg-token-exfil"
+    },
     {
       "cve_id": "CVE-2026-55605",
       "status": "shipped",
@@ -1895,7 +1911,7 @@
       "vendor": "aerostackdev",
       "product": "aerostack-mcp mcp-whatsapp",
       "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-10",
+      "last_seen_at": "2026-07-11",
       "keywords": [
         "MCP server"
       ],
@@ -1910,7 +1926,7 @@
       "vendor": "arikusi",
       "product": "DeepSeek MCP Server",
       "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-10",
+      "last_seen_at": "2026-07-11",
       "keywords": [
         "Continue",
         "MCP server"
@@ -1926,7 +1942,7 @@
       "vendor": "n8n",
       "product": "n8n AI Agents MCP tool credential-domain enforcement",
       "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-10",
+      "last_seen_at": "2026-07-11",
       "keywords": [
         "MCP server"
       ],
@@ -2020,7 +2036,7 @@
       "vendor": "OpenAI",
       "product": "Codex desktop app for macOS",
       "published_date": "2026-07-06",
-      "last_seen_at": "2026-07-10",
+      "last_seen_at": "2026-07-11",
       "keywords": [
         "Codex"
       ],

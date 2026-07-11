@@ -33,6 +33,17 @@
     "audr_rule_id": "deepseek-mcp-server-unauth-http"
   },
   {
+    "cve_id": "CVE-2026-55604",
+    "product": "DeepSeek MCP Server shared sessions",
+    "vendor": "arikusi",
+    "severity": "high",
+    "published_date": "2026-07-09",
+    "summary_short": "@arikusi/deepseek-mcp-server 1.4.2 through 1.6.x accepts caller-supplied process-global session IDs without binding them to an authenticated principal.",
+    "visceral_consequence": "an attacker can enumerate active sessions, retrieve another user’s DeepSeek conversation context, and continue the victim’s session",
+    "scope_phrase": "where dependency manifests include @arikusi/deepseek-mcp-server versions from 1.4.2 through 1.6.x",
+    "audr_rule_id": "deepseek-mcp-session-id-hijack"
+  },
+  {
     "cve_id": "CVE-2026-59723",
     "product": "Cline Hub dashboard",
     "vendor": "Cline",

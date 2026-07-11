@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T10:32:51Z",
+  "generated_at": "2026-07-11T16:39:45Z",
   "source_last_discovery_at": "2026-07-11",
   "source_entry_count": 470,
   "public_entry_count": 128,
@@ -13,7 +13,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 112,
+  "enriched_from_cves_json_count": 113,
   "entries": [
     {
       "cve_id": "CVE-2026-61459",
@@ -30,6 +30,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61459",
       "summary_short": "MCP Server Kubernetes before 3.9.0 accepts leading kubectl flags through structured tool resourceType or name arguments.",
       "audr_rule_id": "mcp-server-kubernetes-structured-arg-token-exfil"
+    },
+    {
+      "cve_id": "CVE-2026-55604",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "arikusi",
+      "product": "DeepSeek MCP Server shared sessions",
+      "published_date": "2026-07-09",
+      "last_seen_at": "2026-07-11",
+      "keywords": [
+        "Continue",
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55604",
+      "summary_short": "@arikusi/deepseek-mcp-server 1.4.2 through 1.6.x accepts caller-supplied process-global session IDs without binding them to an authenticated principal.",
+      "audr_rule_id": "deepseek-mcp-session-id-hijack"
     },
     {
       "cve_id": "CVE-2026-55605",
@@ -1918,22 +1935,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15189",
       "summary_short": "A security vulnerability has been detected in aerostackdev aerostack-mcp up to 6315dfde7df0a15aaf743f88d91347115e09ba23. Affected by this issue is the…"
-    },
-    {
-      "cve_id": "CVE-2026-55604",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "arikusi",
-      "product": "DeepSeek MCP Server",
-      "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-11",
-      "keywords": [
-        "Continue",
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55604",
-      "summary_short": "DeepSeek MCP Server is an MCP server for DeepSeek V4. Starting in version 1.4.2 and prior to version 1.7.0, the process-global `SessionStore` accepts…"
     },
     {
       "cve_id": "CVE-2026-59207",

@@ -220,6 +220,17 @@
     "audr_rule_id": "librechat-mcp-oauth-resource-confusion"
   },
   {
+    "cve_id": "CVE-2026-50549",
+    "product": "Cursor agent terminal sandbox",
+    "vendor": "Cursor",
+    "severity": "critical",
+    "published_date": "2026-06-25",
+    "summary_short": "Cursor before 3.0 can fall back after path canonicalization failure and write through an in-workspace symlink outside the workspace boundary.",
+    "visceral_consequence": "a prompt-injected agent can turn a dangling workspace symlink into an arbitrary write outside the project and escape the intended terminal sandbox",
+    "scope_phrase": "where Cursor workspace evidence and an escaping symlink whose target cannot be canonicalized are present",
+    "audr_rule_id": "cursor-workspace-escaping-symlink-cve-2026-50549"
+  },
+  {
     "cve_id": "CVE-2025-71336",
     "product": "Flowise Custom MCP",
     "vendor": "FlowiseAI",

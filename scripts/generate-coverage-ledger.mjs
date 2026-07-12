@@ -82,6 +82,7 @@ function collapseSummary(value) {
 
 function localSignalCategory(surface, fallback = "needs research") {
   const text = String(surface ?? "").toLowerCase();
+  if (/symlink|canonicalization|filesystem/.test(text)) return "workspace filesystem";
   if (/lockfile|package|dependency|npm|pip|python dependency|manifest/.test(text)) return "dependency manifest";
   if (/mcp/.test(text)) return "MCP server config";
   if (/permission|approval|scope|trust|auth|token|credential|bearer/.test(text)) return "permissions/trust config";
@@ -91,6 +92,7 @@ function localSignalCategory(surface, fallback = "needs research") {
 }
 
 function localSignalFromRule(ruleId) {
+  if (/symlink|filesystem/.test(ruleId)) return "workspace filesystem";
   if (/mcp/.test(ruleId)) return "MCP server config";
   if (/hook|plugin/.test(ruleId)) return "plugin/hook config";
   if (/package|version|openclaw|praison|roo|continue/.test(ruleId)) return "dependency manifest";

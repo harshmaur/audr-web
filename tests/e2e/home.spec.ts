@@ -35,7 +35,7 @@ test.describe("homepage", () => {
 
     await expect(page.locator("text=fresh local posture checks")).toBeVisible();
     await expect(page.locator("text=live: CVE-")).toHaveCount(0);
-    await expect(page.locator("text=Paste a redacted config and see the same agent-posture checks Audr runs locally.")).toBeVisible();
+    await expect(page.locator("text=Paste a redacted config to preview supported file-level checks.")).toBeVisible();
     await expect(page.locator("text=Signed release. SHA-256 verified. No telemetry.")).toBeVisible();
     await expect(page.locator("text=Then run audr scan")).toBeVisible();
   });

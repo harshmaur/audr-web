@@ -44,6 +44,17 @@
     "audr_rule_id": "deepseek-mcp-session-id-hijack"
   },
   {
+    "cve_id": "CVE-2026-15189",
+    "product": "Aerostack MCP WhatsApp server",
+    "vendor": "aerostackdev",
+    "severity": "medium",
+    "published_date": "2026-07-09",
+    "summary_short": "Aerostack MCP mcp-whatsapp upload_media accepts attacker-controlled media_url values without sufficient SSRF protection.",
+    "visceral_consequence": "an agent or remote caller can steer the developer-hosted MCP server into fetching loopback, private-network, link-local, or cloud-metadata resources",
+    "scope_phrase": "where MCP configs launch the vulnerable aerostackdev/aerostack-mcp GitHub source with mcp-whatsapp",
+    "audr_rule_id": "aerostack-mcp-whatsapp-media-url-ssrf"
+  },
+  {
     "cve_id": "CVE-2026-59723",
     "product": "Cline Hub dashboard",
     "vendor": "Cline",

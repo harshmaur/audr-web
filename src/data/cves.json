@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-62200",
+    "product": "OpenClaw host exec environment filtering",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-07-13",
+    "summary_short": "OpenClaw before 2026.6.6 incompletely filters host exec environment variables, allowing Git ext transport abuse.",
+    "visceral_consequence": "a lower-trust caller can abuse Git ext transport through host exec to run commands or establish persistence beyond its intended authorization",
+    "scope_phrase": "where dependency manifests include openclaw versions before 2026.6.6",
+    "audr_rule_id": "openclaw-host-exec-git-ext-transport-filtering"
+  },
+  {
     "cve_id": "CVE-2026-61459",
     "product": "MCP Server Kubernetes structured kubectl tools",
     "vendor": "Flux159",

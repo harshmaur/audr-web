@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-07-12T16:54:21Z",
-  "source_last_discovery_at": "2026-07-12",
-  "source_entry_count": 470,
-  "public_entry_count": 128,
+  "generated_at": "2026-07-14T16:44:47Z",
+  "source_last_discovery_at": "2026-07-14",
+  "source_entry_count": 489,
+  "public_entry_count": 133,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 342,
+  "excluded_public_safe_candidate_count": 356,
   "excluded_status_counts": {
-    "osv_covered": 190,
+    "osv_covered": 191,
     "blocked": 6,
     "not_auditable": 20,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 115,
+  "enriched_from_cves_json_count": 116,
   "entries": [
+    {
+      "cve_id": "CVE-2026-62200",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw host exec environment filtering",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62200",
+      "summary_short": "OpenClaw before 2026.6.6 incompletely filters host exec environment variables, allowing Git ext transport abuse.",
+      "audr_rule_id": "openclaw-host-exec-git-ext-transport-filtering"
+    },
     {
       "cve_id": "CVE-2026-61459",
       "status": "shipped",
@@ -1955,127 +1971,184 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-59207",
+      "cve_id": "CVE-2026-62186",
       "status": "actionable",
-      "severity": "medium",
-      "vendor": "n8n",
-      "product": "n8n AI Agents MCP tool credential-domain enforcement",
-      "published_date": "2026-07-09",
-      "last_seen_at": "2026-07-12",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59207",
-      "summary_short": "n8n is an open source workflow automation platform. Prior to 2.27.4 and 2.28.1, the AI Agents feature did not enforce the Allowed HTTP Request Domains…"
-    },
-    {
-      "cve_id": "CVE-2026-13524",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "CherryHQ",
-      "product": "cherry-studio MCP OAuth Local Callback Server",
-      "published_date": "2026-06-29",
-      "last_seen_at": "2026-07-05",
-      "keywords": [
-        "MCP server",
-        "Model Context Protocol"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13524",
-      "summary_short": "CherryHQ cherry-studio up to 1.9.6 has improper authorization in src/main/services/mcp/oauth/callback.ts for the MCP OAuth Local Callback Server.…"
-    },
-    {
-      "cve_id": "CVE-2026-50548",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "Cursor",
-      "product": "Cursor",
-      "published_date": "2026-06-29",
-      "last_seen_at": "2026-07-02",
-      "keywords": [
-        "AI coding agent",
-        "Cursor"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50548",
-      "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0, Cursor runs agent terminal commands in a sandbox by default, and the sandbox grants…"
-    },
-    {
-      "cve_id": "CVE-2026-4339",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Mattermost",
-      "product": "Mattermost Agents plugin MCP server",
-      "published_date": "2026-06-26",
-      "last_seen_at": "2026-07-03",
-      "keywords": [
-        "MCP server",
-        "agent plugin"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4339",
-      "summary_short": "Mattermost versions 10.11.x <= 10.11.18, 11.6.x <= 11.6.3, 11.5.x <= 11.5.6 fail to validate attachment URLs against internal or private IP ranges in the…"
-    },
-    {
-      "cve_id": "CVE-2026-49949",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "CodexBar",
-      "product": "CodexBar",
-      "published_date": "2026-06-11",
-      "last_seen_at": "2026-06-17",
-      "keywords": [
-        "Codex"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49949",
-      "summary_short": "CodexBar before 0.33.0 contains a credential forwarding vulnerability that allows network-adjacent attackers to intercept sensitive credentials by issuing…"
-    },
-    {
-      "cve_id": "CVE-2026-14898",
-      "status": "investigating",
-      "severity": "medium",
-      "vendor": "OpenAI",
-      "product": "Codex desktop app for macOS",
-      "published_date": "2026-07-06",
-      "last_seen_at": "2026-07-12",
-      "keywords": [
-        "Codex"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14898",
-      "summary_short": "The OpenAI Codex desktop app for macOS rendered remote images from Markdown in model responses. An attacker who could place an indirect prompt injection in…"
-    },
-    {
-      "cve_id": "CVE-2026-12112",
-      "status": "investigating",
       "severity": "high",
-      "vendor": "Red Hat",
-      "product": "foreman-mcp-server",
-      "published_date": "2026-06-23",
-      "last_seen_at": "2026-06-30",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw OpenAI-compatible HTTP model overrides",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
       "keywords": [
-        "MCP server"
+        "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12112",
-      "summary_short": "A flaw was found in the foreman-mcp-server. A session management vulnerability in the MCP Server allows unauthenticated attackers to hijack active…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62186",
+      "summary_short": "OpenClaw versions before 2026.6.8 contain an authorization bypass vulnerability in OpenAI-compatible HTTP model overrides that allows lower-trust callers to…"
     },
     {
-      "cve_id": "CVE-2026-48787",
-      "status": "investigating",
+      "cve_id": "CVE-2026-62187",
+      "status": "actionable",
       "severity": "high",
-      "vendor": "gin-vue-admin",
-      "product": "gin-vue-admin",
-      "published_date": "2026-06-19",
-      "last_seen_at": "2026-06-26",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw Feishu tools per-account disablement",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
       "keywords": [
-        "MCP server"
+        "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48787",
-      "summary_short": "gin-vue-admin is an AI-assisted basic development platform. In version 2.9.1, an authenticated attacker with access to the code-generation feature and MCP…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62187",
+      "summary_short": "OpenClaw Feishu tools (npm package @openclaw/feishu) in versions <= 2026.6.6 could ignore per-account disablement. A lower-trust caller or a configured…"
+    },
+    {
+      "cve_id": "CVE-2026-62188",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw Feishu permission tools per-account disablement",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62188",
+      "summary_short": "OpenClaw @openclaw/feishu versions 2026.6.6 and earlier contain an incorrect authorization vulnerability in which the Feishu permission tools could ignore…"
+    },
+    {
+      "cve_id": "CVE-2026-62189",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw mirror sync remote symlink parents",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "workspace filesystem",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62189",
+      "summary_short": "OpenClaw versions before 2026.6.9 contain a symlink following vulnerability in the mirror sync feature that allows lower-trust callers to perform actions…"
+    },
+    {
+      "cve_id": "CVE-2026-62190",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw flock wrapper exec approval binding",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62190",
+      "summary_short": "OpenClaw versions before 2026.6.9 contain an authorization bypass vulnerability in the flock wrapper that allows lower-trust callers to execute or persist…"
+    },
+    {
+      "cve_id": "CVE-2026-62191",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw message mutation authorization",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62191",
+      "summary_short": "OpenClaw versions 2026.6.6 before 2026.6.9 contain an authorization bypass vulnerability in message mutation handling that allows lower-trust callers to…"
+    },
+    {
+      "cve_id": "CVE-2026-62192",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw Discord guild action authorization",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62192",
+      "summary_short": "OpenClaw versions 2026.6.6 before 2026.6.9 contain an authorization bypass vulnerability in Discord guild actions that allows lower-trust callers to perform…"
+    },
+    {
+      "cve_id": "CVE-2026-62193",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw plugin install wrapper policy",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62193",
+      "summary_short": "OpenClaw versions 2026.6.5 before 2026.6.9 contain a vulnerability in the plugin install wrappers that could skip the install policy (authorization) check.…"
+    },
+    {
+      "cve_id": "CVE-2026-62194",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw plugin install command authorization",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62194",
+      "summary_short": "OpenClaw versions 2026.5.20 before 2026.6.9 contain a privilege escalation vulnerability in plugin install commands that allows lower-trust callers to…"
+    },
+    {
+      "cve_id": "CVE-2026-62195",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw MCP loopback owner-tool authorization",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62195",
+      "summary_short": "OpenClaw versions 2026.5.20 before 2026.6.6 contain an authorization bypass vulnerability in the MCP loopback feature that allows lower-trust callers to…"
+    },
+    {
+      "cve_id": "CVE-2026-62196",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw WhatsApp group sender authorization",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62196",
+      "summary_short": "OpenClaw versions 2026.3.22 before 2026.6.6 contain an authorization bypass vulnerability where WhatsApp group IDs can satisfy elevated sender allowlists.…"
+    },
+    {
+      "cve_id": "CVE-2026-62197",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw browser CDP discovery policy",
+      "published_date": "2026-07-13",
+      "last_seen_at": "2026-07-14",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62197",
+      "summary_short": "OpenClaw before 2026.6.6 contains a policy bypass vulnerability in browser CDP discovery that accepts blocked WebSocket URLs. Attackers with lower-trust…"
     }
   ]
 }

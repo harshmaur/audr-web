@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-15643",
+    "product": "AWS HealthLake MCP Server pagination handling",
+    "vendor": "AWS Labs",
+    "severity": "high",
+    "published_date": "2026-07-14",
+    "summary_short": "AWS HealthLake MCP Server before 0.0.14 accepts crafted pagination URLs without verifying the expected HealthLake endpoint.",
+    "visceral_consequence": "a remote authenticated MCP caller can redirect a pagination request to an attacker-controlled endpoint and exfiltrate temporary AWS credentials",
+    "scope_phrase": "where dependency manifests include awslabs-healthlake-mcp-server versions before 0.0.14",
+    "audr_rule_id": "healthlake-mcp-pagination-ssrf"
+  },
+  {
     "cve_id": "CVE-2026-62200",
     "product": "OpenClaw host exec environment filtering",
     "vendor": "OpenClaw",

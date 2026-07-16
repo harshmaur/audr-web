@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-07-15T16:53:22Z",
-  "source_last_discovery_at": "2026-07-15",
-  "source_entry_count": 492,
-  "public_entry_count": 134,
+  "generated_at": "2026-07-16T16:46:09Z",
+  "source_last_discovery_at": "2026-07-16",
+  "source_entry_count": 507,
+  "public_entry_count": 135,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 358,
+  "excluded_public_safe_candidate_count": 372,
   "excluded_status_counts": {
-    "osv_covered": 191,
+    "osv_covered": 195,
+    "not_auditable": 21,
     "blocked": 6,
-    "not_auditable": 20,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
-  "excluded_unknown_severity_count": 0,
-  "enriched_from_cves_json_count": 117,
+  "excluded_unknown_severity_count": 2,
+  "enriched_from_cves_json_count": 118,
   "entries": [
+    {
+      "cve_id": "CVE-2026-59950",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Model Context Protocol",
+      "product": "MCP Python SDK WebSocket transport",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59950",
+      "summary_short": "MCP Python SDK before 1.28.1 accepts WebSocket handshakes without validating Host or Origin headers.",
+      "audr_rule_id": "mcp-python-sdk-websocket-origin-validation"
+    },
     {
       "cve_id": "CVE-2026-15643",
       "status": "shipped",
@@ -1988,13 +2004,89 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-15583",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Grafana Labs",
+      "product": "Grafana MCP Server X-Grafana-URL handling",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15583",
+      "summary_short": "A confused-deputy flaw in Grafana MCP Server allows an unauthenticated remote attacker to exfiltrate the server's environment-configured Grafana…"
+    },
+    {
+      "cve_id": "CVE-2026-15895",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "AWS",
+      "product": "jsii-diff npm source loader",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15895",
+      "summary_short": "OS command injection in the npm package loading component in AWS jsii-diff before 1.131.0 might allow context-dependent attackers to execute arbitrary…"
+    },
+    {
+      "cve_id": "CVE-2026-52869",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Model Context Protocol",
+      "product": "MCP Python SDK SSE/Streamable HTTP sessions",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52869",
+      "summary_short": "The MCP Python SDK, called mcp on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to 1.27.2, the SSE and stateful Streamable…"
+    },
+    {
+      "cve_id": "CVE-2026-52870",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Model Context Protocol",
+      "product": "MCP Python SDK experimental task handlers",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "Model Context Protocol",
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52870",
+      "summary_short": "The MCP Python SDK, called mcp on PyPI, is a Python implementation of the Model Context Protocol (MCP). From 1.23.0 until 1.27.2, default handlers installed…"
+    },
+    {
+      "cve_id": "CVE-2026-61427",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "PraisonAI",
+      "product": "PraisonAI MCP HTTP-stream transport",
+      "published_date": "2026-07-15",
+      "last_seen_at": "2026-07-16",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61427",
+      "summary_short": "PraisonAI before 4.6.78 exposes the MCP HTTP-stream transport without authentication by default: the CLI --api-key option defaults to None, and the server…"
+    },
+    {
       "cve_id": "CVE-2026-15750",
       "status": "actionable",
       "severity": "medium",
       "vendor": "MasterGo",
       "product": "Magic MCP getComponentLink SSRF",
       "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "MCP server"
       ],
@@ -2009,7 +2101,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw OpenAI-compatible HTTP model overrides",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -2024,7 +2116,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw Feishu tools per-account disablement",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -2039,7 +2131,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw Feishu permission tools per-account disablement",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -2054,7 +2146,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw mirror sync remote symlink parents",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -2069,7 +2161,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw flock wrapper exec approval binding",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
@@ -2084,88 +2176,13 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw message mutation authorization",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-16",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62191",
       "summary_short": "OpenClaw versions 2026.6.6 before 2026.6.9 contain an authorization bypass vulnerability in message mutation handling that allows lower-trust callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-62192",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw Discord guild action authorization",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62192",
-      "summary_short": "OpenClaw versions 2026.6.6 before 2026.6.9 contain an authorization bypass vulnerability in Discord guild actions that allows lower-trust callers to perform…"
-    },
-    {
-      "cve_id": "CVE-2026-62193",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw plugin install wrapper policy",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62193",
-      "summary_short": "OpenClaw versions 2026.6.5 before 2026.6.9 contain a vulnerability in the plugin install wrappers that could skip the install policy (authorization) check.…"
-    },
-    {
-      "cve_id": "CVE-2026-62194",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw plugin install command authorization",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62194",
-      "summary_short": "OpenClaw versions 2026.5.20 before 2026.6.9 contain a privilege escalation vulnerability in plugin install commands that allows lower-trust callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-62195",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw MCP loopback owner-tool authorization",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62195",
-      "summary_short": "OpenClaw versions 2026.5.20 before 2026.6.6 contain an authorization bypass vulnerability in the MCP loopback feature that allows lower-trust callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-62196",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw WhatsApp group sender authorization",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-15",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62196",
-      "summary_short": "OpenClaw versions 2026.3.22 before 2026.6.6 contain an authorization bypass vulnerability where WhatsApp group IDs can satisfy elevated sender allowlists.…"
     }
   ]
 }

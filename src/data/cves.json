@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-59950",
+    "product": "MCP Python SDK WebSocket transport",
+    "vendor": "Model Context Protocol",
+    "severity": "high",
+    "published_date": "2026-07-15",
+    "summary_short": "MCP Python SDK before 1.28.1 accepts WebSocket handshakes without validating Host or Origin headers.",
+    "visceral_consequence": "an untrusted browser origin can connect to an application that exposes the deprecated WebSocket transport and invoke its MCP surface",
+    "scope_phrase": "where PyPI dependency manifests include mcp versions before 1.28.1",
+    "audr_rule_id": "mcp-python-sdk-websocket-origin-validation"
+  },
+  {
     "cve_id": "CVE-2026-15643",
     "product": "AWS HealthLake MCP Server pagination handling",
     "vendor": "AWS Labs",

@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-62241",
+    "product": "ClawVet self-hosted API server",
+    "vendor": "ClawVet",
+    "severity": "critical",
+    "published_date": "2026-07-17",
+    "summary_short": "ClawVet self-hosted apps/api before 0.7.5 can use a public fallback JWT secret and expose user IDs through an unauthenticated scan listing endpoint.",
+    "visceral_consequence": "an unauthenticated attacker can forge a victim's cg_session cookie and retrieve account details and a secret API key",
+    "scope_phrase": "where ClawVet self-hosted source or environment files still embed the known fallback JWT secret",
+    "audr_rule_id": "clawvet-hardcoded-jwt-secret"
+  },
+  {
     "cve_id": "CVE-2026-59950",
     "product": "MCP Python SDK WebSocket transport",
     "vendor": "Model Context Protocol",

@@ -1,20 +1,36 @@
 {
-  "generated_at": "2026-07-16T16:46:09Z",
-  "source_last_discovery_at": "2026-07-16",
-  "source_entry_count": 507,
-  "public_entry_count": 135,
+  "generated_at": "2026-07-17T09:53:13Z",
+  "source_last_discovery_at": "2026-07-17",
+  "source_entry_count": 545,
+  "public_entry_count": 136,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 372,
+  "excluded_public_safe_candidate_count": 409,
   "excluded_status_counts": {
-    "osv_covered": 195,
+    "osv_covered": 228,
     "not_auditable": 21,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 118,
+  "enriched_from_cves_json_count": 119,
   "entries": [
+    {
+      "cve_id": "CVE-2026-62241",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "ClawVet",
+      "product": "ClawVet self-hosted API server",
+      "published_date": "2026-07-17",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "npm package"
+      ],
+      "local_signal_category": "permissions/trust config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62241",
+      "summary_short": "ClawVet self-hosted apps/api before 0.7.5 can use a public fallback JWT secret and expose user IDs through an unauthenticated scan listing endpoint.",
+      "audr_rule_id": "clawvet-hardcoded-jwt-secret"
+    },
     {
       "cve_id": "CVE-2026-59950",
       "status": "shipped",
@@ -22,7 +38,7 @@
       "vendor": "Model Context Protocol",
       "product": "MCP Python SDK WebSocket transport",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -38,7 +54,7 @@
       "vendor": "AWS Labs",
       "product": "AWS HealthLake MCP Server pagination handling",
       "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-15",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -55,7 +71,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw host exec environment filtering",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-14",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -71,7 +87,7 @@
       "vendor": "Flux159",
       "product": "MCP Server Kubernetes structured kubectl tools",
       "published_date": "2026-07-10",
-      "last_seen_at": "2026-07-11",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "MCP server"
       ],
@@ -2004,13 +2020,90 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-44969",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "dbt Labs",
+      "product": "dbt-mcp file logging",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "Model Context Protocol"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44969",
+      "summary_short": "dbt-mcp is a Model Context Protocol server for interacting with dbt. Prior to 1.17.1, DbtMCP.call_tool() in src/dbt_mcp/mcp/server.py logged the raw…"
+    },
+    {
+      "cve_id": "CVE-2026-44970",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "dbt Labs",
+      "product": "dbt-mcp telemetry",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "Model Context Protocol",
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44970",
+      "summary_short": "dbt-mcp is a Model Context Protocol server for interacting with dbt. Prior to 1.17.1, DefaultUsageTracker.emit_tool_called_event() in…"
+    },
+    {
+      "cve_id": "CVE-2026-47751",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Anthropic",
+      "product": "Claude Code Action",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "Claude Code",
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47751",
+      "summary_short": "Claude Code Action is a general-purpose GitHub action that runs Claude Code on GitHub pull requests and issues. Prior to 1.0.74, because the action checked…"
+    },
+    {
+      "cve_id": "CVE-2026-59863",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Kiota workspace generation",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59863",
+      "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, Kiota honored a poisoned .kiota/workspace.json workspace configuration without…"
+    },
+    {
+      "cve_id": "CVE-2026-59864",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Kiota Copilot/Teams plugin generation",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-17",
+      "keywords": [
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59864",
+      "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, `kiota plugin add` and `kiota plugin generate` (with `-t APIPlugin`) emitted…"
+    },
+    {
       "cve_id": "CVE-2026-15583",
       "status": "actionable",
       "severity": "high",
       "vendor": "Grafana Labs",
       "product": "Grafana MCP Server X-Grafana-URL handling",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "MCP server"
       ],
@@ -2025,7 +2118,7 @@
       "vendor": "AWS",
       "product": "jsii-diff npm source loader",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "npm package"
       ],
@@ -2034,44 +2127,13 @@
       "summary_short": "OS command injection in the npm package loading component in AWS jsii-diff before 1.131.0 might allow context-dependent attackers to execute arbitrary…"
     },
     {
-      "cve_id": "CVE-2026-52869",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Model Context Protocol",
-      "product": "MCP Python SDK SSE/Streamable HTTP sessions",
-      "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
-      "keywords": [
-        "Model Context Protocol"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52869",
-      "summary_short": "The MCP Python SDK, called mcp on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to 1.27.2, the SSE and stateful Streamable…"
-    },
-    {
-      "cve_id": "CVE-2026-52870",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Model Context Protocol",
-      "product": "MCP Python SDK experimental task handlers",
-      "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
-      "keywords": [
-        "Model Context Protocol",
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52870",
-      "summary_short": "The MCP Python SDK, called mcp on PyPI, is a Python implementation of the Model Context Protocol (MCP). From 1.23.0 until 1.27.2, default handlers installed…"
-    },
-    {
       "cve_id": "CVE-2026-61427",
       "status": "actionable",
       "severity": "medium",
       "vendor": "PraisonAI",
       "product": "PraisonAI MCP HTTP-stream transport",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "MCP server"
       ],
@@ -2086,7 +2148,7 @@
       "vendor": "MasterGo",
       "product": "Magic MCP getComponentLink SSRF",
       "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "MCP server"
       ],
@@ -2101,7 +2163,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw OpenAI-compatible HTTP model overrides",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -2116,7 +2178,7 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw Feishu tools per-account disablement",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "OpenClaw"
       ],
@@ -2131,58 +2193,13 @@
       "vendor": "OpenClaw",
       "product": "OpenClaw Feishu permission tools per-account disablement",
       "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
+      "last_seen_at": "2026-07-17",
       "keywords": [
         "OpenClaw"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62188",
       "summary_short": "OpenClaw @openclaw/feishu versions 2026.6.6 and earlier contain an incorrect authorization vulnerability in which the Feishu permission tools could ignore…"
-    },
-    {
-      "cve_id": "CVE-2026-62189",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw mirror sync remote symlink parents",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "workspace filesystem",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62189",
-      "summary_short": "OpenClaw versions before 2026.6.9 contain a symlink following vulnerability in the mirror sync feature that allows lower-trust callers to perform actions…"
-    },
-    {
-      "cve_id": "CVE-2026-62190",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw flock wrapper exec approval binding",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62190",
-      "summary_short": "OpenClaw versions before 2026.6.9 contain an authorization bypass vulnerability in the flock wrapper that allows lower-trust callers to execute or persist…"
-    },
-    {
-      "cve_id": "CVE-2026-62191",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw message mutation authorization",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-16",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62191",
-      "summary_short": "OpenClaw versions 2026.6.6 before 2026.6.9 contain an authorization bypass vulnerability in message mutation handling that allows lower-trust callers to…"
     }
   ]
 }

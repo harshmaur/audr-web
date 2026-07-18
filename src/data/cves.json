@@ -11,6 +11,17 @@
     "audr_rule_id": "clawvet-hardcoded-jwt-secret"
   },
   {
+    "cve_id": "CVE-2026-57860",
+    "product": "ForgeCode repository MCP startup",
+    "vendor": "Tailcall",
+    "severity": "high",
+    "published_date": "2026-07-17",
+    "summary_short": "ForgeCode 2.11.1 automatically executes MCP server commands from a repository-root .mcp.json without user confirmation.",
+    "visceral_consequence": "opening an untrusted repository with ForgeCode can run attacker-supplied shell commands with the developer's privileges",
+    "scope_phrase": "where repository MCP configuration launches a shell pipeline or shell command interpreter",
+    "audr_rule_id": "mcp-shell-pipeline-command"
+  },
+  {
     "cve_id": "CVE-2026-59864",
     "product": "Kiota Copilot/Teams plugin generation",
     "vendor": "Microsoft",

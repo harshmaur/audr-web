@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-17T09:53:13Z",
-  "source_last_discovery_at": "2026-07-17",
-  "source_entry_count": 545,
-  "public_entry_count": 136,
+  "generated_at": "2026-07-18T09:32:00Z",
+  "source_last_discovery_at": "2026-07-18",
+  "source_entry_count": 554,
+  "public_entry_count": 137,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 409,
+  "excluded_public_safe_candidate_count": 417,
   "excluded_status_counts": {
-    "osv_covered": 228,
+    "osv_covered": 230,
     "not_auditable": 21,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 119,
+  "enriched_from_cves_json_count": 120,
   "entries": [
     {
       "cve_id": "CVE-2026-62241",
@@ -30,6 +30,22 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62241",
       "summary_short": "ClawVet self-hosted apps/api before 0.7.5 can use a public fallback JWT secret and expose user IDs through an unauthenticated scan listing endpoint.",
       "audr_rule_id": "clawvet-hardcoded-jwt-secret"
+    },
+    {
+      "cve_id": "CVE-2026-59864",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Kiota Copilot/Teams plugin generation",
+      "published_date": "2026-07-16",
+      "last_seen_at": "2026-07-18",
+      "keywords": [
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59864",
+      "summary_short": "Kiota before 1.32.5 copies unsafe x-ai-* static template paths into generated Copilot and Teams plugin manifests.",
+      "audr_rule_id": "kiota-plugin-static-template-traversal"
     },
     {
       "cve_id": "CVE-2026-59950",
@@ -2020,13 +2036,74 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-57860",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Tailcall",
+      "product": "ForgeCode AI pair-programming CLI",
+      "published_date": "2026-07-17",
+      "last_seen_at": "2026-07-18",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57860",
+      "summary_short": "ForgeCode (tailcallhq/forgecode), an AI pair-programming CLI, automatically loads and executes the MCP servers defined in a repository's .mcp.json file on…"
+    },
+    {
+      "cve_id": "CVE-2026-63093",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Cursor",
+      "product": "Cursor for Windows",
+      "published_date": "2026-07-17",
+      "last_seen_at": "2026-07-18",
+      "keywords": [
+        "Cursor",
+        "Roo Code"
+      ],
+      "local_signal_category": "agent config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63093",
+      "summary_short": "Cursor for Windows version 3.2.16 contains a binary planting vulnerability that allows remote attackers to achieve arbitrary code execution by placing a…"
+    },
+    {
+      "cve_id": "CVE-2026-7755",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "IBM / Langflow",
+      "product": "Langflow OSS MCP server configuration upload",
+      "published_date": "2026-07-17",
+      "last_seen_at": "2026-07-18",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7755",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.10.0 Langflow could allow remote code execution due to incomplete validation enforcement on MCP server configuration files."
+    },
+    {
+      "cve_id": "CVE-2026-9135",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "IBM / Langflow",
+      "product": "Langflow OSS ToolGuard policies",
+      "published_date": "2026-07-17",
+      "last_seen_at": "2026-07-18",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9135",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.10.0 Langflow versions up to 1.9.2 (commit 94981c443d4918517b9e8163d70fc598dc33a32d) contain a code injection vulnerability…"
+    },
+    {
       "cve_id": "CVE-2026-44969",
       "status": "actionable",
       "severity": "low",
       "vendor": "dbt Labs",
       "product": "dbt-mcp file logging",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -2041,7 +2118,7 @@
       "vendor": "dbt Labs",
       "product": "dbt-mcp telemetry",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2057,7 +2134,7 @@
       "vendor": "Anthropic",
       "product": "Claude Code Action",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "Claude Code",
         "MCP server"
@@ -2073,7 +2150,7 @@
       "vendor": "Microsoft",
       "product": "Kiota workspace generation",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "Roo Code"
       ],
@@ -2082,28 +2159,13 @@
       "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, Kiota honored a poisoned .kiota/workspace.json workspace configuration without…"
     },
     {
-      "cve_id": "CVE-2026-59864",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "Microsoft",
-      "product": "Kiota Copilot/Teams plugin generation",
-      "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-17",
-      "keywords": [
-        "Roo Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59864",
-      "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, `kiota plugin add` and `kiota plugin generate` (with `-t APIPlugin`) emitted…"
-    },
-    {
       "cve_id": "CVE-2026-15583",
       "status": "actionable",
       "severity": "high",
       "vendor": "Grafana Labs",
       "product": "Grafana MCP Server X-Grafana-URL handling",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "MCP server"
       ],
@@ -2118,7 +2180,7 @@
       "vendor": "AWS",
       "product": "jsii-diff npm source loader",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "npm package"
       ],
@@ -2133,7 +2195,7 @@
       "vendor": "PraisonAI",
       "product": "PraisonAI MCP HTTP-stream transport",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "MCP server"
       ],
@@ -2148,58 +2210,13 @@
       "vendor": "MasterGo",
       "product": "Magic MCP getComponentLink SSRF",
       "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-17",
+      "last_seen_at": "2026-07-18",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15750",
       "summary_short": "MasterGo Magic MCP through 0.2.0 passes the caller-controlled mcp__getComponentLink url directly to its HTTP client and returns the response body. A…"
-    },
-    {
-      "cve_id": "CVE-2026-62186",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw OpenAI-compatible HTTP model overrides",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62186",
-      "summary_short": "OpenClaw versions before 2026.6.8 contain an authorization bypass vulnerability in OpenAI-compatible HTTP model overrides that allows lower-trust callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-62187",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw Feishu tools per-account disablement",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62187",
-      "summary_short": "OpenClaw Feishu tools (npm package @openclaw/feishu) in versions <= 2026.6.6 could ignore per-account disablement. A lower-trust caller or a configured…"
-    },
-    {
-      "cve_id": "CVE-2026-62188",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw Feishu permission tools per-account disablement",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-17",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62188",
-      "summary_short": "OpenClaw @openclaw/feishu versions 2026.6.6 and earlier contain an incorrect authorization vulnerability in which the Feishu permission tools could ignore…"
     }
   ]
 }

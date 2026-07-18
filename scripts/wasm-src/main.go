@@ -55,9 +55,10 @@ type wasmResult struct {
 // contract. Add entries here as new CVEs land — the audr finding type
 // itself doesn't carry CVE refs because not every finding is CVE-anchored.
 var cveByRule = map[string][]string{
-	"claude-hook-shell-rce":         {"CVE-2025-59536"},
-	"claude-skip-permission-prompt": {"CVE-2025-59536"},
-	"claude-mcp-auto-approve":       {"CVE-2025-59536"},
+	"claude-hook-shell-rce":                  {"CVE-2025-59536"},
+	"claude-skip-permission-prompt":          {"CVE-2025-59536"},
+	"claude-mcp-auto-approve":                {"CVE-2025-59536"},
+	"kiota-plugin-static-template-traversal": {"CVE-2026-59864"},
 }
 
 // formatHintToPath returns a synthetic file path so audr's filename-based
@@ -72,6 +73,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.cursor/permissions.json"
 	case "mcp", "mcp-config":
 		return "/synth/.mcp.json"
+	case "openapi", "swagger", "kiota", "kiota-openapi-spec":
+		return "/synth/openapi.yaml"
 	default:
 		return ""
 	}
@@ -84,6 +87,8 @@ func guessFormatPath(text string) string {
 	switch {
 	case strings.HasPrefix(t, "{"):
 		switch {
+		case strings.Contains(t, `"openapi"`) || strings.Contains(t, `"swagger"`):
+			return "/synth/openapi.json"
 		case strings.Contains(t, `"mcpServers"`):
 			return "/synth/.mcp.json"
 		case strings.Contains(t, `"mcpAllowlist"`) || strings.Contains(t, `"terminalAllowlist"`):
@@ -93,6 +98,8 @@ func guessFormatPath(text string) string {
 		default:
 			return "/synth/.mcp.json"
 		}
+	case strings.HasPrefix(t, "openapi:") || strings.HasPrefix(t, "swagger:"):
+		return "/synth/openapi.yaml"
 	case strings.Contains(t, "approval_policy") || strings.Contains(t, "[mcp_servers"):
 		return "/synth/.codex/config.toml"
 	default:

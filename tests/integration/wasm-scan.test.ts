@@ -7,6 +7,7 @@ const FIXTURE_MCP = "tests/fixtures/dirty-mcp.json";
 const FIXTURE_CLAUDE = "tests/fixtures/dirty-claude-settings.json";
 const FIXTURE_CURSOR = "tests/fixtures/dirty-cursor-permissions.json";
 const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
+const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -78,6 +79,17 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       (f: { rule_id: string }) => f.rule_id === "codex-approval-disabled",
     );
     expect(approval).toBeTruthy();
+  });
+
+  it("flags Kiota plugin template traversal in an OpenAPI description", () => {
+    const raw = scan(readFileSync(FIXTURE_KIOTA, "utf8"), "openapi");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("kiota-openapi-spec");
+    const traversal = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "kiota-plugin-static-template-traversal",
+    );
+    expect(traversal).toBeTruthy();
+    expect(traversal.cve_refs).toContain("CVE-2026-59864");
   });
 
   it("returns zero findings on clean input without crashing", () => {

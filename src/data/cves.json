@@ -11,6 +11,17 @@
     "audr_rule_id": "clawvet-hardcoded-jwt-secret"
   },
   {
+    "cve_id": "CVE-2026-59864",
+    "product": "Kiota Copilot/Teams plugin generation",
+    "vendor": "Microsoft",
+    "severity": "critical",
+    "published_date": "2026-07-16",
+    "summary_short": "Kiota before 1.32.5 copies unsafe x-ai-* static template paths into generated Copilot and Teams plugin manifests.",
+    "visceral_consequence": "a malicious OpenAPI document can make a generated plugin reference files outside its package when deployed",
+    "scope_phrase": "where OpenAPI or Swagger source contains escaping or absolute x-ai-adaptive-card or x-ai-capabilities template paths",
+    "audr_rule_id": "kiota-plugin-static-template-traversal"
+  },
+  {
     "cve_id": "CVE-2026-59950",
     "product": "MCP Python SDK WebSocket transport",
     "vendor": "Model Context Protocol",

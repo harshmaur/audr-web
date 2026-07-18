@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: Unsafe Kiota plugin
+  version: 1.0.0
+paths:
+  /pets:
+    get:
+      x-ai-capabilities:
+        response_semantics:
+          static_template:
+            file: ../../../../etc/passwd

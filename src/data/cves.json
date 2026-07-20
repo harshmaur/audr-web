@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-9135",
+    "product": "Langflow OSS ToolGuard policies",
+    "vendor": "IBM / Langflow",
+    "severity": "critical",
+    "published_date": "2026-07-17",
+    "summary_short": "Langflow OSS 1.0.0 through 1.10.0 fails to validate dynamic ToolGuard CodeInput fields even when custom components are disabled.",
+    "visceral_consequence": "an authenticated flow author can persist Python that executes on the Langflow backend when a guarded tool runs",
+    "scope_phrase": "where PyPI dependency manifests allow Langflow versions from 1.0.0 through 1.10.0",
+    "audr_rule_id": "langflow-toolguard-code-injection"
+  },
+  {
     "cve_id": "CVE-2026-62241",
     "product": "ClawVet self-hosted API server",
     "vendor": "ClawVet",

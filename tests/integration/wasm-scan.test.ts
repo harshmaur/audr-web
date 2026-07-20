@@ -8,6 +8,7 @@ const FIXTURE_CLAUDE = "tests/fixtures/dirty-claude-settings.json";
 const FIXTURE_CURSOR = "tests/fixtures/dirty-cursor-permissions.json";
 const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
+const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -90,6 +91,17 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     );
     expect(traversal).toBeTruthy();
     expect(traversal.cve_refs).toContain("CVE-2026-59864");
+  });
+
+  it("flags Langflow ToolGuard code injection from a PyPI requirements manifest", () => {
+    const raw = scan(readFileSync(FIXTURE_LANGFLOW, "utf8"), "requirements");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("dependency-manifest");
+    const langflow = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "langflow-toolguard-code-injection",
+    );
+    expect(langflow).toBeTruthy();
+    expect(langflow.cve_refs).toContain("CVE-2026-9135");
   });
 
   it("returns zero findings on clean input without crashing", () => {

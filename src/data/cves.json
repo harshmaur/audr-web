@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-46701",
+    "product": "Network-AI MCP SSE server",
+    "vendor": "Network-AI",
+    "severity": "high",
+    "published_date": "2026-07-20",
+    "summary_short": "Network-AI before 5.4.5 authorizes every MCP SSE request when NETWORK_AI_MCP_SECRET is unset and allows wildcard browser origins.",
+    "visceral_consequence": "a malicious webpage or reachable local process can invoke config_set, agent_spawn, blackboard_write, and the rest of the MCP tool surface without credentials",
+    "scope_phrase": "where MCP configs launch network-ai before 5.4.5 without a strong non-default MCP secret",
+    "audr_rule_id": "network-ai-mcp-sse-empty-secret"
+  },
+  {
     "cve_id": "CVE-2026-9135",
     "product": "Langflow OSS ToolGuard policies",
     "vendor": "IBM / Langflow",

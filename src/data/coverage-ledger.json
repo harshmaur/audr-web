@@ -1,20 +1,37 @@
 {
-  "generated_at": "2026-07-20T17:04:52Z",
-  "source_last_discovery_at": "2026-07-20",
-  "source_entry_count": 554,
-  "public_entry_count": 139,
+  "generated_at": "2026-07-21T09:45:50Z",
+  "source_last_discovery_at": "2026-07-21",
+  "source_entry_count": 561,
+  "public_entry_count": 140,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 415,
+  "excluded_public_safe_candidate_count": 421,
   "excluded_status_counts": {
-    "osv_covered": 230,
-    "not_auditable": 21,
+    "osv_covered": 231,
+    "not_auditable": 22,
+    "duplicate": 1,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 122,
+  "enriched_from_cves_json_count": 123,
   "entries": [
+    {
+      "cve_id": "CVE-2026-46701",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "Network-AI",
+      "product": "Network-AI MCP SSE server",
+      "published_date": "2026-07-20",
+      "last_seen_at": "2026-07-21",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46701",
+      "summary_short": "Network-AI before 5.4.5 authorizes every MCP SSE request when NETWORK_AI_MCP_SECRET is unset and allows wildcard browser origins.",
+      "audr_rule_id": "network-ai-mcp-sse-empty-secret"
+    },
     {
       "cve_id": "CVE-2026-57860",
       "status": "shipped",
@@ -2068,13 +2085,46 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-46555",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "verygoodplugins",
+      "product": "WhatsApp MCP Server bridge API",
+      "published_date": "2026-07-20",
+      "last_seen_at": "2026-07-21",
+      "keywords": [
+        "Claude Code",
+        "Model Context Protocol",
+        "MCP server",
+        "Roo Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46555",
+      "summary_short": "WhatsApp MCP Server is a Model Context Protocol (MCP) server for WhatsApp, enabling Claude to read and send WhatsApp messages. Prior to version 0.2.1, the…"
+    },
+    {
+      "cve_id": "CVE-2026-64650",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Vercel AI SDK",
+      "product": "@ai-sdk/harness-opencode Codex tool relay",
+      "published_date": "2026-07-20",
+      "last_seen_at": "2026-07-21",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64650",
+      "summary_short": "The `@ai-sdk/harness-opencode` tool is an HarnessV1 adapter backed by @openai/codex-sdk, which drives the codex command line interface. Prior to version…"
+    },
+    {
       "cve_id": "CVE-2026-63093",
       "status": "actionable",
       "severity": "high",
       "vendor": "Cursor",
       "product": "Cursor for Windows",
       "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "Cursor",
         "Roo Code"
@@ -2090,7 +2140,7 @@
       "vendor": "IBM / Langflow",
       "product": "Langflow OSS MCP server configuration upload",
       "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "MCP server"
       ],
@@ -2105,7 +2155,7 @@
       "vendor": "dbt Labs",
       "product": "dbt-mcp file logging",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -2120,7 +2170,7 @@
       "vendor": "dbt Labs",
       "product": "dbt-mcp telemetry",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2136,7 +2186,7 @@
       "vendor": "Anthropic",
       "product": "Claude Code Action",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "Claude Code",
         "MCP server"
@@ -2152,7 +2202,7 @@
       "vendor": "Microsoft",
       "product": "Kiota workspace generation",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "Roo Code"
       ],
@@ -2167,7 +2217,7 @@
       "vendor": "Grafana Labs",
       "product": "Grafana MCP Server X-Grafana-URL handling",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "MCP server"
       ],
@@ -2182,7 +2232,7 @@
       "vendor": "AWS",
       "product": "jsii-diff npm source loader",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "npm package"
       ],
@@ -2197,7 +2247,7 @@
       "vendor": "PraisonAI",
       "product": "PraisonAI MCP HTTP-stream transport",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "MCP server"
       ],
@@ -2212,43 +2262,13 @@
       "vendor": "MasterGo",
       "product": "Magic MCP getComponentLink SSRF",
       "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-20",
+      "last_seen_at": "2026-07-21",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15750",
       "summary_short": "MasterGo Magic MCP through 0.2.0 passes the caller-controlled mcp__getComponentLink url directly to its HTTP client and returns the response body. A…"
-    },
-    {
-      "cve_id": "CVE-2026-62186",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw OpenAI-compatible HTTP model overrides",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-20",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62186",
-      "summary_short": "OpenClaw versions before 2026.6.8 contain an authorization bypass vulnerability in OpenAI-compatible HTTP model overrides that allows lower-trust callers to…"
-    },
-    {
-      "cve_id": "CVE-2026-62187",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "OpenClaw",
-      "product": "OpenClaw Feishu tools per-account disablement",
-      "published_date": "2026-07-13",
-      "last_seen_at": "2026-07-20",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62187",
-      "summary_short": "OpenClaw Feishu tools (npm package @openclaw/feishu) in versions <= 2026.6.6 could ignore per-account disablement. A lower-trust caller or a configured…"
     }
   ]
 }

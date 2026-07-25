@@ -55,11 +55,12 @@ type wasmResult struct {
 // contract. Add entries here as new CVEs land — the audr finding type
 // itself doesn't carry CVE refs because not every finding is CVE-anchored.
 var cveByRule = map[string][]string{
-	"claude-hook-shell-rce":                  {"CVE-2025-59536"},
-	"claude-skip-permission-prompt":          {"CVE-2025-59536"},
-	"claude-mcp-auto-approve":                {"CVE-2025-59536"},
-	"kiota-plugin-static-template-traversal": {"CVE-2026-59864"},
-	"langflow-toolguard-code-injection":      {"CVE-2026-9135"},
+	"claude-hook-shell-rce":                         {"CVE-2025-59536"},
+	"claude-skip-permission-prompt":                 {"CVE-2025-59536"},
+	"claude-mcp-auto-approve":                       {"CVE-2025-59536"},
+	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
+	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
+	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
 }
 
 // formatHintToPath returns a synthetic file path so audr's filename-based
@@ -72,6 +73,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.codex/config.toml"
 	case "cursor", "cursor-permissions":
 		return "/synth/.cursor/permissions.json"
+	case "cursor-app", "cursor-app-package":
+		return "/synth/cursor/resources/app/package.json"
 	case "mcp", "mcp-config":
 		return "/synth/.mcp.json"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-21T09:45:50Z",
-  "source_last_discovery_at": "2026-07-21",
-  "source_entry_count": 561,
-  "public_entry_count": 140,
+  "generated_at": "2026-07-25T09:56:47Z",
+  "source_last_discovery_at": "2026-07-25",
+  "source_entry_count": 585,
+  "public_entry_count": 141,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 421,
+  "excluded_public_safe_candidate_count": 444,
   "excluded_status_counts": {
-    "osv_covered": 231,
+    "osv_covered": 249,
     "not_auditable": 22,
     "duplicate": 1,
     "blocked": 6,
@@ -14,7 +14,7 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 123,
+  "enriched_from_cves_json_count": 124,
   "entries": [
     {
       "cve_id": "CVE-2026-46701",
@@ -23,7 +23,7 @@
       "vendor": "Network-AI",
       "product": "Network-AI MCP SSE server",
       "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-25",
       "keywords": [
         "MCP server"
       ],
@@ -470,6 +470,23 @@
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71336",
       "summary_short": "Custom MCP node-load handling before 3.0.6 can execute OS commands when Flowise is left without built-in auth.",
       "audr_rule_id": "flowise-custom-mcp-missing-auth"
+    },
+    {
+      "cve_id": "CVE-2026-50548",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "Cursor",
+      "product": "Cursor agent terminal sandbox",
+      "published_date": "2026-06-25",
+      "last_seen_at": "2026-07-02",
+      "keywords": [
+        "AI coding agent",
+        "Cursor"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50548",
+      "summary_short": "Cursor before 3.0 lets an agent-controlled working directory expand the terminal sandbox's writable scope outside the intended workspace.",
+      "audr_rule_id": "cursor-agent-sandbox-working-directory-escape"
     },
     {
       "cve_id": "CVE-2026-50549",
@@ -2085,13 +2102,59 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-66005",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "JanHQ",
+      "product": "Jan local API server",
+      "published_date": "2026-07-24",
+      "last_seen_at": "2026-07-25",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66005",
+      "summary_short": "Jan through 0.8.4 replaces user-configured Trusted Hosts with a wildcard when its local API server binds to 0.0.0.0. The wildcard accepts arbitrary Host…"
+    },
+    {
+      "cve_id": "CVE-2026-47769",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Work90210",
+      "product": "APIFold runtime MCP webhook receiver",
+      "published_date": "2026-07-23",
+      "last_seen_at": "2026-07-25",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47769",
+      "summary_short": "APIFold 0.2.0 before commit 7f19b52280f414f57af2b79a95333d1c8fbeece5 accepts arbitrary unauthenticated JSON at /webhooks/:serverSlug/:eventName because…"
+    },
+    {
+      "cve_id": "CVE-2026-65056",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "mzxrai",
+      "product": "mcp-webresearch visit_page tool",
+      "published_date": "2026-07-21",
+      "last_seen_at": "2026-07-25",
+      "keywords": [
+        "Model Context Protocol",
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65056",
+      "summary_short": "mcp-webresearch 0.1.7 contains a server-side request forgery vulnerability that allows attackers to access internal network services by supplying loopback,…"
+    },
+    {
       "cve_id": "CVE-2026-46555",
       "status": "actionable",
       "severity": "high",
       "vendor": "verygoodplugins",
       "product": "WhatsApp MCP Server bridge API",
       "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-25",
       "keywords": [
         "Claude Code",
         "Model Context Protocol",
@@ -2109,7 +2172,7 @@
       "vendor": "Vercel AI SDK",
       "product": "@ai-sdk/harness-opencode Codex tool relay",
       "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-25",
       "keywords": [
         "Codex"
       ],
@@ -2124,7 +2187,7 @@
       "vendor": "Cursor",
       "product": "Cursor for Windows",
       "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-24",
       "keywords": [
         "Cursor",
         "Roo Code"
@@ -2140,7 +2203,7 @@
       "vendor": "IBM / Langflow",
       "product": "Langflow OSS MCP server configuration upload",
       "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-24",
       "keywords": [
         "MCP server"
       ],
@@ -2155,7 +2218,7 @@
       "vendor": "dbt Labs",
       "product": "dbt-mcp file logging",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-23",
       "keywords": [
         "Model Context Protocol"
       ],
@@ -2170,7 +2233,7 @@
       "vendor": "dbt Labs",
       "product": "dbt-mcp telemetry",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-23",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2186,7 +2249,7 @@
       "vendor": "Anthropic",
       "product": "Claude Code Action",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-23",
       "keywords": [
         "Claude Code",
         "MCP server"
@@ -2202,7 +2265,7 @@
       "vendor": "Microsoft",
       "product": "Kiota workspace generation",
       "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-23",
       "keywords": [
         "Roo Code"
       ],
@@ -2217,58 +2280,13 @@
       "vendor": "Grafana Labs",
       "product": "Grafana MCP Server X-Grafana-URL handling",
       "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-21",
+      "last_seen_at": "2026-07-22",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "MCP server config",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15583",
       "summary_short": "A confused-deputy flaw in Grafana MCP Server allows an unauthenticated remote attacker to exfiltrate the server's environment-configured Grafana…"
-    },
-    {
-      "cve_id": "CVE-2026-15895",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "AWS",
-      "product": "jsii-diff npm source loader",
-      "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-21",
-      "keywords": [
-        "npm package"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15895",
-      "summary_short": "OS command injection in the npm package loading component in AWS jsii-diff before 1.131.0 might allow context-dependent attackers to execute arbitrary…"
-    },
-    {
-      "cve_id": "CVE-2026-61427",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "PraisonAI",
-      "product": "PraisonAI MCP HTTP-stream transport",
-      "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-21",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61427",
-      "summary_short": "PraisonAI before 4.6.78 exposes the MCP HTTP-stream transport without authentication by default: the CLI --api-key option defaults to None, and the server…"
-    },
-    {
-      "cve_id": "CVE-2026-15750",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "MasterGo",
-      "product": "Magic MCP getComponentLink SSRF",
-      "published_date": "2026-07-14",
-      "last_seen_at": "2026-07-21",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15750",
-      "summary_short": "MasterGo Magic MCP through 0.2.0 passes the caller-controlled mcp__getComponentLink url directly to its HTTP client and returns the response body. A…"
     }
   ]
 }

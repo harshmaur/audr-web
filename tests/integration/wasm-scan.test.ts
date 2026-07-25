@@ -6,6 +6,7 @@ const WASM_EXEC = "public/wasm/wasm_exec.js";
 const FIXTURE_MCP = "tests/fixtures/dirty-mcp.json";
 const FIXTURE_CLAUDE = "tests/fixtures/dirty-claude-settings.json";
 const FIXTURE_CURSOR = "tests/fixtures/dirty-cursor-permissions.json";
+const FIXTURE_CURSOR_APP = "tests/fixtures/dirty-cursor-app-package.json";
 const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
@@ -70,6 +71,17 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe("cursor-permissions");
     expect(result.findings.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("flags CVE-2026-50548 from a vulnerable Cursor app manifest", () => {
+    const raw = scan(readFileSync(FIXTURE_CURSOR_APP, "utf8"), "cursor-app");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("package-json");
+    const sandboxEscape = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "cursor-agent-sandbox-working-directory-escape",
+    );
+    expect(sandboxEscape).toBeTruthy();
+    expect(sandboxEscape.cve_refs).toContain("CVE-2026-50548");
   });
 
   it("flags approval-disabled on a dirty Codex config", () => {

@@ -319,6 +319,17 @@
     "audr_rule_id": "cursor-workspace-escaping-symlink-cve-2026-50549"
   },
   {
+    "cve_id": "CVE-2026-50548",
+    "product": "Cursor agent terminal sandbox",
+    "vendor": "Cursor",
+    "severity": "critical",
+    "published_date": "2026-06-25",
+    "summary_short": "Cursor before 3.0 lets an agent-controlled working directory expand the terminal sandbox's writable scope outside the intended workspace.",
+    "visceral_consequence": "a prompt-injected agent can overwrite sensitive files, including the cursorsandbox helper, and turn later terminal commands into unsandboxed code execution",
+    "scope_phrase": "where a local Cursor app manifest reports a version before 3.0",
+    "audr_rule_id": "cursor-agent-sandbox-working-directory-escape"
+  },
+  {
     "cve_id": "CVE-2025-71336",
     "product": "Flowise Custom MCP",
     "vendor": "FlowiseAI",

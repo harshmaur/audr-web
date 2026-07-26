@@ -10,6 +10,7 @@ const FIXTURE_CURSOR_APP = "tests/fixtures/dirty-cursor-app-package.json";
 const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
+const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -114,6 +115,19 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     );
     expect(langflow).toBeTruthy();
     expect(langflow.cve_refs).toContain("CVE-2026-9135");
+  });
+
+  it("flags the non-CVE MrMustard package-root credential-stealer markers", () => {
+    const raw = scan(readFileSync(FIXTURE_MRMUSTARD, "utf8"), "mrmustard-pypi");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
+    expect(result.audr_tag).toBe("v0.14.99");
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "mrmustard-credential-stealer-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
   });
 
   it("returns zero findings on clean input without crashing", () => {

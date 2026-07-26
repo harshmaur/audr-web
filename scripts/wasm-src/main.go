@@ -81,6 +81,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/openapi.yaml"
 	case "requirements", "requirements-txt", "pypi":
 		return "/synth/requirements.txt"
+	case "mrmustard", "mrmustard-pypi":
+		return "/synth/venv/lib/python3.12/site-packages/mrmustard/__init__.py"
 	default:
 		return ""
 	}

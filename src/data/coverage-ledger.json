@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-25T09:56:47Z",
-  "source_last_discovery_at": "2026-07-25",
-  "source_entry_count": 585,
-  "public_entry_count": 141,
+  "generated_at": "2026-07-27T09:47:27Z",
+  "source_last_discovery_at": "2026-07-27",
+  "source_entry_count": 590,
+  "public_entry_count": 142,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 444,
+  "excluded_public_safe_candidate_count": 448,
   "excluded_status_counts": {
-    "osv_covered": 249,
+    "osv_covered": 250,
     "not_auditable": 22,
     "duplicate": 1,
     "blocked": 6,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 124,
+  "enriched_from_cves_json_count": 125,
   "entries": [
+    {
+      "cve_id": "CVE-2026-66012",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "SiYuan",
+      "product": "SiYuan MCP endpoint through anonymous Publish",
+      "published_date": "2026-07-25",
+      "last_seen_at": "2026-07-27",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012",
+      "summary_short": "SiYuan before 3.7.2 lets anonymous Publish proxy reader credentials into an MCP endpoint that lacks administrator-role and read-only enforcement.",
+      "audr_rule_id": "siyuan-anonymous-publish-mcp-admin-bypass"
+    },
     {
       "cve_id": "CVE-2026-46701",
       "status": "shipped",
@@ -2102,13 +2118,58 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-17433",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "nanocoai",
+      "product": "NanoClaw Chat SDK gateway MCP approval bridge",
+      "published_date": "2026-07-26",
+      "last_seen_at": "2026-07-27",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17433",
+      "summary_short": "NanoClaw through 2.0.64 starts a loopback webhook for forwarded Chat SDK interaction events but does not authenticate the sender before trusting…"
+    },
+    {
+      "cve_id": "CVE-2026-17457",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "mf-yang",
+      "product": "openclaw-cn browser-control scheme guard",
+      "published_date": "2026-07-26",
+      "last_seen_at": "2026-07-27",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17457",
+      "summary_short": "openclaw-cn through 0.2.1 validates only http and https in assertBrowserNavigationAllowed and returns early for every other URL scheme. An authenticated…"
+    },
+    {
+      "cve_id": "CVE-2026-17458",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "mf-yang",
+      "product": "openclaw-cn browser-control interaction SSRF policy",
+      "published_date": "2026-07-26",
+      "last_seen_at": "2026-07-27",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17458",
+      "summary_short": "openclaw-cn through 0.2.1 validates direct browser navigation against browser.ssrfPolicy but does not revalidate the destination after an authenticated /act…"
+    },
+    {
       "cve_id": "CVE-2026-66005",
       "status": "actionable",
       "severity": "medium",
       "vendor": "JanHQ",
       "product": "Jan local API server",
       "published_date": "2026-07-24",
-      "last_seen_at": "2026-07-25",
+      "last_seen_at": "2026-07-27",
       "keywords": [
         "MCP server"
       ],
@@ -2123,7 +2184,7 @@
       "vendor": "Work90210",
       "product": "APIFold runtime MCP webhook receiver",
       "published_date": "2026-07-23",
-      "last_seen_at": "2026-07-25",
+      "last_seen_at": "2026-07-27",
       "keywords": [
         "MCP server"
       ],
@@ -2138,7 +2199,7 @@
       "vendor": "mzxrai",
       "product": "mcp-webresearch visit_page tool",
       "published_date": "2026-07-21",
-      "last_seen_at": "2026-07-25",
+      "last_seen_at": "2026-07-27",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2154,7 +2215,7 @@
       "vendor": "verygoodplugins",
       "product": "WhatsApp MCP Server bridge API",
       "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-25",
+      "last_seen_at": "2026-07-27",
       "keywords": [
         "Claude Code",
         "Model Context Protocol",
@@ -2172,7 +2233,7 @@
       "vendor": "Vercel AI SDK",
       "product": "@ai-sdk/harness-opencode Codex tool relay",
       "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-25",
+      "last_seen_at": "2026-07-27",
       "keywords": [
         "Codex"
       ],
@@ -2241,52 +2302,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44970",
       "summary_short": "dbt-mcp is a Model Context Protocol server for interacting with dbt. Prior to 1.17.1, DefaultUsageTracker.emit_tool_called_event() in…"
-    },
-    {
-      "cve_id": "CVE-2026-47751",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Anthropic",
-      "product": "Claude Code Action",
-      "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-23",
-      "keywords": [
-        "Claude Code",
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47751",
-      "summary_short": "Claude Code Action is a general-purpose GitHub action that runs Claude Code on GitHub pull requests and issues. Prior to 1.0.74, because the action checked…"
-    },
-    {
-      "cve_id": "CVE-2026-59863",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Microsoft",
-      "product": "Kiota workspace generation",
-      "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-23",
-      "keywords": [
-        "Roo Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59863",
-      "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, Kiota honored a poisoned .kiota/workspace.json workspace configuration without…"
-    },
-    {
-      "cve_id": "CVE-2026-15583",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Grafana Labs",
-      "product": "Grafana MCP Server X-Grafana-URL handling",
-      "published_date": "2026-07-15",
-      "last_seen_at": "2026-07-22",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15583",
-      "summary_short": "A confused-deputy flaw in Grafana MCP Server allows an unauthenticated remote attacker to exfiltrate the server's environment-configured Grafana…"
     }
   ]
 }

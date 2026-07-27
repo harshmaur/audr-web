@@ -61,6 +61,7 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
+	"siyuan-anonymous-publish-mcp-admin-bypass":      {"CVE-2026-66012"},
 }
 
 // formatHintToPath returns a synthetic file path so audr's filename-based
@@ -83,6 +84,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/requirements.txt"
 	case "mrmustard", "mrmustard-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/mrmustard/__init__.py"
+	case "siyuan", "siyuan-config":
+		return "/synth/.siyuan/conf.json"
 	default:
 		return ""
 	}
@@ -97,6 +100,8 @@ func guessFormatPath(text string) string {
 		switch {
 		case strings.Contains(t, `"openapi"`) || strings.Contains(t, `"swagger"`):
 			return "/synth/openapi.json"
+		case strings.Contains(t, `"kernelVersion"`) && strings.Contains(t, `"publish"`):
+			return "/synth/.siyuan/conf.json"
 		case strings.Contains(t, `"mcpServers"`):
 			return "/synth/.mcp.json"
 		case strings.Contains(t, `"mcpAllowlist"`) || strings.Contains(t, `"terminalAllowlist"`):

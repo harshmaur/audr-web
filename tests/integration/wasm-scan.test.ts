@@ -11,6 +11,7 @@ const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
+const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -121,13 +122,25 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(readFileSync(FIXTURE_MRMUSTARD, "utf8"), "mrmustard-pypi");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
-    expect(result.audr_tag).toBe("v0.14.99");
+    expect(result.audr_tag).toBe("v0.14.100");
     const campaign = result.findings.find(
       (f: { rule_id: string }) => f.rule_id === "mrmustard-credential-stealer-ioc",
     );
     expect(campaign).toBeTruthy();
     expect(campaign.severity).toBe("critical");
     expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags CVE-2026-66012 from anonymous SiYuan Publish configuration", () => {
+    const raw = scan(readFileSync(FIXTURE_SIYUAN, "utf8"), "siyuan");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("siyuan-config");
+    const bypass = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "siyuan-anonymous-publish-mcp-admin-bypass",
+    );
+    expect(bypass).toBeTruthy();
+    expect(bypass.severity).toBe("critical");
+    expect(bypass.cve_refs).toContain("CVE-2026-66012");
   });
 
   it("returns zero findings on clean input without crashing", () => {

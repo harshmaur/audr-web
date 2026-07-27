@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-66012",
+    "product": "SiYuan MCP endpoint through anonymous Publish",
+    "vendor": "SiYuan",
+    "severity": "critical",
+    "published_date": "2026-07-25",
+    "summary_short": "SiYuan before 3.7.2 lets anonymous Publish proxy reader credentials into an MCP endpoint that lacks administrator-role and read-only enforcement.",
+    "visceral_consequence": "an unauthenticated remote caller can read workspace secrets, modify files, and plant a desktop plugin that executes on the next launch",
+    "scope_phrase": "where SiYuan before 3.7.2 enables Publish without Publish authentication",
+    "audr_rule_id": "siyuan-anonymous-publish-mcp-admin-bypass"
+  },
+  {
     "cve_id": "CVE-2026-46701",
     "product": "Network-AI MCP SSE server",
     "vendor": "Network-AI",

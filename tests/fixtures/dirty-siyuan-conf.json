@@ -1,0 +1,11 @@
+{
+  "system": {
+    "kernelVersion": "3.7.1"
+  },
+  "publish": {
+    "enable": true,
+    "auth": {
+      "enable": false
+    }
+  }
+}

@@ -11,6 +11,7 @@ const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
+const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 
@@ -123,9 +124,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(readFileSync(FIXTURE_MRMUSTARD, "utf8"), "mrmustard-pypi");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
-    expect(result.audr_tag).toBe("v0.14.101");
+    expect(result.audr_tag).toBe("v0.14.102");
     const campaign = result.findings.find(
       (f: { rule_id: string }) => f.rule_id === "mrmustard-credential-stealer-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the non-CVE cfgzen package-root infostealer markers", () => {
+    const raw = scan(readFileSync(FIXTURE_CFGZEN, "utf8"), "cfgzen-pypi");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
+    expect(result.audr_tag).toBe("v0.14.102");
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "cfgzen-pth-infostealer-ioc",
     );
     expect(campaign).toBeTruthy();
     expect(campaign.severity).toBe("critical");

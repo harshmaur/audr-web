@@ -87,6 +87,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/requirements.txt"
 	case "mrmustard", "mrmustard-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/mrmustard/__init__.py"
+	case "cfgzen", "cfgzen-pypi":
+		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:

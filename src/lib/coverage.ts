@@ -131,7 +131,7 @@ export function selectedTriageEntries(snapshot: CoverageSnapshot, limit = 12): C
 
 export function latestCoverageEntries(entries: CoverageEntry[], limit: number): CoverageEntry[] {
   return [...entries]
-    .sort((a, b) => b.last_seen_at.localeCompare(a.last_seen_at) || b.published_date.localeCompare(a.published_date) || a.cve_id.localeCompare(b.cve_id))
+    .sort((a, b) => b.last_seen_at.localeCompare(a.last_seen_at) || b.published_date.localeCompare(a.published_date) || b.cve_id.localeCompare(a.cve_id))
     .slice(0, limit);
 }
 
@@ -157,7 +157,7 @@ export function coverageStatusLabel(status: CoverageStatus): string {
 }
 
 export function compareCoverageEntries(a: CoverageEntry, b: CoverageEntry): number {
-  return STATUS_ORDER[a.status] - STATUS_ORDER[b.status] || b.published_date.localeCompare(a.published_date) || a.cve_id.localeCompare(b.cve_id);
+  return STATUS_ORDER[a.status] - STATUS_ORDER[b.status] || b.published_date.localeCompare(a.published_date) || b.cve_id.localeCompare(a.cve_id);
 }
 
 function validateEntry(raw: unknown, sourceLabel: string, seen: Set<string>): CoverageEntry {

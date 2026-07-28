@@ -87,6 +87,18 @@ describe("coverage ledger", () => {
     ]);
   });
 
+  it("sorts same-status same-date entries by CVE ID descending", () => {
+    const snapshot = structuredClone(baseSnapshot);
+    snapshot.entries[0].status = "shipped";
+    snapshot.entries[0].published_date = "2026-05-11";
+    snapshot.entries[0].audr_rule_id = "example-second-local-check";
+    const entries = publicCoverageEntries(validateCoverageSnapshot(snapshot));
+    expect(entries.slice(0, 2).map((entry) => entry.cve_id)).toEqual([
+      "CVE-2026-0002",
+      "CVE-2026-0001",
+    ]);
+  });
+
   it("computes buyer-safe coverage stats", () => {
     const stats = coverageStats(validateCoverageSnapshot(baseSnapshot));
     expect(stats).toEqual({

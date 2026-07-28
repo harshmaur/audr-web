@@ -105,7 +105,7 @@ function compareEntries(a, b) {
   return (
     statusOrder[a.status] - statusOrder[b.status] ||
     b.published_date.localeCompare(a.published_date) ||
-    a.cve_id.localeCompare(b.cve_id)
+    b.cve_id.localeCompare(a.cve_id)
   );
 }
 

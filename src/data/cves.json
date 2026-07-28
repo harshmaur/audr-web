@@ -99,6 +99,17 @@
     "audr_rule_id": "openclaw-host-exec-git-ext-transport-filtering"
   },
   {
+    "cve_id": "CVE-2026-62199",
+    "product": "OpenClaw interpreter startup environment filtering",
+    "vendor": "OpenClaw",
+    "severity": "high",
+    "published_date": "2026-07-13",
+    "summary_short": "OpenClaw before 2026.6.6 incompletely filters interpreter startup environment variables passed to host exec.",
+    "visceral_consequence": "a lower-trust caller can supply crafted interpreter startup variables to run commands or establish persistence beyond its intended authorization",
+    "scope_phrase": "where dependency manifests include openclaw versions before 2026.6.6",
+    "audr_rule_id": "openclaw-interpreter-startup-env-filtering"
+  },
+  {
     "cve_id": "CVE-2026-61459",
     "product": "MCP Server Kubernetes structured kubectl tools",
     "vendor": "Flux159",

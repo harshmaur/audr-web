@@ -61,6 +61,7 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
+	"openclaw-interpreter-startup-env-filtering":     {"CVE-2026-62199"},
 	"siyuan-anonymous-publish-mcp-admin-bypass":      {"CVE-2026-66012"},
 }
 
@@ -76,6 +77,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.cursor/permissions.json"
 	case "cursor-app", "cursor-app-package":
 		return "/synth/cursor/resources/app/package.json"
+	case "package", "package-json", "npm":
+		return "/synth/package.json"
 	case "mcp", "mcp-config":
 		return "/synth/.mcp.json"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":

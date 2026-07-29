@@ -61,8 +61,8 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
-	"openclaw-interpreter-startup-env-filtering":     {"CVE-2026-62199"},
-	"siyuan-anonymous-publish-mcp-admin-bypass":      {"CVE-2026-66012"},
+	"openclaw-interpreter-startup-env-filtering":    {"CVE-2026-62199"},
+	"siyuan-anonymous-publish-mcp-admin-bypass":     {"CVE-2026-66012"},
 }
 
 // formatHintToPath returns a synthetic file path so audr's filename-based
@@ -89,6 +89,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/mrmustard/__init__.py"
 	case "cfgzen", "cfgzen-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
+	case "amazon-inspector-npm-malware", "amazon-inspector-malware":
+		return "/synth/node_modules/chalk-utils/postinstall.js"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:

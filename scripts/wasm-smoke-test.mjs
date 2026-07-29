@@ -19,6 +19,10 @@ const root = join(here, "..");
 const wasmPath = join(root, "public/wasm/audr.wasm");
 const wasmExecPath = join(root, "public/wasm/wasm_exec.js");
 const fixturePath = join(root, "tests/fixtures/dirty-mcp.json");
+const amazonInspectorFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-npm-malware.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -68,6 +72,21 @@ for (const f of result.findings) {
       process.exit(2);
     }
   }
+}
+
+const amazonInspectorText = readFileSync(amazonInspectorFixturePath, "utf8");
+const amazonInspectorResult = JSON.parse(
+  globalThis.audrScan(amazonInspectorText, "amazon-inspector-npm-malware"),
+);
+if (
+  !amazonInspectorResult.findings?.some(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  )
+) {
+  console.error(
+    `smoke: Amazon Inspector npm malware fixture did not fire through real WASM: ${JSON.stringify(amazonInspectorResult)}`,
+  );
+  process.exit(2);
 }
 
 console.log(

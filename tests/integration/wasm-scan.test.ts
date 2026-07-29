@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import { AUDR_VERSION_TAG } from "../../src/lib/audr-version";
 
 const WASM = "public/wasm/audr.wasm";
 const WASM_EXEC = "public/wasm/wasm_exec.js";
@@ -12,6 +13,7 @@ const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
 const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
+const FIXTURE_AMAZON_INSPECTOR = "tests/fixtures/amazon-inspector-npm-malware.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 
@@ -124,7 +126,7 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(readFileSync(FIXTURE_MRMUSTARD, "utf8"), "mrmustard-pypi");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
-    expect(result.audr_tag).toBe("v0.14.102");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     const campaign = result.findings.find(
       (f: { rule_id: string }) => f.rule_id === "mrmustard-credential-stealer-ioc",
     );
@@ -137,9 +139,25 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(readFileSync(FIXTURE_CFGZEN, "utf8"), "cfgzen-pypi");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
-    expect(result.audr_tag).toBe("v0.14.102");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     const campaign = result.findings.find(
       (f: { rule_id: string }) => f.rule_id === "cfgzen-pth-infostealer-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the non-CVE Amazon Inspector npm malware markers", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR, "utf8"),
+      "amazon-inspector-npm-malware",
+    );
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
     );
     expect(campaign).toBeTruthy();
     expect(campaign.severity).toBe("critical");

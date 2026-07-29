@@ -91,6 +91,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
 	case "amazon-inspector-npm-malware", "amazon-inspector-malware":
 		return "/synth/node_modules/chalk-utils/postinstall.js"
+	case "amazon-inspector-streak-core-math", "amazon-inspector-streak":
+		return "/synth/node_modules/streak-core-math/index.mjs"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:

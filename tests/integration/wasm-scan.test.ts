@@ -14,6 +14,8 @@ const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
 const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
 const FIXTURE_AMAZON_INSPECTOR = "tests/fixtures/amazon-inspector-npm-malware.js";
+const FIXTURE_AMAZON_INSPECTOR_STREAK =
+  "tests/fixtures/amazon-inspector-streak-core-math.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 
@@ -152,6 +154,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(
       readFileSync(FIXTURE_AMAZON_INSPECTOR, "utf8"),
       "amazon-inspector-npm-malware",
+    );
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector streak Startup persistence follow-up", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_STREAK, "utf8"),
+      "amazon-inspector-streak-core-math",
     );
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe("npm-malware-artifact");

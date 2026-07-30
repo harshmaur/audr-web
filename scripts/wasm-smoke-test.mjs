@@ -27,6 +27,10 @@ const amazonInspectorStreakFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-streak-core-math.js",
 );
+const amazonInspectorAgentCLIFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-agentcli.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -110,6 +114,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector streak follow-up fixture did not fire through real WASM: ${JSON.stringify(amazonInspectorStreakResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorAgentCLIText = readFileSync(
+  amazonInspectorAgentCLIFixturePath,
+  "utf8",
+);
+const amazonInspectorAgentCLIResult = JSON.parse(
+  globalThis.audrScan(
+    amazonInspectorAgentCLIText,
+    "amazon-inspector-agentcli",
+  ),
+);
+if (
+  !amazonInspectorAgentCLIResult.findings?.some(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  )
+) {
+  console.error(
+    `smoke: Amazon Inspector agentcli follow-up fixture did not fire through real WASM: ${JSON.stringify(amazonInspectorAgentCLIResult)}`,
   );
   process.exit(2);
 }

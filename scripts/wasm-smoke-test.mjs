@@ -27,6 +27,14 @@ const amazonInspectorStreakFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-streak-core-math.js",
 );
+const amazonInspectorStreakDailyFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-streak-daily-lib.js",
+);
+const amazonInspectorStreakCoreFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-streak-core-lib.js",
+);
 const amazonInspectorAgentCLIFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-agentcli.js",
@@ -116,6 +124,33 @@ if (
     `smoke: Amazon Inspector streak follow-up fixture did not fire through real WASM: ${JSON.stringify(amazonInspectorStreakResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, label] of [
+  [
+    amazonInspectorStreakDailyFixturePath,
+    "amazon-inspector-streak-daily-lib",
+    "streak-daily-lib WSL Startup",
+  ],
+  [
+    amazonInspectorStreakCoreFixturePath,
+    "amazon-inspector-streak-core-lib",
+    "streak-core-lib embedded PE Startup",
+  ],
+]) {
+  const campaignResult = JSON.parse(
+    globalThis.audrScan(readFileSync(fixture, "utf8"), hint),
+  );
+  if (
+    !campaignResult.findings?.some(
+      (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+    )
+  ) {
+    console.error(
+      `smoke: Amazon Inspector ${label} fixture did not fire through real WASM: ${JSON.stringify(campaignResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 const amazonInspectorAgentCLIText = readFileSync(

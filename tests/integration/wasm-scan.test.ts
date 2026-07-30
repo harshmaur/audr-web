@@ -16,6 +16,10 @@ const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
 const FIXTURE_AMAZON_INSPECTOR = "tests/fixtures/amazon-inspector-npm-malware.js";
 const FIXTURE_AMAZON_INSPECTOR_STREAK =
   "tests/fixtures/amazon-inspector-streak-core-math.js";
+const FIXTURE_AMAZON_INSPECTOR_STREAK_DAILY =
+  "tests/fixtures/amazon-inspector-streak-daily-lib.js";
+const FIXTURE_AMAZON_INSPECTOR_STREAK_CORE =
+  "tests/fixtures/amazon-inspector-streak-core-lib.js";
 const FIXTURE_AMAZON_INSPECTOR_AGENTCLI =
   "tests/fixtures/amazon-inspector-agentcli.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -174,6 +178,29 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       "amazon-inspector-streak-core-math",
     );
     const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it.each([
+    [
+      "streak-daily-lib WSL Startup persistence",
+      FIXTURE_AMAZON_INSPECTOR_STREAK_DAILY,
+      "amazon-inspector-streak-daily-lib",
+    ],
+    [
+      "streak-core-lib embedded PE Startup persistence",
+      FIXTURE_AMAZON_INSPECTOR_STREAK_CORE,
+      "amazon-inspector-streak-core-lib",
+    ],
+  ])("flags the Amazon Inspector %s follow-up", (_label, fixture, hint) => {
+    const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));
     expect(result.format_detected).toBe("npm-malware-artifact");
     expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     const campaign = result.findings.find(

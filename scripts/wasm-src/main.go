@@ -93,6 +93,10 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/chalk-utils/postinstall.js"
 	case "amazon-inspector-streak-core-math", "amazon-inspector-streak":
 		return "/synth/node_modules/streak-core-math/index.mjs"
+	case "amazon-inspector-streak-daily-lib":
+		return "/synth/node_modules/streak-daily-lib/index.mjs"
+	case "amazon-inspector-streak-core-lib":
+		return "/synth/node_modules/streak-core-lib/index.mjs"
 	case "amazon-inspector-agentcli", "amazon-inspector-yancyyu-agentcli":
 		return "/synth/node_modules/@yancyyu/agentcli/bin/hermit.mjs"
 	case "siyuan", "siyuan-config":

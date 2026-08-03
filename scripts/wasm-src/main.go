@@ -99,6 +99,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/streak-core-lib/index.mjs"
 	case "amazon-inspector-agentcli", "amazon-inspector-yancyyu-agentcli":
 		return "/synth/node_modules/@yancyyu/agentcli/bin/hermit.mjs"
+	case "amazon-inspector-app-soda-layer":
+		return "/synth/node_modules/app-soda-layer/test.js"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:

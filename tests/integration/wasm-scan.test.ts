@@ -22,6 +22,8 @@ const FIXTURE_AMAZON_INSPECTOR_STREAK_CORE =
   "tests/fixtures/amazon-inspector-streak-core-lib.js";
 const FIXTURE_AMAZON_INSPECTOR_AGENTCLI =
   "tests/fixtures/amazon-inspector-agentcli.js";
+const FIXTURE_AMAZON_INSPECTOR_APP_SODA =
+  "tests/fixtures/amazon-inspector-app-soda-layer.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 
@@ -215,6 +217,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(
       readFileSync(FIXTURE_AMAZON_INSPECTOR_AGENTCLI, "utf8"),
       "amazon-inspector-agentcli",
+    );
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector app-soda-layer SSH-persistence follow-up", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_APP_SODA, "utf8"),
+      "amazon-inspector-app-soda-layer",
     );
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe("npm-malware-artifact");

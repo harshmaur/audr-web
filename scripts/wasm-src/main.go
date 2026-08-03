@@ -101,6 +101,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/@yancyyu/agentcli/bin/hermit.mjs"
 	case "amazon-inspector-app-soda-layer":
 		return "/synth/node_modules/app-soda-layer/test.js"
+	case "amazon-inspector-sigchain-js":
+		return "/synth/node_modules/sigchain-js/dist/sigchain-js.esm.js"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:

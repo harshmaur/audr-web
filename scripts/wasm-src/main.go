@@ -61,8 +61,9 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
-	"openclaw-interpreter-startup-env-filtering":    {"CVE-2026-62199"},
-	"siyuan-anonymous-publish-mcp-admin-bypass":     {"CVE-2026-66012"},
+	"openclaw-interpreter-startup-env-filtering":          {"CVE-2026-62199"},
+	"openclaw-dashboard-notification-username-stored-xss": {"CVE-2026-66418"},
+	"siyuan-anonymous-publish-mcp-admin-bypass":           {"CVE-2026-66012"},
 }
 
 // formatHintToPath returns a synthetic file path so audr's filename-based
@@ -103,6 +104,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/app-soda-layer/test.js"
 	case "amazon-inspector-sigchain-js":
 		return "/synth/node_modules/sigchain-js/dist/sigchain-js.esm.js"
+	case "openclaw-dashboard", "openclaw-dashboard-source":
+		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":
 		return "/synth/.siyuan/conf.json"
 	default:
@@ -114,7 +117,15 @@ func formatHintToPath(hint string) string {
 // caller didn't pass a hint. Heuristic, not authoritative.
 func guessFormatPath(text string) string {
 	t := strings.TrimSpace(text)
+	lower := strings.ToLower(t)
 	switch {
+	case strings.Contains(lower, "/api/notifications") &&
+		strings.Contains(lower, "notifpanelbody") &&
+		(strings.Contains(lower, "notificons") ||
+			strings.Contains(lower, "notiflastseen") ||
+			strings.Contains(lower, "notificationbell") ||
+			strings.Contains(lower, "agent dashboard")):
+		return "/synth/openclaw-dashboard/index.html"
 	case strings.HasPrefix(t, "{"):
 		switch {
 		case strings.Contains(t, `"openapi"`) || strings.Contains(t, `"swagger"`):

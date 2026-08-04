@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-66418",
+    "product": "OpenClaw Dashboard notification center",
+    "vendor": "tugcantopaloglu",
+    "severity": "critical",
+    "published_date": "2026-07-30",
+    "summary_short": "OpenClaw Dashboard v3.0.0 records attacker-supplied failed-login usernames and renders them unescaped through innerHTML in the administrator notification panel.",
+    "visceral_consequence": "an unauthenticated remote attacker can execute script in an administrator session, steal its session token, and change agent instructions or configuration",
+    "scope_phrase": "where an OpenClaw Dashboard v3.0.0 source or install contains the failed-login username-to-innerHTML notification flow",
+    "audr_rule_id": "openclaw-dashboard-notification-username-stored-xss"
+  },
+  {
     "cve_id": "CVE-2026-66012",
     "product": "SiYuan MCP endpoint through anonymous Publish",
     "vendor": "SiYuan",

@@ -78,6 +78,13 @@ describe("coverage ledger", () => {
     }
   });
 
+  it("classifies the OpenClaw Dashboard stored-XSS detector as source code", () => {
+    const entry = loadCoverageSnapshot().entries.find(
+      (row) => row.cve_id === "CVE-2026-66418",
+    );
+    expect(entry?.local_signal_category).toBe("source code");
+  });
+
   it("sorts public entries with shipped rows first, then newest published date", () => {
     const entries = publicCoverageEntries(validateCoverageSnapshot(baseSnapshot));
     expect(entries.map((entry) => entry.cve_id)).toEqual([

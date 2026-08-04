@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Agent Dashboard</title>
+<div id="notifPanelBody"></div>
+<script>
+async function fetchNotifications() {
+  const response = await authFetch('/api/notifications?limit=50');
+  const payload = await response.json();
+  const body = document.getElementById('notifPanelBody');
+  body.innerHTML = payload.events.map(event => {
+    const icon = notifIcons[event.event] || 'event';
+    const detail = event.username ? ` (${event.username})` : '';
+    return `<div class="notif-item">${icon}${detail}</div>`;
+  }).join('');
+}
+</script>

@@ -83,6 +83,9 @@ function collapseSummary(value) {
 function localSignalCategory(surface, fallback = "needs research") {
   const text = String(surface ?? "").toLowerCase();
   if (/symlink|canonicalization|filesystem/.test(text)) return "workspace filesystem";
+  if (/source checkout|source tree|source file|source pattern|innerhtml|javascript source|html source|browser source/.test(text)) {
+    return "source code";
+  }
   if (/lockfile|package|dependency|npm|pip|python dependency|manifest/.test(text)) return "dependency manifest";
   if (/mcp/.test(text)) return "MCP server config";
   if (/permission|approval|scope|trust|auth|token|credential|bearer/.test(text)) return "permissions/trust config";

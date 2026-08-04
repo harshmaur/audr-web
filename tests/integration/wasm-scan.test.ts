@@ -28,6 +28,8 @@ const FIXTURE_AMAZON_INSPECTOR_SIGCHAIN =
   "tests/fixtures/amazon-inspector-sigchain-js.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
+const FIXTURE_OPENCLAW_DASHBOARD =
+  "tests/fixtures/dirty-openclaw-dashboard-notifications.html";
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -285,6 +287,34 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(bypass).toBeTruthy();
     expect(bypass.severity).toBe("high");
     expect(bypass.cve_refs).toContain("CVE-2026-62199");
+  });
+
+  it("flags CVE-2026-66418 from vulnerable OpenClaw Dashboard source", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_OPENCLAW_DASHBOARD, "utf8"),
+      "openclaw-dashboard",
+    );
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("openclaw-dashboard-source");
+    const storedXSS = result.findings.find(
+      (f: { rule_id: string }) =>
+        f.rule_id === "openclaw-dashboard-notification-username-stored-xss",
+    );
+    expect(storedXSS).toBeTruthy();
+    expect(storedXSS.severity).toBe("critical");
+    expect(storedXSS.cve_refs).toContain("CVE-2026-66418");
+  });
+
+  it("auto-detects vulnerable OpenClaw Dashboard source without a format hint", () => {
+    const raw = scan(readFileSync(FIXTURE_OPENCLAW_DASHBOARD, "utf8"), "");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("openclaw-dashboard-source");
+    expect(
+      result.findings.some(
+        (f: { rule_id: string }) =>
+          f.rule_id === "openclaw-dashboard-notification-username-stored-xss",
+      ),
+    ).toBe(true);
   });
 
   it("returns zero findings on clean input without crashing", () => {

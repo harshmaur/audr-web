@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-28T05:27:19Z",
-  "source_last_discovery_at": "2026-07-27",
-  "source_entry_count": 590,
-  "public_entry_count": 143,
+  "generated_at": "2026-08-04T09:40:14Z",
+  "source_last_discovery_at": "2026-08-04",
+  "source_entry_count": 625,
+  "public_entry_count": 144,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 447,
+  "excluded_public_safe_candidate_count": 481,
   "excluded_status_counts": {
-    "osv_covered": 250,
+    "osv_covered": 259,
     "not_auditable": 22,
     "duplicate": 1,
     "blocked": 6,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 126,
+  "enriched_from_cves_json_count": 127,
   "entries": [
+    {
+      "cve_id": "CVE-2026-66418",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "tugcantopaloglu",
+      "product": "OpenClaw Dashboard notification center",
+      "published_date": "2026-07-30",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66418",
+      "summary_short": "OpenClaw Dashboard v3.0.0 records attacker-supplied failed-login usernames and renders them unescaped through innerHTML in the administrator notification panel.",
+      "audr_rule_id": "openclaw-dashboard-notification-username-stored-xss"
+    },
     {
       "cve_id": "CVE-2026-66012",
       "status": "shipped",
@@ -23,11 +39,11 @@
       "vendor": "SiYuan",
       "product": "SiYuan MCP endpoint through anonymous Publish",
       "published_date": "2026-07-25",
-      "last_seen_at": "2026-07-27",
+      "last_seen_at": "2026-07-30",
       "keywords": [
         "MCP server"
       ],
-      "local_signal_category": "MCP server config",
+      "local_signal_category": "source code",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012",
       "summary_short": "SiYuan before 3.7.2 lets anonymous Publish proxy reader credentials into an MCP endpoint that lacks administrator-role and read-only enforcement.",
       "audr_rule_id": "siyuan-anonymous-publish-mcp-admin-bypass"
@@ -565,7 +581,7 @@
         "Roo Code",
         "PyPI package"
       ],
-      "local_signal_category": "dependency manifest",
+      "local_signal_category": "source code",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232",
       "summary_short": "vLLM before 0.22.1 could install flashinfer-jit-cache from PyPI during Docker builds because unsafe-best-match was paired with a FlashInfer extra index.",
       "audr_rule_id": "vllm-flashinfer-dependency-confusion"
@@ -1406,7 +1422,7 @@
       "keywords": [
         "agent skills"
       ],
-      "local_signal_category": "dependency manifest",
+      "local_signal_category": "source code",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9353",
       "summary_short": "Skills Guard multi-word prompt pattern hardening is missing before 0.15.0.",
       "audr_rule_id": "hermes-agent-skills-guard-multiword-patterns"
@@ -2134,190 +2150,191 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-17458",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "mf-yang",
-      "product": "openclaw-cn browser-control interaction SSRF policy",
-      "published_date": "2026-07-26",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17458",
-      "summary_short": "openclaw-cn through 0.2.1 validates direct browser navigation against browser.ssrfPolicy but does not revalidate the destination after an authenticated /act…"
-    },
-    {
-      "cve_id": "CVE-2026-17457",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "mf-yang",
-      "product": "openclaw-cn browser-control scheme guard",
-      "published_date": "2026-07-26",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "OpenClaw"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17457",
-      "summary_short": "openclaw-cn through 0.2.1 validates only http and https in assertBrowserNavigationAllowed and returns early for every other URL scheme. An authenticated…"
-    },
-    {
-      "cve_id": "CVE-2026-17433",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "nanocoai",
-      "product": "NanoClaw Chat SDK gateway MCP approval bridge",
-      "published_date": "2026-07-26",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17433",
-      "summary_short": "NanoClaw through 2.0.64 starts a loopback webhook for forwarded Chat SDK interaction events but does not authenticate the sender before trusting…"
-    },
-    {
-      "cve_id": "CVE-2026-66005",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "JanHQ",
-      "product": "Jan local API server",
-      "published_date": "2026-07-24",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66005",
-      "summary_short": "Jan through 0.8.4 replaces user-configured Trusted Hosts with a wildcard when its local API server binds to 0.0.0.0. The wildcard accepts arbitrary Host…"
-    },
-    {
-      "cve_id": "CVE-2026-47769",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Work90210",
-      "product": "APIFold runtime MCP webhook receiver",
-      "published_date": "2026-07-23",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47769",
-      "summary_short": "APIFold 0.2.0 before commit 7f19b52280f414f57af2b79a95333d1c8fbeece5 accepts arbitrary unauthenticated JSON at /webhooks/:serverSlug/:eventName because…"
-    },
-    {
-      "cve_id": "CVE-2026-65056",
+      "cve_id": "CVE-2026-66065",
       "status": "actionable",
       "severity": "high",
-      "vendor": "mzxrai",
-      "product": "mcp-webresearch visit_page tool",
-      "published_date": "2026-07-21",
-      "last_seen_at": "2026-07-27",
+      "vendor": "Q00",
+      "product": "ouroboros-ai local-first AI coding-agent runtime",
+      "published_date": "2026-08-03",
+      "last_seen_at": "2026-08-04",
       "keywords": [
-        "Model Context Protocol",
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65056",
-      "summary_short": "mcp-webresearch 0.1.7 contains a server-side request forgery vulnerability that allows attackers to access internal network services by supplying loopback,…"
-    },
-    {
-      "cve_id": "CVE-2026-64650",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "Vercel AI SDK",
-      "product": "@ai-sdk/harness-opencode Codex tool relay",
-      "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "Codex"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64650",
-      "summary_short": "The `@ai-sdk/harness-opencode` tool is an HarnessV1 adapter backed by @openai/codex-sdk, which drives the codex command line interface. Prior to version…"
-    },
-    {
-      "cve_id": "CVE-2026-46555",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "verygoodplugins",
-      "product": "WhatsApp MCP Server bridge API",
-      "published_date": "2026-07-20",
-      "last_seen_at": "2026-07-27",
-      "keywords": [
-        "Claude Code",
-        "Model Context Protocol",
         "MCP server",
-        "Roo Code"
+        "agent plugin",
+        "AI coding agent",
+        "coding agent"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46555",
-      "summary_short": "WhatsApp MCP Server is a Model Context Protocol (MCP) server for WhatsApp, enabling Claude to read and send WhatsApp messages. Prior to version 0.2.1, the…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66065",
+      "summary_short": "Ouroboros through 0.42.0 incompletely blocks execution-routing settings from an untrusted project .env and also auto-discovers a project…"
     },
     {
-      "cve_id": "CVE-2026-7755",
+      "cve_id": "CVE-2026-47211",
       "status": "actionable",
       "severity": "high",
-      "vendor": "IBM / Langflow",
-      "product": "Langflow OSS MCP server configuration upload",
-      "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-24",
+      "vendor": "Q00",
+      "product": "ouroboros-ai local-first AI coding-agent runtime",
+      "published_date": "2026-08-03",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "AI coding agent",
+        "coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47211",
+      "summary_short": "Ouroboros before 0.39.0 automatically loads a cloned repository .env and honors execution-affecting CLI path/backend variables, allowing a malicious project…"
+    },
+    {
+      "cve_id": "CVE-2026-18655",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Amazon Web Services",
+      "product": "awslabs.amazon-mq-mcp-server RabbitMQ connection tools",
+      "published_date": "2026-08-03",
+      "last_seen_at": "2026-08-04",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7755",
-      "summary_short": "IBM Langflow OSS 1.0.0 through 1.10.0 Langflow could allow remote code execution due to incomplete validation enforcement on MCP server configuration files."
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18655",
+      "summary_short": "Amazon MQ MCP Server before 2.0.24 accepts a prompt-controlled RabbitMQ broker hostname and sends broker usernames/passwords or OAuth tokens to that…"
     },
     {
-      "cve_id": "CVE-2026-63093",
+      "cve_id": "CVE-2026-67357",
       "status": "actionable",
       "severity": "high",
-      "vendor": "Cursor",
-      "product": "Cursor for Windows",
-      "published_date": "2026-07-17",
-      "last_seen_at": "2026-07-24",
+      "vendor": "ArcadeDB",
+      "product": "ArcadeDB MCP get_server_settings tool",
+      "published_date": "2026-08-02",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67357",
+      "summary_short": "ArcadeDB before 26.7.3 masks only settings whose names contain password, so the MCP get_server_settings tool returns arcadedb.ha.clusterToken in cleartext;…"
+    },
+    {
+      "cve_id": "CVE-2026-14540",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Google",
+      "product": "Google APIs MCP Toolbox HTTP source and tool components",
+      "published_date": "2026-07-31",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14540",
+      "summary_short": "Google APIs MCP Toolbox 0.3.0 through 1.4.0 follows attacker-controlled HTTP redirects without a restrictive redirect policy or target-IP validation,…"
+    },
+    {
+      "cve_id": "CVE-2026-66421",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "OpenClaw Dashboard",
+      "product": "tugcantopaloglu/openclaw-dashboard session transcript rendering",
+      "published_date": "2026-07-30",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "OpenClaw"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421",
+      "summary_short": "OpenClaw Dashboard stores attacker-controlled agent transcript text and renders lastMessage unescaped through innerHTML on the authenticated landing and…"
+    },
+    {
+      "cve_id": "CVE-2026-59328",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Spring",
+      "product": "Spring Tools for Eclipse Initializr tooltip browser",
+      "published_date": "2026-07-30",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "developer tool"
+      ],
+      "local_signal_category": "permissions/trust config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59328",
+      "summary_short": "Spring Tools for Eclipse through 5.2.0 renders Spring Initializr dependency tooltips in an SWT embedded browser with JavaScript enabled. A compromised or…"
+    },
+    {
+      "cve_id": "CVE-2026-59326",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "Spring",
+      "product": "Spring Boot language server proxy logging",
+      "published_date": "2026-07-30",
+      "last_seen_at": "2026-08-04",
       "keywords": [
         "Cursor",
-        "Roo Code"
+        "developer tool"
       ],
-      "local_signal_category": "agent config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63093",
-      "summary_short": "Cursor for Windows version 3.2.16 contains a binary planting vulnerability that allows remote attackers to achieve arbitrary code execution by placing a…"
+      "local_signal_category": "permissions/trust config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59326",
+      "summary_short": "Spring Tools for Eclipse through 5.2.0 and Spring Tools for VSCode, Cursor, and Theia through 2.2.0 log raw http_proxy/https_proxy environment values at…"
     },
     {
-      "cve_id": "CVE-2026-59863",
+      "cve_id": "CVE-2026-47858",
       "status": "actionable",
       "severity": "high",
-      "vendor": "Microsoft",
-      "product": "Kiota workspace generation",
-      "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-23",
+      "vendor": "Spring",
+      "product": "Spring Tools live information mode",
+      "published_date": "2026-07-30",
+      "last_seen_at": "2026-08-04",
       "keywords": [
-        "Roo Code"
+        "Cursor",
+        "developer tool"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59863",
-      "summary_short": "Kiota is an OpenAPI based HTTP Client code generator. Prior to 1.32.5, Kiota honored a poisoned .kiota/workspace.json workspace configuration without…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47858",
+      "summary_short": "Spring Tools for Eclipse through 5.2.0 and Spring Tools for VSCode, Cursor, and Theia through 2.2.0 expose Spring Boot applications started with live…"
     },
     {
-      "cve_id": "CVE-2026-47751",
+      "cve_id": "CVE-2026-59247",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Gleam",
+      "product": "Gleam Hex dependency resolver",
+      "published_date": "2026-07-29",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "Continue",
+        "developer tool"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59247",
+      "summary_short": "Gleam 0.18.0 through 1.17.0 writes Hex package checksums and dependency names from an unsigned API response into manifest.toml instead of using…"
+    },
+    {
+      "cve_id": "CVE-2026-9680",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "Anthropic",
-      "product": "Claude Code Action",
-      "published_date": "2026-07-16",
-      "last_seen_at": "2026-07-23",
+      "vendor": "Alibaba Cloud",
+      "product": "alibabacloud-rds-openapi-mcp-server network binding",
+      "published_date": "2026-07-28",
+      "last_seen_at": "2026-08-04",
       "keywords": [
-        "Claude Code",
         "MCP server"
       ],
       "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47751",
-      "summary_short": "Claude Code Action is a general-purpose GitHub action that runs Claude Code on GitHub pull requests and issues. Prior to 1.0.74, because the action checked…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9680",
+      "summary_short": "alibabacloud-rds-openapi-mcp-server 1.8.0 through 3.1.2 starts SSE or streamable HTTP on 0.0.0.0:8000, exposing RDS MCP tools and the process cloud…"
+    },
+    {
+      "cve_id": "CVE-2026-47427",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "GitHub",
+      "product": "GitHub MCP Server completion handler",
+      "published_date": "2026-07-28",
+      "last_seen_at": "2026-08-04",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47427",
+      "summary_short": "GitHub MCP Server before 1.1.0 dereferences a missing params.ref in completion/complete before authentication or token validation. A reachable…"
     }
   ]
 }

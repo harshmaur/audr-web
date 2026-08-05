@@ -20,6 +20,8 @@ const FIXTURE_AMAZON_INSPECTOR_STREAK_DAILY =
   "tests/fixtures/amazon-inspector-streak-daily-lib.js";
 const FIXTURE_AMAZON_INSPECTOR_STREAK_CORE =
   "tests/fixtures/amazon-inspector-streak-core-lib.js";
+const FIXTURE_AMAZON_INSPECTOR_STREAK_DAY =
+  "tests/fixtures/amazon-inspector-streak-day-utils.js";
 const FIXTURE_AMAZON_INSPECTOR_AGENTCLI =
   "tests/fixtures/amazon-inspector-agentcli.js";
 const FIXTURE_AMAZON_INSPECTOR_APP_SODA =
@@ -204,6 +206,11 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       "streak-core-lib embedded PE Startup persistence",
       FIXTURE_AMAZON_INSPECTOR_STREAK_CORE,
       "amazon-inspector-streak-core-lib",
+    ],
+    [
+      "streak-day-utils WSL Startup persistence",
+      FIXTURE_AMAZON_INSPECTOR_STREAK_DAY,
+      "amazon-inspector-streak-day-utils",
     ],
   ])("flags the Amazon Inspector %s follow-up", (_label, fixture, hint) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

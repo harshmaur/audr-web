@@ -98,6 +98,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/streak-daily-lib/index.mjs"
 	case "amazon-inspector-streak-core-lib":
 		return "/synth/node_modules/streak-core-lib/index.mjs"
+	case "amazon-inspector-streak-day-utils":
+		return "/synth/node_modules/streak-day-utils/index.mjs"
 	case "amazon-inspector-agentcli", "amazon-inspector-yancyyu-agentcli":
 		return "/synth/node_modules/@yancyyu/agentcli/bin/hermit.mjs"
 	case "amazon-inspector-app-soda-layer":

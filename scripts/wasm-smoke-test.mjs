@@ -35,6 +35,10 @@ const amazonInspectorStreakCoreFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-streak-core-lib.js",
 );
+const amazonInspectorStreakDayFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-streak-day-utils.js",
+);
 const amazonInspectorAgentCLIFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-agentcli.js",
@@ -144,6 +148,11 @@ for (const [fixture, hint, label] of [
     amazonInspectorStreakCoreFixturePath,
     "amazon-inspector-streak-core-lib",
     "streak-core-lib embedded PE Startup",
+  ],
+  [
+    amazonInspectorStreakDayFixturePath,
+    "amazon-inspector-streak-day-utils",
+    "streak-day-utils WSL Startup",
   ],
 ]) {
   const campaignResult = JSON.parse(

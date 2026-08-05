@@ -106,6 +106,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/app-soda-layer/test.js"
 	case "amazon-inspector-sigchain-js":
 		return "/synth/node_modules/sigchain-js/dist/sigchain-js.esm.js"
+	case "amazon-inspector-chain-analyze":
+		return "/synth/node_modules/chain-analyze/dist/sigchain-js.esm.js"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

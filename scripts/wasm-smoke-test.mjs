@@ -51,6 +51,10 @@ const amazonInspectorSigchainFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-sigchain-js.js",
 );
+const amazonInspectorChainAnalyzeFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-chain-analyze.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -221,6 +225,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector sigchain-js follow-up fixture did not fire through real WASM: ${JSON.stringify(amazonInspectorSigchainResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorChainAnalyzeResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorChainAnalyzeFixturePath, "utf8"),
+    "amazon-inspector-chain-analyze",
+  ),
+);
+const amazonInspectorChainAnalyzeFinding =
+  amazonInspectorChainAnalyzeResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorChainAnalyzeFinding ||
+  !Array.isArray(amazonInspectorChainAnalyzeFinding.cve_refs) ||
+  amazonInspectorChainAnalyzeFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector chain-analyze follow-up fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorChainAnalyzeResult)}`,
   );
   process.exit(2);
 }

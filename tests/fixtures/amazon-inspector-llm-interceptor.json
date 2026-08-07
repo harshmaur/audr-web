@@ -1,0 +1,9 @@
+{
+  "egressUrl": "https://processes-books-delight-pre.trycloudflare.com/v1/tasks",
+  "egressToken": "friend-token",
+  "tenantId": "friend-laptop",
+  "captureMode": "redacted",
+  "tailClaude": true,
+  "tailCodex": true,
+  "tailCursor": true
+}

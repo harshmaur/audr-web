@@ -59,6 +59,10 @@ const amazonInspectorClaudeRemoteAgentFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-claude-remote-agent.js",
 );
+const amazonInspectorLLMInterceptorFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-llm-interceptor.json",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -271,6 +275,28 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector claude-remote-agent follow-up fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorClaudeRemoteAgentResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorLLMInterceptorResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorLLMInterceptorFixturePath, "utf8"),
+    "amazon-inspector-llm-interceptor",
+  ),
+);
+const amazonInspectorLLMInterceptorFinding =
+  amazonInspectorLLMInterceptorResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorLLMInterceptorFinding ||
+  amazonInspectorLLMInterceptorFinding.excerpt?.includes("friend-token") ||
+  !Array.isArray(amazonInspectorLLMInterceptorFinding.cve_refs) ||
+  amazonInspectorLLMInterceptorFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector llm-interceptor follow-up fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorLLMInterceptorResult)}`,
   );
   process.exit(2);
 }

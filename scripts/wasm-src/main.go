@@ -55,12 +55,12 @@ type wasmResult struct {
 // contract. Add entries here as new CVEs land — the audr finding type
 // itself doesn't carry CVE refs because not every finding is CVE-anchored.
 var cveByRule = map[string][]string{
-	"claude-hook-shell-rce":                         {"CVE-2025-59536"},
-	"claude-skip-permission-prompt":                 {"CVE-2025-59536"},
-	"claude-mcp-auto-approve":                       {"CVE-2025-59536"},
-	"cursor-agent-sandbox-working-directory-escape": {"CVE-2026-50548"},
-	"kiota-plugin-static-template-traversal":        {"CVE-2026-59864"},
-	"langflow-toolguard-code-injection":             {"CVE-2026-9135"},
+	"claude-hook-shell-rce":                               {"CVE-2025-59536"},
+	"claude-skip-permission-prompt":                       {"CVE-2025-59536"},
+	"claude-mcp-auto-approve":                             {"CVE-2025-59536"},
+	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
+	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
+	"langflow-toolguard-code-injection":                   {"CVE-2026-9135"},
 	"openclaw-interpreter-startup-env-filtering":          {"CVE-2026-62199"},
 	"openclaw-dashboard-notification-username-stored-xss": {"CVE-2026-66418"},
 	"siyuan-anonymous-publish-mcp-admin-bypass":           {"CVE-2026-66012"},
@@ -110,6 +110,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/chain-analyze/dist/sigchain-js.esm.js"
 	case "amazon-inspector-claude-remote-agent":
 		return "/synth/node_modules/claude-remote-agent/agent.js"
+	case "amazon-inspector-llm-interceptor":
+		return "/synth/node_modules/llm-interceptor/defaults.json"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

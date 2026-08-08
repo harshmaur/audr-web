@@ -63,6 +63,10 @@ const amazonInspectorLLMInterceptorFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-llm-interceptor.json",
 );
+const amazonInspectorMapStreakFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-map-streak-kit.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -297,6 +301,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector llm-interceptor follow-up fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorLLMInterceptorResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorMapStreakResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorMapStreakFixturePath, "utf8"),
+    "amazon-inspector-map-streak-kit",
+  ),
+);
+const amazonInspectorMapStreakFinding =
+  amazonInspectorMapStreakResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorMapStreakFinding ||
+  !Array.isArray(amazonInspectorMapStreakFinding.cve_refs) ||
+  amazonInspectorMapStreakFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector map-streak-kit RedShell fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorMapStreakResult)}`,
   );
   process.exit(2);
 }

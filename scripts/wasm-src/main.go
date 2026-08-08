@@ -112,6 +112,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/claude-remote-agent/agent.js"
 	case "amazon-inspector-llm-interceptor":
 		return "/synth/node_modules/llm-interceptor/defaults.json"
+	case "amazon-inspector-map-streak-kit", "amazon-inspector-redshell":
+		return "/synth/node_modules/map-streak-kit/dist/index.mjs"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

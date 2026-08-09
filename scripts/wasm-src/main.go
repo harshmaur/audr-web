@@ -114,6 +114,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/llm-interceptor/defaults.json"
 	case "amazon-inspector-map-streak-kit", "amazon-inspector-redshell":
 		return "/synth/node_modules/map-streak-kit/dist/index.mjs"
+	case "amazon-inspector-w-screenctl", "amazon-inspector-wscreenctl":
+		return "/synth/node_modules/w-screenctl/src/WScreenctl.mjs"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

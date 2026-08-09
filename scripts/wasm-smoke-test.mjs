@@ -71,6 +71,10 @@ const amazonInspectorWScreenctlFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-w-screenctl.js",
 );
+const amazonInspectorAcladeAgentFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-aclade-agent.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -347,6 +351,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector w-screenctl fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorWScreenctlResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorAcladeAgentResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorAcladeAgentFixturePath, "utf8"),
+    "amazon-inspector-aclade-agent",
+  ),
+);
+const amazonInspectorAcladeAgentFinding =
+  amazonInspectorAcladeAgentResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorAcladeAgentFinding ||
+  !Array.isArray(amazonInspectorAcladeAgentFinding.cve_refs) ||
+  amazonInspectorAcladeAgentFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector aclade-agent fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorAcladeAgentResult)}`,
   );
   process.exit(2);
 }

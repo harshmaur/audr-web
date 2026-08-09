@@ -38,6 +38,8 @@ const FIXTURE_AMAZON_INSPECTOR_MAP_STREAK =
   "tests/fixtures/amazon-inspector-map-streak-kit.js";
 const FIXTURE_AMAZON_INSPECTOR_W_SCREENCTL =
   "tests/fixtures/amazon-inspector-w-screenctl.js";
+const FIXTURE_AMAZON_INSPECTOR_ACLADE_AGENT =
+  "tests/fixtures/amazon-inspector-aclade-agent.js";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 const FIXTURE_OPENCLAW_DASHBOARD =
@@ -351,6 +353,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(
       readFileSync(FIXTURE_AMAZON_INSPECTOR_W_SCREENCTL, "utf8"),
       "amazon-inspector-w-screenctl",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector aclade-agent remote-control IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_ACLADE_AGENT, "utf8"),
+      "amazon-inspector-aclade-agent",
     );
     const result = JSON.parse(raw);
     const campaign = result.findings.find(

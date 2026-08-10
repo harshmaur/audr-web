@@ -75,6 +75,10 @@ const amazonInspectorAcladeAgentFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-aclade-agent.js",
 );
+const amazonInspectorAgentHubAIFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-agenthub-ai.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -372,6 +376,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector aclade-agent fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorAcladeAgentResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorAgentHubAIResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorAgentHubAIFixturePath, "utf8"),
+    "amazon-inspector-agenthub-ai",
+  ),
+);
+const amazonInspectorAgentHubAIFinding =
+  amazonInspectorAgentHubAIResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorAgentHubAIFinding ||
+  !Array.isArray(amazonInspectorAgentHubAIFinding.cve_refs) ||
+  amazonInspectorAgentHubAIFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector agenthub-ai fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorAgentHubAIResult)}`,
   );
   process.exit(2);
 }

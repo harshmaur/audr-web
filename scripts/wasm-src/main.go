@@ -120,6 +120,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/aclade-agent/dist/index.js"
 	case "amazon-inspector-agenthub-ai", "amazon-inspector-agenthub":
 		return "/synth/node_modules/agenthub-ai/dist-publish/main.js"
+	case "amazon-inspector-uibabai":
+		return "/synth/node_modules/uibabai/index.js"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

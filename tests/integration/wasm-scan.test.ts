@@ -44,6 +44,8 @@ const FIXTURE_AMAZON_INSPECTOR_AGENTHUB_AI =
   "tests/fixtures/amazon-inspector-agenthub-ai.js";
 const FIXTURE_AMAZON_INSPECTOR_UIBABAI =
   "tests/fixtures/amazon-inspector-uibabai.js";
+const FIXTURE_AMAZON_INSPECTOR_SIMPLE_DATE =
+  "tests/fixtures/amazon-inspector-simple-date-formatter.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 const FIXTURE_OPENCLAW_DASHBOARD =
@@ -405,6 +407,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(
       readFileSync(FIXTURE_AMAZON_INSPECTOR_UIBABAI, "utf8"),
       "amazon-inspector-uibabai",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector simple-date-formatter reverse-shell IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_SIMPLE_DATE, "utf8"),
+      "amazon-inspector-simple-date-formatter",
     );
     const result = JSON.parse(raw);
     const campaign = result.findings.find(

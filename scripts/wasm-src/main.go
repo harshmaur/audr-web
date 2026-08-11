@@ -122,6 +122,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/agenthub-ai/dist-publish/main.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
+	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":
+		return "/synth/node_modules/simple-date-formatter-new-9/package.json"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

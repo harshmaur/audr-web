@@ -36,6 +36,8 @@ const FIXTURE_AMAZON_INSPECTOR_LLM_INTERCEPTOR =
   "tests/fixtures/amazon-inspector-llm-interceptor.json";
 const FIXTURE_AMAZON_INSPECTOR_MAP_STREAK =
   "tests/fixtures/amazon-inspector-map-streak-kit.js";
+const FIXTURE_AMAZON_INSPECTOR_KIT_VIM_MAP =
+  "tests/fixtures/amazon-inspector-kit-vim-map.bin";
 const FIXTURE_AMAZON_INSPECTOR_W_SCREENCTL =
   "tests/fixtures/amazon-inspector-w-screenctl.js";
 const FIXTURE_AMAZON_INSPECTOR_ACLADE_AGENT =
@@ -345,6 +347,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     const raw = scan(
       readFileSync(FIXTURE_AMAZON_INSPECTOR_MAP_STREAK, "utf8"),
       "amazon-inspector-map-streak-kit",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector kit-vim-map RedShell implant IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_KIT_VIM_MAP, "utf8"),
+      "amazon-inspector-kit-vim-map",
     );
     const result = JSON.parse(raw);
     const campaign = result.findings.find(

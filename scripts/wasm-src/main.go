@@ -114,6 +114,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/llm-interceptor/defaults.json"
 	case "amazon-inspector-map-streak-kit", "amazon-inspector-redshell":
 		return "/synth/node_modules/map-streak-kit/dist/index.mjs"
+	case "amazon-inspector-kit-vim-map":
+		return "/synth/node_modules/kit-vim-map/dist/internal/calc-math.dat"
 	case "amazon-inspector-w-screenctl", "amazon-inspector-wscreenctl":
 		return "/synth/node_modules/w-screenctl/src/WScreenctl.mjs"
 	case "amazon-inspector-aclade-agent", "amazon-inspector-aclade":

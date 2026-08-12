@@ -87,6 +87,10 @@ const amazonInspectorSimpleDateFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-simple-date-formatter.json",
 );
+const amazonInspectorCryptostockFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-cryptostock.js",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -447,6 +451,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector simple-date-formatter fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorSimpleDateResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorCryptostockResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorCryptostockFixturePath, "utf8"),
+    "amazon-inspector-cryptostock",
+  ),
+);
+const amazonInspectorCryptostockFinding =
+  amazonInspectorCryptostockResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorCryptostockFinding ||
+  !Array.isArray(amazonInspectorCryptostockFinding.cve_refs) ||
+  amazonInspectorCryptostockFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector cryptostock fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorCryptostockResult)}`,
   );
   process.exit(2);
 }

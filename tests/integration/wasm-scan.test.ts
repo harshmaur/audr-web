@@ -52,6 +52,8 @@ const FIXTURE_AMAZON_INSPECTOR_SIMPLE_DATE =
   "tests/fixtures/amazon-inspector-simple-date-formatter.json";
 const FIXTURE_AMAZON_INSPECTOR_CRYPTOSTOCK =
   "tests/fixtures/amazon-inspector-cryptostock.js";
+const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
+  "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 const FIXTURE_OPENCLAW_DASHBOARD =
@@ -388,6 +390,23 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     );
     expect(campaign).toBeTruthy();
     expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Telekom ODS React UI Kit system-file exfiltration IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_TELEKOM_ODS_REACT_UI_KIT, "utf8"),
+      "telekom-ods-react-ui-kit",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) =>
+        f.rule_id === "telekom-ods-react-ui-kit-system-file-exfil",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("package-json");
     expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     expect(campaign.severity).toBe("critical");
     expect(campaign.cve_refs).toEqual([]);

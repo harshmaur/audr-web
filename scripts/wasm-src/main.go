@@ -130,6 +130,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/simple-date-formatter-new-9/package.json"
 	case "amazon-inspector-cryptostock":
 		return "/synth/node_modules/cryptostock/index.js"
+	case "telekom-ods-react-ui-kit", "telekom-ods-malware":
+		return "/synth/node_modules/@telekom-ods/react-ui-kit/package.json"
 	case "openclaw-dashboard", "openclaw-dashboard-source":
 		return "/synth/openclaw-dashboard/index.html"
 	case "siyuan", "siyuan-config":

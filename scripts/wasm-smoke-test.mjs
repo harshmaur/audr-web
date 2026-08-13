@@ -99,6 +99,10 @@ const amazonInspectorCryptostockFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-cryptostock.js",
 );
+const telekomODSReactUIKitFixturePath = join(
+  root,
+  "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -522,6 +526,26 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector cryptostock fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorCryptostockResult)}`,
+  );
+  process.exit(2);
+}
+
+const telekomODSReactUIKitResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(telekomODSReactUIKitFixturePath, "utf8"),
+    "telekom-ods-react-ui-kit",
+  ),
+);
+const telekomODSReactUIKitFinding = telekomODSReactUIKitResult.findings?.find(
+  (finding) => finding.rule_id === "telekom-ods-react-ui-kit-system-file-exfil",
+);
+if (
+  !telekomODSReactUIKitFinding ||
+  !Array.isArray(telekomODSReactUIKitFinding.cve_refs) ||
+  telekomODSReactUIKitFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Telekom ODS React UI Kit fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(telekomODSReactUIKitResult)}`,
   );
   process.exit(2);
 }

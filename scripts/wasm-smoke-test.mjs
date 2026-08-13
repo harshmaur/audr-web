@@ -71,6 +71,10 @@ const amazonInspectorKitVimMapFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-kit-vim-map.bin",
 );
+const amazonInspectorKitMapVimFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-kit-map-vim.js",
+);
 const amazonInspectorWScreenctlFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-w-screenctl.js",
@@ -371,6 +375,27 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector kit-vim-map RedShell fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorKitVimMapResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorKitMapVimResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorKitMapVimFixturePath, "utf8"),
+    "amazon-inspector-kit-map-vim",
+  ),
+);
+const amazonInspectorKitMapVimFinding =
+  amazonInspectorKitMapVimResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorKitMapVimFinding ||
+  !Array.isArray(amazonInspectorKitMapVimFinding.cve_refs) ||
+  amazonInspectorKitMapVimFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector kit-map-vim RedShell fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorKitMapVimResult)}`,
   );
   process.exit(2);
 }

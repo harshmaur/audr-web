@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-73601",
+    "product": "Flowise Custom MCP stdio",
+    "vendor": "FlowiseAI",
+    "severity": "critical",
+    "published_date": "2026-08-13",
+    "summary_short": "Flowise before 3.1.3 lets authenticated Custom MCP editors bypass stdio command validation through environment variables and command arguments.",
+    "visceral_consequence": "an authenticated Custom MCP editor can abuse Python environment handling or Node working-directory behavior to execute arbitrary commands in the Flowise server process",
+    "scope_phrase": "where package manifests show Flowise before 3.1.3 and Custom MCP stdio servers may be configured",
+    "audr_rule_id": "flowise-custom-mcp-env-case-bypass"
+  },
+  {
     "cve_id": "CVE-2026-66418",
     "product": "OpenClaw Dashboard notification center",
     "vendor": "tugcantopaloglu",

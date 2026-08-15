@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-50027",
+    "product": "mcp-memory-service document API",
+    "vendor": "doobidoo",
+    "severity": "critical",
+    "published_date": "2026-08-14",
+    "summary_short": "mcp-memory-service before 10.67.1 omits authentication from every HTTP route under /api/documents even when MCP_API_KEY or OAuth is configured.",
+    "visceral_consequence": "an unauthenticated caller can upload attacker-controlled memory content, retrieve stored documents, and permanently delete another user's memories",
+    "scope_phrase": "where MCP configuration pins mcp-memory-service before 10.67.1 and enables the HTTP REST API",
+    "audr_rule_id": "mcp-memory-service-document-api-unauth"
+  },
+  {
     "cve_id": "CVE-2026-73601",
     "product": "Flowise Custom MCP stdio",
     "vendor": "FlowiseAI",

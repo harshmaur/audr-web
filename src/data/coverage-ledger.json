@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-14T09:34:20Z",
-  "source_last_discovery_at": "2026-08-14",
-  "source_entry_count": 699,
-  "public_entry_count": 145,
+  "generated_at": "2026-08-15T16:31:45Z",
+  "source_last_discovery_at": "2026-08-15",
+  "source_entry_count": 704,
+  "public_entry_count": 146,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 554,
+  "excluded_public_safe_candidate_count": 558,
   "excluded_status_counts": {
     "osv_covered": 284,
     "not_auditable": 23,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 128,
+  "enriched_from_cves_json_count": 129,
   "entries": [
+    {
+      "cve_id": "CVE-2026-50027",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "doobidoo",
+      "product": "mcp-memory-service document API",
+      "published_date": "2026-08-14",
+      "last_seen_at": "2026-08-15",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50027",
+      "summary_short": "mcp-memory-service before 10.67.1 omits authentication from every HTTP route under /api/documents even when MCP_API_KEY or OAuth is configured.",
+      "audr_rule_id": "mcp-memory-service-document-api-unauth"
+    },
     {
       "cve_id": "CVE-2026-73601",
       "status": "shipped",
@@ -2166,13 +2182,76 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-73846",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "onData / Andrea Borruso",
+      "product": "CKAN MCP cache-key canonicalization collision",
+      "published_date": "2026-08-14",
+      "last_seen_at": "2026-08-15",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73846",
+      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, canonicalizeParams in src/utils/cache.ts serializes request parameters with…"
+    },
+    {
+      "cve_id": "CVE-2026-73845",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "onData / Andrea Borruso",
+      "product": "CKAN MCP MQA server allowlist bypass",
+      "published_date": "2026-08-14",
+      "last_seen_at": "2026-08-15",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73845",
+      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, the ckan_get_mqa_quality and ckan_get_mqa_quality_details tools in…"
+    },
+    {
+      "cve_id": "CVE-2026-73844",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "onData / Andrea Borruso",
+      "product": "CKAN MCP verbose upstream error disclosure",
+      "published_date": "2026-08-14",
+      "last_seen_at": "2026-08-15",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73844",
+      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, error paths reflect raw upstream response bodies and internal exception…"
+    },
+    {
+      "cve_id": "CVE-2026-49986",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "cdeust",
+      "product": "Cortex MCP untrusted CLAUDE_PROJECT_DIR bootstrap execution",
+      "published_date": "2026-08-14",
+      "last_seen_at": "2026-08-15",
+      "keywords": [
+        "Claude Code",
+        "MCP server",
+        "Roo Code",
+        "developer tool"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49986",
+      "summary_short": "The Cortex MCP server (`neuro-cortex-memory`), a cross-platform persistent memory MCP, prior to version 3.17.1 treats the `CLAUDE_PROJECT_DIR` environment…"
+    },
+    {
       "cve_id": "CVE-2026-73614",
       "status": "actionable",
       "severity": "high",
       "vendor": "Network-AI",
       "product": "ClaudeHookBridge deny-pattern truncation bypass",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "Claude Code"
       ],
@@ -2187,7 +2266,7 @@
       "vendor": "ymw0407",
       "product": "auth-fetch-mcp IPv4-mapped IPv6 loopback SSRF bypass",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "MCP server"
       ],
@@ -2202,7 +2281,7 @@
       "vendor": "vmoranv",
       "product": "@jshookmcp/jshook ICMP/traceroute SSRF authorization bypass",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "MCP server"
       ],
@@ -2217,7 +2296,7 @@
       "vendor": "emekaokoye",
       "product": "mcp-rdf-explorer explore_url SSRF",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2233,7 +2312,7 @@
       "vendor": "EnzoVezzaro",
       "product": "mcp-dominican-layer parse-pdf SSRF",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "MCP server"
       ],
@@ -2248,7 +2327,7 @@
       "vendor": "EnzoVezzaro",
       "product": "mcp-dominican-layer parse-csv SSRF",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "MCP server"
       ],
@@ -2263,7 +2342,7 @@
       "vendor": "sooperset",
       "product": "mcp-atlassian Confluence attachment upload arbitrary file read",
       "published_date": "2026-08-12",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "Model Context Protocol",
         "MCP server"
@@ -2279,7 +2358,7 @@
       "vendor": "davila7",
       "product": "Claude Code Templates Studio unauthenticated shell injection",
       "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-15",
       "keywords": [
         "Claude Code",
         "developer tool"
@@ -2287,66 +2366,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73222",
       "summary_short": "Claude Code Templates is a CLI tool for configuring and monitoring Claude Code. Prior to 1.29.4, the Claude Code Studio server launched by the --studio…"
-    },
-    {
-      "cve_id": "CVE-2026-73218",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Cursor",
-      "product": "Cursor Auto-Run Sandbox Docker Desktop virtiofs escape",
-      "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-14",
-      "keywords": [
-        "Cursor"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73218",
-      "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.0.0, Cursor IDE for macOS allows an agent running in Auto-Run Sandbox mode, when Docker…"
-    },
-    {
-      "cve_id": "CVE-2026-73217",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Cursor",
-      "product": "Cursor Auto-Run Sandbox Python virtual-environment escape",
-      "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-14",
-      "keywords": [
-        "Cursor"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73217",
-      "summary_short": "Cursor is a code editor built for programming with AI. Prior to 3.1.2, Cursor IDE for macOS allows an agent running in Auto-Run Sandbox mode to replace a…"
-    },
-    {
-      "cve_id": "CVE-2026-72768",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "n8n",
-      "product": "n8n MCP Client node SSRF protection bypass",
-      "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-14",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72768",
-      "summary_short": "n8n versions before 2.32.1 contain a server-side request forgery protection bypass vulnerability in the MCP Client node that allows authenticated users to…"
-    },
-    {
-      "cve_id": "CVE-2026-19516",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "Grafana Labs",
-      "product": "mcp-grafana X-Grafana-URL routing",
-      "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-14",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19516",
-      "summary_short": "A caller-supplied X-Grafana-URL request header controls the destination of mcp-grafana's outbound requests, and the grafana_api_request tool lets the caller…"
     }
   ]
 }

@@ -5,6 +5,8 @@ import { AUDR_VERSION_TAG } from "../../src/lib/audr-version";
 const WASM = "public/wasm/audr.wasm";
 const WASM_EXEC = "public/wasm/wasm_exec.js";
 const FIXTURE_MCP = "tests/fixtures/dirty-mcp.json";
+const FIXTURE_MCP_MEMORY_SERVICE =
+  "tests/fixtures/dirty-mcp-memory-service-cve-2026-50027.json";
 const FIXTURE_CLAUDE = "tests/fixtures/dirty-claude-settings.json";
 const FIXTURE_CURSOR = "tests/fixtures/dirty-cursor-permissions.json";
 const FIXTURE_CURSOR_APP = "tests/fixtures/dirty-cursor-app-package.json";
@@ -103,6 +105,17 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       expect(typeof f.attacker_gets).toBe("string");
       expect(Array.isArray(f.cve_refs)).toBe(true);
     }
+  });
+
+  it("flags CVE-2026-50027 from an mcp-memory-service HTTP REST configuration", () => {
+    const raw = scan(readFileSync(FIXTURE_MCP_MEMORY_SERVICE, "utf8"), "mcp");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("mcp-config");
+    const documentAPI = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "mcp-memory-service-document-api-unauth",
+    );
+    expect(documentAPI).toBeTruthy();
+    expect(documentAPI.cve_refs).toContain("CVE-2026-50027");
   });
 
   it("flags the Claude hooks RCE on a dirty Claude settings file", () => {

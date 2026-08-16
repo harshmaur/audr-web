@@ -103,6 +103,10 @@ const amazonInspectorNotafollowerFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-notafollower.json",
 );
+const amazonInspectorDepcruiseFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-depcruise.json",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -553,6 +557,29 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector notafollower fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorNotafollowerResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorDepcruiseResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorDepcruiseFixturePath, "utf8"),
+    "amazon-inspector-depcruise",
+  ),
+);
+const amazonInspectorDepcruiseFinding =
+  amazonInspectorDepcruiseResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorDepcruiseFinding ||
+  amazonInspectorDepcruiseFinding.excerpt?.includes("ltidi.storage.googleapis.com") ||
+  amazonInspectorDepcruiseFinding.excerpt?.includes("ltidisafe") ||
+  !Array.isArray(amazonInspectorDepcruiseFinding.cve_refs) ||
+  amazonInspectorDepcruiseFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector depcruise fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorDepcruiseResult)}`,
   );
   process.exit(2);
 }

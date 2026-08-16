@@ -133,6 +133,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/cryptostock/index.js"
 	case "amazon-inspector-notafollower":
 		return "/synth/node_modules/notafollower/package.json"
+	case "amazon-inspector-depcruise":
+		return "/synth/node_modules/depcruise-wrap-stream-in-html/package.json"
 	case "telekom-ods-react-ui-kit", "telekom-ods-malware":
 		return "/synth/node_modules/@telekom-ods/react-ui-kit/package.json"
 	case "openclaw-dashboard", "openclaw-dashboard-source":

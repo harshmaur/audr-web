@@ -56,6 +56,8 @@ const FIXTURE_AMAZON_INSPECTOR_CRYPTOSTOCK =
   "tests/fixtures/amazon-inspector-cryptostock.js";
 const FIXTURE_AMAZON_INSPECTOR_NOTAFOLLOWER =
   "tests/fixtures/amazon-inspector-notafollower.json";
+const FIXTURE_AMAZON_INSPECTOR_DEPCRUISE =
+  "tests/fixtures/amazon-inspector-depcruise.json";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -538,6 +540,24 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(campaign.severity).toBe("critical");
     expect(campaign.excerpt).not.toContain("YOUR_COLLAB");
     expect(campaign.excerpt).not.toContain("real_aws_keys");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector depcruise off-registry loader IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_DEPCRUISE, "utf8"),
+      "amazon-inspector-depcruise",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.excerpt).not.toContain("ltidi.storage.googleapis.com");
+    expect(campaign.excerpt).not.toContain("ltidisafe");
     expect(campaign.cve_refs).toEqual([]);
   });
 

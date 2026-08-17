@@ -107,6 +107,14 @@ const amazonInspectorDepcruiseFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-depcruise.json",
 );
+const amazonInspectorPFPFormsFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-pfp-forms-loader.js",
+);
+const amazonInspectorCheckoutDesktopFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-checkout-desktop-loader.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -582,6 +590,38 @@ if (
     `smoke: Amazon Inspector depcruise fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorDepcruiseResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, label] of [
+  [
+    amazonInspectorPFPFormsFixturePath,
+    "amazon-inspector-pfp-forms",
+    "pfp-forms-sme-loan platform loader",
+  ],
+  [
+    amazonInspectorCheckoutDesktopFixturePath,
+    "amazon-inspector-checkout-desktop",
+    "checkout-desktop-total platform loader",
+  ],
+]) {
+  const platformLoaderResult = JSON.parse(
+    globalThis.audrScan(readFileSync(fixture, "utf8"), hint),
+  );
+  const platformLoaderFinding = platformLoaderResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+  if (
+    !platformLoaderFinding ||
+    platformLoaderFinding.excerpt?.includes("oob-worker") ||
+    platformLoaderFinding.excerpt?.includes("wel1.ru") ||
+    !Array.isArray(platformLoaderFinding.cve_refs) ||
+    platformLoaderFinding.cve_refs.length !== 0
+  ) {
+    console.error(
+      `smoke: Amazon Inspector ${label} fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(platformLoaderResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 const telekomODSReactUIKitResult = JSON.parse(

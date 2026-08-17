@@ -135,6 +135,10 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/notafollower/package.json"
 	case "amazon-inspector-depcruise":
 		return "/synth/node_modules/depcruise-wrap-stream-in-html/package.json"
+	case "amazon-inspector-pfp-forms":
+		return "/synth/node_modules/pfp-forms-sme-loan/_bridge.js"
+	case "amazon-inspector-checkout-desktop":
+		return "/synth/node_modules/checkout-desktop-total/_platform.js"
 	case "telekom-ods-react-ui-kit", "telekom-ods-malware":
 		return "/synth/node_modules/@telekom-ods/react-ui-kit/package.json"
 	case "openclaw-dashboard", "openclaw-dashboard-source":

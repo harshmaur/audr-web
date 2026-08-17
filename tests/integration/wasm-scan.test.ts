@@ -58,6 +58,10 @@ const FIXTURE_AMAZON_INSPECTOR_NOTAFOLLOWER =
   "tests/fixtures/amazon-inspector-notafollower.json";
 const FIXTURE_AMAZON_INSPECTOR_DEPCRUISE =
   "tests/fixtures/amazon-inspector-depcruise.json";
+const FIXTURE_AMAZON_INSPECTOR_PFP_FORMS =
+  "tests/fixtures/amazon-inspector-pfp-forms-loader.js";
+const FIXTURE_AMAZON_INSPECTOR_CHECKOUT_DESKTOP =
+  "tests/fixtures/amazon-inspector-checkout-desktop-loader.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -558,6 +562,32 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(campaign.severity).toBe("critical");
     expect(campaign.excerpt).not.toContain("ltidi.storage.googleapis.com");
     expect(campaign.excerpt).not.toContain("ltidisafe");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it.each([
+    [
+      FIXTURE_AMAZON_INSPECTOR_PFP_FORMS,
+      "amazon-inspector-pfp-forms",
+      "pfp-forms-sme-loan",
+    ],
+    [
+      FIXTURE_AMAZON_INSPECTOR_CHECKOUT_DESKTOP,
+      "amazon-inspector-checkout-desktop",
+      "checkout-desktop-total",
+    ],
+  ])("flags the Amazon Inspector %s platform-loader IOC", (fixture, hint) => {
+    const raw = scan(readFileSync(fixture, "utf8"), hint);
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.excerpt).not.toContain("oob-worker");
+    expect(campaign.excerpt).not.toContain("wel1.ru");
     expect(campaign.cve_refs).toEqual([]);
   });
 

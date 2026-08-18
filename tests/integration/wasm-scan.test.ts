@@ -64,6 +64,10 @@ const FIXTURE_AMAZON_INSPECTOR_CHECKOUT_DESKTOP =
   "tests/fixtures/amazon-inspector-checkout-desktop-loader.js";
 const FIXTURE_AMAZON_INSPECTOR_GUANGNAO_AGENT_PROXY =
   "tests/fixtures/amazon-inspector-guangnao-agent-proxy.js";
+const FIXTURE_AMAZON_INSPECTOR_CORE_TAILWIND =
+  "tests/fixtures/amazon-inspector-core-tailwindcss-utility.js";
+const FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN =
+  "tests/fixtures/amazon-inspector-bcc-design-beacon.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -497,6 +501,38 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     expect(campaign.severity).toBe("critical");
     expect(campaign.excerpt).not.toContain("gnP2p!7xQ");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it.each([
+    [
+      "core-tailwindcss-utility remote JavaScript loader",
+      FIXTURE_AMAZON_INSPECTOR_CORE_TAILWIND,
+      "amazon-inspector-core-tailwindcss-utility",
+      "31.97.137.157",
+    ],
+    [
+      "bcc-design installer beacon",
+      FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN,
+      "amazon-inspector-bcc-design",
+      "91.201.215.48",
+    ],
+    [
+      "bcc-design-icons installer beacon",
+      FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN,
+      "amazon-inspector-bcc-design-icons",
+      "91.201.215.48",
+    ],
+  ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
+    const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.excerpt).not.toContain(rawIOC);
     expect(campaign.cve_refs).toEqual([]);
   });
 

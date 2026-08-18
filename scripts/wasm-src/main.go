@@ -127,6 +127,12 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/agenthub-ai/dist-publish/main.js"
 	case "amazon-inspector-guangnao-agent-proxy", "amazon-inspector-agent-proxy":
 		return "/synth/node_modules/@guangnao/agent-proxy/dist/cli.js"
+	case "amazon-inspector-core-tailwindcss-utility", "amazon-inspector-core-tailwind":
+		return "/synth/node_modules/core-tailwindcss-utility/index.js"
+	case "amazon-inspector-bcc-design":
+		return "/synth/node_modules/bcc-design/notify.js"
+	case "amazon-inspector-bcc-design-icons":
+		return "/synth/node_modules/bcc-design-icons/notify.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":

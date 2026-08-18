@@ -119,6 +119,14 @@ const amazonInspectorGuangnaoAgentProxyFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-guangnao-agent-proxy.js",
 );
+const amazonInspectorCoreTailwindFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-core-tailwindcss-utility.js",
+);
+const amazonInspectorBCCDesignFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-bcc-design-beacon.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -507,6 +515,45 @@ if (
     `smoke: Amazon Inspector agent-proxy fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorGuangnaoAgentProxyResult)}`,
   );
   process.exit(2);
+}
+
+for (const [label, fixture, hint, rawIOC] of [
+  [
+    "core-tailwindcss-utility loader",
+    amazonInspectorCoreTailwindFixturePath,
+    "amazon-inspector-core-tailwindcss-utility",
+    "31.97.137.157",
+  ],
+  [
+    "bcc-design beacon",
+    amazonInspectorBCCDesignFixturePath,
+    "amazon-inspector-bcc-design",
+    "91.201.215.48",
+  ],
+  [
+    "bcc-design-icons beacon",
+    amazonInspectorBCCDesignFixturePath,
+    "amazon-inspector-bcc-design-icons",
+    "91.201.215.48",
+  ],
+]) {
+  const latestCampaignResult = JSON.parse(
+    globalThis.audrScan(readFileSync(fixture, "utf8"), hint),
+  );
+  const latestCampaignFinding = latestCampaignResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+  if (
+    !latestCampaignFinding ||
+    latestCampaignFinding.excerpt?.includes(rawIOC) ||
+    !Array.isArray(latestCampaignFinding.cve_refs) ||
+    latestCampaignFinding.cve_refs.length !== 0
+  ) {
+    console.error(
+      `smoke: Amazon Inspector ${label} fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(latestCampaignResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 const amazonInspectorUibabaiResult = JSON.parse(

@@ -115,6 +115,10 @@ const amazonInspectorCheckoutDesktopFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-checkout-desktop-loader.js",
 );
+const amazonInspectorGuangnaoAgentProxyFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-guangnao-agent-proxy.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -479,6 +483,28 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector agenthub-ai fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorAgentHubAIResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorGuangnaoAgentProxyResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorGuangnaoAgentProxyFixturePath, "utf8"),
+    "amazon-inspector-guangnao-agent-proxy",
+  ),
+);
+const amazonInspectorGuangnaoAgentProxyFinding =
+  amazonInspectorGuangnaoAgentProxyResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorGuangnaoAgentProxyFinding ||
+  amazonInspectorGuangnaoAgentProxyFinding.excerpt?.includes("gnP2p!7xQ") ||
+  !Array.isArray(amazonInspectorGuangnaoAgentProxyFinding.cve_refs) ||
+  amazonInspectorGuangnaoAgentProxyFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector agent-proxy fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorGuangnaoAgentProxyResult)}`,
   );
   process.exit(2);
 }

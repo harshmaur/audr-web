@@ -125,6 +125,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/aclade-agent/dist/index.js"
 	case "amazon-inspector-agenthub-ai", "amazon-inspector-agenthub":
 		return "/synth/node_modules/agenthub-ai/dist-publish/main.js"
+	case "amazon-inspector-guangnao-agent-proxy", "amazon-inspector-agent-proxy":
+		return "/synth/node_modules/@guangnao/agent-proxy/dist/cli.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":

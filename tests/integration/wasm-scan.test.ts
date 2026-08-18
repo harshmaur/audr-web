@@ -62,6 +62,8 @@ const FIXTURE_AMAZON_INSPECTOR_PFP_FORMS =
   "tests/fixtures/amazon-inspector-pfp-forms-loader.js";
 const FIXTURE_AMAZON_INSPECTOR_CHECKOUT_DESKTOP =
   "tests/fixtures/amazon-inspector-checkout-desktop-loader.js";
+const FIXTURE_AMAZON_INSPECTOR_GUANGNAO_AGENT_PROXY =
+  "tests/fixtures/amazon-inspector-guangnao-agent-proxy.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -478,6 +480,23 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(result.format_detected).toBe("npm-malware-artifact");
     expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
     expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the Amazon Inspector agent-proxy authenticated-session relay IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_AMAZON_INSPECTOR_GUANGNAO_AGENT_PROXY, "utf8"),
+      "amazon-inspector-guangnao-agent-proxy",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("npm-malware-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.excerpt).not.toContain("gnP2p!7xQ");
     expect(campaign.cve_refs).toEqual([]);
   });
 

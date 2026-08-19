@@ -68,6 +68,8 @@ const FIXTURE_AMAZON_INSPECTOR_CORE_TAILWIND =
   "tests/fixtures/amazon-inspector-core-tailwindcss-utility.js";
 const FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN =
   "tests/fixtures/amazon-inspector-bcc-design-beacon.js";
+const FIXTURE_AMAZON_INSPECTOR_SETUP_CODEX =
+  "tests/fixtures/amazon-inspector-setup-codex.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -522,6 +524,12 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN,
       "amazon-inspector-bcc-design-icons",
       "91.201.215.48",
+    ],
+    [
+      "setup-codex host and file exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_SETUP_CODEX,
+      "amazon-inspector-setup-codex",
+      "hooks.zapier.com",
     ],
   ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

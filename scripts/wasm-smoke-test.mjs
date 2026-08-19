@@ -127,6 +127,10 @@ const amazonInspectorBCCDesignFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-bcc-design-beacon.js",
 );
+const amazonInspectorSetupCodexFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-setup-codex.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -535,6 +539,12 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorBCCDesignFixturePath,
     "amazon-inspector-bcc-design-icons",
     "91.201.215.48",
+  ],
+  [
+    "setup-codex exfiltration",
+    amazonInspectorSetupCodexFixturePath,
+    "amazon-inspector-setup-codex",
+    "hooks.zapier.com",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

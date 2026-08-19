@@ -133,6 +133,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/bcc-design/notify.js"
 	case "amazon-inspector-bcc-design-icons":
 		return "/synth/node_modules/bcc-design-icons/notify.js"
+	case "amazon-inspector-setup-codex":
+		return "/synth/node_modules/setup-codex/lib/report.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":

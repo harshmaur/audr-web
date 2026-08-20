@@ -131,6 +131,14 @@ const amazonInspectorSetupCodexFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-setup-codex.js",
 );
+const amazonInspectorExpectDotenvFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-expect-dotenv.js",
+);
+const amazonInspectorHtttttMCPDemoFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-httttt-mcp-demo.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -545,6 +553,18 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorSetupCodexFixturePath,
     "amazon-inspector-setup-codex",
     "hooks.zapier.com",
+  ],
+  [
+    "expect-dotenv remote parser execution",
+    amazonInspectorExpectDotenvFixturePath,
+    "amazon-inspector-expect-dotenv",
+    "arrayParser",
+  ],
+  [
+    "@httttt/mcp-demo javaagent execution",
+    amazonInspectorHtttttMCPDemoFixturePath,
+    "amazon-inspector-httttt-mcp-demo",
+    "myhuaweicloud.com",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

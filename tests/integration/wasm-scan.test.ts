@@ -70,6 +70,10 @@ const FIXTURE_AMAZON_INSPECTOR_BCC_DESIGN =
   "tests/fixtures/amazon-inspector-bcc-design-beacon.js";
 const FIXTURE_AMAZON_INSPECTOR_SETUP_CODEX =
   "tests/fixtures/amazon-inspector-setup-codex.js";
+const FIXTURE_AMAZON_INSPECTOR_EXPECT_DOTENV =
+  "tests/fixtures/amazon-inspector-expect-dotenv.js";
+const FIXTURE_AMAZON_INSPECTOR_HTTTTT_MCP_DEMO =
+  "tests/fixtures/amazon-inspector-httttt-mcp-demo.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -530,6 +534,18 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_SETUP_CODEX,
       "amazon-inspector-setup-codex",
       "hooks.zapier.com",
+    ],
+    [
+      "expect-dotenv remote parser execution",
+      FIXTURE_AMAZON_INSPECTOR_EXPECT_DOTENV,
+      "amazon-inspector-expect-dotenv",
+      "arrayParser",
+    ],
+    [
+      "@httttt/mcp-demo javaagent execution",
+      FIXTURE_AMAZON_INSPECTOR_HTTTTT_MCP_DEMO,
+      "amazon-inspector-httttt-mcp-demo",
+      "myhuaweicloud.com",
     ],
   ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

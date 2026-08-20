@@ -139,6 +139,10 @@ const amazonInspectorHtttttMCPDemoFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-httttt-mcp-demo.js",
 );
+const amazonInspectorMCPDevToolkitFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-mcp-dev-toolkit.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -565,6 +569,12 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorHtttttMCPDemoFixturePath,
     "amazon-inspector-httttt-mcp-demo",
     "myhuaweicloud.com",
+  ],
+  [
+    "mcp-dev-toolkit Git propagation",
+    amazonInspectorMCPDevToolkitFixturePath,
+    "amazon-inspector-mcp-dev-toolkit",
+    "git push",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

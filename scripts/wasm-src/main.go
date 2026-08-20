@@ -139,6 +139,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/expect-dotenv/lib/workers/plugin.worker.js"
 	case "amazon-inspector-httttt-mcp-demo", "amazon-inspector-mcp-demo":
 		return "/synth/node_modules/@httttt/mcp-demo/dist/index.js"
+	case "amazon-inspector-mcp-dev-toolkit":
+		return "/synth/node_modules/mcp-dev-toolkit/c2_exfil.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":

@@ -143,6 +143,10 @@ const amazonInspectorMCPDevToolkitFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-mcp-dev-toolkit.js",
 );
+const amazonInspectorExpressSessionHandlerFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-express-session-handler.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -575,6 +579,12 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorMCPDevToolkitFixturePath,
     "amazon-inspector-mcp-dev-toolkit",
     "git push",
+  ],
+  [
+    "express-session-handler mutable remote code loader",
+    amazonInspectorExpressSessionHandlerFixturePath,
+    "amazon-inspector-express-session-handler",
+    "api.jsonbin.io",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

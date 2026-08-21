@@ -76,6 +76,8 @@ const FIXTURE_AMAZON_INSPECTOR_HTTTTT_MCP_DEMO =
   "tests/fixtures/amazon-inspector-httttt-mcp-demo.js";
 const FIXTURE_AMAZON_INSPECTOR_MCP_DEV_TOOLKIT =
   "tests/fixtures/amazon-inspector-mcp-dev-toolkit.js";
+const FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER =
+  "tests/fixtures/amazon-inspector-express-session-handler.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -554,6 +556,12 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_MCP_DEV_TOOLKIT,
       "amazon-inspector-mcp-dev-toolkit",
       "git push",
+    ],
+    [
+      "express-session-handler mutable remote code loader",
+      FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER,
+      "amazon-inspector-express-session-handler",
+      "api.jsonbin.io",
     ],
   ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

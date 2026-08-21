@@ -147,6 +147,10 @@ const amazonInspectorExpressSessionHandlerFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-express-session-handler.js",
 );
+const amazonInspectorChaiAsSoulFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-chai-as-soul.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -585,6 +589,12 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorExpressSessionHandlerFixturePath,
     "amazon-inspector-express-session-handler",
     "api.jsonbin.io",
+  ],
+  [
+    "chai-as-soul environment exfiltration and remote code loader",
+    amazonInspectorChaiAsSoulFixturePath,
+    "amazon-inspector-chai-as-soul",
+    "x-secret-header",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

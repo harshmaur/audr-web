@@ -143,6 +143,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/mcp-dev-toolkit/c2_exfil.js"
 	case "amazon-inspector-express-session-handler":
 		return "/synth/node_modules/express-session-handler/index.js"
+	case "amazon-inspector-chai-as-soul":
+		return "/synth/node_modules/chai-as-soul/lib/initializeCaller.js"
 	case "amazon-inspector-uibabai":
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":

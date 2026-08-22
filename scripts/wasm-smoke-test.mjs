@@ -167,6 +167,10 @@ const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
 );
+const scrambleeerFixturePath = join(
+  root,
+  "tests/fixtures/scrambleeer-reverse-shell.py",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -803,6 +807,27 @@ if (
 ) {
   console.error(
     `smoke: Telekom ODS React UI Kit fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(telekomODSReactUIKitResult)}`,
+  );
+  process.exit(2);
+}
+
+const scrambleeerResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(scrambleeerFixturePath, "utf8"),
+    "scrambleeer-pypi",
+  ),
+);
+const scrambleeerFinding = scrambleeerResult.findings?.find(
+  (finding) => finding.rule_id === "scrambleeer-reverse-shell-ioc",
+);
+if (
+  !scrambleeerFinding ||
+  scrambleeerFinding.excerpt?.includes("bax.h4x.tv") ||
+  !Array.isArray(scrambleeerFinding.cve_refs) ||
+  scrambleeerFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: scrambleeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeerResult)}`,
   );
   process.exit(2);
 }

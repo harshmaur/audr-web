@@ -78,6 +78,12 @@ const FIXTURE_AMAZON_INSPECTOR_MCP_DEV_TOOLKIT =
   "tests/fixtures/amazon-inspector-mcp-dev-toolkit.js";
 const FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER =
   "tests/fixtures/amazon-inspector-express-session-handler.js";
+const FIXTURE_AMAZON_INSPECTOR_GFE_LX_WATCHER =
+  "tests/fixtures/amazon-inspector-gfe-lx-watcher.js";
+const FIXTURE_AMAZON_INSPECTOR_FUEL_REACT =
+  "tests/fixtures/amazon-inspector-fuel-react.js";
+const FIXTURE_AMAZON_INSPECTOR_LUMEN_PAGES =
+  "tests/fixtures/amazon-inspector-lumen-pages-community.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -562,6 +568,24 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER,
       "amazon-inspector-express-session-handler",
       "api.jsonbin.io",
+    ],
+    [
+      "@gfe/lx-watcher installer identity exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_GFE_LX_WATCHER,
+      "amazon-inspector-gfe-lx-watcher",
+      "df384ffa-1094-4bbf-a202-e8b345b3ed18",
+    ],
+    [
+      "fuel-react installer environment exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_FUEL_REACT,
+      "amazon-inspector-fuel-react",
+      "process.env",
+    ],
+    [
+      "lumen-pages-community installer identity exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_LUMEN_PAGES,
+      "amazon-inspector-lumen-pages-community",
+      "b00492c6-27ba-4ea0-a9cb-dd50b3770250",
     ],
   ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

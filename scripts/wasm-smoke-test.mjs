@@ -151,6 +151,18 @@ const amazonInspectorChaiAsSoulFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-chai-as-soul.js",
 );
+const amazonInspectorGFELXWatcherFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-gfe-lx-watcher.js",
+);
+const amazonInspectorFuelReactFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-fuel-react.js",
+);
+const amazonInspectorLumenPagesFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-lumen-pages-community.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -595,6 +607,24 @@ for (const [label, fixture, hint, rawIOC] of [
     amazonInspectorChaiAsSoulFixturePath,
     "amazon-inspector-chai-as-soul",
     "x-secret-header",
+  ],
+  [
+    "@gfe/lx-watcher installer identity exfiltration",
+    amazonInspectorGFELXWatcherFixturePath,
+    "amazon-inspector-gfe-lx-watcher",
+    "df384ffa-1094-4bbf-a202-e8b345b3ed18",
+  ],
+  [
+    "fuel-react installer environment exfiltration",
+    amazonInspectorFuelReactFixturePath,
+    "amazon-inspector-fuel-react",
+    "process.env",
+  ],
+  [
+    "lumen-pages-community installer identity exfiltration",
+    amazonInspectorLumenPagesFixturePath,
+    "amazon-inspector-lumen-pages-community",
+    "b00492c6-27ba-4ea0-a9cb-dd50b3770250",
   ],
 ]) {
   const latestCampaignResult = JSON.parse(

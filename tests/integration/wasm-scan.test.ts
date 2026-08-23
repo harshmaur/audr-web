@@ -16,6 +16,7 @@ const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
 const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
 const FIXTURE_SCRAMBLEEER = "tests/fixtures/scrambleeer-reverse-shell.py";
+const FIXTURE_SCRAMBLEEEER = "tests/fixtures/scrambleeeer-reverse-shell.py";
 const FIXTURE_AMAZON_INSPECTOR = "tests/fixtures/amazon-inspector-npm-malware.js";
 const FIXTURE_AMAZON_INSPECTOR_STREAK =
   "tests/fixtures/amazon-inspector-streak-core-math.js";
@@ -236,6 +237,20 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
 
   it("flags the non-CVE scrambleeer package-root reverse-shell markers", () => {
     const raw = scan(readFileSync(FIXTURE_SCRAMBLEEER, "utf8"), "scrambleeer-pypi");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "scrambleeer-reverse-shell-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+    expect(campaign.excerpt).not.toContain("bax.h4x.tv");
+  });
+
+  it("flags the same-campaign scrambleeeer core.py reverse-shell markers", () => {
+    const raw = scan(readFileSync(FIXTURE_SCRAMBLEEEER, "utf8"), "scrambleeeer-pypi");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
     expect(result.audr_tag).toBe(AUDR_VERSION_TAG);

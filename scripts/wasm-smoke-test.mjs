@@ -171,6 +171,10 @@ const scrambleeerFixturePath = join(
   root,
   "tests/fixtures/scrambleeer-reverse-shell.py",
 );
+const scrambleeeerFixturePath = join(
+  root,
+  "tests/fixtures/scrambleeeer-reverse-shell.py",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -828,6 +832,27 @@ if (
 ) {
   console.error(
     `smoke: scrambleeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeerResult)}`,
+  );
+  process.exit(2);
+}
+
+const scrambleeeerResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(scrambleeeerFixturePath, "utf8"),
+    "scrambleeeer-pypi",
+  ),
+);
+const scrambleeeerFinding = scrambleeeerResult.findings?.find(
+  (finding) => finding.rule_id === "scrambleeer-reverse-shell-ioc",
+);
+if (
+  !scrambleeeerFinding ||
+  scrambleeeerFinding.excerpt?.includes("bax.h4x.tv") ||
+  !Array.isArray(scrambleeeerFinding.cve_refs) ||
+  scrambleeeerFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: scrambleeeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeeerResult)}`,
   );
   process.exit(2);
 }

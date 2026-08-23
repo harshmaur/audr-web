@@ -93,6 +93,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
 	case "scrambleeer", "scrambleeer-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/scrambleeer/client.py"
+	case "scrambleeeer", "scrambleeeer-pypi":
+		return "/synth/venv/lib/python3.12/site-packages/scrambleeeer/core.py"
 	case "amazon-inspector-npm-malware", "amazon-inspector-malware":
 		return "/synth/node_modules/chalk-utils/postinstall.js"
 	case "amazon-inspector-streak-core-math", "amazon-inspector-streak":

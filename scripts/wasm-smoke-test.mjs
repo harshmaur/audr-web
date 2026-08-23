@@ -163,6 +163,10 @@ const amazonInspectorLumenPagesFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-lumen-pages-community.js",
 );
+const amazonInspectorEnvParserFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-env-parser.js",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -561,7 +565,7 @@ if (
   process.exit(2);
 }
 
-for (const [label, fixture, hint, rawIOC] of [
+for (const [label, fixture, hint, rawIOC, rawResultIOCs = []] of [
   [
     "core-tailwindcss-utility loader",
     amazonInspectorCoreTailwindFixturePath,
@@ -634,6 +638,19 @@ for (const [label, fixture, hint, rawIOC] of [
     "amazon-inspector-lumen-pages-community",
     "b00492c6-27ba-4ea0-a9cb-dd50b3770250",
   ],
+  [
+    "@js-lib-team/env-parser wallet-key theft",
+    amazonInspectorEnvParserFixturePath,
+    "amazon-inspector-env-parser",
+    "0x70951410C5E9E938D8715288A7229548287a1a62",
+    [
+      "0x70951410C5E9E938D8715288A7229548287a1a62",
+      "PRIVATE_KEY",
+      "SECRET",
+      "MNEMONIC",
+      "local.env",
+    ],
+  ],
 ]) {
   const latestCampaignResult = JSON.parse(
     globalThis.audrScan(readFileSync(fixture, "utf8"), hint),
@@ -641,9 +658,13 @@ for (const [label, fixture, hint, rawIOC] of [
   const latestCampaignFinding = latestCampaignResult.findings?.find(
     (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
   );
+  const serializedResult = JSON.stringify(latestCampaignResult).toLowerCase();
   if (
     !latestCampaignFinding ||
     latestCampaignFinding.excerpt?.includes(rawIOC) ||
+    rawResultIOCs.some((marker) =>
+      serializedResult.includes(marker.toLowerCase()),
+    ) ||
     !Array.isArray(latestCampaignFinding.cve_refs) ||
     latestCampaignFinding.cve_refs.length !== 0
   ) {

@@ -10,7 +10,7 @@
 // audr binary" for the full contract hermes follows.
 
 /** Semver only, no v-prefix. Used in JSON-LD softwareVersion and similar. */
-export const AUDR_VERSION = "0.14.139";
+export const AUDR_VERSION = "0.14.140";
 
 /** With v-prefix to match git tags. Used in header strip, tarball names, etc. */
-export const AUDR_VERSION_TAG = "v0.14.139";
+export const AUDR_VERSION_TAG = "v0.14.140";

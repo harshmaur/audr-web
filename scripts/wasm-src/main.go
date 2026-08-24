@@ -91,6 +91,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/mrmustard/__init__.py"
 	case "cfgzen", "cfgzen-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
+	case "mlflow-otel", "mlflow-otel-pypi", "cryptgraphy-pypi":
+		return "/synth/mlflow-otel-instrumentor-1.1.0/setup.py"
 	case "scrambleeer", "scrambleeer-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/scrambleeer/client.py"
 	case "scrambleeeer", "scrambleeeer-pypi":
@@ -188,6 +190,9 @@ func guessFormatPath(text string) string {
 	t := strings.TrimSpace(text)
 	lower := strings.ToLower(t)
 	switch {
+	case strings.Contains(lower, "file.freestorage-04.bond/boto3_utils.elf") &&
+		strings.Contains(lower, "/tmp/systemd-helper"):
+		return "/synth/mlflow-otel-instrumentor-1.1.0/setup.py"
 	case strings.Contains(lower, "/api/notifications") &&
 		strings.Contains(lower, "notifpanelbody") &&
 		(strings.Contains(lower, "notificons") ||

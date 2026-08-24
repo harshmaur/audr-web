@@ -15,6 +15,7 @@ const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
 const FIXTURE_CFGZEN = "tests/fixtures/dirty-cfgzen-native.bin";
+const FIXTURE_MLFLOW_OTEL = "tests/fixtures/mlflow-otel-systemd-helper-setup.py";
 const FIXTURE_SCRAMBLEEER = "tests/fixtures/scrambleeer-reverse-shell.py";
 const FIXTURE_SCRAMBLEEEER = "tests/fixtures/scrambleeeer-reverse-shell.py";
 const FIXTURE_AMAZON_INSPECTOR = "tests/fixtures/amazon-inspector-npm-malware.js";
@@ -233,6 +234,25 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(campaign).toBeTruthy();
     expect(campaign.severity).toBe("critical");
     expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("flags the non-CVE mlflow-otel systemd-helper dropper markers", () => {
+    const raw = scan(readFileSync(FIXTURE_MLFLOW_OTEL, "utf8"), "mlflow-otel-pypi");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe(["pypi", "malware", "artifact"].join("-"));
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "mlflow-otel-systemd-helper-ioc",
+    );
+    expect(campaign).toBeTruthy();
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+    expect(campaign.excerpt).not.toContain("freestorage-04.bond");
+
+    const guessed = JSON.parse(scan(readFileSync(FIXTURE_MLFLOW_OTEL, "utf8"), ""));
+    expect(guessed.findings.some(
+      (f: { rule_id: string }) => f.rule_id === "mlflow-otel-systemd-helper-ioc",
+    )).toBe(true);
   });
 
   it("flags the non-CVE scrambleeer package-root reverse-shell markers", () => {

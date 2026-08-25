@@ -93,6 +93,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/cfgzen/_native.so"
 	case "mlflow-otel", "mlflow-otel-pypi", "cryptgraphy-pypi":
 		return "/synth/mlflow-otel-instrumentor-1.1.0/setup.py"
+	case "multyproccess", "multyproccess-pypi":
+		return "/synth/multyproccess-2.32.5/setup.py"
 	case "scrambleeer", "scrambleeer-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/scrambleeer/client.py"
 	case "scrambleeeer", "scrambleeeer-pypi":
@@ -193,6 +195,12 @@ func guessFormatPath(text string) string {
 	case strings.Contains(lower, "file.freestorage-04.bond/boto3_utils.elf") &&
 		strings.Contains(lower, "/tmp/systemd-helper"):
 		return "/synth/mlflow-otel-instrumentor-1.1.0/setup.py"
+	case strings.Contains(lower, "request/.payload") &&
+		strings.Contains(lower, "base64.b64decode") &&
+		strings.Contains(lower, "subprocess.popen") &&
+		strings.Contains(lower, "detached_process") &&
+		strings.Contains(lower, "create_no_window"):
+		return "/synth/multyproccess-2.32.5/setup.py"
 	case strings.Contains(lower, "/api/notifications") &&
 		strings.Contains(lower, "notifpanelbody") &&
 		(strings.Contains(lower, "notificons") ||

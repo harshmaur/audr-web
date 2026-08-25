@@ -59,6 +59,10 @@ cp "$WASM_EXEC" public/wasm/wasm_exec.js
 # package inside the submodule (not committed to the submodule) and build
 # from there.
 WRAPPER_DIR="vendor/audr/cmd/audr-wasm"
+cleanup_wrapper() {
+  rm -rf "$WRAPPER_DIR"
+}
+trap cleanup_wrapper EXIT
 mkdir -p "$WRAPPER_DIR"
 cp scripts/wasm-src/main.go "$WRAPPER_DIR/main.go"
 

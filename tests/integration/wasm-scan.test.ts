@@ -82,6 +82,10 @@ const FIXTURE_AMAZON_INSPECTOR_MCP_DEV_TOOLKIT =
   "tests/fixtures/amazon-inspector-mcp-dev-toolkit.js";
 const FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER =
   "tests/fixtures/amazon-inspector-express-session-handler.js";
+const FIXTURE_AMAZON_INSPECTOR_CHAI_AS_OTC =
+  "tests/fixtures/amazon-inspector-chai-as-otc.js";
+const FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_INFOS =
+  "tests/fixtures/amazon-inspector-spotify-url-infos.js";
 const FIXTURE_AMAZON_INSPECTOR_GFE_LX_WATCHER =
   "tests/fixtures/amazon-inspector-gfe-lx-watcher.js";
 const FIXTURE_AMAZON_INSPECTOR_FUEL_REACT =
@@ -641,6 +645,18 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER,
       "amazon-inspector-express-session-handler",
       "api.jsonbin.io",
+    ],
+    [
+      "chai-as-otc environment theft and remote execution",
+      FIXTURE_AMAZON_INSPECTOR_CHAI_AS_OTC,
+      "amazon-inspector-chai-as-otc",
+      "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
+    ],
+    [
+      "spotify-url-infos whole-workspace Telegram archival",
+      FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_INFOS,
+      "amazon-inspector-spotify-url-infos",
+      "sendDocument",
     ],
     [
       "@gfe/lx-watcher installer identity exfiltration",

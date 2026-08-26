@@ -151,6 +151,14 @@ const amazonInspectorChaiAsSoulFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-chai-as-soul.js",
 );
+const amazonInspectorChaiAsOTCFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-chai-as-otc.js",
+);
+const amazonInspectorSpotifyURLInfosFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-spotify-url-infos.js",
+);
 const amazonInspectorGFELXWatcherFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-gfe-lx-watcher.js",
@@ -619,6 +627,18 @@ for (const [label, fixture, hint, rawIOC, rawResultIOCs = []] of [
     amazonInspectorChaiAsSoulFixturePath,
     "amazon-inspector-chai-as-soul",
     "x-secret-header",
+  ],
+  [
+    "chai-as-otc environment exfiltration and remote code loader",
+    amazonInspectorChaiAsOTCFixturePath,
+    "amazon-inspector-chai-as-otc",
+    "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
+  ],
+  [
+    "spotify-url-infos whole-workspace Telegram archival",
+    amazonInspectorSpotifyURLInfosFixturePath,
+    "amazon-inspector-spotify-url-infos",
+    "sendDocument",
   ],
   [
     "@gfe/lx-watcher installer identity exfiltration",

@@ -127,6 +127,10 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/kit-vim-map/dist/internal/calc-math.dat"
 	case "amazon-inspector-kit-map-vim":
 		return "/synth/node_modules/kit-map-vim/dist/index.mjs"
+	case "amazon-inspector-dim-hydration-ui":
+		return "/synth/node_modules/dim-hydration-ui/dist/index.mjs"
+	case "amazon-inspector-dim-hydration-ui-binary":
+		return "/synth/node_modules/dim-hydration-ui/dist/internal/math.bin"
 	case "amazon-inspector-w-screenctl", "amazon-inspector-wscreenctl":
 		return "/synth/node_modules/w-screenctl/src/WScreenctl.mjs"
 	case "amazon-inspector-aclade-agent", "amazon-inspector-aclade":

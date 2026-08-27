@@ -175,6 +175,14 @@ const amazonInspectorEnvParserFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-env-parser.js",
 );
+const amazonInspectorDimHydrationUIFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-dim-hydration-ui.js",
+);
+const amazonInspectorDimHydrationUIBinaryFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-dim-hydration-ui.bin",
+);
 const telekomODSReactUIKitFixturePath = join(
   root,
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json",
@@ -834,6 +842,52 @@ for (const [fixture, hint, label] of [
     );
     process.exit(2);
   }
+}
+
+const amazonInspectorDimHydrationUIResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorDimHydrationUIFixturePath, "utf8"),
+    "amazon-inspector-dim-hydration-ui",
+  ),
+);
+const amazonInspectorDimHydrationUIFinding =
+  amazonInspectorDimHydrationUIResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorDimHydrationUIFinding ||
+  amazonInspectorDimHydrationUIFinding.excerpt?.includes("217.60.77.63") ||
+  !Array.isArray(amazonInspectorDimHydrationUIFinding.cve_refs) ||
+  amazonInspectorDimHydrationUIFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector dim-hydration-ui fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorDimHydrationUIResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorDimHydrationUIBinaryResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorDimHydrationUIBinaryFixturePath, "utf8"),
+    "amazon-inspector-dim-hydration-ui-binary",
+  ),
+);
+const amazonInspectorDimHydrationUIBinaryFinding =
+  amazonInspectorDimHydrationUIBinaryResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+if (
+  !amazonInspectorDimHydrationUIBinaryFinding ||
+  amazonInspectorDimHydrationUIBinaryFinding.excerpt?.includes(
+    "217.60.77.63",
+  ) ||
+  !Array.isArray(amazonInspectorDimHydrationUIBinaryFinding.cve_refs) ||
+  amazonInspectorDimHydrationUIBinaryFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector dim-hydration-ui binary fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorDimHydrationUIBinaryResult)}`,
+  );
+  process.exit(2);
 }
 
 const telekomODSReactUIKitResult = JSON.parse(

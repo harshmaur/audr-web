@@ -155,9 +155,17 @@ const amazonInspectorChaiAsOTCFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-chai-as-otc.js",
 );
+const amazonInspectorChaiAsOrgFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-chai-as-org.js",
+);
 const amazonInspectorSpotifyURLInfosFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-spotify-url-infos.js",
+);
+const amazonInspectorSpotifyURLResolversFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-spotify-url-resolvers.js",
 );
 const amazonInspectorGFELXWatcherFixturePath = join(
   root,
@@ -643,9 +651,21 @@ for (const [label, fixture, hint, rawIOC, rawResultIOCs = []] of [
     "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
   ],
   [
+    "chai-as-org environment exfiltration and remote code loader",
+    amazonInspectorChaiAsOrgFixturePath,
+    "amazon-inspector-chai-as-org",
+    "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
+  ],
+  [
     "spotify-url-infos whole-workspace Telegram archival",
     amazonInspectorSpotifyURLInfosFixturePath,
     "amazon-inspector-spotify-url-infos",
+    "sendDocument",
+  ],
+  [
+    "spotify-url-resolvers whole-workspace Telegram archival",
+    amazonInspectorSpotifyURLResolversFixturePath,
+    "amazon-inspector-spotify-url-resolvers",
     "sendDocument",
   ],
   [

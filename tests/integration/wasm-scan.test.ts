@@ -84,8 +84,12 @@ const FIXTURE_AMAZON_INSPECTOR_EXPRESS_SESSION_HANDLER =
   "tests/fixtures/amazon-inspector-express-session-handler.js";
 const FIXTURE_AMAZON_INSPECTOR_CHAI_AS_OTC =
   "tests/fixtures/amazon-inspector-chai-as-otc.js";
+const FIXTURE_AMAZON_INSPECTOR_CHAI_AS_ORG =
+  "tests/fixtures/amazon-inspector-chai-as-org.js";
 const FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_INFOS =
   "tests/fixtures/amazon-inspector-spotify-url-infos.js";
+const FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_RESOLVERS =
+  "tests/fixtures/amazon-inspector-spotify-url-resolvers.js";
 const FIXTURE_AMAZON_INSPECTOR_GFE_LX_WATCHER =
   "tests/fixtures/amazon-inspector-gfe-lx-watcher.js";
 const FIXTURE_AMAZON_INSPECTOR_FUEL_REACT =
@@ -653,9 +657,21 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
     ],
     [
+      "chai-as-org environment theft and remote execution",
+      FIXTURE_AMAZON_INSPECTOR_CHAI_AS_ORG,
+      "amazon-inspector-chai-as-org",
+      "aHR0cHM6Ly9pcGNoZWNrLWhhc2hlZC52ZXJjZWwuYXBw",
+    ],
+    [
       "spotify-url-infos whole-workspace Telegram archival",
       FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_INFOS,
       "amazon-inspector-spotify-url-infos",
+      "sendDocument",
+    ],
+    [
+      "spotify-url-resolvers whole-workspace Telegram archival",
+      FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_RESOLVERS,
+      "amazon-inspector-spotify-url-resolvers",
       "sendDocument",
     ],
     [

@@ -159,8 +159,12 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/chai-as-soul/lib/initializeCaller.js"
 	case "amazon-inspector-chai-as-otc":
 		return "/synth/node_modules/chai-as-otc/lib/initializeCaller.js"
+	case "amazon-inspector-chai-as-org":
+		return "/synth/node_modules/chai-as-org/lib/initializeCaller.js"
 	case "amazon-inspector-spotify-url-infos":
 		return "/synth/node_modules/spotify-url-infos/index.js"
+	case "amazon-inspector-spotify-url-resolvers":
+		return "/synth/node_modules/spotify-url-resolvers/index.js"
 	case "amazon-inspector-gfe-lx-watcher":
 		return "/synth/node_modules/@gfe/lx-watcher/install.js"
 	case "amazon-inspector-fuel-react":

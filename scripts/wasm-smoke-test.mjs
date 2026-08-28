@@ -167,6 +167,14 @@ const amazonInspectorSpotifyURLResolversFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-spotify-url-resolvers.js",
 );
+const amazonInspectorOctopusActionFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-octopus-action.js",
+);
+const amazonInspectorMTServerlessFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-mt-ts-serverless-starter.js",
+);
 const amazonInspectorGFELXWatcherFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-gfe-lx-watcher.js",
@@ -667,6 +675,20 @@ for (const [label, fixture, hint, rawIOC, rawResultIOCs = []] of [
     amazonInspectorSpotifyURLResolversFixturePath,
     "amazon-inspector-spotify-url-resolvers",
     "sendDocument",
+  ],
+  [
+    "octopus-action install-time host and system-file exfiltration",
+    amazonInspectorOctopusActionFixturePath,
+    "amazon-inspector-octopus-action",
+    "dfwvktnc563cparn1p88c8051w7ovej3.oastify.com",
+    ["dfwvktnc563cparn1p88c8051w7ovej3.oastify.com", "/etc/passwd", "/etc/hosts"],
+  ],
+  [
+    "mt-ts-serverless-starter install-time host and system-file exfiltration",
+    amazonInspectorMTServerlessFixturePath,
+    "amazon-inspector-mt-ts-serverless-starter",
+    "e4jw9ucdu7sdebgoqqx919p6qxwoke83.oastify.com",
+    ["e4jw9ucdu7sdebgoqqx919p6qxwoke83.oastify.com", "/etc/passwd", "/etc/hosts"],
   ],
   [
     "@gfe/lx-watcher installer identity exfiltration",

@@ -90,6 +90,10 @@ const FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_INFOS =
   "tests/fixtures/amazon-inspector-spotify-url-infos.js";
 const FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_RESOLVERS =
   "tests/fixtures/amazon-inspector-spotify-url-resolvers.js";
+const FIXTURE_AMAZON_INSPECTOR_OCTOPUS_ACTION =
+  "tests/fixtures/amazon-inspector-octopus-action.js";
+const FIXTURE_AMAZON_INSPECTOR_MT_SERVERLESS =
+  "tests/fixtures/amazon-inspector-mt-ts-serverless-starter.js";
 const FIXTURE_AMAZON_INSPECTOR_GFE_LX_WATCHER =
   "tests/fixtures/amazon-inspector-gfe-lx-watcher.js";
 const FIXTURE_AMAZON_INSPECTOR_FUEL_REACT =
@@ -673,6 +677,18 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_SPOTIFY_URL_RESOLVERS,
       "amazon-inspector-spotify-url-resolvers",
       "sendDocument",
+    ],
+    [
+      "octopus-action install-time host and system-file exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_OCTOPUS_ACTION,
+      "amazon-inspector-octopus-action",
+      "dfwvktnc563cparn1p88c8051w7ovej3.oastify.com",
+    ],
+    [
+      "mt-ts-serverless-starter install-time host and system-file exfiltration",
+      FIXTURE_AMAZON_INSPECTOR_MT_SERVERLESS,
+      "amazon-inspector-mt-ts-serverless-starter",
+      "e4jw9ucdu7sdebgoqqx919p6qxwoke83.oastify.com",
     ],
     [
       "@gfe/lx-watcher installer identity exfiltration",

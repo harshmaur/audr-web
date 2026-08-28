@@ -165,6 +165,10 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/spotify-url-infos/index.js"
 	case "amazon-inspector-spotify-url-resolvers":
 		return "/synth/node_modules/spotify-url-resolvers/index.js"
+	case "amazon-inspector-octopus-action":
+		return "/synth/node_modules/octopus-action/index.js"
+	case "amazon-inspector-mt-ts-serverless-starter":
+		return "/synth/node_modules/mt-ts-serverless-starter/index.js"
 	case "amazon-inspector-gfe-lx-watcher":
 		return "/synth/node_modules/@gfe/lx-watcher/install.js"
 	case "amazon-inspector-fuel-react":

@@ -211,6 +211,28 @@ const scrambleeeerFixturePath = join(
   root,
   "tests/fixtures/scrambleeeer-reverse-shell.py",
 );
+const pygameRenderkitFixtures = [
+  [
+    "tests/fixtures/pygame-renderkit-setup.py",
+    "pygame-renderkit-setup",
+    "setup.py installer",
+  ],
+  [
+    "tests/fixtures/pygame-renderkit-rk-recon.py",
+    "pygame-renderkit-recon",
+    "dropped recon payload",
+  ],
+  [
+    "tests/fixtures/pygame-renderkit.service",
+    "pygame-renderkit-systemd",
+    "systemd-user persistence",
+  ],
+  [
+    "tests/fixtures/pygame-renderkit-sudoers",
+    "pygame-renderkit-sudoers",
+    "sudoers persistence",
+  ],
+];
 const miniShaiHuludOpenAPICodegenFixtures = [
   [
     "tests/fixtures/mini-shai-hulud-openapi-codegen-payload.js",
@@ -1009,6 +1031,28 @@ if (
     `smoke: scrambleeeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeeerResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, label] of pygameRenderkitFixtures) {
+  const campaignResult = JSON.parse(
+    globalThis.audrScan(readFileSync(join(root, fixture), "utf8"), hint),
+  );
+  const campaignFinding = campaignResult.findings?.find(
+    (finding) =>
+      finding.rule_id === "pygame-renderkit-reverse-shell-persistence-ioc",
+  );
+  if (
+    !campaignFinding ||
+    campaignFinding.excerpt?.includes("5uj0a8ziyu.localto.net") ||
+    campaignFinding.excerpt?.includes("synthetic_secret_never_expose") ||
+    !Array.isArray(campaignFinding.cve_refs) ||
+    campaignFinding.cve_refs.length !== 0
+  ) {
+    console.error(
+      `smoke: pygame-renderkit ${label} fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(campaignResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 for (const [fixture, hint, label] of miniShaiHuludOpenAPICodegenFixtures) {

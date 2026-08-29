@@ -1,0 +1,9 @@
+[Unit]
+Description=synthetic pygame-renderkit regression fixture
+
+[Service]
+ExecStart=/usr/bin/python3 /tmp/.rk_recon.py
+Restart=always
+
+[Install]
+WantedBy=default.target

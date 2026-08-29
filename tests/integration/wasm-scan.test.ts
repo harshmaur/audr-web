@@ -106,6 +106,20 @@ const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 const FIXTURE_OPENCLAW_DASHBOARD =
   "tests/fixtures/dirty-openclaw-dashboard-notifications.html";
+const MINI_SHAI_HULUD_OPENAPI_CODEGEN_FIXTURES = [
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-payload.js",
+    "mini-shai-hulud-openapi-codegen-payload",
+  ],
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-binding.gyp",
+    "mini-shai-hulud-openapi-codegen-binding-gyp",
+  ],
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-package.json",
+    "mini-shai-hulud-openapi-codegen-package-json",
+  ],
+];
 
 const wasmReady = existsSync(WASM) && existsSync(WASM_EXEC);
 
@@ -882,6 +896,23 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       ),
     ).toBe(true);
   });
+
+  it.each(MINI_SHAI_HULUD_OPENAPI_CODEGEN_FIXTURES)(
+    "flags the Mini Shai-Hulud OpenAPI codegen IOC from %s",
+    (fixture, hint) => {
+      const raw = scan(readFileSync(fixture, "utf8"), hint);
+      const result = JSON.parse(raw);
+      const campaign = result.findings.find(
+        (f: { rule_id: string }) => f.rule_id === "mini-shai-hulud-dropped-payload",
+      );
+      expect(campaign).toBeTruthy();
+      expect(result.format_detected).toBe("mini-shai-hulud-artifact");
+      expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+      expect(campaign.severity).toBe("critical");
+      expect(campaign.excerpt).not.toContain("synthetic-secret-never-expose");
+      expect(campaign.cve_refs).toEqual([]);
+    },
+  );
 
   it("returns zero findings on clean input without crashing", () => {
     const raw = scan('{"mcpServers": {}}', "mcp");

@@ -211,6 +211,23 @@ const scrambleeeerFixturePath = join(
   root,
   "tests/fixtures/scrambleeeer-reverse-shell.py",
 );
+const miniShaiHuludOpenAPICodegenFixtures = [
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-payload.js",
+    "mini-shai-hulud-openapi-codegen-payload",
+    "3FWCvzduYZg.js payload",
+  ],
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-binding.gyp",
+    "mini-shai-hulud-openapi-codegen-binding-gyp",
+    "binding.gyp launcher",
+  ],
+  [
+    "tests/fixtures/mini-shai-hulud-openapi-codegen-package.json",
+    "mini-shai-hulud-openapi-codegen-package-json",
+    "package.json preinstall launcher",
+  ],
+];
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -992,6 +1009,26 @@ if (
     `smoke: scrambleeeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeeerResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, label] of miniShaiHuludOpenAPICodegenFixtures) {
+  const campaignResult = JSON.parse(
+    globalThis.audrScan(readFileSync(join(root, fixture), "utf8"), hint),
+  );
+  const campaignFinding = campaignResult.findings?.find(
+    (finding) => finding.rule_id === "mini-shai-hulud-dropped-payload",
+  );
+  if (
+    !campaignFinding ||
+    campaignFinding.excerpt?.includes("synthetic-secret-never-expose") ||
+    !Array.isArray(campaignFinding.cve_refs) ||
+    campaignFinding.cve_refs.length !== 0
+  ) {
+    console.error(
+      `smoke: Mini Shai-Hulud ${label} fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(campaignResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 console.log(

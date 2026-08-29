@@ -187,6 +187,12 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/notafollower/package.json"
 	case "amazon-inspector-depcruise":
 		return "/synth/node_modules/depcruise-wrap-stream-in-html/package.json"
+	case "mini-shai-hulud-openapi-codegen-payload":
+		return "/synth/node_modules/@7nohe/openapi-react-query-codegen/3FWCvzduYZg.js"
+	case "mini-shai-hulud-openapi-codegen-binding-gyp":
+		return "/synth/node_modules/@7nohe/openapi-react-query-codegen/binding.gyp"
+	case "mini-shai-hulud-openapi-codegen-package-json":
+		return "/synth/node_modules/@7nohe/openapi-react-query-codegen/package.json"
 	case "amazon-inspector-pfp-forms":
 		return "/synth/node_modules/pfp-forms-sme-loan/_bridge.js"
 	case "amazon-inspector-checkout-desktop":

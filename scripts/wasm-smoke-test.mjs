@@ -236,6 +236,26 @@ const pygameRenderkitFixtures = [
     "pygame-renderkit-sudoers",
     "sudoers persistence",
   ],
+  [
+    "tests/fixtures/flask-header-guard-setup.py",
+    "flask-header-guard-setup",
+    "flask-header-guard setup.py installer",
+  ],
+  [
+    "tests/fixtures/flask-header-guard-backdoor.py",
+    "flask-header-guard-backdoor",
+    "flask-header-guard hidden Flask backdoor",
+  ],
+  [
+    "tests/fixtures/flask-header-guard-fhg-recon.py",
+    "flask-header-guard-recon",
+    "flask-header-guard dropped recon payload",
+  ],
+  [
+    "tests/fixtures/flask-header-guard-sudoers",
+    "flask-header-guard-sudoers",
+    "flask-header-guard sudoers persistence",
+  ],
 ];
 const miniShaiHuludOpenAPICodegenFixtures = [
   [
@@ -1069,6 +1089,7 @@ for (const [fixture, hint, label] of pygameRenderkitFixtures) {
   if (
     !campaignFinding ||
     campaignFinding.excerpt?.includes("5uj0a8ziyu.localto.net") ||
+    campaignFinding.excerpt?.includes("smat7ckgzo.localto.net") ||
     campaignFinding.excerpt?.includes("synthetic_secret_never_expose") ||
     !Array.isArray(campaignFinding.cve_refs) ||
     campaignFinding.cve_refs.length !== 0

@@ -107,6 +107,14 @@ func formatHintToPath(hint string) string {
 		return "/synth/home/user/.config/systemd/user/renderkit.service"
 	case "pygame-renderkit-sudoers":
 		return "/synth/etc/sudoers.d/.renderkit"
+	case "flask-header-guard-setup":
+		return "/synth/flask-header-guard-1.0.0/setup.py"
+	case "flask-header-guard-backdoor":
+		return "/synth/venv/lib/python3.12/site-packages/flask_header_guard/backdoor.py"
+	case "flask-header-guard-recon":
+		return "/tmp/.fhg_recon.py"
+	case "flask-header-guard-sudoers":
+		return "/synth/etc/sudoers.d/.fhg"
 	case "amazon-inspector-npm-malware", "amazon-inspector-malware":
 		return "/synth/node_modules/chalk-utils/postinstall.js"
 	case "amazon-inspector-streak-core-math", "amazon-inspector-streak":

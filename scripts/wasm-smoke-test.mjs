@@ -187,6 +187,10 @@ const amazonInspectorLumenPagesFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-lumen-pages-community.js",
 );
+const amazonInspectorGrafenoFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-grafeno-preinstall.js",
+);
 const amazonInspectorEnvParserFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-env-parser.js",
@@ -746,6 +750,27 @@ for (const [label, fixture, hint, rawIOC, rawResultIOCs = []] of [
     amazonInspectorLumenPagesFixturePath,
     "amazon-inspector-lumen-pages-community",
     "b00492c6-27ba-4ea0-a9cb-dd50b3770250",
+  ],
+  [
+    "grafeno-billing installer credential exfiltration and reverse shell",
+    amazonInspectorGrafenoFixturePath,
+    "amazon-inspector-grafeno-billing",
+    "216.126.236.46",
+    ["216.126.236.46", "/dev/tcp/216.126.236.46/4444"],
+  ],
+  [
+    "grafeno-payments installer credential exfiltration and reverse shell",
+    amazonInspectorGrafenoFixturePath,
+    "amazon-inspector-grafeno-payments",
+    "216.126.236.46",
+    ["216.126.236.46", "/dev/tcp/216.126.236.46/4444"],
+  ],
+  [
+    "grafeno-webhook installer credential exfiltration and reverse shell",
+    amazonInspectorGrafenoFixturePath,
+    "amazon-inspector-grafeno-webhook",
+    "216.126.236.46",
+    ["216.126.236.46", "/dev/tcp/216.126.236.46/4444"],
   ],
   [
     "@js-lib-team/env-parser wallet-key theft",

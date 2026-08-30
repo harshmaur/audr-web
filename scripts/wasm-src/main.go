@@ -183,6 +183,12 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/fuel-react/postinstall.js"
 	case "amazon-inspector-lumen-pages-community":
 		return "/synth/node_modules/lumen-pages-community/dc.js"
+	case "amazon-inspector-grafeno-billing":
+		return "/synth/node_modules/grafeno-billing/preinstall.js"
+	case "amazon-inspector-grafeno-payments":
+		return "/synth/node_modules/grafeno-payments/preinstall.js"
+	case "amazon-inspector-grafeno-webhook":
+		return "/synth/node_modules/grafeno-webhook/preinstall.js"
 	case "amazon-inspector-env-parser", "amazon-inspector-js-lib-env-parser":
 		return "/synth/node_modules/@js-lib-team/env-parser/index.js"
 	case "amazon-inspector-uibabai":

@@ -100,6 +100,8 @@ const FIXTURE_AMAZON_INSPECTOR_FUEL_REACT =
   "tests/fixtures/amazon-inspector-fuel-react.js";
 const FIXTURE_AMAZON_INSPECTOR_LUMEN_PAGES =
   "tests/fixtures/amazon-inspector-lumen-pages-community.js";
+const FIXTURE_AMAZON_INSPECTOR_GRAFENO =
+  "tests/fixtures/amazon-inspector-grafeno-preinstall.js";
 const FIXTURE_TELEKOM_ODS_REACT_UI_KIT =
   "tests/fixtures/telekom-ods-react-ui-kit-malware.json";
 const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
@@ -721,6 +723,24 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       FIXTURE_AMAZON_INSPECTOR_LUMEN_PAGES,
       "amazon-inspector-lumen-pages-community",
       "b00492c6-27ba-4ea0-a9cb-dd50b3770250",
+    ],
+    [
+      "grafeno-billing installer credential exfiltration and reverse shell",
+      FIXTURE_AMAZON_INSPECTOR_GRAFENO,
+      "amazon-inspector-grafeno-billing",
+      "216.126.236.46",
+    ],
+    [
+      "grafeno-payments installer credential exfiltration and reverse shell",
+      FIXTURE_AMAZON_INSPECTOR_GRAFENO,
+      "amazon-inspector-grafeno-payments",
+      "216.126.236.46",
+    ],
+    [
+      "grafeno-webhook installer credential exfiltration and reverse shell",
+      FIXTURE_AMAZON_INSPECTOR_GRAFENO,
+      "amazon-inspector-grafeno-webhook",
+      "216.126.236.46",
     ],
   ])("flags the Amazon Inspector %s IOC", (_label, fixture, hint, rawIOC) => {
     const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));

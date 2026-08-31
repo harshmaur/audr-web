@@ -215,6 +215,10 @@ const scrambleeeerFixturePath = join(
   root,
   "tests/fixtures/scrambleeeer-reverse-shell.py",
 );
+const tronixPyPIFixturePath = join(
+  root,
+  "tests/fixtures/tronix-pypi-private-key-exfil.py",
+);
 const pygameRenderkitFixtures = [
   [
     "tests/fixtures/pygame-renderkit-setup.py",
@@ -1074,6 +1078,30 @@ if (
 ) {
   console.error(
     `smoke: scrambleeeer fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(scrambleeeerResult)}`,
+  );
+  process.exit(2);
+}
+
+const tronixPyPIResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(tronixPyPIFixturePath, "utf8"),
+    "tronix-pypi-key-exfil",
+  ),
+);
+const tronixPyPIFinding = tronixPyPIResult.findings?.find(
+  (finding) => finding.rule_id === "tronix-pypi-private-key-exfil-ioc",
+);
+if (
+  !tronixPyPIFinding ||
+  tronixPyPIFinding.excerpt?.includes(
+    "68076f26e81df7060eba3e58.mockapi.io",
+  ) ||
+  tronixPyPIFinding.excerpt?.includes("synthetic_tronix_marker") ||
+  !Array.isArray(tronixPyPIFinding.cve_refs) ||
+  tronixPyPIFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Tronix PyPI fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(tronixPyPIResult)}`,
   );
   process.exit(2);
 }

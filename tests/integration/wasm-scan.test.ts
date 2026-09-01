@@ -108,6 +108,8 @@ const FIXTURE_SIYUAN = "tests/fixtures/dirty-siyuan-conf.json";
 const FIXTURE_OPENCLAW_62199 = "tests/fixtures/dirty-openclaw-cve-2026-62199-package.json";
 const FIXTURE_OPENCLAW_DASHBOARD =
   "tests/fixtures/dirty-openclaw-dashboard-notifications.html";
+const FIXTURE_MINI_SHAI_HULUD_UNTRUSTED_PUBLISH_WORKFLOW =
+  "tests/fixtures/mini-shai-hulud-untrusted-publish-workflow.yml";
 const MINI_SHAI_HULUD_OPENAPI_CODEGEN_FIXTURES = [
   [
     "tests/fixtures/mini-shai-hulud-openapi-codegen-payload.js",
@@ -933,6 +935,23 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       expect(campaign.cve_refs).toEqual([]);
     },
   );
+
+  it("flags the Mini Shai-Hulud untrusted npm publish workflow", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_MINI_SHAI_HULUD_UNTRUSTED_PUBLISH_WORKFLOW, "utf8"),
+      "mini-shai-hulud-untrusted-publish-workflow",
+    );
+    const result = JSON.parse(raw);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) =>
+        f.rule_id === "mini-shai-hulud-untrusted-publish-workflow",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("gha-workflow");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.cve_refs).toEqual([]);
+  });
 
   it("returns zero findings on clean input without crashing", () => {
     const raw = scan('{"mcpServers": {}}', "mcp");

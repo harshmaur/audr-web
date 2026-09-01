@@ -278,6 +278,10 @@ const miniShaiHuludOpenAPICodegenFixtures = [
     "package.json preinstall launcher",
   ],
 ];
+const miniShaiHuludUntrustedPublishWorkflowFixturePath = join(
+  root,
+  "tests/fixtures/mini-shai-hulud-untrusted-publish-workflow.yml",
+);
 
 // Load Go's wasm_exec runtime shim. It registers itself on globalThis.
 await import(`file://${wasmExecPath}`);
@@ -1147,6 +1151,29 @@ for (const [fixture, hint, label] of miniShaiHuludOpenAPICodegenFixtures) {
     );
     process.exit(2);
   }
+}
+
+const miniShaiHuludWorkflowResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(miniShaiHuludUntrustedPublishWorkflowFixturePath, "utf8"),
+    "mini-shai-hulud-untrusted-publish-workflow",
+  ),
+);
+const miniShaiHuludWorkflowFinding = miniShaiHuludWorkflowResult.findings?.find(
+  (finding) =>
+    finding.rule_id === "mini-shai-hulud-untrusted-publish-workflow",
+);
+if (
+  !miniShaiHuludWorkflowFinding ||
+  miniShaiHuludWorkflowResult.format_detected !== "gha-workflow" ||
+  miniShaiHuludWorkflowFinding.severity !== "critical" ||
+  !Array.isArray(miniShaiHuludWorkflowFinding.cve_refs) ||
+  miniShaiHuludWorkflowFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Mini Shai-Hulud untrusted publish workflow fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(miniShaiHuludWorkflowResult)}`,
+  );
+  process.exit(2);
 }
 
 console.log(

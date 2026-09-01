@@ -83,6 +83,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/package.json"
 	case "mcp", "mcp-config":
 		return "/synth/.mcp.json"
+	case "gha", "gha-workflow", "mini-shai-hulud-untrusted-publish-workflow":
+		return "/synth/.github/workflows/release.yml"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":
 		return "/synth/openapi.yaml"
 	case "requirements", "requirements-txt", "pypi":

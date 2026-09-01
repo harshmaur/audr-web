@@ -219,6 +219,10 @@ const tronixPyPIFixturePath = join(
   root,
   "tests/fixtures/tronix-pypi-private-key-exfil.py",
 );
+const spaysrbdataDiscordNVFixturePath = join(
+  root,
+  "tests/fixtures/spaysrbdata-discordnv-infostealer.py",
+);
 const pygameRenderkitFixtures = [
   [
     "tests/fixtures/pygame-renderkit-setup.py",
@@ -1106,6 +1110,33 @@ if (
 ) {
   console.error(
     `smoke: Tronix PyPI fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(tronixPyPIResult)}`,
+  );
+  process.exit(2);
+}
+
+const spaysrbdataDiscordNVResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(spaysrbdataDiscordNVFixturePath, "utf8"),
+    "spaysrbdata-discordnv",
+  ),
+);
+const spaysrbdataDiscordNVFinding = spaysrbdataDiscordNVResult.findings?.find(
+  (finding) => finding.rule_id === "spaysrbdata-discordnv-infostealer-ioc",
+);
+if (
+  !spaysrbdataDiscordNVFinding ||
+  typeof spaysrbdataDiscordNVFinding.excerpt !== "string" ||
+  spaysrbdataDiscordNVFinding.excerpt.length === 0 ||
+  spaysrbdataDiscordNVFinding.excerpt?.includes("1528403989983662194") ||
+  spaysrbdataDiscordNVFinding.excerpt?.includes(
+    "synthetic_discordnv_secret_never_expose",
+  ) ||
+  spaysrbdataDiscordNVFinding.excerpt?.includes("synthetic_webhook_secret") ||
+  !Array.isArray(spaysrbdataDiscordNVFinding.cve_refs) ||
+  spaysrbdataDiscordNVFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: spaysrbdata discordnv fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(spaysrbdataDiscordNVResult)}`,
   );
   process.exit(2);
 }

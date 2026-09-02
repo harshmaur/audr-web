@@ -58,6 +58,7 @@ var cveByRule = map[string][]string{
 	"claude-hook-shell-rce":                               {"CVE-2025-59536"},
 	"claude-skip-permission-prompt":                       {"CVE-2025-59536"},
 	"claude-mcp-auto-approve":                             {"CVE-2025-59536"},
+	"copilot-cli-nested-git-config-exec":                  {"CVE-2026-45033", "CVE-2026-19590", "CVE-2026-19592"},
 	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":                   {"CVE-2026-9135"},
@@ -75,6 +76,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.claude/settings.json"
 	case "codex", "codex-config":
 		return "/synth/.codex/config.toml"
+	case "git-config", "codex-git-config":
+		return "/synth/.git/config"
 	case "cursor", "cursor-permissions":
 		return "/synth/.cursor/permissions.json"
 	case "cursor-app", "cursor-app-package":

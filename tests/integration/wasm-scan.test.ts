@@ -11,6 +11,7 @@ const FIXTURE_CLAUDE = "tests/fixtures/dirty-claude-settings.json";
 const FIXTURE_CURSOR = "tests/fixtures/dirty-cursor-permissions.json";
 const FIXTURE_CURSOR_APP = "tests/fixtures/dirty-cursor-app-package.json";
 const FIXTURE_CODEX = "tests/fixtures/dirty-codex-config.toml";
+const FIXTURE_CODEX_GIT_CONFIG = "tests/fixtures/dirty-codex-git-config";
 const FIXTURE_KIOTA = "tests/fixtures/dirty-kiota-openapi.yaml";
 const FIXTURE_LANGFLOW = "tests/fixtures/dirty-langflow-requirements.txt";
 const FIXTURE_MRMUSTARD = "tests/fixtures/dirty-mrmustard-init.py";
@@ -178,6 +179,19 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     );
     expect(documentAPI).toBeTruthy();
     expect(documentAPI.cve_refs).toContain("CVE-2026-50027");
+  });
+
+  it("flags Codex fsmonitor and hook execution CVEs from repository-local Git config", () => {
+    const raw = scan(readFileSync(FIXTURE_CODEX_GIT_CONFIG, "utf8"), "git-config");
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("git-config");
+    const gitConfigFinding = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "copilot-cli-nested-git-config-exec",
+    );
+    expect(gitConfigFinding).toBeTruthy();
+    expect(gitConfigFinding.cve_refs).toEqual(
+      expect.arrayContaining(["CVE-2026-45033", "CVE-2026-19590", "CVE-2026-19592"]),
+    );
   });
 
   it("flags the Claude hooks RCE on a dirty Claude settings file", () => {

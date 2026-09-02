@@ -1,21 +1,53 @@
 {
-  "generated_at": "2026-08-15T16:31:45Z",
-  "source_last_discovery_at": "2026-08-15",
-  "source_entry_count": 704,
-  "public_entry_count": 146,
+  "generated_at": "2026-09-02T16:35:33Z",
+  "source_last_discovery_at": "2026-09-02",
+  "source_entry_count": 798,
+  "public_entry_count": 148,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 558,
+  "excluded_public_safe_candidate_count": 650,
   "excluded_status_counts": {
-    "osv_covered": 284,
-    "not_auditable": 23,
+    "osv_covered": 289,
+    "not_auditable": 25,
     "duplicate": 1,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
-  "excluded_unknown_severity_count": 2,
-  "enriched_from_cves_json_count": 129,
+  "excluded_unknown_severity_count": 6,
+  "enriched_from_cves_json_count": 131,
   "entries": [
+    {
+      "cve_id": "CVE-2026-19592",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenAI",
+      "product": "OpenAI Codex Git fsmonitor handling",
+      "published_date": "2026-09-01",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "agent config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19592",
+      "summary_short": "OpenAI Codex CLI and Desktop trusted repository-local core.fsmonitor while collecting Git metadata, allowing preserved configs to launch an attacker helper.",
+      "audr_rule_id": "copilot-cli-nested-git-config-exec"
+    },
+    {
+      "cve_id": "CVE-2026-19590",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "OpenAI",
+      "product": "OpenAI Codex Desktop Git hook handling",
+      "published_date": "2026-09-01",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "Codex"
+      ],
+      "local_signal_category": "plugin/hook config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19590",
+      "summary_short": "OpenAI Codex Desktop trusted repository-local core.hooksPath during automated Git operations, allowing preserved configs to launch malicious hooks.",
+      "audr_rule_id": "copilot-cli-nested-git-config-exec"
+    },
     {
       "cve_id": "CVE-2026-50027",
       "status": "shipped",
@@ -23,7 +55,7 @@
       "vendor": "doobidoo",
       "product": "mcp-memory-service document API",
       "published_date": "2026-08-14",
-      "last_seen_at": "2026-08-15",
+      "last_seen_at": "2026-08-21",
       "keywords": [
         "MCP server"
       ],
@@ -39,7 +71,7 @@
       "vendor": "FlowiseAI",
       "product": "Flowise Custom MCP stdio",
       "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-14",
+      "last_seen_at": "2026-08-20",
       "keywords": [
         "Roo Code"
       ],
@@ -2182,190 +2214,186 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-73846",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "onData / Andrea Borruso",
-      "product": "CKAN MCP cache-key canonicalization collision",
-      "published_date": "2026-08-14",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "source code",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73846",
-      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, canonicalizeParams in src/utils/cache.ts serializes request parameters with…"
-    },
-    {
-      "cve_id": "CVE-2026-73845",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "onData / Andrea Borruso",
-      "product": "CKAN MCP MQA server allowlist bypass",
-      "published_date": "2026-08-14",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "source code",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73845",
-      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, the ckan_get_mqa_quality and ckan_get_mqa_quality_details tools in…"
-    },
-    {
-      "cve_id": "CVE-2026-73844",
+      "cve_id": "CVE-2026-82905",
       "status": "actionable",
       "severity": "low",
-      "vendor": "onData / Andrea Borruso",
-      "product": "CKAN MCP verbose upstream error disclosure",
-      "published_date": "2026-08-14",
-      "last_seen_at": "2026-08-15",
+      "vendor": "sdcb",
+      "product": "chats MCP fetch-tools endpoint",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73844",
-      "summary_short": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, error paths reflect raw upstream response bodies and internal exception…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82905",
+      "summary_short": "A vulnerability was detected in sdcb chats up to 1.12.0. This affects the function McpController of the file…"
     },
     {
-      "cve_id": "CVE-2026-49986",
+      "cve_id": "CVE-2026-82862",
       "status": "actionable",
       "severity": "high",
-      "vendor": "cdeust",
-      "product": "Cortex MCP untrusted CLAUDE_PROJECT_DIR bootstrap execution",
-      "published_date": "2026-08-14",
-      "last_seen_at": "2026-08-15",
+      "vendor": "Hulumi",
+      "product": "hulumi-threat-model Claude Code skill",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
       "keywords": [
-        "Claude Code",
-        "MCP server",
-        "Roo Code",
-        "developer tool"
+        "Roo Code"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49986",
-      "summary_short": "The Cortex MCP server (`neuro-cortex-memory`), a cross-platform persistent memory MCP, prior to version 3.17.1 treats the `CLAUDE_PROJECT_DIR` environment…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82862",
+      "summary_short": "Hulumi versions before v1.3.2 resolve the threat-model helper script from an unsafe root, allowing workspace files to shadow the intended helper script.…"
     },
     {
-      "cve_id": "CVE-2026-73614",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Network-AI",
-      "product": "ClaudeHookBridge deny-pattern truncation bypass",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73614",
-      "summary_short": "Network-AI ClaudeHookBridge before 5.15.1 truncates the target string to 500 characters before evaluating denyPatterns, while Claude Code executes the full…"
-    },
-    {
-      "cve_id": "CVE-2026-49857",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "ymw0407",
-      "product": "auth-fetch-mcp IPv4-mapped IPv6 loopback SSRF bypass",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49857",
-      "summary_short": "auth-fetch-mcp is an MCP server that lets AI assistants fetch content from authenticated web pages. Version 3.0.1 implements SSRF protection in…"
-    },
-    {
-      "cve_id": "CVE-2026-49856",
+      "cve_id": "CVE-2026-82579",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "vmoranv",
-      "product": "@jshookmcp/jshook ICMP/traceroute SSRF authorization bypass",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
+      "vendor": "ash-project",
+      "product": "ash_ai",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-08-31",
+      "keywords": [
+        "ash_ai",
+        "AI agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82579",
+      "summary_short": "ash_ai 0.6.0 through 0.8.2 can recurse with an unchanged conversation after invalid or already-processed tool calls are filtered out, allowing…"
+    },
+    {
+      "cve_id": "CVE-2026-82564",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "ash-project",
+      "product": "ash_ai",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-08-31",
+      "keywords": [
+        "ash_ai",
+        "AI agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82564",
+      "summary_short": "ash_ai 0.6.0 through 0.8.2 builds update/destroy identity filters directly from raw tool arguments, allowing operator maps or missing identity keys to…"
+    },
+    {
+      "cve_id": "CVE-2026-81315",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "ash-project",
+      "product": "ash_ai AshAi.Mcp.Server origin validation",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81315",
+      "summary_short": "ash_ai 0.8.0 through 0.8.2 lets a malicious web page bypass the local MCP server's DNS-rebinding origin check because the default allowed_origins path…"
+    },
+    {
+      "cve_id": "CVE-2026-79750",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79750",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79749",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79749",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79748",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79748",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79747",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79747",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79746",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79746",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79745",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79745",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
+    },
+    {
+      "cve_id": "CVE-2026-79744",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-08-31",
+      "last_seen_at": "2026-09-02",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "source code",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49856",
-      "summary_short": "@jshookmcp/jshook is an MCP server that gives AI agents tools for JavaScript analysis and security research. In version 0.3.1, he network domain has a…"
-    },
-    {
-      "cve_id": "CVE-2026-19753",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "emekaokoye",
-      "product": "mcp-rdf-explorer explore_url SSRF",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "Model Context Protocol",
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19753",
-      "summary_short": "A vulnerability was detected in Model Context Protocol mcp-rdf-explorer 1.0.0. Affected is the function explore_url of the file…"
-    },
-    {
-      "cve_id": "CVE-2026-19752",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "EnzoVezzaro",
-      "product": "mcp-dominican-layer parse-pdf SSRF",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19752",
-      "summary_short": "A vulnerability was found in EnzoVezzaro mcp-dominican-layer up to 39dd373786712650097ad31db27d5c477c8f9c82. This affects the function parse-pdf of the file…"
-    },
-    {
-      "cve_id": "CVE-2026-19751",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "EnzoVezzaro",
-      "product": "mcp-dominican-layer parse-csv SSRF",
-      "published_date": "2026-08-13",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "MCP server config",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19751",
-      "summary_short": "A flaw has been found in EnzoVezzaro mcp-dominican-layer up to 39dd373786712650097ad31db27d5c477c8f9c82. The affected element is the function axios.get of…"
-    },
-    {
-      "cve_id": "CVE-2026-73498",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "sooperset",
-      "product": "mcp-atlassian Confluence attachment upload arbitrary file read",
-      "published_date": "2026-08-12",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "Model Context Protocol",
-        "MCP server"
-      ],
-      "local_signal_category": "source code",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73498",
-      "summary_short": "MCP Atlassian is a Model Context Protocol server for Confluence and Jira. Prior to 0.22.0, confluence_upload_attachment passes the MCP client-supplied…"
-    },
-    {
-      "cve_id": "CVE-2026-73222",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "davila7",
-      "product": "Claude Code Templates Studio unauthenticated shell injection",
-      "published_date": "2026-08-11",
-      "last_seen_at": "2026-08-15",
-      "keywords": [
-        "Claude Code",
-        "developer tool"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73222",
-      "summary_short": "Claude Code Templates is a CLI tool for configuring and monitoring Claude Code. Prior to 1.29.4, the Claude Code Studio server launched by the --studio…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79744",
+      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
     }
   ]
 }

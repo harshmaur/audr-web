@@ -1,5 +1,27 @@
 [
   {
+    "cve_id": "CVE-2026-19592",
+    "product": "OpenAI Codex Git fsmonitor handling",
+    "vendor": "OpenAI",
+    "severity": "high",
+    "published_date": "2026-09-01",
+    "summary_short": "OpenAI Codex CLI and Desktop trusted repository-local core.fsmonitor while collecting Git metadata, allowing preserved configs to launch an attacker helper.",
+    "visceral_consequence": "opening an attacker-prepared repository can run code outside Codex's sandbox and approval flow with the developer's privileges",
+    "scope_phrase": "where repositories arrive with a preserved .git/config that sets core.fsmonitor to an executable helper",
+    "audr_rule_id": "copilot-cli-nested-git-config-exec"
+  },
+  {
+    "cve_id": "CVE-2026-19590",
+    "product": "OpenAI Codex Desktop Git hook handling",
+    "vendor": "OpenAI",
+    "severity": "high",
+    "published_date": "2026-09-01",
+    "summary_short": "OpenAI Codex Desktop trusted repository-local core.hooksPath during automated Git operations, allowing preserved configs to launch malicious hooks.",
+    "visceral_consequence": "opening an attacker-prepared repository can run a malicious Git hook outside Codex's sandbox and approval flow with the developer's privileges",
+    "scope_phrase": "where repositories arrive with a preserved .git/config that points core.hooksPath to attacker-controlled hooks",
+    "audr_rule_id": "copilot-cli-nested-git-config-exec"
+  },
+  {
     "cve_id": "CVE-2026-50027",
     "product": "mcp-memory-service document API",
     "vendor": "doobidoo",

@@ -91,6 +91,10 @@ const amazonInspectorUibabaiFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-uibabai.js",
 );
+const amazonInspectorTailwindFluidStylesFixturePath = join(
+  root,
+  "tests/fixtures/amazon-inspector-tailwind-fluid-styles.js",
+);
 const amazonInspectorSimpleDateFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-simple-date-formatter.json",
@@ -858,6 +862,36 @@ if (
 ) {
   console.error(
     `smoke: Amazon Inspector uibabai fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorUibabaiResult)}`,
+  );
+  process.exit(2);
+}
+
+const amazonInspectorTailwindFluidStylesResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(amazonInspectorTailwindFluidStylesFixturePath, "utf8"),
+    "amazon-inspector-tailwind-fluid-styles",
+  ),
+);
+const amazonInspectorTailwindFluidStylesFinding =
+  amazonInspectorTailwindFluidStylesResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+const amazonInspectorTailwindFluidStylesSerialized = JSON.stringify(
+  amazonInspectorTailwindFluidStylesResult,
+).toLowerCase();
+if (
+  !amazonInspectorTailwindFluidStylesFinding ||
+  !amazonInspectorTailwindFluidStylesFinding.excerpt ||
+  amazonInspectorTailwindFluidStylesSerialized.includes(
+    "0xa322e5f3d311d3080e6f0121063e9adc2490ef1a",
+  ) ||
+  amazonInspectorTailwindFluidStylesSerialized.includes("/0x/cls") ||
+  amazonInspectorTailwindFluidStylesSerialized.includes("/0x/ls") ||
+  !Array.isArray(amazonInspectorTailwindFluidStylesFinding.cve_refs) ||
+  amazonInspectorTailwindFluidStylesFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Amazon Inspector tailwindcss-fluid-styles fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorTailwindFluidStylesResult)}`,
   );
   process.exit(2);
 }

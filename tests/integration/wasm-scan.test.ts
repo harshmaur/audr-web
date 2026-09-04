@@ -55,6 +55,20 @@ const FIXTURE_AMAZON_INSPECTOR_AGENTHUB_AI =
   "tests/fixtures/amazon-inspector-agenthub-ai.js";
 const FIXTURE_AMAZON_INSPECTOR_UIBABAI =
   "tests/fixtures/amazon-inspector-uibabai.js";
+const AMAZON_INSPECTOR_TAILWIND_STYLE_FIXTURES = [
+  [
+    "tests/fixtures/amazon-inspector-tailwind-container-queries.js",
+    "amazon-inspector-tailwind-container-queries",
+  ],
+  [
+    "tests/fixtures/amazon-inspector-tailwind-scrollbar-styles.js",
+    "amazon-inspector-tailwind-scrollbar-styles",
+  ],
+  [
+    "tests/fixtures/amazon-inspector-tailwindcss-animate-styles.js",
+    "amazon-inspector-tailwindcss-animate-styles",
+  ],
+];
 const FIXTURE_AMAZON_INSPECTOR_SIMPLE_DATE =
   "tests/fixtures/amazon-inspector-simple-date-formatter.json";
 const FIXTURE_AMAZON_INSPECTOR_CRYPTOSTOCK =
@@ -786,6 +800,27 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(campaign.severity).toBe("critical");
     expect(campaign.cve_refs).toEqual([]);
   });
+
+  it.each(AMAZON_INSPECTOR_TAILWIND_STYLE_FIXTURES)(
+    "flags the Amazon Inspector %s self-erasing EtherHiding IOC",
+    (fixture, hint) => {
+      const result = JSON.parse(scan(readFileSync(fixture, "utf8"), hint));
+      const campaign = result.findings.find(
+        (f: { rule_id: string }) => f.rule_id === "amazon-inspector-npm-malware-ioc",
+      );
+      expect(campaign).toBeTruthy();
+      expect(result.format_detected).toBe("npm-malware-artifact");
+      expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+      expect(campaign.severity).toBe("critical");
+      expect(campaign.excerpt).toBeTruthy();
+      expect(JSON.stringify(result).toLowerCase()).not.toContain(
+        "0xa322e5f3d311d3080e6f0121063e9adc2490ef1a",
+      );
+      expect(JSON.stringify(result)).not.toContain("/0x/cls");
+      expect(JSON.stringify(result)).not.toContain("/0x/ls");
+      expect(campaign.cve_refs).toEqual([]);
+    },
+  );
 
   it("flags the Amazon Inspector simple-date-formatter reverse-shell IOC", () => {
     const raw = scan(

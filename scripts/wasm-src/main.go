@@ -214,6 +214,12 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/uibabai/index.js"
 	case "amazon-inspector-tailwind-fluid-styles":
 		return "/synth/node_modules/tailwindcss-fluid-styles/src/index.js"
+	case "amazon-inspector-tailwind-container-queries":
+		return "/synth/node_modules/tailwind-container-queries/dist/index.js"
+	case "amazon-inspector-tailwind-scrollbar-styles":
+		return "/synth/node_modules/tailwind-scrollbar-styles/dist/index.js"
+	case "amazon-inspector-tailwindcss-animate-styles":
+		return "/synth/node_modules/tailwindcss-animate-styles/index.js"
 	case "amazon-inspector-simple-date-formatter", "amazon-inspector-simple-date":
 		return "/synth/node_modules/simple-date-formatter-new-9/package.json"
 	case "amazon-inspector-cryptostock":

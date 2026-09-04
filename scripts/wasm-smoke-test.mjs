@@ -95,6 +95,23 @@ const amazonInspectorTailwindFluidStylesFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-tailwind-fluid-styles.js",
 );
+const amazonInspectorTailwindStyleFixtures = [
+  [
+    "tests/fixtures/amazon-inspector-tailwind-container-queries.js",
+    "amazon-inspector-tailwind-container-queries",
+    "tailwind-container-queries",
+  ],
+  [
+    "tests/fixtures/amazon-inspector-tailwind-scrollbar-styles.js",
+    "amazon-inspector-tailwind-scrollbar-styles",
+    "tailwind-scrollbar-styles",
+  ],
+  [
+    "tests/fixtures/amazon-inspector-tailwindcss-animate-styles.js",
+    "amazon-inspector-tailwindcss-animate-styles",
+    "tailwindcss-animate-styles",
+  ],
+];
 const amazonInspectorSimpleDateFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-simple-date-formatter.json",
@@ -898,6 +915,30 @@ if (
     `smoke: Amazon Inspector tailwindcss-fluid-styles fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(amazonInspectorTailwindFluidStylesResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, packageName] of amazonInspectorTailwindStyleFixtures) {
+  const variantResult = JSON.parse(
+    globalThis.audrScan(readFileSync(join(root, fixture), "utf8"), hint),
+  );
+  const variantFinding = variantResult.findings?.find(
+    (finding) => finding.rule_id === "amazon-inspector-npm-malware-ioc",
+  );
+  const serialized = JSON.stringify(variantResult).toLowerCase();
+  if (
+    !variantFinding ||
+    !variantFinding.excerpt ||
+    serialized.includes("0xa322e5f3d311d3080e6f0121063e9adc2490ef1a") ||
+    serialized.includes("/0x/cls") ||
+    serialized.includes("/0x/ls") ||
+    !Array.isArray(variantFinding.cve_refs) ||
+    variantFinding.cve_refs.length !== 0
+  ) {
+    console.error(
+      `smoke: Amazon Inspector ${packageName} fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(variantResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 const amazonInspectorSimpleDateResult = JSON.parse(

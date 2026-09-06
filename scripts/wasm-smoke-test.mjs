@@ -244,6 +244,10 @@ const tronixPyPITrongridiFixturePath = join(
   root,
   "tests/fixtures/tronix-pypi-trongridi-private-key-exfil.py",
 );
+const tronixPyPITrongridewFixturePath = join(
+  root,
+  "tests/fixtures/tronix-pypi-trongridew-private-key-exfil.py",
+);
 const spaysrbdataDiscordNVFixturePath = join(
   root,
   "tests/fixtures/spaysrbdata-discordnv-infostealer.py",
@@ -1215,6 +1219,32 @@ if (
 ) {
   console.error(
     `smoke: Tronix trongridi fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(tronixPyPITrongridiResult)}`,
+  );
+  process.exit(2);
+}
+
+const tronixPyPITrongridewResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(tronixPyPITrongridewFixturePath, "utf8"),
+    "tronix-pypi-trongridew-key-exfil",
+  ),
+);
+const tronixPyPITrongridewFinding = tronixPyPITrongridewResult.findings?.find(
+  (finding) => finding.rule_id === "tronix-pypi-private-key-exfil-ioc",
+);
+if (
+  !tronixPyPITrongridewFinding ||
+  typeof tronixPyPITrongridewFinding.excerpt !== "string" ||
+  tronixPyPITrongridewFinding.excerpt.length === 0 ||
+  tronixPyPITrongridewFinding.excerpt?.includes(
+    "66c0dc0bba6f27ca9a57c4bf.mockapi.io",
+  ) ||
+  tronixPyPITrongridewFinding.excerpt?.includes("synthetic_trongridew_marker") ||
+  !Array.isArray(tronixPyPITrongridewFinding.cve_refs) ||
+  tronixPyPITrongridewFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Tronix trongridew fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(tronixPyPITrongridewResult)}`,
   );
   process.exit(2);
 }

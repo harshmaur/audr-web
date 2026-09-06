@@ -58,6 +58,7 @@ var cveByRule = map[string][]string{
 	"claude-hook-shell-rce":                               {"CVE-2025-59536"},
 	"claude-skip-permission-prompt":                       {"CVE-2025-59536"},
 	"claude-mcp-auto-approve":                             {"CVE-2025-59536"},
+	"autoagent-unauth-tcp-command-server":                 {"CVE-2026-86124"},
 	"copilot-cli-nested-git-config-exec":                  {"CVE-2026-45033", "CVE-2026-19590", "CVE-2026-19592"},
 	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
@@ -86,6 +87,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/package.json"
 	case "mcp", "mcp-config":
 		return "/synth/.mcp.json"
+	case "autoagent", "autoagent-source", "autoagent-tcp-server":
+		return "/synth/AutoAgent/autoagent/environment/tcp_server.py"
 	case "gha", "gha-workflow", "mini-shai-hulud-untrusted-publish-workflow":
 		return "/synth/.github/workflows/release.yml"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":

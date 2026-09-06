@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-86124",
+    "product": "AutoAgent sandbox TCP command server",
+    "vendor": "HKUDS",
+    "severity": "critical",
+    "published_date": "2026-09-05",
+    "summary_short": "AutoAgent's sandbox TCP server binds to every interface, accepts commands without authentication, and executes received input through a shell.",
+    "visceral_consequence": "a network attacker can execute arbitrary commands as root inside the container and reach files in the bind-mounted host workspace",
+    "scope_phrase": "where AutoAgent source or a copied runtime tcp_server.py contains the published all-interface socket-to-shell data flow",
+    "audr_rule_id": "autoagent-unauth-tcp-command-server"
+  },
+  {
     "cve_id": "CVE-2026-19592",
     "product": "OpenAI Codex Git fsmonitor handling",
     "vendor": "OpenAI",

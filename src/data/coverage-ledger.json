@@ -1,21 +1,37 @@
 {
-  "generated_at": "2026-09-02T16:35:33Z",
-  "source_last_discovery_at": "2026-09-02",
-  "source_entry_count": 798,
-  "public_entry_count": 148,
+  "generated_at": "2026-09-06T16:57:37Z",
+  "source_last_discovery_at": "2026-09-06",
+  "source_entry_count": 817,
+  "public_entry_count": 149,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 650,
+  "excluded_public_safe_candidate_count": 668,
   "excluded_status_counts": {
-    "osv_covered": 289,
-    "not_auditable": 25,
+    "osv_covered": 291,
+    "not_auditable": 24,
     "duplicate": 1,
     "blocked": 6,
     "irrelevant": 124
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 6,
-  "enriched_from_cves_json_count": 131,
+  "enriched_from_cves_json_count": 132,
   "entries": [
+    {
+      "cve_id": "CVE-2026-86124",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "HKUDS",
+      "product": "AutoAgent sandbox TCP command server",
+      "published_date": "2026-09-05",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "Roo Code"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86124",
+      "summary_short": "AutoAgent's sandbox TCP server binds to every interface, accepts commands without authentication, and executes received input through a shell.",
+      "audr_rule_id": "autoagent-unauth-tcp-command-server"
+    },
     {
       "cve_id": "CVE-2026-19592",
       "status": "shipped",
@@ -2214,13 +2230,133 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-86122",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "rowboatlabs",
+      "product": "Rowboat custom MCP server and webhook URLs",
+      "published_date": "2026-09-05",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86122",
+      "summary_short": "Rowboat through 0.9.1 validates only the HTTP/HTTPS scheme for custom MCP server and webhook URLs, allowing authenticated users to make the service connect…"
+    },
+    {
+      "cve_id": "CVE-2026-85787",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Amazon Web Services",
+      "product": "awslabs.postgres-mcp-server SQL validation",
+      "published_date": "2026-09-04",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85787",
+      "summary_short": "awslabs postgres-mcp-server before 1.1.7 incompletely rejects dangerous SQL, allowing crafted tool input to modify data beyond the server's intended…"
+    },
+    {
+      "cve_id": "CVE-2026-85685",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "agentscope-ai",
+      "product": "AgentScope LocalWorkspace.add_skill",
+      "published_date": "2026-09-04",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "agent skills"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85685",
+      "summary_short": "AgentScope through 2.0.7.post1 accepts an unconfined skill_path in LocalWorkspace.add_skill and copies arbitrary server directories into the agent…"
+    },
+    {
+      "cve_id": "CVE-2026-85674",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Aider-AI",
+      "product": "aider repository-local configuration",
+      "published_date": "2026-09-04",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "Aider"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85674",
+      "summary_short": "aider through 0.86.2 automatically loads repository-root .aider.conf.yml; an attacker-prepared repository can configure test-cmd or lint-cmd shell commands…"
+    },
+    {
+      "cve_id": "CVE-2026-85666",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "ogx-ai",
+      "product": "OGX MCP tool server_url handling",
+      "published_date": "2026-09-04",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85666",
+      "summary_short": "OGX 1.3.1 accepts an MCP tool server_url in the unauthenticated OpenAI-compatible /v1/responses endpoint and opens server-side MCP connections without…"
+    },
+    {
+      "cve_id": "CVE-2026-77822",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "IBM",
+      "product": "ContextForge MCP Gateway A2A invocation endpoint",
+      "published_date": "2026-09-04",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77822",
+      "summary_short": "IBM ContextForge MCP Gateway through 1.0.8 does not pin the DNS-resolved address for POST /a2a/{agent_name}/invoke, allowing an authenticated low-privileged…"
+    },
+    {
+      "cve_id": "CVE-2026-85093",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "Cheshire Cat AI",
+      "product": "Cheshire Cat AI memory collection API",
+      "published_date": "2026-09-03",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "Cursor"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85093",
+      "summary_short": "Cheshire Cat AI's GET /memory/collections/{collection_id}/points endpoint fails to apply per-user filtering when retrieving episodic memory points.…"
+    },
+    {
+      "cve_id": "CVE-2026-84810",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "claude-world",
+      "product": "claude-skill-antivirus",
+      "published_date": "2026-09-02",
+      "last_seen_at": "2026-09-06",
+      "keywords": [
+        "Claude Code"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84810",
+      "summary_short": "claude-skill-antivirus fails to analyze executable files when scanning local skill directories, reading only SKILL.md while ignoring Python source,…"
+    },
+    {
       "cve_id": "CVE-2026-82905",
       "status": "actionable",
       "severity": "low",
       "vendor": "sdcb",
       "product": "chats MCP fetch-tools endpoint",
       "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
+      "last_seen_at": "2026-09-06",
       "keywords": [
         "MCP server"
       ],
@@ -2235,7 +2371,7 @@
       "vendor": "Hulumi",
       "product": "hulumi-threat-model Claude Code skill",
       "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
+      "last_seen_at": "2026-09-06",
       "keywords": [
         "Roo Code"
       ],
@@ -2274,126 +2410,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82564",
       "summary_short": "ash_ai 0.6.0 through 0.8.2 builds update/destroy identity filters directly from raw tool arguments, allowing operator maps or missing identity keys to…"
-    },
-    {
-      "cve_id": "CVE-2026-81315",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "ash-project",
-      "product": "ash_ai AshAi.Mcp.Server origin validation",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81315",
-      "summary_short": "ash_ai 0.8.0 through 0.8.2 lets a malicious web page bypass the local MCP server's DNS-rebinding origin check because the default allowed_origins path…"
-    },
-    {
-      "cve_id": "CVE-2026-79750",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79750",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79749",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79749",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79748",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79748",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79747",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79747",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79746",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79746",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79745",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79745",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
-    },
-    {
-      "cve_id": "CVE-2026-79744",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "samanhappy",
-      "product": "MCPHub",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-02",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "source code",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79744",
-      "summary_short": "MCPHub is a unified hub for centrally managing and dynamically orchestrating multiple MCP servers/APIs into separate endpoints with flexible routing…"
     }
   ]
 }

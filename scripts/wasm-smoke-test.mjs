@@ -256,6 +256,10 @@ const spaysrbdataDiscordNVFixturePath = join(
   root,
   "tests/fixtures/spaysrbdata-discordnv-infostealer.py",
 );
+const spaysrbdataMinecraftmodesFixturePath = join(
+  root,
+  "tests/fixtures/spaysrbdata-minecraftmodes-infostealer.py",
+);
 const pygameRenderkitFixtures = [
   [
     "tests/fixtures/pygame-renderkit-setup.py",
@@ -1297,6 +1301,38 @@ if (
 ) {
   console.error(
     `smoke: spaysrbdata discordnv fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(spaysrbdataDiscordNVResult)}`,
+  );
+  process.exit(2);
+}
+
+const spaysrbdataMinecraftmodesResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(spaysrbdataMinecraftmodesFixturePath, "utf8"),
+    "spaysrbdata-minecraftmodes",
+  ),
+);
+const spaysrbdataMinecraftmodesFinding =
+  spaysrbdataMinecraftmodesResult.findings?.find(
+    (finding) => finding.rule_id === "spaysrbdata-discordnv-infostealer-ioc",
+  );
+const spaysrbdataMinecraftmodesAttackerGets =
+  "This bounded package-root source marker matches minecraftmodes 0.3.3 from the spaysrbdata PyPI campaign. The published campaign evidence identifies Roblox cookie theft and exfiltration through a campaign endpoint. Package/version exposure is handled separately by OSV-Scanner.";
+if (
+  !spaysrbdataMinecraftmodesFinding ||
+  typeof spaysrbdataMinecraftmodesFinding.excerpt !== "string" ||
+  spaysrbdataMinecraftmodesFinding.excerpt.length === 0 ||
+  spaysrbdataMinecraftmodesFinding.excerpt?.includes("1528403989983662194") ||
+  spaysrbdataMinecraftmodesFinding.excerpt?.includes(
+    "synthetic_minecraftmodes_secret_never_expose",
+  ) ||
+  spaysrbdataMinecraftmodesFinding.excerpt?.includes("synthetic_webhook_secret") ||
+  spaysrbdataMinecraftmodesFinding.attacker_gets !==
+    spaysrbdataMinecraftmodesAttackerGets ||
+  !Array.isArray(spaysrbdataMinecraftmodesFinding.cve_refs) ||
+  spaysrbdataMinecraftmodesFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: spaysrbdata minecraftmodes fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(spaysrbdataMinecraftmodesResult)}`,
   );
   process.exit(2);
 }

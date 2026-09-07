@@ -115,6 +115,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/venv/lib/python3.12/site-packages/trongridew/client.py"
 	case "spaysrbdata-discordnv", "discordnv-pypi":
 		return "/synth/venv/lib/python3.12/site-packages/discordnv/main.py"
+	case "spaysrbdata-minecraftmodes", "minecraftmodes-pypi":
+		return "/synth/venv/lib/python3.12/site-packages/minecraftmodes/main.py"
 	case "pygame-renderkit", "pygame-renderkit-setup":
 		return "/synth/pygame-renderkit-1.2.0/setup.py"
 	case "pygame-renderkit-recon":

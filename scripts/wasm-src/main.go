@@ -89,6 +89,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.mcp.json"
 	case "autoagent", "autoagent-source", "autoagent-tcp-server":
 		return "/synth/AutoAgent/autoagent/environment/tcp_server.py"
+	case "ai-cli-relay", "ai-cli-relay-orbitron-tui":
+		return "/synth/node_modules/orbitron-tui/dist/api/chat.js"
 	case "gha", "gha-workflow", "mini-shai-hulud-untrusted-publish-workflow":
 		return "/synth/.github/workflows/release.yml"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":

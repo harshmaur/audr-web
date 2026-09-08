@@ -23,6 +23,10 @@ const autoAgentFixturePath = join(
   root,
   "tests/fixtures/autoagent-tcp-server.py",
 );
+const aiCLIRelayFixturePath = join(
+  root,
+  "tests/fixtures/ai-cli-relay-orbitron-tui.js",
+);
 const amazonInspectorFixturePath = join(
   root,
   "tests/fixtures/amazon-inspector-npm-malware.js",
@@ -391,6 +395,26 @@ if (
 ) {
   console.error(
     `smoke: AutoAgent TCP command-server fixture did not return the expected redacted CVE finding through real WASM: ${JSON.stringify(autoAgentResult)}`,
+  );
+  process.exit(2);
+}
+
+const aiCLIRelayResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(aiCLIRelayFixturePath, "utf8"),
+    "ai-cli-relay-orbitron-tui",
+  ),
+);
+const aiCLIRelayFinding = aiCLIRelayResult.findings?.find(
+  (finding) => finding.rule_id === "ai-cli-relay-campaign-ioc",
+);
+if (
+  !aiCLIRelayFinding ||
+  aiCLIRelayFinding.excerpt?.includes("synthetic-provider-secret-never-expose") ||
+  JSON.stringify(aiCLIRelayFinding.cve_refs) !== JSON.stringify([])
+) {
+  console.error(
+    `smoke: AI CLI relay fixture did not return the expected redacted non-CVE campaign finding through real WASM: ${JSON.stringify(aiCLIRelayResult)}`,
   );
   process.exit(2);
 }

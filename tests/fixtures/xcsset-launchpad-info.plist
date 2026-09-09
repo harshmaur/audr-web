@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist><dict>
+<key>CFBundleIdentifier</key><string>com.apple.launchpad.launcher</string>
+<key>SyntheticSecret</key><string>synthetic-xcsset-secret-never-expose</string>
+</dict></plist>

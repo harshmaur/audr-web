@@ -323,6 +323,28 @@ const miniShaiHuludOpenAPICodegenFixtures = [
     "package.json preinstall launcher",
   ],
 ];
+const xcssetDeveloperMachineFixtures = [
+  [
+    "tests/fixtures/xcsset-android-build.gradle.kts",
+    "xcsset-android-gradle",
+    "Android Gradle preBuild hook",
+  ],
+  [
+    "tests/fixtures/xcsset-ios-project.pbxproj",
+    "xcsset-xcode-project",
+    "Xcode PBXBuildRule",
+  ],
+  [
+    "tests/fixtures/xcsset-pre-commit.sh",
+    "xcsset-git-pre-commit",
+    "Git pre-commit decoder chain",
+  ],
+  [
+    "tests/fixtures/xcsset-launchpad-info.plist",
+    "xcsset-launchpad-cache-bundle",
+    "fake Launchpad cache bundle",
+  ],
+];
 const miniShaiHuludUntrustedPublishWorkflowFixturePath = join(
   root,
   "tests/fixtures/mini-shai-hulud-untrusted-publish-workflow.yml",
@@ -417,6 +439,25 @@ if (
     `smoke: AI CLI relay fixture did not return the expected redacted non-CVE campaign finding through real WASM: ${JSON.stringify(aiCLIRelayResult)}`,
   );
   process.exit(2);
+}
+
+for (const [fixture, hint, label] of xcssetDeveloperMachineFixtures) {
+  const xcssetResult = JSON.parse(
+    globalThis.audrScan(readFileSync(join(root, fixture), "utf8"), hint),
+  );
+  const xcssetFinding = xcssetResult.findings?.find(
+    (finding) => finding.rule_id === "xcsset-developer-machine-ioc",
+  );
+  if (
+    !xcssetFinding ||
+    xcssetFinding.excerpt?.includes("synthetic-xcsset-secret-never-expose") ||
+    JSON.stringify(xcssetFinding.cve_refs) !== JSON.stringify([])
+  ) {
+    console.error(
+      `smoke: XCSSET ${label} fixture did not return the expected redacted non-CVE campaign finding through real WASM: ${JSON.stringify(xcssetResult)}`,
+    );
+    process.exit(2);
+  }
 }
 
 const amazonInspectorText = readFileSync(amazonInspectorFixturePath, "utf8");

@@ -91,6 +91,14 @@ func formatHintToPath(hint string) string {
 		return "/synth/AutoAgent/autoagent/environment/tcp_server.py"
 	case "ai-cli-relay", "ai-cli-relay-orbitron-tui":
 		return "/synth/node_modules/orbitron-tui/dist/api/chat.js"
+	case "xcsset-android-gradle":
+		return "/synth/universal_file_viewer/example/android/app/build.gradle.kts"
+	case "xcsset-xcode-project":
+		return "/synth/universal_file_viewer/example/ios/Runner.xcodeproj/project.pbxproj"
+	case "xcsset-git-pre-commit":
+		return "/synth/project/.git/hooks/pre-commit"
+	case "xcsset-launchpad-cache-bundle":
+		return "/synth/Users/dev/Library/Caches/.com.apple.launchpad/Launchpad.app/Contents/Info.plist"
 	case "gha", "gha-workflow", "mini-shai-hulud-untrusted-publish-workflow":
 		return "/synth/.github/workflows/release.yml"
 	case "openapi", "swagger", "kiota", "kiota-openapi-spec":

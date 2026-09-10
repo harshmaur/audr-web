@@ -19,6 +19,10 @@ const root = join(here, "..");
 const wasmPath = join(root, "public/wasm/audr.wasm");
 const wasmExecPath = join(root, "public/wasm/wasm_exec.js");
 const fixturePath = join(root, "tests/fixtures/dirty-mcp.json");
+const deepLiveCamFixturePath = join(
+  root,
+  "tests/fixtures/deep-live-cam-pypls-requirements.txt",
+);
 const autoAgentFixturePath = join(
   root,
   "tests/fixtures/autoagent-tcp-server.py",
@@ -1464,6 +1468,31 @@ if (
 ) {
   console.error(
     `smoke: Mini Shai-Hulud untrusted publish workflow fixture did not return the expected non-CVE finding through real WASM: ${JSON.stringify(miniShaiHuludWorkflowResult)}`,
+  );
+  process.exit(2);
+}
+
+const deepLiveCamResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(deepLiveCamFixturePath, "utf8"),
+    "requirements",
+  ),
+);
+const deepLiveCamFinding = deepLiveCamResult.findings?.find(
+  (finding) =>
+    finding.rule_id === "deep-live-cam-pypls-requests-git-dependency",
+);
+if (
+  !deepLiveCamFinding ||
+  deepLiveCamResult.format_detected !== "dependency-manifest" ||
+  deepLiveCamFinding.severity !== "critical" ||
+  deepLiveCamFinding.excerpt?.includes("synthetic_deep_live_cam_secret") ||
+  deepLiveCamFinding.excerpt?.includes("43f402baa9d") ||
+  !Array.isArray(deepLiveCamFinding.cve_refs) ||
+  deepLiveCamFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: Deep-Live-Cam pypls/requests fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(deepLiveCamResult)}`,
   );
   process.exit(2);
 }

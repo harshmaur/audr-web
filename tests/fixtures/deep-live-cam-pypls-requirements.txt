@@ -1,0 +1,1 @@
+requests @ git+https://github.com/pypls/requests.git@43f402baa9d00d986d2be3e3cd6d1a3e69ec1f8f?token=synthetic_deep_live_cam_secret

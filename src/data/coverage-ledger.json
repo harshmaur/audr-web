@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-06T16:57:37Z",
-  "source_last_discovery_at": "2026-09-06",
-  "source_entry_count": 817,
-  "public_entry_count": 149,
+  "generated_at": "2026-09-11T09:43:49Z",
+  "source_last_discovery_at": "2026-09-11",
+  "source_entry_count": 849,
+  "public_entry_count": 150,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 668,
+  "excluded_public_safe_candidate_count": 699,
   "excluded_status_counts": {
-    "osv_covered": 291,
+    "osv_covered": 293,
     "not_auditable": 24,
     "duplicate": 1,
     "blocked": 6,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 6,
-  "enriched_from_cves_json_count": 132,
+  "enriched_from_cves_json_count": 133,
   "entries": [
+    {
+      "cve_id": "CVE-2026-87911",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "Amazon Web Services",
+      "product": "AWS PostgreSQL MCP Server read-only SQL validation",
+      "published_date": "2026-09-09",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87911",
+      "summary_short": "awslabs.postgres-mcp-server before 1.1.7 lets crafted COPY TO PROGRAM SQL escape its default read-only validator and execute operating-system commands on…",
+      "audr_rule_id": "postgres-mcp-copy-program-command-injection"
+    },
     {
       "cve_id": "CVE-2026-86124",
       "status": "shipped",
@@ -23,11 +39,11 @@
       "vendor": "HKUDS",
       "product": "AutoAgent sandbox TCP command server",
       "published_date": "2026-09-05",
-      "last_seen_at": "2026-09-06",
+      "last_seen_at": "2026-09-11",
       "keywords": [
         "Roo Code"
       ],
-      "local_signal_category": "source code",
+      "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86124",
       "summary_short": "AutoAgent's sandbox TCP server binds to every interface, accepts commands without authentication, and executes received input through a shell.",
       "audr_rule_id": "autoagent-unauth-tcp-command-server"
@@ -39,7 +55,7 @@
       "vendor": "OpenAI",
       "product": "OpenAI Codex Git fsmonitor handling",
       "published_date": "2026-09-01",
-      "last_seen_at": "2026-09-02",
+      "last_seen_at": "2026-09-08",
       "keywords": [
         "Codex"
       ],
@@ -55,7 +71,7 @@
       "vendor": "OpenAI",
       "product": "OpenAI Codex Desktop Git hook handling",
       "published_date": "2026-09-01",
-      "last_seen_at": "2026-09-02",
+      "last_seen_at": "2026-09-08",
       "keywords": [
         "Codex"
       ],
@@ -2230,186 +2246,186 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
-      "cve_id": "CVE-2026-86122",
+      "cve_id": "CVE-2026-88938",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "knowns-dev",
+      "product": "knowns code.find MCP tool through 0.33.0",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "direct_product_followup",
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88938",
+      "summary_short": "knowns through 0.33.0 fails to confine the path argument of the code.find MCP tool to the project root, allowing AI agent sessions to read source files…"
+    },
+    {
+      "cve_id": "CVE-2026-88937",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "knowns-dev",
+      "product": "knowns code-generation template engine through 0.33.0",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "direct_product_followup",
+        "AI coding agent"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88937",
+      "summary_short": "knowns through 0.33.0 fails to properly validate template destination paths in the code generation template engine, allowing attackers to read and write…"
+    },
+    {
+      "cve_id": "CVE-2026-88061",
       "status": "actionable",
       "severity": "medium",
-      "vendor": "rowboatlabs",
-      "product": "Rowboat custom MCP server and webhook URLs",
-      "published_date": "2026-09-05",
-      "last_seen_at": "2026-09-06",
+      "vendor": "career-ops-hq",
+      "product": "career-ops local web dashboard before web-v0.8.0",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "npm package"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88061",
+      "summary_short": "career-ops is an open-source AI-assisted job search and application management tool. Prior to 0.8.0, the career-ops local web dashboard web/ exposed…"
+    },
+    {
+      "cve_id": "CVE-2026-87913",
+      "status": "actionable",
+      "severity": "medium",
+      "vendor": "Amazon Web Services / awslabs",
+      "product": "AWS Security Agent MCP server before 0.2.0",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86122",
-      "summary_short": "Rowboat through 0.9.1 validates only the HTTP/HTTPS scheme for custom MCP server and webhook URLs, allowing authenticated users to make the service connect…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87913",
+      "summary_short": "A missing S3 bucket ownership verification in the AWS Security Agent MCP server before 0.2.0 version might allow remote attackers to obtain the private…"
     },
     {
-      "cve_id": "CVE-2026-85787",
+      "cve_id": "CVE-2026-87912",
       "status": "actionable",
-      "severity": "high",
+      "severity": "medium",
       "vendor": "Amazon Web Services",
-      "product": "awslabs.postgres-mcp-server SQL validation",
-      "published_date": "2026-09-04",
-      "last_seen_at": "2026-09-06",
+      "product": "AWS Agents for DevSecOps Security Agent plugin before 1.1.0",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "agent plugin"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87912",
+      "summary_short": "A missing S3 bucket ownership verification in the AWS Security Agent plugin in Amazon aws-agents-for-devsecops before 1.1.0 might allow remote attackers to…"
+    },
+    {
+      "cve_id": "CVE-2026-85025",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "direct_same_package_followup"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85025",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 Langflow could allow an unauthenticated attacker to execute arbitrary code and access or modify chat sessions through…"
+    },
+    {
+      "cve_id": "CVE-2026-81941",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
         "MCP server"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85787",
-      "summary_short": "awslabs postgres-mcp-server before 1.1.7 incompletely rejects dangerous SQL, allowing crafted tool input to modify data beyond the server's intended…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81941",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 allows an authenticated non-administrative user could execute arbitrary operating system commands on the server at the…"
     },
     {
-      "cve_id": "CVE-2026-85685",
+      "cve_id": "CVE-2026-81940",
       "status": "actionable",
       "severity": "high",
-      "vendor": "agentscope-ai",
-      "product": "AgentScope LocalWorkspace.add_skill",
-      "published_date": "2026-09-04",
-      "last_seen_at": "2026-09-06",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
-        "agent skills"
+        "direct_same_package_followup"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85685",
-      "summary_short": "AgentScope through 2.0.7.post1 accepts an unconfined skill_path in LocalWorkspace.add_skill and copies arbitrary server directories into the agent…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81940",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary code due to improper neutralization of special…"
     },
     {
-      "cve_id": "CVE-2026-85674",
+      "cve_id": "CVE-2026-81211",
       "status": "actionable",
       "severity": "high",
-      "vendor": "Aider-AI",
-      "product": "aider repository-local configuration",
-      "published_date": "2026-09-04",
-      "last_seen_at": "2026-09-06",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
-        "Aider"
+        "direct_same_package_followup"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85674",
-      "summary_short": "aider through 0.86.2 automatically loads repository-root .aider.conf.yml; an attacker-prepared repository can configure test-cmd or lint-cmd shell commands…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81211",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary Python code due to improper authorization of custom…"
     },
     {
-      "cve_id": "CVE-2026-85666",
+      "cve_id": "CVE-2026-81204",
+      "status": "actionable",
+      "severity": "critical",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "direct_same_package_followup"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81204",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary code due to code injection during graph construction."
+    },
+    {
+      "cve_id": "CVE-2026-79742",
       "status": "actionable",
       "severity": "high",
-      "vendor": "ogx-ai",
-      "product": "OGX MCP tool server_url handling",
-      "published_date": "2026-09-04",
-      "last_seen_at": "2026-09-06",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
-        "MCP server"
+        "direct_same_package_followup"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85666",
-      "summary_short": "OGX 1.3.1 accepts an MCP tool server_url in the unauthenticated OpenAI-compatible /v1/responses endpoint and opens server-side MCP connections without…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79742",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary code due to an incomplete environment variable blocklist."
     },
     {
-      "cve_id": "CVE-2026-77822",
+      "cve_id": "CVE-2026-79724",
       "status": "actionable",
-      "severity": "high",
-      "vendor": "IBM",
-      "product": "ContextForge MCP Gateway A2A invocation endpoint",
-      "published_date": "2026-09-04",
-      "last_seen_at": "2026-09-06",
+      "severity": "critical",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
       "keywords": [
-        "MCP server"
+        "direct_same_package_followup"
       ],
       "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77822",
-      "summary_short": "IBM ContextForge MCP Gateway through 1.0.8 does not pin the DNS-resolved address for POST /a2a/{agent_name}/invoke, allowing an authenticated low-privileged…"
-    },
-    {
-      "cve_id": "CVE-2026-85093",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Cheshire Cat AI",
-      "product": "Cheshire Cat AI memory collection API",
-      "published_date": "2026-09-03",
-      "last_seen_at": "2026-09-06",
-      "keywords": [
-        "Cursor"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85093",
-      "summary_short": "Cheshire Cat AI's GET /memory/collections/{collection_id}/points endpoint fails to apply per-user filtering when retrieving episodic memory points.…"
-    },
-    {
-      "cve_id": "CVE-2026-84810",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "claude-world",
-      "product": "claude-skill-antivirus",
-      "published_date": "2026-09-02",
-      "last_seen_at": "2026-09-06",
-      "keywords": [
-        "Claude Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84810",
-      "summary_short": "claude-skill-antivirus fails to analyze executable files when scanning local skill directories, reading only SKILL.md while ignoring Python source,…"
-    },
-    {
-      "cve_id": "CVE-2026-82905",
-      "status": "actionable",
-      "severity": "low",
-      "vendor": "sdcb",
-      "product": "chats MCP fetch-tools endpoint",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-06",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82905",
-      "summary_short": "A vulnerability was detected in sdcb chats up to 1.12.0. This affects the function McpController of the file…"
-    },
-    {
-      "cve_id": "CVE-2026-82862",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "Hulumi",
-      "product": "hulumi-threat-model Claude Code skill",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-09-06",
-      "keywords": [
-        "Roo Code"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82862",
-      "summary_short": "Hulumi versions before v1.3.2 resolve the threat-model helper script from an unsafe root, allowing workspace files to shadow the intended helper script.…"
-    },
-    {
-      "cve_id": "CVE-2026-82579",
-      "status": "actionable",
-      "severity": "medium",
-      "vendor": "ash-project",
-      "product": "ash_ai",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-08-31",
-      "keywords": [
-        "ash_ai",
-        "AI agent"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82579",
-      "summary_short": "ash_ai 0.6.0 through 0.8.2 can recurse with an unchanged conversation after invalid or already-processed tool calls are filtered out, allowing…"
-    },
-    {
-      "cve_id": "CVE-2026-82564",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "ash-project",
-      "product": "ash_ai",
-      "published_date": "2026-08-31",
-      "last_seen_at": "2026-08-31",
-      "keywords": [
-        "ash_ai",
-        "AI agent"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82564",
-      "summary_short": "ash_ai 0.6.0 through 0.8.2 builds update/destroy identity filters directly from raw tool arguments, allowing operator maps or missing identity keys to…"
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79724",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neutralization of special elements used…"
     }
   ]
 }

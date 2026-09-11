@@ -23,6 +23,10 @@ const deepLiveCamFixturePath = join(
   root,
   "tests/fixtures/deep-live-cam-pypls-requirements.txt",
 );
+const postgresMCPFixturePath = join(
+  root,
+  "tests/fixtures/postgres-mcp-cve-2026-87911-requirements.txt",
+);
 const autoAgentFixturePath = join(
   root,
   "tests/fixtures/autoagent-tcp-server.py",
@@ -1493,6 +1497,30 @@ if (
 ) {
   console.error(
     `smoke: Deep-Live-Cam pypls/requests fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(deepLiveCamResult)}`,
+  );
+  process.exit(2);
+}
+
+const postgresMCPResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(postgresMCPFixturePath, "utf8"),
+    "requirements",
+  ),
+);
+const postgresMCPFinding = postgresMCPResult.findings?.find(
+  (finding) =>
+    finding.rule_id === "postgres-mcp-copy-program-command-injection",
+);
+if (
+  !postgresMCPFinding ||
+  postgresMCPResult.format_detected !== "dependency-manifest" ||
+  postgresMCPFinding.severity !== "critical" ||
+  !Array.isArray(postgresMCPFinding.cve_refs) ||
+  postgresMCPFinding.cve_refs.length !== 1 ||
+  postgresMCPFinding.cve_refs[0] !== "CVE-2026-87911"
+) {
+  console.error(
+    `smoke: PostgreSQL MCP CVE fixture did not return the expected critical CVE finding through real WASM: ${JSON.stringify(postgresMCPResult)}`,
   );
   process.exit(2);
 }

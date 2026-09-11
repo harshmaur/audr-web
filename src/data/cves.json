@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-87911",
+    "product": "AWS PostgreSQL MCP Server read-only SQL validation",
+    "vendor": "Amazon Web Services",
+    "severity": "critical",
+    "published_date": "2026-09-09",
+    "summary_short": "awslabs.postgres-mcp-server before 1.1.7 lets crafted COPY TO PROGRAM SQL escape its default read-only validator and execute operating-system commands on self-managed PostgreSQL hosts.",
+    "visceral_consequence": "attacker-controlled MCP content can turn a trusted read-only database interaction into operating-system command execution on the PostgreSQL host",
+    "scope_phrase": "where Python dependency manifests install awslabs.postgres-mcp-server before 1.1.7",
+    "audr_rule_id": "postgres-mcp-copy-program-command-injection"
+  },
+  {
     "cve_id": "CVE-2026-86124",
     "product": "AutoAgent sandbox TCP command server",
     "vendor": "HKUDS",

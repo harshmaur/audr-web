@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-11T09:43:49Z",
+  "generated_at": "2026-09-11T16:49:41Z",
   "source_last_discovery_at": "2026-09-11",
   "source_entry_count": 849,
-  "public_entry_count": 150,
+  "public_entry_count": 151,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 699,
+  "excluded_public_safe_candidate_count": 698,
   "excluded_status_counts": {
     "osv_covered": 293,
     "not_auditable": 24,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 6,
-  "enriched_from_cves_json_count": 133,
+  "enriched_from_cves_json_count": 134,
   "entries": [
+    {
+      "cve_id": "CVE-2026-85025",
+      "status": "shipped",
+      "severity": "critical",
+      "vendor": "IBM / Langflow",
+      "product": "Langflow public MCP project and session isolation",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "direct_same_package_followup"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85025",
+      "summary_short": "Langflow OSS 1.0.0 through 1.11.5 fails to enforce public-flow restrictions and session isolation on publicly shared MCP project endpoints.",
+      "audr_rule_id": "langflow-public-mcp-session-isolation-rce"
+    },
     {
       "cve_id": "CVE-2026-87911",
       "status": "shipped",
@@ -2323,21 +2339,6 @@
       "summary_short": "A missing S3 bucket ownership verification in the AWS Security Agent plugin in Amazon aws-agents-for-devsecops before 1.1.0 might allow remote attackers to…"
     },
     {
-      "cve_id": "CVE-2026-85025",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "IBM / Langflow OSS",
-      "product": "Langflow OSS 1.0.0 through 1.11.5",
-      "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
-      "keywords": [
-        "direct_same_package_followup"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85025",
-      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 Langflow could allow an unauthenticated attacker to execute arbitrary code and access or modify chat sessions through…"
-    },
-    {
       "cve_id": "CVE-2026-81941",
       "status": "actionable",
       "severity": "high",
@@ -2426,6 +2427,21 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79724",
       "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neutralization of special elements used…"
+    },
+    {
+      "cve_id": "CVE-2026-78575",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "IBM / Langflow OSS",
+      "product": "Langflow OSS 1.0.0 through 1.11.5",
+      "published_date": "2026-09-10",
+      "last_seen_at": "2026-09-11",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78575",
+      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary commands due to improper validation of command-line…"
     }
   ]
 }

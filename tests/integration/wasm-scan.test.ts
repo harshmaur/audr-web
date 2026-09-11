@@ -258,15 +258,22 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
     expect(traversal.cve_refs).toContain("CVE-2026-59864");
   });
 
-  it("flags Langflow ToolGuard code injection from a PyPI requirements manifest", () => {
+  it("flags Langflow ToolGuard and public MCP isolation CVEs from a PyPI requirements manifest", () => {
     const raw = scan(readFileSync(FIXTURE_LANGFLOW, "utf8"), "requirements");
     const result = JSON.parse(raw);
     expect(result.format_detected).toBe("dependency-manifest");
-    const langflow = result.findings.find(
+    const toolGuard = result.findings.find(
       (f: { rule_id: string }) => f.rule_id === "langflow-toolguard-code-injection",
     );
-    expect(langflow).toBeTruthy();
-    expect(langflow.cve_refs).toContain("CVE-2026-9135");
+    expect(toolGuard).toBeTruthy();
+    expect(toolGuard.cve_refs).toContain("CVE-2026-9135");
+
+    const publicMCPIsolation = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "langflow-public-mcp-session-isolation-rce",
+    );
+    expect(publicMCPIsolation).toBeTruthy();
+    expect(publicMCPIsolation.severity).toBe("critical");
+    expect(publicMCPIsolation.cve_refs).toEqual(["CVE-2026-85025"]);
   });
 
   it("flags the non-CVE MrMustard package-root credential-stealer markers", () => {

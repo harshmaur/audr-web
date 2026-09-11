@@ -63,6 +63,7 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":                   {"CVE-2026-9135"},
+	"langflow-public-mcp-session-isolation-rce":            {"CVE-2026-85025"},
 	"mcp-memory-service-document-api-unauth":              {"CVE-2026-50027"},
 	"postgres-mcp-copy-program-command-injection":         {"CVE-2026-87911"},
 	"openclaw-interpreter-startup-env-filtering":          {"CVE-2026-62199"},

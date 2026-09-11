@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-85025",
+    "product": "Langflow public MCP project and session isolation",
+    "vendor": "IBM / Langflow",
+    "severity": "critical",
+    "published_date": "2026-09-10",
+    "summary_short": "Langflow OSS 1.0.0 through 1.11.5 fails to enforce public-flow restrictions and session isolation on publicly shared MCP project endpoints.",
+    "visceral_consequence": "an unauthenticated caller can execute code and access or modify chat sessions exposed through a public MCP project endpoint",
+    "scope_phrase": "where PyPI dependency manifests allow Langflow versions from 1.0.0 through 1.11.5",
+    "audr_rule_id": "langflow-public-mcp-session-isolation-rce"
+  },
+  {
     "cve_id": "CVE-2026-87911",
     "product": "AWS PostgreSQL MCP Server read-only SQL validation",
     "vendor": "Amazon Web Services",

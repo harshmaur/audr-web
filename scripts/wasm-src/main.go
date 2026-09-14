@@ -63,7 +63,7 @@ var cveByRule = map[string][]string{
 	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
 	"langflow-toolguard-code-injection":                   {"CVE-2026-9135"},
-	"langflow-public-mcp-session-isolation-rce":            {"CVE-2026-85025"},
+	"langflow-public-mcp-session-isolation-rce":           {"CVE-2026-85025"},
 	"mcp-memory-service-document-api-unauth":              {"CVE-2026-50027"},
 	"postgres-mcp-copy-program-command-injection":         {"CVE-2026-87911"},
 	"openclaw-interpreter-startup-env-filtering":          {"CVE-2026-62199"},
@@ -255,6 +255,10 @@ func formatHintToPath(hint string) string {
 		return "/synth/node_modules/@7nohe/openapi-react-query-codegen/binding.gyp"
 	case "mini-shai-hulud-openapi-codegen-package-json":
 		return "/synth/node_modules/@7nohe/openapi-react-query-codegen/package.json"
+	case "mini-shai-hulud-trinnyyyy-bun":
+		return "/synth/tmp/trinnyyyy-a1b2c3/bun"
+	case "mini-shai-hulud-trinnyyyy-env":
+		return "/synth/tmp/trinnyyyy-a1b2c3/.env"
 	case "amazon-inspector-pfp-forms":
 		return "/synth/node_modules/pfp-forms-sme-loan/_bridge.js"
 	case "amazon-inspector-checkout-desktop":
@@ -365,13 +369,28 @@ func scanText(text, formatHint string) string {
 
 	doc := parse.Parse(path, []byte(text))
 	var fs []finding.Finding
+	formatDetected := parse.FormatUnknown
 	if doc != nil {
+		formatDetected = doc.Format
+	}
+	if parse.IsMiniShaiHuludBunBootstrapArtifactPath(path) {
+		pathDoc := &parse.Document{Path: path, Format: parse.FormatMiniShaiHuludArtifact}
+		fs = rules.Apply(pathDoc)
+		formatDetected = pathDoc.Format
+		if doc != nil && doc.Format != parse.FormatUnknown {
+			for _, f := range rules.Apply(doc) {
+				if f.RuleID != "mini-shai-hulud-dropped-payload" {
+					fs = append(fs, f)
+				}
+			}
+		}
+	} else if doc != nil {
 		fs = rules.Apply(doc)
 	}
 
 	out := wasmResult{
 		Findings:       make([]wasmFinding, 0, len(fs)),
-		FormatDetected: string(doc.Format),
+		FormatDetected: string(formatDetected),
 		AudrSHA:        audrSHA,
 		AudrTag:        audrTag,
 	}

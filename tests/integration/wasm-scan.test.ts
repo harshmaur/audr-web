@@ -125,6 +125,10 @@ const FIXTURE_OPENCLAW_DASHBOARD =
   "tests/fixtures/dirty-openclaw-dashboard-notifications.html";
 const FIXTURE_MINI_SHAI_HULUD_UNTRUSTED_PUBLISH_WORKFLOW =
   "tests/fixtures/mini-shai-hulud-untrusted-publish-workflow.yml";
+const FIXTURE_MINI_SHAI_HULUD_TRINNYYYY_BUN =
+  "tests/fixtures/mini-shai-hulud-trinnyyyy-bun.bin";
+const FIXTURE_MINI_SHAI_HULUD_TRINNYYYY_ENV =
+  "tests/fixtures/mini-shai-hulud-trinnyyyy.env";
 const MINI_SHAI_HULUD_OPENAPI_CODEGEN_FIXTURES = [
   [
     "tests/fixtures/mini-shai-hulud-openapi-codegen-payload.js",
@@ -991,6 +995,44 @@ describe.skipIf(!wasmReady)("WASM scan() integration (real blob, real fixtures)"
       expect(campaign.cve_refs).toEqual([]);
     },
   );
+
+  it("flags the Mini Shai-Hulud trinnyyyy Bun bootstrap path IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_MINI_SHAI_HULUD_TRINNYYYY_BUN, "utf8"),
+      "mini-shai-hulud-trinnyyyy-bun",
+    );
+    const result = JSON.parse(raw);
+    expect(result.findings).toHaveLength(1);
+    const campaign = result.findings.find(
+      (f: { rule_id: string }) => f.rule_id === "mini-shai-hulud-dropped-payload",
+    );
+    expect(campaign).toBeTruthy();
+    expect(result.format_detected).toBe("mini-shai-hulud-artifact");
+    expect(result.audr_tag).toBe(AUDR_VERSION_TAG);
+    expect(campaign.severity).toBe("critical");
+    expect(campaign.excerpt).toBe("trinnyyyy-* Bun bootstrap artifact");
+    expect(campaign.excerpt).not.toContain("synthetic-secret-never-expose");
+    expect(campaign.cve_refs).toEqual([]);
+  });
+
+  it("preserves normal parsing under the Mini Shai-Hulud trinnyyyy path IOC", () => {
+    const raw = scan(
+      readFileSync(FIXTURE_MINI_SHAI_HULUD_TRINNYYYY_ENV, "utf8"),
+      "mini-shai-hulud-trinnyyyy-env",
+    );
+    const result = JSON.parse(raw);
+    expect(result.format_detected).toBe("mini-shai-hulud-artifact");
+    expect(
+      result.findings.filter(
+        (f: { rule_id: string }) => f.rule_id === "mini-shai-hulud-dropped-payload",
+      ),
+    ).toHaveLength(1);
+    expect(
+      result.findings.some(
+        (f: { rule_id: string }) => f.rule_id === "flowise-custom-mcp-missing-auth",
+      ),
+    ).toBe(true);
+  });
 
   it("flags the Mini Shai-Hulud untrusted npm publish workflow", () => {
     const raw = scan(

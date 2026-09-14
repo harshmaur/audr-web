@@ -23,6 +23,10 @@ const deepLiveCamFixturePath = join(
   root,
   "tests/fixtures/deep-live-cam-pypls-requirements.txt",
 );
+const openAIIFixturePath = join(
+  root,
+  "tests/fixtures/openaii-pth-loader.py",
+);
 const postgresMCPFixturePath = join(
   root,
   "tests/fixtures/postgres-mcp-cve-2026-87911-requirements.txt",
@@ -1497,6 +1501,27 @@ if (
 ) {
   console.error(
     `smoke: Deep-Live-Cam pypls/requests fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(deepLiveCamResult)}`,
+  );
+  process.exit(2);
+}
+
+const openAIIResult = JSON.parse(
+  globalThis.audrScan(readFileSync(openAIIFixturePath, "utf8"), "openaii-pth"),
+);
+const openAIIFinding = openAIIResult.findings?.find(
+  (finding) => finding.rule_id === "openaii-pth-infostealer-ioc",
+);
+if (
+  !openAIIFinding ||
+  openAIIResult.format_detected !== "pypi-malware-artifact" ||
+  openAIIFinding.severity !== "critical" ||
+  openAIIFinding.excerpt?.includes("synthetic_openaii_wasm_secret") ||
+  openAIIFinding.excerpt?.includes("167.86.108.190") ||
+  !Array.isArray(openAIIFinding.cve_refs) ||
+  openAIIFinding.cve_refs.length !== 0
+) {
+  console.error(
+    `smoke: openaii PTH fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(openAIIResult)}`,
   );
   process.exit(2);
 }

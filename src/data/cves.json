@@ -1,5 +1,16 @@
 [
   {
+    "cve_id": "CVE-2026-90617",
+    "product": "PentestAgent MCP HTTP server",
+    "vendor": "GH05TCREW",
+    "severity": "high",
+    "published_date": "2026-09-14",
+    "summary_short": "PentestAgent through commit cf882dabea3ed91cef016cdd115e5426315665a2 binds its SSE MCP server to every interface by default without authentication.",
+    "visceral_consequence": "a remote caller can invoke run_task, drive the default LocalRuntime shell-execution path, alter agent configuration, or read prior conversation history",
+    "scope_phrase": "where a PentestAgent MCP launch exposes SSE on an all-interface bind without an MCP bearer token, or a bounded source checkout retains the affected implementation",
+    "audr_rule_id": "pentestagent-mcp-unauth-http-rce"
+  },
+  {
     "cve_id": "CVE-2026-85025",
     "product": "Langflow public MCP project and session isolation",
     "vendor": "IBM / Langflow",

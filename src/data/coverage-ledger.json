@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-11T16:49:41Z",
-  "source_last_discovery_at": "2026-09-11",
-  "source_entry_count": 849,
-  "public_entry_count": 151,
+  "generated_at": "2026-09-19T09:45:18Z",
+  "source_last_discovery_at": "2026-09-14",
+  "source_entry_count": 860,
+  "public_entry_count": 152,
   "selected_triage_limit": 12,
-  "excluded_public_safe_candidate_count": 698,
+  "excluded_public_safe_candidate_count": 708,
   "excluded_status_counts": {
-    "osv_covered": 293,
+    "osv_covered": 295,
     "not_auditable": 24,
     "duplicate": 1,
     "blocked": 6,
@@ -14,8 +14,24 @@
   },
   "excluded_unknown_vendor_product_count": 0,
   "excluded_unknown_severity_count": 6,
-  "enriched_from_cves_json_count": 134,
+  "enriched_from_cves_json_count": 135,
   "entries": [
+    {
+      "cve_id": "CVE-2026-90617",
+      "status": "shipped",
+      "severity": "high",
+      "vendor": "GH05TCREW",
+      "product": "PentestAgent MCP HTTP server",
+      "published_date": "2026-09-14",
+      "last_seen_at": "2026-09-14",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "MCP server config",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90617",
+      "summary_short": "PentestAgent through commit cf882dabea3ed91cef016cdd115e5426315665a2 binds its SSE MCP server to every interface by default without authentication.",
+      "audr_rule_id": "pentestagent-mcp-unauth-http-rce"
+    },
     {
       "cve_id": "CVE-2026-85025",
       "status": "shipped",
@@ -39,7 +55,7 @@
       "vendor": "Amazon Web Services",
       "product": "AWS PostgreSQL MCP Server read-only SQL validation",
       "published_date": "2026-09-09",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "MCP server"
       ],
@@ -2262,13 +2278,43 @@
       "audr_rule_id": "claude-skip-permission-prompt"
     },
     {
+      "cve_id": "CVE-2026-38924",
+      "status": "actionable",
+      "severity": "low",
+      "vendor": "Oraios AI",
+      "product": "Serena",
+      "published_date": "2026-09-14",
+      "last_seen_at": "2026-09-14",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "source code",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38924",
+      "summary_short": "Serena before 1.0.0 listens on 0.0.0.0 by default when its MCP server uses HTTP mode. The supplier changed the default to 127.0.0.1 and warns about…"
+    },
+    {
+      "cve_id": "CVE-2026-90474",
+      "status": "actionable",
+      "severity": "high",
+      "vendor": "samanhappy",
+      "product": "MCPHub",
+      "published_date": "2026-09-12",
+      "last_seen_at": "2026-09-14",
+      "keywords": [
+        "MCP server"
+      ],
+      "local_signal_category": "dependency manifest",
+      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90474",
+      "summary_short": "MCPHub before 1.0.32 does not consistently authenticate confidential OAuth clients and allows public clients to obtain authorization codes without mandatory…"
+    },
+    {
       "cve_id": "CVE-2026-88938",
       "status": "actionable",
       "severity": "high",
       "vendor": "knowns-dev",
       "product": "knowns code.find MCP tool through 0.33.0",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "direct_product_followup",
         "MCP server"
@@ -2284,7 +2330,7 @@
       "vendor": "knowns-dev",
       "product": "knowns code-generation template engine through 0.33.0",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "direct_product_followup",
         "AI coding agent"
@@ -2300,7 +2346,7 @@
       "vendor": "career-ops-hq",
       "product": "career-ops local web dashboard before web-v0.8.0",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "npm package"
       ],
@@ -2315,7 +2361,7 @@
       "vendor": "Amazon Web Services / awslabs",
       "product": "AWS Security Agent MCP server before 0.2.0",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "MCP server"
       ],
@@ -2330,7 +2376,7 @@
       "vendor": "Amazon Web Services",
       "product": "AWS Agents for DevSecOps Security Agent plugin before 1.1.0",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "agent plugin"
       ],
@@ -2345,7 +2391,7 @@
       "vendor": "IBM / Langflow OSS",
       "product": "Langflow OSS 1.0.0 through 1.11.5",
       "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
+      "last_seen_at": "2026-09-14",
       "keywords": [
         "MCP server"
       ],
@@ -2412,36 +2458,6 @@
       "local_signal_category": "dependency manifest",
       "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79742",
       "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary code due to an incomplete environment variable blocklist."
-    },
-    {
-      "cve_id": "CVE-2026-79724",
-      "status": "actionable",
-      "severity": "critical",
-      "vendor": "IBM / Langflow OSS",
-      "product": "Langflow OSS 1.0.0 through 1.11.5",
-      "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
-      "keywords": [
-        "direct_same_package_followup"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79724",
-      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote attacker to execute arbitrary OS commands due to improper neutralization of special elements used…"
-    },
-    {
-      "cve_id": "CVE-2026-78575",
-      "status": "actionable",
-      "severity": "high",
-      "vendor": "IBM / Langflow OSS",
-      "product": "Langflow OSS 1.0.0 through 1.11.5",
-      "published_date": "2026-09-10",
-      "last_seen_at": "2026-09-11",
-      "keywords": [
-        "MCP server"
-      ],
-      "local_signal_category": "dependency manifest",
-      "nvd_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78575",
-      "summary_short": "IBM Langflow OSS 1.0.0 through 1.11.5 could allow a remote authenticated attacker to execute arbitrary commands due to improper validation of command-line…"
     }
   ]
 }

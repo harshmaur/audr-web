@@ -59,6 +59,7 @@ var cveByRule = map[string][]string{
 	"claude-skip-permission-prompt":                       {"CVE-2025-59536"},
 	"claude-mcp-auto-approve":                             {"CVE-2025-59536"},
 	"autoagent-unauth-tcp-command-server":                 {"CVE-2026-86124"},
+	"pentestagent-mcp-unauth-http-rce":                    {"CVE-2026-90617"},
 	"copilot-cli-nested-git-config-exec":                  {"CVE-2026-45033", "CVE-2026-19590", "CVE-2026-19592"},
 	"cursor-agent-sandbox-working-directory-escape":       {"CVE-2026-50548"},
 	"kiota-plugin-static-template-traversal":              {"CVE-2026-59864"},
@@ -91,6 +92,8 @@ func formatHintToPath(hint string) string {
 		return "/synth/.mcp.json"
 	case "autoagent", "autoagent-source", "autoagent-tcp-server":
 		return "/synth/AutoAgent/autoagent/environment/tcp_server.py"
+	case "pentestagent", "pentestagent-source", "pentestagent-mcp-http":
+		return "/synth/PentestAgent/pentestagent/interface/main.py"
 	case "ai-cli-relay", "ai-cli-relay-orbitron-tui":
 		return "/synth/node_modules/orbitron-tui/dist/api/chat.js"
 	case "xcsset-android-gradle":

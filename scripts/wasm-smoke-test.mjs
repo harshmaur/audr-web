@@ -35,6 +35,10 @@ const autoAgentFixturePath = join(
   root,
   "tests/fixtures/autoagent-tcp-server.py",
 );
+const pentestAgentFixturePath = join(
+  root,
+  "tests/fixtures/pentestagent-mcp-http-main.py",
+);
 const aiCLIRelayFixturePath = join(
   root,
   "tests/fixtures/ai-cli-relay-orbitron-tui.js",
@@ -429,6 +433,28 @@ if (
 ) {
   console.error(
     `smoke: AutoAgent TCP command-server fixture did not return the expected redacted CVE finding through real WASM: ${JSON.stringify(autoAgentResult)}`,
+  );
+  process.exit(2);
+}
+
+const pentestAgentResult = JSON.parse(
+  globalThis.audrScan(
+    readFileSync(pentestAgentFixturePath, "utf8"),
+    "pentestagent-source",
+  ),
+);
+const pentestAgentFinding = pentestAgentResult.findings?.find(
+  (finding) => finding.rule_id === "pentestagent-mcp-unauth-http-rce",
+);
+if (
+  !pentestAgentFinding ||
+  pentestAgentFinding.excerpt !==
+    "PentestAgent unauthenticated HTTP MCP source posture" ||
+  JSON.stringify(pentestAgentFinding.cve_refs) !==
+    JSON.stringify(["CVE-2026-90617"])
+) {
+  console.error(
+    `smoke: PentestAgent fixture did not return the expected redacted CVE finding through real WASM: ${JSON.stringify(pentestAgentResult)}`,
   );
   process.exit(2);
 }

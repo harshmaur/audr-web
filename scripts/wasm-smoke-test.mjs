@@ -31,6 +31,10 @@ const postgresMCPFixturePath = join(
   root,
   "tests/fixtures/postgres-mcp-cve-2026-87911-requirements.txt",
 );
+const langfunFixturePath = join(
+  root,
+  "tests/fixtures/langfun-cve-2026-75062-requirements.txt",
+);
 const autoAgentFixturePath = join(
   root,
   "tests/fixtures/autoagent-tcp-server.py",
@@ -1548,6 +1552,24 @@ if (
 ) {
   console.error(
     `smoke: openaii PTH fixture did not return the expected redacted non-CVE finding through real WASM: ${JSON.stringify(openAIIResult)}`,
+  );
+  process.exit(2);
+}
+
+const langfunResult = JSON.parse(
+  globalThis.audrScan(readFileSync(langfunFixturePath, "utf8"), "requirements"),
+);
+const langfunFinding = langfunResult.findings?.find(
+  (finding) => finding.rule_id === "langfun-query-eval-injection",
+);
+if (
+  !langfunFinding ||
+  langfunResult.format_detected !== "dependency-manifest" ||
+  langfunFinding.severity !== "critical" ||
+  JSON.stringify(langfunFinding.cve_refs) !== JSON.stringify(["CVE-2026-75062"])
+) {
+  console.error(
+    `smoke: langfun CVE fixture did not return the expected critical CVE finding through real WASM: ${JSON.stringify(langfunResult)}`,
   );
   process.exit(2);
 }

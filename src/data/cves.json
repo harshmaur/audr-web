@@ -66,6 +66,17 @@
     "audr_rule_id": "copilot-cli-nested-git-config-exec"
   },
   {
+    "cve_id": "CVE-2026-75062",
+    "product": "langfun lf.query Python protocol",
+    "vendor": "Google",
+    "severity": "critical",
+    "published_date": "2026-08-26",
+    "summary_short": "Google langfun 0.0.1 through 0.1.1 evaluates model-generated Python expressions without a sandbox in the default lf.query Python protocol.",
+    "visceral_consequence": "crafted prompt input can make the host application execute arbitrary Python code in its own process",
+    "scope_phrase": "where PyPI dependency manifests allow langfun versions from 0.0.1 through 0.1.1",
+    "audr_rule_id": "langfun-query-eval-injection"
+  },
+  {
     "cve_id": "CVE-2026-50027",
     "product": "mcp-memory-service document API",
     "vendor": "doobidoo",
